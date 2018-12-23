@@ -176,7 +176,48 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="hehe"><a href="#hehe" class="headerlink" title="hehe"></a>hehe</h2>
+        <h1 id="REST风格"><a href="#REST风格" class="headerlink" title="REST风格"></a>REST风格</h1><h2 id="1-REST（Representational-State-Transfer）表述性状态转移"><a href="#1-REST（Representational-State-Transfer）表述性状态转移" class="headerlink" title="1. REST（Representational State Transfer）表述性状态转移"></a>1. REST（Representational State Transfer）表述性状态转移</h2><blockquote>
+<p>REST不仅是一种设计风格，更是在系统开发过程中一种新的思想</p>
+</blockquote>
+<h2 id="2-具体实现应遵循的四个基本设计原则"><a href="#2-具体实现应遵循的四个基本设计原则" class="headerlink" title="2. 具体实现应遵循的四个基本设计原则"></a>2. 具体实现应遵循的四个基本设计原则</h2><pre><code>1. 显式的使用HTTP方法
+2. 无状态
+3. 公开目录结构式的URI
+4. 传输XML, JavaScript Object Notation（json），或者同时传输这两者
+</code></pre><h2 id="3-显式的使用HTTP方法："><a href="#3-显式的使用HTTP方法：" class="headerlink" title="3. 显式的使用HTTP方法："></a>3. 显式的使用HTTP方法：</h2><pre><code>REST 要求开发人员显式地使用 HTTP 方法，并且使用方式与协议定义一致。 这个基本 REST 设计原则建立了创建、读取、更新和删除（create, read, update, and delete，CRUD）操作与 HTTP 方法之间的一对一映射。
+</code></pre><p>并且根据映射，有以下规定：</p>
+<pre><code>若要在服务器上创建资源，应该使用POST方法
+若要检索某个资源，应该使用GET方法
+若要更改资源状态或对其进行更新，应使用PUT方法
+若要删除某个资源，应该使用DELETE方法、
+</code></pre><h2 id="4-无状态"><a href="#4-无状态" class="headerlink" title="4. 无状态"></a>4. 无状态</h2><ol>
+<li><p>REST Web 服务需要扩展以满足日益提高的性能要求。 具有负载平衡和故障转移功能、代理和网关的服务器集群通常以形成服务拓扑的方式进行组织，从而允许根据需要将请求从一个服务器路由到另一个服务器，以减少 Web 服务调用的总体响应时间。</p>
+<pre><code>要使用中间服务器扩大规模，REST Web 服务需要发送完整、独立的请求；也就是说，发送的请求包括所有需要满足的数据，以便中间服务器中的组件能够进行转发、路由和负载平衡，不需要在请求之间在本地保存任何状态。
+</code></pre></li>
+<li><p>完整、独立的请求不要求服务器在处理请求时检索任何类型的应用程序上下文或状态。</p>
+<p> 有状态的设计：</p>
+<p> <img src="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/images/2018-12-22-docker/Image-1.gif" alt="有状态的设计"></p>
+<p> 无状态的设计：</p>
+<p> <img src="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/images/2018-12-22-docker/Image-2.gif" alt="无状态的设计"></p>
+</li>
+<li><p>基于 REST 的 Web 服务设计方面划分为两组职责，以阐明如何维护无状态的服务</p>
+</li>
+</ol>
+<ul>
+<li><p>服务器：<br>  生成响应，其中包括指向其他资源的链接，以使得应用程序可以在相关资源之间导航（即请求的转发）。 此类响应嵌入了链接。 类似地，如果请求是针对父或容器资源，则基于 REST 的典型响应还可能包括指向父资源的子资源或从属资源的链接，以便这些资源保持连接在一起。<br>  生成响应，其中指明了是否可缓存（设置是否缓存），以通过减少针对重复资源的请求数量或通过完全消除某些请求来改进性能。 服务器通过包括 Cache-Control 和 Last-Modified（日期值）HTTP 响应 Header 实现此目的。</p>
+</li>
+<li><p>客户端应用程序：<br>  使用 Cache-Control 响应 Header 确定是否缓存资源（创建资源的本地副本）。 客户端还读取 Last-Modified 响应 Header，并在 If-Modified-Since Header 中发回日期值，以向服务器询问资源是否已更改。 这称为条件 GET (Conditional GET)，两个 Header 同时进行，因为服务器的响应为标准 304 代码 (Not Modified)，如果请求的资源自从该时间以后尚未更改，则省略实际的资源。 HTTP 响应代码 304 意味着客户端可以安全地将资源表示形式的缓存本地副本作为最新版本使用，从而实际上跳过了后续 GET 请求，直到资源更改为止。<br>  发送可独立于其他请求得到服务的完整请求。 这要求客户端充分利用 Web 服务接口指定的 HTTP Header，并在请求正文中发送完整的资源表示形式。 客户端发送的请求极少对先前的请求、某个会话在服务器上的存在性、服务器向请求添加上下文的能力或请求之间保留的应用程序状态做出假设。</p>
+</li>
+</ul>
+<h2 id="5-公开目录结构式的URI"><a href="#5-公开目录结构式的URI" class="headerlink" title="5.公开目录结构式的URI"></a>5.公开目录结构式的URI</h2><p>基本规则如下：</p>
+<pre><code>http://www.myservice.org/discussion/{year}/{day}/{month}/{topic}
+</code></pre><p>附加规则：</p>
+<pre><code>1. 隐藏服务器端脚本技术文件扩展名（.jsp 、.php、 .asp）
+2. 将所有内容保持小写
+3. 将空格替换为连字符活下划线
+4. 尽可能多的避免查询字符串
+5. 如果请求URI用于部分路径，与使用404 Not Found代码不同，应该始终提供缺省页面或资源作为响应
+</code></pre><p>参考文章：<a href="https://www.ibm.com/developerworks/cn/webservices/ws-restful/#artrelatedtopics" target="_blank" rel="noopener">https://www.ibm.com/developerworks/cn/webservices/ws-restful/#artrelatedtopics</a></p>
+
       
     </div>
     <footer class="article-footer">
