@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Java基础 | 未来在我手中，完全由我决定</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="java基础知识回顾 JVM, JRE, JDK的区别  JVM（java Virtual Machine）:java虚拟机，用于保证java的跨平台性  JRE（Java Runtime Environmen）:java运行环境，包括JVM+Jave的系统类库  JDK（Java Development Kit）:Java的软件开发工具包, 他包含了Java的运行环境(JVM+Java系统类库)">
+<meta name="keywords" content="Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java基础">
+<meta property="og:url" content="http://yoursite.com/2018/12/24/Java基础/index.html">
+<meta property="og:site_name" content="未来在我手中，完全由我决定">
+<meta property="og:description" content="java基础知识回顾 JVM, JRE, JDK的区别  JVM（java Virtual Machine）:java虚拟机，用于保证java的跨平台性  JRE（Java Runtime Environmen）:java运行环境，包括JVM+Jave的系统类库  JDK（Java Development Kit）:Java的软件开发工具包, 他包含了Java的运行环境(JVM+Java系统类库)">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-12-24T06:07:49.169Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java基础">
+<meta name="twitter:description" content="java基础知识回顾 JVM, JRE, JDK的区别  JVM（java Virtual Machine）:java虚拟机，用于保证java的跨平台性  JRE（Java Runtime Environmen）:java运行环境，包括JVM+Jave的系统类库  JDK（Java Development Kit）:Java的软件开发工具包, 他包含了Java的运行环境(JVM+Java系统类库)">
+  
+    <link rel="alternate" href="/atom.xml" title="未来在我手中，完全由我决定" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">未来在我手中，完全由我决定</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Java基础" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/12/24/Java基础/" class="article-date">
+  <time datetime="2018-12-24T06:03:30.000Z" itemprop="datePublished">2018-12-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Java基础
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="java基础知识回顾"><a href="#java基础知识回顾" class="headerlink" title="java基础知识回顾"></a>java基础知识回顾</h1><ol>
+<li><p>JVM, JRE, JDK的区别</p>
+<p> JVM（java Virtual Machine）:java虚拟机，用于保证java的跨平台性</p>
+<p> JRE（Java Runtime Environmen）:java运行环境，包括JVM+Jave的系统类库</p>
+<p> JDK（Java Development Kit）:Java的软件开发工具包, 他包含了Java的运行环境(JVM+Java系统类库)和Java工具</p>
+</li>
+<li><p>环境变量Path和ClassPath的作用和区别<br> Path: 是配置可执行文件的搜索路径，当执行.exe文件时回去Path指定的路径查找可执行文件</p>
+<p> ClassPath: 是配置class文件所在的目录，用于指定类的搜索路径，JVM是通过ClassPath查找类的</p>
+</li>
+</ol>
+<p>3.关于java大小端的问题</p>
+<pre><code>这个问题起源于一次滴滴面试，当时面试官问到这个问题的时候一脸蒙蔽，只怪自己学识太浅，扔需要加倍努力。
+
+什么是大端和小端？
+    大端模式:数据的高字节保存在内存的低地址中,数据的低字节保存在内存的高地址中。
+
+    小端模式:数据的高字节保存在内存的高地址中，数据的低字节保存在内存的低地址中。
+
+    记忆方式:&quot;小端低低&quot;
+
+之所以有大小端之分，是因为：
+    计算机中是以字节为单位的，每个地址单元都对应一个字节(8bit)，而在C语言，c++..的语言中，除了8bit的char类型，还有int,long float等类型,由于寄存器是大于一个字节的，所以，必然存在着怎样存放数据的问题，也就有了大端和小端。
+
+大端和小端的问题和计算机使用的芯片有关，目前Intel的80x86系列芯片是唯一还在坚持使用小端的芯片，ARM芯片默认采用小端，但可以切换为大端；而MIPS等芯片要么采用全部大端的方式储存，要么提供选项支持大端——可以在大小端之间切换，同时大端和小端的处理还与编译器的实现有关，在C语言中，默认是小端，由于Java是与平台无关的，所以Java默认是大端。
+</code></pre><ol start="4">
+<li><p>重载：</p>
+<p> 概念：在同一个类中，允许存在一个以上的同名<br> 函数，只要他们d额参数个数或者参数类型不同</p>
+<p> 特点：返回值与类型无关,只看参数列表</p>
+<p> <code>public void testOverload(int a){
+ }</code></p>
+<p> <code>public void testOverload(String a){
+ }</code></p>
+<p><code>public void testOverload(int a, int b){}</code></p>
+</li>
+<li><p>构造方法和普通方法的区别:</p>
+<p> 构造方法和类名相同，并且没有返回类型，也没返回值</p>
+<p> 普通方法可以任意起名，必须有返回类型</p>
+</li>
+<li><p>this 和super的区别:</p>
+<p> this代表本类对象的引用</p>
+<p> super代表父类的存储空间</p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/12/24/Java基础/" data-id="cjq1x6v5e000087ie51kke33q" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/12/23/python虚拟环境virtualenv用法/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">python虚拟环境virtualenv用法</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/REST/">REST</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/virtualenv/">virtualenv</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/REST/" style="font-size: 10px;">REST</a> <a href="/tags/virtualenv/" style="font-size: 10px;">virtualenv</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/12/24/Java基础/">Java基础</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/23/python虚拟环境virtualenv用法/">python虚拟环境virtualenv用法</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/23/Docker/">Docker</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/22/REST风格/">REST风格</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Trina<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
