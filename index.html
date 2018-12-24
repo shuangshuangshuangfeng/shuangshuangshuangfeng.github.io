@@ -126,6 +126,31 @@
 <p> this代表本类对象的引用</p>
 <p> super代表父类的存储空间</p>
 </li>
+<li><p>equals 和 == 的区别:</p>
+<p> ==: 比较的是变量的内存地址, 也就是看这两个对象是否是一个对象</p>
+<p> equals: 比较的是两个对象的内容是否一样，当一个类中，没有对equals()方法进行覆盖，那么使用的是Object类中的equals()方法，而Object类中的equals()方法返回的就是 == 的判断。</p>
+</li>
+<li><p>HashCode:<br> hashCode() 是Object类中的一个方法， 在Java中，hashCode() 方法主要作用是: 配合基于散列的集合一起使用，这样的散列集合包括: HashSet, HashMap Hashtable。</p>
+<p> Java中的hashCode() 方法，是根据一定的规则，将与对象相关的信息（比如对象的存储地址，对象的字段等）映射成一个数值，这个数值称作散列值。</p>
+</li>
+<li><p>hashCode() 与 equals() 方法:</p>
+<p> 首先要明白: <strong>如果两个对象的hashCode值相等，不能确定两个对象相等。</strong></p>
+<p> 在程序执行期间，只要equals()方法的比较操作得到的信息没有被修改，那么对同一个对象调用多次，hashCode()方法必须返回同一个值。</p>
+<p> 如果两个对象根据equals() 方法比较是相等的，那么调用hashCode()必须返回相同的值</p>
+<p> 如果两个对象根据equals() 方法比较是不相等的，但是hashCode() 不一定不相同</p>
+<p> 因此要记得: <strong>当重写equals() 方法的时候，记得重写hashCode()方法。</strong></p>
+</li>
+<li><p>HashSet HashMap Hashtable 的比较:</p>
+<ol>
+<li>HashTable:</li>
+</ol>
+<p><code>public class Hashtable extends Dictionary&lt;&gt; implements Map&lt;&gt;</code></p>
+<p>Hashtable中的方法都加了Synchronized关键字，因此在多线程并发的时候，是可以直接使用的。</p>
+<p>Hashtable中key和value都不允许null</p>
+<p>Hashtable直接使用了对象的hashCode值:</p>
+<p><code>int hash = key.hashCode();</code></p>
+<p><code>int index = (hash &amp; 0x7FFFFFFF) % tab.length;</code></p>
+</li>
 </ol>
 
       
