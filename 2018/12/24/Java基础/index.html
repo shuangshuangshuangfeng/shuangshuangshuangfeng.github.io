@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="未来在我手中，完全由我决定">
 <meta property="og:description" content="java基础知识回顾 JVM, JRE, JDK的区别  JVM（java Virtual Machine）:java虚拟机，用于保证java的跨平台性  JRE（Java Runtime Environmen）:java运行环境，包括JVM+Jave的系统类库  JDK（Java Development Kit）:Java的软件开发工具包, 他包含了Java的运行环境(JVM+Java系统类库)">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-25T06:15:24.904Z">
+<meta property="og:updated_time" content="2018-12-25T06:22:47.146Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java基础">
 <meta name="twitter:description" content="java基础知识回顾 JVM, JRE, JDK的区别  JVM（java Virtual Machine）:java虚拟机，用于保证java的跨平台性  JRE（Java Runtime Environmen）:java运行环境，包括JVM+Jave的系统类库  JDK（Java Development Kit）:Java的软件开发工具包, 他包含了Java的运行环境(JVM+Java系统类库)">
@@ -98,22 +98,23 @@
 </li>
 </ol>
 <p>3.关于java大小端的问题</p>
-<pre><code>这个问题起源于一次滴滴面试，当时面试官问到这个问题的时候一脸蒙蔽，只怪自己学识太浅，扔需要加倍努力。
+<pre><code>这个问题起源于一次滴滴面试，当时面试官问到这个问题的时候一脸蒙逼，只怪自己学识太浅，仍需要加倍努力。
 
 什么是大端和小端？
-    大端模式:数据的高字节保存在内存的低地址中,数据的低字节保存在内存的高地址中。
+大端模式:数据的高字节保存在内存的低地址中,数据的低字节保存在内存的高地址中。
 
-    小端模式:数据的高字节保存在内存的高地址中，数据的低字节保存在内存的低地址中。
+小端模式:数据的高字节保存在内存的高地址中，数据的低字节保存在内存的低地址中。
 
-    记忆方式:&quot;小端低低&quot;
+记忆方式:&quot;小端低低&quot;
 
 之所以有大小端之分，是因为：
-    计算机中是以字节为单位的，每个地址单元都对应一个字节(8bit)，而在C语言，c++..的语言中，除了8bit的char类型，还有int,long float等类型,由于寄存器是大于一个字节的，所以，必然存在着怎样存放数据的问题，也就有了大端和小端。
+
+计算机中是以字节为单位的，每个地址单元都对应一个字节(8bit)，而在C语言，c++..的语言中，除了8bit的char类型，还有int,long float等类型,由于寄存器是大于一个字节的，所以，必然存在着怎样存放数据的问题，也就有了大端和小端。
 
 大端和小端的问题和计算机使用的芯片有关，目前Intel的80x86系列芯片是唯一还在坚持使用小端的芯片，ARM芯片默认采用小端，但可以切换为大端；而MIPS等芯片要么采用全部大端的方式储存，要么提供选项支持大端——可以在大小端之间切换，同时大端和小端的处理还与编译器的实现有关，在C语言中，默认是小端，由于Java是与平台无关的，所以Java默认是大端。
 </code></pre><ol start="4">
 <li><p>重载：</p>
-<p> 概念：在同一个类中，允许存在一个以上的同名<br> 函数，只要他们d额参数个数或者参数类型不同</p>
+<p> 概念：在同一个类中，允许存在一个以上的同名<br> 函数，只要他们的参数个数或者参数类型不同</p>
 <p> 特点：返回值与类型无关,只看参数列表</p>
 <p> <code>public void testOverload(int a){
  }</code></p>
@@ -153,6 +154,7 @@
 <p>Hashtable直接使用了对象的hashCode值:</p>
 <p><code>int hash = key.hashCode();</code></p>
 <p><code>int index = (hash &amp; 0x7FFFFFFF) % tab.length;</code></p>
+<p>–没写完</p>
 </li>
 <li><p>Object类中的方法</p>
 <p>  <code>public native int hashCode();</code></p>
@@ -168,28 +170,24 @@
 <li><p>反射机制</p>
 <p>Java反射机制：在运行状态中，对任意一个实体类,都能知道这个类的属性和方法，对于任意个个对象，都能调用他的任意方法和属性，这种动态获取信息以及动态调用对象的方法的功能称作Java反射机制.</p>
 <p>类型信息:</p>
-<pre><code>Java让我们在运行时识别对象和类的信息，有两种方式:一种是RTTI（Run-Time Type Information)，它假定我们在编译时已经知道了所有类型信息; 一种是反射机制，它允许我们在运行时发现和使用类的信息。
-
-RTTI，编译器在编译时打开和检查.class文件 
-
-反射，运行时打开和检查.class文件
-</code></pre></li>
+<p>Java让我们在运行时识别对象和类的信息，有两种方式:一种是RTTI（Run-Time Type Information)，它假定我们在编译时已经知道了所有类型信息; 一种是反射机制，它允许我们在运行时发现和使用类的信息。</p>
+<p>RTTI，编译器在编译时打开和检查.class文件 </p>
+<p>反射，运行时打开和检查.class文件</p>
+</li>
 <li><p>Java类加载</p>
 <p>当程序要使用某个类时，如果该类还未被加载到内存中， 系统会通过<strong>加载–&gt;连接–&gt;初始化</strong>三步对这个类进行初始化。</p>
 <p>加载 : 将class文件读入内存，并为之创建一个Class对象（任何类在被使用时，系统都会为它建立一个Class对象）。</p>
 <p>连接 : </p>
-<pre><code>验证： 确保加载类的正确性
-
-准备： 负责为类的静态成员分配内存，并设置默认初始化值
-
-解析： 将类中的符号引用替换为直接引用
-</code></pre></li>
+<p>验证： 确保加载类的正确性</p>
+<p>准备： 负责为类的静态成员分配内存，并设置默认初始化值</p>
+<p>解析： 将类中的符号引用替换为直接引用</p>
+</li>
 </ol>
 <pre><code>初始化 :
 
-    局部变量保存在栈区,不许手动初始化
+局部变量保存在栈区,不许手动初始化
 
-    new的对象保存在堆区，虚拟机会进行默认初始化。 
+new的对象保存在堆区，虚拟机会进行默认初始化。 
 </code></pre>
       
     </div>
