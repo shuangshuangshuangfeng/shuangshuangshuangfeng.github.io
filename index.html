@@ -190,7 +190,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="python虚拟环境virtualenv用法"><a href="#python虚拟环境virtualenv用法" class="headerlink" title="python虚拟环境virtualenv用法"></a>python虚拟环境virtualenv用法</h1><ol>
+        <h1 id="python虚拟环境virtualenv用法"><a href="#python虚拟环境virtualenv用法" class="headerlink" title="python虚拟环境virtualenv用法"></a>python虚拟环境virtualenv用法</h1><h2 id="virtualenv"><a href="#virtualenv" class="headerlink" title="virtualenv"></a>virtualenv</h2><ol>
 <li><p>首先升级pip</p>
 <p> <code>pip install --upgrade pip</code></p>
 </li>
@@ -215,12 +215,23 @@
 <li><p>停用虚拟环境</p>
 <p> <code>deactivate</code></p>
 </li>
-<li><p>启用虚拟环境</p>
+</ol>
+<h2 id="virtualenvwrapper"><a href="#virtualenvwrapper" class="headerlink" title="virtualenvwrapper"></a>virtualenvwrapper</h2><ol>
+<li><p>进入虚拟环境</p>
 <p> <code>workone vir_name</code></p>
 </li>
+<li><p>创建虚拟环境</p>
+<p> <code>mkvirtualenv vir_name</code></p>
+</li>
+<li><p>终止虚拟环境</p>
+<p> <code>deactive</code></p>
+</li>
+<li><p>删除虚拟环境</p>
+<p> <code>rmvirtualenv vir_name</code></p>
+</li>
 </ol>
-<p>注：<br>    不通的系统环境，配置文件的位置可能不一样<br>    每次要想使用virtualenvwrapper 工具时，都必须先激活virtualenvwrapper.sh,另外，如果创建前要将即将的环境保存到Envs中，就要先设置一下环境变量：export WORKON_HOME=~/Envs，再搭建</p>
-<p>详细：<a href="https://www.cnblogs.com/freely/p/8022923.html" target="_blank" rel="noopener">详情</a></p>
+<p>注：<br>    不通的系统环境，配置文件的位置可能不一样<br>    每次要想使用virtualenvwrapper 工具时，都必须先激活virtualenvwrapper.sh， 另外，如果创建前要将即将的环境保存到Envs中，就要先设置一下环境变量：export WORKON_HOME=~/Envs，再搭建</p>
+<p><a href="https://www.cnblogs.com/freely/p/8022923.html" target="_blank" rel="noopener">参考文章</a></p>
 
       
     </div>

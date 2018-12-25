@@ -7,18 +7,18 @@
   
   <title>python虚拟环境virtualenv用法 | 未来在我手中，完全由我决定</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="python虚拟环境virtualenv用法 首先升级pip  pip install --upgrade pip  安装virtualenv   pip install virtualenv  测试安装  virtualenv --version  搭建虚拟环境  virtualenv test  设置虚拟环境python版本  virtualenv -p python3 test  当前目录下">
+  <meta name="description" content="python虚拟环境virtualenv用法virtualenv 首先升级pip  pip install --upgrade pip  安装virtualenv   pip install virtualenv  测试安装  virtualenv --version  搭建虚拟环境  virtualenv test  设置虚拟环境python版本  virtualenv -p python3 t">
 <meta name="keywords" content="virtualenv">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python虚拟环境virtualenv用法">
 <meta property="og:url" content="http://yoursite.com/2018/12/23/python虚拟环境virtualenv用法/index.html">
 <meta property="og:site_name" content="未来在我手中，完全由我决定">
-<meta property="og:description" content="python虚拟环境virtualenv用法 首先升级pip  pip install --upgrade pip  安装virtualenv   pip install virtualenv  测试安装  virtualenv --version  搭建虚拟环境  virtualenv test  设置虚拟环境python版本  virtualenv -p python3 test  当前目录下">
+<meta property="og:description" content="python虚拟环境virtualenv用法virtualenv 首先升级pip  pip install --upgrade pip  安装virtualenv   pip install virtualenv  测试安装  virtualenv --version  搭建虚拟环境  virtualenv test  设置虚拟环境python版本  virtualenv -p python3 t">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-23T05:16:43.593Z">
+<meta property="og:updated_time" content="2018-12-25T02:29:14.930Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python虚拟环境virtualenv用法">
-<meta name="twitter:description" content="python虚拟环境virtualenv用法 首先升级pip  pip install --upgrade pip  安装virtualenv   pip install virtualenv  测试安装  virtualenv --version  搭建虚拟环境  virtualenv test  设置虚拟环境python版本  virtualenv -p python3 test  当前目录下">
+<meta name="twitter:description" content="python虚拟环境virtualenv用法virtualenv 首先升级pip  pip install --upgrade pip  安装virtualenv   pip install virtualenv  测试安装  virtualenv --version  搭建虚拟环境  virtualenv test  设置虚拟环境python版本  virtualenv -p python3 t">
   
     <link rel="alternate" href="/atom.xml" title="未来在我手中，完全由我决定" type="application/atom+xml">
   
@@ -87,7 +87,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="python虚拟环境virtualenv用法"><a href="#python虚拟环境virtualenv用法" class="headerlink" title="python虚拟环境virtualenv用法"></a>python虚拟环境virtualenv用法</h1><ol>
+        <h1 id="python虚拟环境virtualenv用法"><a href="#python虚拟环境virtualenv用法" class="headerlink" title="python虚拟环境virtualenv用法"></a>python虚拟环境virtualenv用法</h1><h2 id="virtualenv"><a href="#virtualenv" class="headerlink" title="virtualenv"></a>virtualenv</h2><ol>
 <li><p>首先升级pip</p>
 <p> <code>pip install --upgrade pip</code></p>
 </li>
@@ -112,12 +112,23 @@
 <li><p>停用虚拟环境</p>
 <p> <code>deactivate</code></p>
 </li>
-<li><p>启用虚拟环境</p>
+</ol>
+<h2 id="virtualenvwrapper"><a href="#virtualenvwrapper" class="headerlink" title="virtualenvwrapper"></a>virtualenvwrapper</h2><ol>
+<li><p>进入虚拟环境</p>
 <p> <code>workone vir_name</code></p>
 </li>
+<li><p>创建虚拟环境</p>
+<p> <code>mkvirtualenv vir_name</code></p>
+</li>
+<li><p>终止虚拟环境</p>
+<p> <code>deactive</code></p>
+</li>
+<li><p>删除虚拟环境</p>
+<p> <code>rmvirtualenv vir_name</code></p>
+</li>
 </ol>
-<p>注：<br>    不通的系统环境，配置文件的位置可能不一样<br>    每次要想使用virtualenvwrapper 工具时，都必须先激活virtualenvwrapper.sh,另外，如果创建前要将即将的环境保存到Envs中，就要先设置一下环境变量：export WORKON_HOME=~/Envs，再搭建</p>
-<p>详细：<a href="https://www.cnblogs.com/freely/p/8022923.html" target="_blank" rel="noopener">详情</a></p>
+<p>注：<br>    不通的系统环境，配置文件的位置可能不一样<br>    每次要想使用virtualenvwrapper 工具时，都必须先激活virtualenvwrapper.sh， 另外，如果创建前要将即将的环境保存到Envs中，就要先设置一下环境变量：export WORKON_HOME=~/Envs，再搭建</p>
+<p><a href="https://www.cnblogs.com/freely/p/8022923.html" target="_blank" rel="noopener">参考文章</a></p>
 
       
     </div>
