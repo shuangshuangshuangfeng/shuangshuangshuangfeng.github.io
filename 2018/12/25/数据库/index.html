@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>数据库‘  | 未来在我手中，完全由我决定</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="数据库知识基础知识1. 完整性约束 实体完整性: 实体完整性是指表中行的完整性，主要用于保证操作的数据（记录）非空，唯一且不重复。即:实体完整性要求每个表有且仅有一个主键，每个主键值唯一，而且不允许为空或重复  参照完整性: 参照完整性属于表间规则，对于永久关系的相关表，在更新插入或删除记录时，如果只改其一，则影响其数据的完整性。即外键的取值必须是另一个表的主键的有效值或者空值  用户定义完整性:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据库‘ ">
+<meta property="og:url" content="http://yoursite.com/2018/12/25/数据库/index.html">
+<meta property="og:site_name" content="未来在我手中，完全由我决定">
+<meta property="og:description" content="数据库知识基础知识1. 完整性约束 实体完整性: 实体完整性是指表中行的完整性，主要用于保证操作的数据（记录）非空，唯一且不重复。即:实体完整性要求每个表有且仅有一个主键，每个主键值唯一，而且不允许为空或重复  参照完整性: 参照完整性属于表间规则，对于永久关系的相关表，在更新插入或删除记录时，如果只改其一，则影响其数据的完整性。即外键的取值必须是另一个表的主键的有效值或者空值  用户定义完整性:">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-12-25T15:27:30.316Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据库‘ ">
+<meta name="twitter:description" content="数据库知识基础知识1. 完整性约束 实体完整性: 实体完整性是指表中行的完整性，主要用于保证操作的数据（记录）非空，唯一且不重复。即:实体完整性要求每个表有且仅有一个主键，每个主键值唯一，而且不允许为空或重复  参照完整性: 参照完整性属于表间规则，对于永久关系的相关表，在更新插入或删除记录时，如果只改其一，则影响其数据的完整性。即外键的取值必须是另一个表的主键的有效值或者空值  用户定义完整性:">
+  
+    <link rel="alternate" href="/atom.xml" title="未来在我手中，完全由我决定" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">未来在我手中，完全由我决定</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-数据库" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/12/25/数据库/" class="article-date">
+  <time datetime="2018-12-25T15:25:45.000Z" itemprop="datePublished">2018-12-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      数据库‘ 
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="数据库知识"><a href="#数据库知识" class="headerlink" title="数据库知识"></a>数据库知识</h1><h2 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h2><h3 id="1-完整性约束"><a href="#1-完整性约束" class="headerlink" title="1. 完整性约束"></a>1. 完整性约束</h3><ul>
+<li><p><strong>实体完整性</strong>: 实体完整性是指表中行的完整性，主要用于保证操作的数据（记录）非空，唯一且不重复。即:<em>实体完整性要求每个表有且仅有一个主键，每个主键值唯一，而且不允许为空或重复</em></p>
+</li>
+<li><p><strong>参照完整性</strong>: 参照完整性属于表间规则，对于永久关系的相关表，在更新插入或删除记录时，如果只改其一，则影响其数据的完整性。即<em>外键的取值必须是另一个表的主键的有效值或者空值</em></p>
+</li>
+<li><p><strong>用户定义完整性</strong>: 用户自定义完整性是对数据表中字段属性的约束，包括字段的值域，字段的类型，字段的有效规则等约束。如：百分制成绩的取值范围是0-100.</p>
+</li>
+</ul>
+<h3 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h3><p>数据库事务是座位一个逻辑工作单元执行的一系列操作,要么完全执行，要么完全不执行。</p>
+<p>事务的属性: 一致性，原子性，隔离性，持久性</p>
+<ul>
+<li><p><strong>原子性</strong> : 一个事务包含多个操作，这些操作要么全部执行，要么都不执行。即<em>某个操作失败后会回滚到事务执行之前的状态</em></p>
+</li>
+<li><p><strong>一致性</strong> : 一致性是对数据可见性的约束，保证在一个事务中的多次操作的数据中间状态对其他事务是不可见的，因为这些中间状态是一个过度状态，与事务的开始状态和事务的结束状态是不一致的。</p>
+</li>
+<li><p><strong>隔离性</strong> : 并发事务之间互相影响的程度。</p>
+</li>
+<li><p><strong>持久性</strong> : 事务提交后，对系统的影响是永久的。</p>
+</li>
+</ul>
+<h3 id="SQL语句"><a href="#SQL语句" class="headerlink" title="SQL语句"></a>SQL语句</h3><ul>
+<li>SQL数据定义语句的操作对象： 模式， 表， 视图， 索引。</li>
+<li>SQL数据定义语句的命令动词： CREATE, DROP, ALTER.</li>
+<li>RDBMS（Relational Database Management System， 关系数据库管理系统）中索引一般采用B+树或Hash来实现</li>
+<li>索引可以分为唯一索引，非唯一索引和聚簇索引</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">查询条件</th>
+<th style="text-align:center">运算符</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">比较</td>
+<td style="text-align:center">=, &gt;=, &lt;=, &gt;, &lt;, &lt;&gt;, !&gt;, !&lt;</td>
+</tr>
+<tr>
+<td style="text-align:center">确定范围</td>
+<td style="text-align:center">BETWEEN AND, NOT BETWEEN AND</td>
+</tr>
+<tr>
+<td style="text-align:center">确定集合</td>
+<td style="text-align:center">IN, NOT IN</td>
+</tr>
+<tr>
+<td style="text-align:center">字符匹配</td>
+<td style="text-align:center">LIKE, NOT LIKE</td>
+</tr>
+<tr>
+<td style="text-align:center">空值</td>
+<td style="text-align:center">IS NULL, IS NOT NULL</td>
+</tr>
+<tr>
+<td style="text-align:center">多重条件</td>
+<td style="text-align:center">AND, OR, NOT</td>
+</tr>
+</tbody>
+</table>
+<h2 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h2>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/12/25/数据库/" data-id="cjq3wmrq50005w0ie1m246z0e" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/12/25/随笔/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">随笔</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/REST/">REST</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/virtualenv/">virtualenv</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/REST/" style="font-size: 10px;">REST</a> <a href="/tags/virtualenv/" style="font-size: 10px;">virtualenv</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/12/25/数据库/">数据库‘ </a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/25/随笔/">随笔</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/24/Java基础/">Java基础</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/23/python虚拟环境/">python虚拟环境</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/23/Docker/">Docker</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Trina<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
