@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="未来在我手中，完全由我决定">
 <meta property="og:description" content="数据库知识基础知识1. 完整性约束 实体完整性: 实体完整性是指表中行的完整性，主要用于保证操作的数据（记录）非空，唯一且不重复。即:实体完整性要求每个表有且仅有一个主键，每个主键值唯一，而且不允许为空或重复  参照完整性: 参照完整性属于表间规则，对于永久关系的相关表，在更新插入或删除记录时，如果只改其一，则影响其数据的完整性。即外键的取值必须是另一个表的主键的有效值或者空值  用户定义完整性:">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-25T15:28:20.349Z">
+<meta property="og:updated_time" content="2018-12-26T04:01:19.227Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据库">
 <meta name="twitter:description" content="数据库知识基础知识1. 完整性约束 实体完整性: 实体完整性是指表中行的完整性，主要用于保证操作的数据（记录）非空，唯一且不重复。即:实体完整性要求每个表有且仅有一个主键，每个主键值唯一，而且不允许为空或重复  参照完整性: 参照完整性属于表间规则，对于永久关系的相关表，在更新插入或删除记录时，如果只改其一，则影响其数据的完整性。即外键的取值必须是另一个表的主键的有效值或者空值  用户定义完整性:">
@@ -112,6 +112,7 @@
 <li>RDBMS（Relational Database Management System， 关系数据库管理系统）中索引一般采用B+树或Hash来实现</li>
 <li>索引可以分为唯一索引，非唯一索引和聚簇索引</li>
 </ul>
+<p><strong>查询条件</strong> : </p>
 <table>
 <thead>
 <tr>
@@ -146,6 +147,85 @@
 </tr>
 </tbody>
 </table>
+<p><strong>操作对象</strong> : </p>
+<table>
+<thead>
+<tr>
+<th>操作对象</th>
+<th>创建</th>
+<th>删除</th>
+<th>修改</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>模式</td>
+<td>CREATE SCHEMA</td>
+<td>DROP SCHEMA</td>
+<td></td>
+</tr>
+<tr>
+<td>表</td>
+<td>CREATE TABLE</td>
+<td>DROP TABLE</td>
+<td>ALTER TABLE</td>
+</tr>
+<tr>
+<td>视图</td>
+<td>CREATE VIEW</td>
+<td>DROP VIEW</td>
+<td></td>
+</tr>
+<tr>
+<td>索引</td>
+<td>CREATE INDEX</td>
+<td>DROP INDEX</td>
+</tr>
+</tbody>
+</table>
+<p><strong>实例</strong>:</p>
+<ol>
+<li><p>创建数据库:</p>
+<p> <code>create database database_name</code></p>
+</li>
+<li><p>删除数据库 :</p>
+<p> <code>drop database database_name</code></p>
+</li>
+<li><p>创建新表 :</p>
+<p> <code>create table table_name (table_id not null primary key, col1 type1, ...  )</code></p>
+</li>
+<li><p>删除新表 :</p>
+<p> <code>drop table table_name</code></p>
+</li>
+<li><p>增加一个列 :</p>
+<p> <code>alter table table_name add column col type</code></p>
+</li>
+<li><p>添加主键 :</p>
+<p> <code>alter table table_name add primary key (col)</code></p>
+</li>
+<li><p>删除主键 :</p>
+<p> <code>alter table table_name drop primary key(col)</code></p>
+</li>
+<li><p>创建索引 :</p>
+<p> <code>create [unique] index index_name on table_name(col, ...)</code></p>
+</li>
+<li><p>删除索引 :</p>
+<p> <code>drop index index_name</code></p>
+<p> 注意 : 索引是不能修改的，所以想更改必须删除重建</p>
+</li>
+<li><p>创建视图 :</p>
+<p> `create view view_name as (select …)</p>
+</li>
+<li><p>删除视图 :</p>
+<p><code>drop view view_name</code></p>
+</li>
+<li><p>UNION运算符 和 UNION ALL 运算符 :</p>
+<p><strong>UNION消除重复行</strong></p>
+<p><code>select column_names from table_name1 UNION select column_names from table_name2</code></p>
+<p><strong>UNION ALL 不消除重复行</strong></p>
+<p><code>select column_names from table_name1 UNION ALL select column_names from table_name2</code></p>
+</li>
+</ol>
 <h2 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h2>
       
     </div>
