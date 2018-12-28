@@ -62,6 +62,94 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Maven" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/12/28/Maven/" class="article-date">
+  <time datetime="2018-12-28T07:37:29.000Z" itemprop="datePublished">2018-12-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/28/Maven/">Maven</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Maven"><a href="#Maven" class="headerlink" title="Maven"></a>Maven</h1><h3 id="1-Maven的安装目录"><a href="#1-Maven的安装目录" class="headerlink" title="1.Maven的安装目录:"></a>1.Maven的安装目录:</h3><ul>
+<li>bin: 包含了mvn运行的脚本，这些脚本用来配置java命令，准备好classpath和相关的java系统属性，然后执行 java命令。</li>
+<li>boot:该目录只包含了一个文件，plexus-classworlds是一个类加载器框架，相对于默认<br>的java类加载器，他提供了更丰富的语法以方便配置，mvn使用该框架加载自己的类库。</li>
+<li>conf:该目录包含了一个 非常重要的文件，setting.xml。直接修改该文件，就能在机器<br>上全局的定制Maven的行为。</li>
+</ul>
+<h3 id="2-maven的两个核心概念是：坐标和依赖"><a href="#2-maven的两个核心概念是：坐标和依赖" class="headerlink" title="2.maven的两个核心概念是：坐标和依赖:"></a>2.maven的两个核心概念是：坐标和依赖:</h3><ul>
+<li><p>Maven坐标为各种构件引入了秩序，任何一个构件都必须明确定义自己的坐标，而一组Maven坐标是通过一些元素定义的，他们是groupId，artifactId，version，packaging,classifier。<br>以下是坐标的定义：</p>
+<p>  <code>&lt;groupId&gt;org.sonatype.nexus&lt;/groupId&gt;</code></p>
+<p>  <code>&lt;artifactId&gt;nexus-indexer&lt;/artifactId&gt;</code></p>
+<p>  <code>&lt;version&gt;2.0.0&lt;/version&gt;</code></p>
+<p>  <code>&lt;packaging&gt;jar&lt;/packaging&gt;</code></p>
+</li>
+</ul>
+<p>其中：</p>
+<p>groupId:定义了项目属于哪个组，这个组和项目所在的组织或公司有关；</p>
+<p>artifactId:定义了当前项目在组中唯一的ID</p>
+<p>version：版本</p>
+<h3 id="3-每一个构建都有其唯一的坐标，根据这个坐标可以定义其在仓库中的唯一存储路径。"><a href="#3-每一个构建都有其唯一的坐标，根据这个坐标可以定义其在仓库中的唯一存储路径。" class="headerlink" title="3.每一个构建都有其唯一的坐标，根据这个坐标可以定义其在仓库中的唯一存储路径。"></a>3.每一个构建都有其唯一的坐标，根据这个坐标可以定义其在仓库中的唯一存储路径。</h3><p>对于Maven来说，仓库只有两类：本地库和远程库。当maven根据坐标寻找构建的时候，他首先会查看本地库，如果本地库存在此构件，则直接使用；如果本地库不存在此构件，或者需要查看是否有更新的构件版本，Maven就会去远程仓库查找，发现需要的构件以后下载到本地仓库再使用。如果本地仓库和远程仓库都没有需要的组件，Maven就会报错。</p>
+<h3 id="4-一些特殊的远程仓库：中央仓库和私服"><a href="#4-一些特殊的远程仓库：中央仓库和私服" class="headerlink" title="4.一些特殊的远程仓库：中央仓库和私服"></a>4.一些特殊的远程仓库：中央仓库和私服</h3><ul>
+<li>中央仓库是Maven核心自带的远程仓科，他包含了大部分开源的构件。在默认配置下，当为本地仓库没有Maven需要的构件的时候，Maven会尝试从中央仓库下载。</li>
+<li>私服是在局域网内假设的一个私有仓库服务器，用其代理所有外语的远程仓库，内部的项目还能部署到私服上供其他项目的使用。</li>
+<li>除了中央仓库和私服，还有很多其他公开的远程仓库。</li>
+</ul>
+<h3 id="5-Maven的快照版本-SNAPSHOT-和发布版本"><a href="#5-Maven的快照版本-SNAPSHOT-和发布版本" class="headerlink" title="5.Maven的快照版本(-SNAPSHOT)和发布版本"></a>5.Maven的快照版本(-SNAPSHOT)和发布版本</h3><p>首先要知道快照版本相对与发布版本是不稳定的。</p>
+<p>当一个快照版本(1.2.0-SNAPSHOT)的构件发布到私服的时候，Maven会自动为构件打上时间戳，有了时间戳，Maven就能随时在仓库中找到1.2.0-SNAPSHOT的最新文件。默认情况下，Maven每天检查一次更新。但基于快照版本机制，当有人调用1.2.0-SNAPSHOT的时候，maven能够确保得到最新可用的快照构件。<br>当项目经过完善的测试后需要发布的时候，就应该将快照版本改为发布版本，以确保每个人使用该构件时对应了唯一的构件。</p>
+<h3 id="6-Maven的三套生命周期-三套生命周期是相互独立的"><a href="#6-Maven的三套生命周期-三套生命周期是相互独立的" class="headerlink" title="6.Maven的三套生命周期(三套生命周期是相互独立的)"></a>6.Maven的三套生命周期(三套生命周期是相互独立的)</h3><p><strong>1.clean生命周期</strong>:</p>
+<p>目的：清理项目</p>
+<p>阶段：</p>
+<ul>
+<li>pre-clean 执行一些清理钱需要完成的工作。</li>
+<li>clean执行上一次构建生成的文件</li>
+<li>post-clean执行一些清理后要完成的工作</li>
+</ul>
+<p><strong>2.Default生命周期</strong>：</p>
+<p>Default生命周期定义了真正构建时所需要执行的所有步骤，是所有生命周期中最核心的部分。部分阶段如下：</p>
+<ul>
+<li>validate</li>
+<li>initialize</li>
+<li>compile：编译项目的主源码，一般是src/main/java目录下的java文件</li>
+<li>package: 接受编译好的代码，打包成可发布的格式，如jar</li>
+<li>install:将包安装到maven本地仓库，供本地其他Maven项目使用</li>
+<li>deploy：将最终的包复制到远程仓库，供开发人员和Maven项目使用。</li>
+</ul>
+<p><strong>3.Site生命周期：</strong></p>
+<p>目的：建立和发布站点</p>
+<p>阶段：</p>
+<ul>
+<li>pre-site执行一些生成项目站点之前需要完成的工作。</li>
+<li>site生成项目站点文档</li>
+<li>post-site执行一些在生成项目站点只有需要完成的工作</li>
+<li>site-deploy将生成的项目站点发布到服务器上。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/12/28/Maven/" data-id="cjq7q65qa00026xie0o2mpk3t" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-数据库" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/12/25/数据库/" class="article-date">
@@ -92,7 +180,7 @@
 <li><p><strong>用户定义完整性</strong>: 用户自定义完整性是对数据表中字段属性的约束，包括字段的值域，字段的类型，字段的有效规则等约束。如：百分制成绩的取值范围是0-100.</p>
 </li>
 </ul>
-<h3 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h3><p>数据库事务是座位一个逻辑工作单元执行的一系列操作,要么完全执行，要么完全不执行。</p>
+<h3 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h3><p>数据库事务是作为一个逻辑工作单元执行的一系列操作,要么完全执行，要么完全不执行。</p>
 <p>事务的属性: 一致性，原子性，隔离性，持久性</p>
 <ul>
 <li><p><strong>原子性</strong> : 一个事务包含多个操作，这些操作要么全部执行，要么都不执行。即<em>某个操作失败后会回滚到事务执行之前的状态</em></p>
@@ -103,6 +191,13 @@
 </li>
 <li><p><strong>持久性</strong> : 事务提交后，对系统的影响是永久的。</p>
 </li>
+</ul>
+<h3 id="存储过程"><a href="#存储过程" class="headerlink" title="存储过程"></a>存储过程</h3><p><strong>定义:</strong></p>
+<p>存储过程是在大型数据库系统中，一组未来完成特定功能的SQL语句集，存储在数据库中，经过一次编译后调用不需要再次编译，用户通过指定存储过程的名字并给出参数来执行它。存储过程是数据库中的一个重要对象。</p>
+<p><strong>优点:</strong></p>
+<ul>
+<li>存储过程是一个预编译的代码块，执行效率高</li>
+<li>可以一定程序上确保数据安全</li>
 </ul>
 <h3 id="SQL语句"><a href="#SQL语句" class="headerlink" title="SQL语句"></a>SQL语句</h3><ul>
 <li>SQL数据定义语句的操作对象： 模式， 表， 视图， 索引。</li>
@@ -224,11 +319,14 @@
 <p><code>select column_names from table_name1 UNION ALL select column_names from table_name2</code></p>
 </li>
 </ol>
-<h2 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h2>
+<h3 id="乐观锁与悲观锁"><a href="#乐观锁与悲观锁" class="headerlink" title="乐观锁与悲观锁"></a>乐观锁与悲观锁</h3><p><strong>悲观锁</strong>: 就是很悲观，每次去拿数据的时候都认为别人会修改，所以每次在拿数据的时候都会上锁。传统的关系数据库里边就用到了很多这种锁机制，比如行锁，表锁等，读锁，写锁等，都是在做操作之前先上锁。它指的是数据被修改的是保持保守态度，因此，在整个数据处理过程中，将数据处于锁定状态。悲观锁的实现，往往依靠数据库提供的锁机制。</p>
+<p><strong>乐观锁</strong>: </p>
+<h2 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h2><p>抄一遍自己就理解了， 我理解能力差。。。</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/25/数据库/" data-id="cjq3wmrq50005w0ie1m246z0e" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/25/数据库/" data-id="cjq7q65qh00066xie8xuk75rr" class="article-share-link">Share</a>
       
       
     </footer>
@@ -265,7 +363,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/25/随笔/" data-id="cjq3wmrq60006w0iec97h3b4z" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/25/随笔/" data-id="cjq7q65qj00096xiehm6okuu6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -390,7 +488,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/24/Java基础/" data-id="cjq3wmrpw0001w0ieb2079h3n" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/24/Java基础/" data-id="cjq7q65q700016xiephvbgtlc" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
@@ -470,7 +568,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/23/python虚拟环境/" data-id="cjq3wmrq30004w0ie72wej6wj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/23/python虚拟环境/" data-id="cjq7q65qg00056xiez55poze1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/virtualenv/">virtualenv</a></li></ul>
@@ -564,7 +662,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/23/Docker/" data-id="cjq3wmrpn0000w0ie45jhkwd5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/23/Docker/" data-id="cjq7q65pz00006xieq45lax7d" class="article-share-link">Share</a>
       
       
     </footer>
@@ -641,7 +739,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/22/REST风格/" data-id="cjq3wmrpz0002w0ief7czu5n2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/22/REST风格/" data-id="cjq7q65qe00046xiezc6apzd8" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/REST/">REST</a></li></ul>
@@ -698,6 +796,10 @@
       <ul>
         
           <li>
+            <a href="/2018/12/28/Maven/">Maven</a>
+          </li>
+        
+          <li>
             <a href="/2018/12/25/数据库/">数据库</a>
           </li>
         
@@ -711,10 +813,6 @@
         
           <li>
             <a href="/2018/12/23/python虚拟环境/">python虚拟环境</a>
-          </li>
-        
-          <li>
-            <a href="/2018/12/23/Docker/">Docker</a>
           </li>
         
       </ul>

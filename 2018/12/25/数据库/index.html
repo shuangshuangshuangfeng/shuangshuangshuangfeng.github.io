@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="未来在我手中，完全由我决定">
 <meta property="og:description" content="数据库知识基础知识1. 完整性约束 实体完整性: 实体完整性是指表中行的完整性，主要用于保证操作的数据（记录）非空，唯一且不重复。即:实体完整性要求每个表有且仅有一个主键，每个主键值唯一，而且不允许为空或重复  参照完整性: 参照完整性属于表间规则，对于永久关系的相关表，在更新插入或删除记录时，如果只改其一，则影响其数据的完整性。即外键的取值必须是另一个表的主键的有效值或者空值  用户定义完整性:">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-26T04:01:19.227Z">
+<meta property="og:updated_time" content="2018-12-28T07:29:37.855Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据库">
 <meta name="twitter:description" content="数据库知识基础知识1. 完整性约束 实体完整性: 实体完整性是指表中行的完整性，主要用于保证操作的数据（记录）非空，唯一且不重复。即:实体完整性要求每个表有且仅有一个主键，每个主键值唯一，而且不允许为空或重复  参照完整性: 参照完整性属于表间规则，对于永久关系的相关表，在更新插入或删除记录时，如果只改其一，则影响其数据的完整性。即外键的取值必须是另一个表的主键的有效值或者空值  用户定义完整性:">
@@ -94,7 +94,7 @@
 <li><p><strong>用户定义完整性</strong>: 用户自定义完整性是对数据表中字段属性的约束，包括字段的值域，字段的类型，字段的有效规则等约束。如：百分制成绩的取值范围是0-100.</p>
 </li>
 </ul>
-<h3 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h3><p>数据库事务是座位一个逻辑工作单元执行的一系列操作,要么完全执行，要么完全不执行。</p>
+<h3 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h3><p>数据库事务是作为一个逻辑工作单元执行的一系列操作,要么完全执行，要么完全不执行。</p>
 <p>事务的属性: 一致性，原子性，隔离性，持久性</p>
 <ul>
 <li><p><strong>原子性</strong> : 一个事务包含多个操作，这些操作要么全部执行，要么都不执行。即<em>某个操作失败后会回滚到事务执行之前的状态</em></p>
@@ -105,6 +105,13 @@
 </li>
 <li><p><strong>持久性</strong> : 事务提交后，对系统的影响是永久的。</p>
 </li>
+</ul>
+<h3 id="存储过程"><a href="#存储过程" class="headerlink" title="存储过程"></a>存储过程</h3><p><strong>定义:</strong></p>
+<p>存储过程是在大型数据库系统中，一组未来完成特定功能的SQL语句集，存储在数据库中，经过一次编译后调用不需要再次编译，用户通过指定存储过程的名字并给出参数来执行它。存储过程是数据库中的一个重要对象。</p>
+<p><strong>优点:</strong></p>
+<ul>
+<li>存储过程是一个预编译的代码块，执行效率高</li>
+<li>可以一定程序上确保数据安全</li>
 </ul>
 <h3 id="SQL语句"><a href="#SQL语句" class="headerlink" title="SQL语句"></a>SQL语句</h3><ul>
 <li>SQL数据定义语句的操作对象： 模式， 表， 视图， 索引。</li>
@@ -226,11 +233,14 @@
 <p><code>select column_names from table_name1 UNION ALL select column_names from table_name2</code></p>
 </li>
 </ol>
-<h2 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h2>
+<h3 id="乐观锁与悲观锁"><a href="#乐观锁与悲观锁" class="headerlink" title="乐观锁与悲观锁"></a>乐观锁与悲观锁</h3><p><strong>悲观锁</strong>: 就是很悲观，每次去拿数据的时候都认为别人会修改，所以每次在拿数据的时候都会上锁。传统的关系数据库里边就用到了很多这种锁机制，比如行锁，表锁等，读锁，写锁等，都是在做操作之前先上锁。它指的是数据被修改的是保持保守态度，因此，在整个数据处理过程中，将数据处于锁定状态。悲观锁的实现，往往依靠数据库提供的锁机制。</p>
+<p><strong>乐观锁</strong>: </p>
+<h2 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h2><p>抄一遍自己就理解了， 我理解能力差。。。</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/25/数据库/" data-id="cjq3wmrq50005w0ie1m246z0e" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/25/数据库/" data-id="cjq7q65qh00066xie8xuk75rr" class="article-share-link">Share</a>
       
       
     </footer>
@@ -238,6 +248,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2018/12/28/Maven/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Maven
+        
+      </div>
+    </a>
   
   
     <a href="/2018/12/25/随笔/" id="article-nav-older" class="article-nav-link-wrap">
@@ -293,6 +312,10 @@
       <ul>
         
           <li>
+            <a href="/2018/12/28/Maven/">Maven</a>
+          </li>
+        
+          <li>
             <a href="/2018/12/25/数据库/">数据库</a>
           </li>
         
@@ -306,10 +329,6 @@
         
           <li>
             <a href="/2018/12/23/python虚拟环境/">python虚拟环境</a>
-          </li>
-        
-          <li>
-            <a href="/2018/12/23/Docker/">Docker</a>
           </li>
         
       </ul>
