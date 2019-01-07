@@ -5,19 +5,19 @@
   
 
   
-  <title>随笔 | 未来在我手中，完全由我决定</title>
+  <title>session跨域共享 | 未来在我手中，完全由我决定</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="我相信，只要努力，就一定会有结果，学习的过程总不会那么容易，加油！">
+  <meta name="description" content="session 跨域共享session共享在一个分布式的环境下，已登录的用户发出多个请求，通过负载均衡，请求可能被不同的服务器处理，因此，我们需要不同服务器间共享session,以保证用户登陆同一个系统，只需要登陆一次。在不同的服务器（tomcat）之间共享session,称为session共享。 session跨域共享当我们有多个系统，并且进入这些系统时，只需要登陆一次，也就是说只登陆一次，便可">
 <meta property="og:type" content="article">
-<meta property="og:title" content="随笔">
-<meta property="og:url" content="http://yoursite.com/2018/12/25/随笔/index.html">
+<meta property="og:title" content="session跨域共享">
+<meta property="og:url" content="http://yoursite.com/2019/01/07/session跨域共享/index.html">
 <meta property="og:site_name" content="未来在我手中，完全由我决定">
-<meta property="og:description" content="我相信，只要努力，就一定会有结果，学习的过程总不会那么容易，加油！">
+<meta property="og:description" content="session 跨域共享session共享在一个分布式的环境下，已登录的用户发出多个请求，通过负载均衡，请求可能被不同的服务器处理，因此，我们需要不同服务器间共享session,以保证用户登陆同一个系统，只需要登陆一次。在不同的服务器（tomcat）之间共享session,称为session共享。 session跨域共享当我们有多个系统，并且进入这些系统时，只需要登陆一次，也就是说只登陆一次，便可">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-25T07:37:37.674Z">
+<meta property="og:updated_time" content="2019-01-07T05:41:44.774Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="随笔">
-<meta name="twitter:description" content="我相信，只要努力，就一定会有结果，学习的过程总不会那么容易，加油！">
+<meta name="twitter:title" content="session跨域共享">
+<meta name="twitter:description" content="session 跨域共享session共享在一个分布式的环境下，已登录的用户发出多个请求，通过负载均衡，请求可能被不同的服务器处理，因此，我们需要不同服务器间共享session,以保证用户登陆同一个系统，只需要登陆一次。在不同的服务器（tomcat）之间共享session,称为session共享。 session跨域共享当我们有多个系统，并且进入这些系统时，只需要登陆一次，也就是说只登陆一次，便可">
   
     <link rel="alternate" href="/atom.xml" title="未来在我手中，完全由我决定" type="application/atom+xml">
   
@@ -64,10 +64,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-随笔" class="article article-type-post" itemscope="" itemprop="blogPost">
+        <section id="main"><article id="post-session跨域共享" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/12/25/随笔/" class="article-date">
-  <time datetime="2018-12-25T07:36:07.000Z" itemprop="datePublished">2018-12-25</time>
+    <a href="/2019/01/07/session跨域共享/" class="article-date">
+  <time datetime="2019-01-07T05:40:37.000Z" itemprop="datePublished">2019-01-07</time>
 </a>
     
   </div>
@@ -78,7 +78,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      随笔
+      session跨域共享
     </h1>
   
 
@@ -86,12 +86,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>我相信，只要努力，就一定会有结果，学习的过程总不会那么容易，加油！</p>
+        <h1 id="session-跨域共享"><a href="#session-跨域共享" class="headerlink" title="session 跨域共享"></a>session 跨域共享</h1><h2 id="session共享"><a href="#session共享" class="headerlink" title="session共享"></a>session共享</h2><p>在一个分布式的环境下，已登录的用户发出多个请求，通过负载均衡，请求可能被不同的服务器处理，因此，我们需要不同服务器间共享session,以保证用户登陆同一个系统，只需要登陆一次。在不同的服务器（tomcat）之间共享session,称为session共享。</p>
+<h2 id="session跨域共享"><a href="#session跨域共享" class="headerlink" title="session跨域共享"></a>session跨域共享</h2><p>当我们有多个系统，并且进入这些系统时，只需要登陆一次，也就是说只登陆一次，便可以使用多个系统，这称为跨域。</p>
+<p>session跨域共享就是摒弃了系统（tomcat）提供的session，自定义session的机制，用以多个系统使用同一套登陆。</p>
+<h2 id="单点登陆（single-sign-on）"><a href="#单点登陆（single-sign-on）" class="headerlink" title="单点登陆（single sign on）"></a>单点登陆（single sign on）</h2><p>用户只需要登陆一次就可以访问相互信任的应用系统。</p>
+<p>过程： 用户第一次访问应用系统的时候，如果还没登陆，会被引导到认证系统中进行登陆，根据用户提供的登陆信息，认证系统进行身份校验，如果通过校验，则返回给用户一个认证的凭据（ticket），用户再访问的时候，会把这个ticket带上，作为自己的认证凭据，应用系统接受请求之后会把ticket送到认证系统进行校验，检查ticket的合法性，如果通过校验，用户就可以在不用再次登陆的情况下访问其他系统了。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/25/随笔/" data-id="cjqlwfgqv000aobie2hmuz3wc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/07/session跨域共享/" data-id="cjqlwfgqs0006obiepzcz79qb" class="article-share-link">Share</a>
       
       
     </footer>
@@ -100,19 +104,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2018/12/25/数据库/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          数据库
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/12/24/Java基础/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2018/12/28/Maven/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Java基础</div>
+      <div class="article-nav-title">Maven</div>
     </a>
   
 </nav>
