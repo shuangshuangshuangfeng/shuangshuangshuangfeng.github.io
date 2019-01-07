@@ -7,18 +7,18 @@
   
   <title>session跨域共享 | 未来在我手中，完全由我决定</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="ession 跨域共享 session共享在一个分布式的环境下，已登录的用户发出多个请求，通过负载均衡，请求可能被不同的服务器处理，因此，我们需要不同服务器间共享session,以保证用户登陆同一个系统，只需要登陆一次。在不同的服务器（tomcat）之间共享session,称为session共享。 session跨域共享当我们有多个系统，并且进入这些系统时，只需要登陆一次，也就是说只登陆一次，便可">
+  <meta name="description" content="session共享在一个分布式的环境下，已登录的用户发出多个请求，通过负载均衡，请求可能被不同的服务器处理，因此，我们需要不同服务器间共享session,以保证用户登陆同一个系统，只需要登陆一次。在不同的服务器（tomcat）之间共享session,称为session共享。 session跨域共享当我们有多个系统，并且进入这些系统时，只需要登陆一次，也就是说只登陆一次，便可以使用多个系统，这称为跨">
 <meta property="og:type" content="article">
 <meta property="og:title" content="session跨域共享">
 <meta property="og:url" content="http://yoursite.com/2019/01/07/session跨域共享/index.html">
 <meta property="og:site_name" content="未来在我手中，完全由我决定">
-<meta property="og:description" content="ession 跨域共享 session共享在一个分布式的环境下，已登录的用户发出多个请求，通过负载均衡，请求可能被不同的服务器处理，因此，我们需要不同服务器间共享session,以保证用户登陆同一个系统，只需要登陆一次。在不同的服务器（tomcat）之间共享session,称为session共享。 session跨域共享当我们有多个系统，并且进入这些系统时，只需要登陆一次，也就是说只登陆一次，便可">
+<meta property="og:description" content="session共享在一个分布式的环境下，已登录的用户发出多个请求，通过负载均衡，请求可能被不同的服务器处理，因此，我们需要不同服务器间共享session,以保证用户登陆同一个系统，只需要登陆一次。在不同的服务器（tomcat）之间共享session,称为session共享。 session跨域共享当我们有多个系统，并且进入这些系统时，只需要登陆一次，也就是说只登陆一次，便可以使用多个系统，这称为跨">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2019/01/07/session%E8%B7%A8%E5%9F%9F%E5%85%B1%E4%BA%AB/session%E8%B7%A8%E5%9F%9F%E5%85%B1%E4%BA%AB%E5%8E%9F%E7%90%86.png">
-<meta property="og:updated_time" content="2019-01-07T05:55:41.137Z">
+<meta property="og:updated_time" content="2019-01-07T07:16:50.414Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="session跨域共享">
-<meta name="twitter:description" content="ession 跨域共享 session共享在一个分布式的环境下，已登录的用户发出多个请求，通过负载均衡，请求可能被不同的服务器处理，因此，我们需要不同服务器间共享session,以保证用户登陆同一个系统，只需要登陆一次。在不同的服务器（tomcat）之间共享session,称为session共享。 session跨域共享当我们有多个系统，并且进入这些系统时，只需要登陆一次，也就是说只登陆一次，便可">
+<meta name="twitter:description" content="session共享在一个分布式的环境下，已登录的用户发出多个请求，通过负载均衡，请求可能被不同的服务器处理，因此，我们需要不同服务器间共享session,以保证用户登陆同一个系统，只需要登陆一次。在不同的服务器（tomcat）之间共享session,称为session共享。 session跨域共享当我们有多个系统，并且进入这些系统时，只需要登陆一次，也就是说只登陆一次，便可以使用多个系统，这称为跨">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2019/01/07/session%E8%B7%A8%E5%9F%9F%E5%85%B1%E4%BA%AB/session%E8%B7%A8%E5%9F%9F%E5%85%B1%E4%BA%AB%E5%8E%9F%E7%90%86.png">
   
     <link rel="alternate" href="/atom.xml" title="未来在我手中，完全由我决定" type="application/atom+xml">
@@ -88,8 +88,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>ession 跨域共享</p>
-<h2 id="session共享"><a href="#session共享" class="headerlink" title="session共享"></a>session共享</h2><p>在一个分布式的环境下，已登录的用户发出多个请求，通过负载均衡，请求可能被不同的服务器处理，因此，我们需要不同服务器间共享session,以保证用户登陆同一个系统，只需要登陆一次。在不同的服务器（tomcat）之间共享session,称为session共享。</p>
+        <h2 id="session共享"><a href="#session共享" class="headerlink" title="session共享"></a>session共享</h2><p>在一个分布式的环境下，已登录的用户发出多个请求，通过负载均衡，请求可能被不同的服务器处理，因此，我们需要不同服务器间共享session,以保证用户登陆同一个系统，只需要登陆一次。在不同的服务器（tomcat）之间共享session,称为session共享。</p>
 <h2 id="session跨域共享"><a href="#session跨域共享" class="headerlink" title="session跨域共享"></a>session跨域共享</h2><p>当我们有多个系统，并且进入这些系统时，只需要登陆一次，也就是说只登陆一次，便可以使用多个系统，这称为跨域。</p>
 <p>session跨域共享就是摒弃了系统（tomcat）提供的session，自定义session的机制，用以多个系统使用同一套登陆。</p>
 <p><img src="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2019/01/07/session%E8%B7%A8%E5%9F%9F%E5%85%B1%E4%BA%AB/session%E8%B7%A8%E5%9F%9F%E5%85%B1%E4%BA%AB%E5%8E%9F%E7%90%86.png" alt="session跨域共享"></p>

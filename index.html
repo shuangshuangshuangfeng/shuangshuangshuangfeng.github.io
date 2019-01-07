@@ -84,8 +84,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>ession 跨域共享</p>
-<h2 id="session共享"><a href="#session共享" class="headerlink" title="session共享"></a>session共享</h2><p>在一个分布式的环境下，已登录的用户发出多个请求，通过负载均衡，请求可能被不同的服务器处理，因此，我们需要不同服务器间共享session,以保证用户登陆同一个系统，只需要登陆一次。在不同的服务器（tomcat）之间共享session,称为session共享。</p>
+        <h2 id="session共享"><a href="#session共享" class="headerlink" title="session共享"></a>session共享</h2><p>在一个分布式的环境下，已登录的用户发出多个请求，通过负载均衡，请求可能被不同的服务器处理，因此，我们需要不同服务器间共享session,以保证用户登陆同一个系统，只需要登陆一次。在不同的服务器（tomcat）之间共享session,称为session共享。</p>
 <h2 id="session跨域共享"><a href="#session跨域共享" class="headerlink" title="session跨域共享"></a>session跨域共享</h2><p>当我们有多个系统，并且进入这些系统时，只需要登陆一次，也就是说只登陆一次，便可以使用多个系统，这称为跨域。</p>
 <p>session跨域共享就是摒弃了系统（tomcat）提供的session，自定义session的机制，用以多个系统使用同一套登陆。</p>
 <p><img src="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2019/01/07/session%E8%B7%A8%E5%9F%9F%E5%85%B1%E4%BA%AB/session%E8%B7%A8%E5%9F%9F%E5%85%B1%E4%BA%AB%E5%8E%9F%E7%90%86.png" alt="session跨域共享"></p>
@@ -127,7 +126,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Maven"><a href="#Maven" class="headerlink" title="Maven"></a>Maven</h1><h3 id="1-Maven的安装目录"><a href="#1-Maven的安装目录" class="headerlink" title="1.Maven的安装目录:"></a>1.Maven的安装目录:</h3><ul>
+        <h3 id="1-Maven的安装目录"><a href="#1-Maven的安装目录" class="headerlink" title="1.Maven的安装目录:"></a>1.Maven的安装目录:</h3><ul>
 <li>bin: 包含了mvn运行的脚本，这些脚本用来配置java命令，准备好classpath和相关的java系统属性，然后执行 java命令。</li>
 <li>boot:该目录只包含了一个文件，plexus-classworlds是一个类加载器框架，相对于默认<br>的java类加载器，他提供了更丰富的语法以方便配置，mvn使用该框架加载自己的类库。</li>
 <li>conf:该目录包含了一个 非常重要的文件，setting.xml。直接修改该文件，就能在机器<br>上全局的定制Maven的行为。</li>
@@ -215,7 +214,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="数据库知识"><a href="#数据库知识" class="headerlink" title="数据库知识"></a>数据库知识</h1><h2 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h2><h3 id="1-完整性约束"><a href="#1-完整性约束" class="headerlink" title="1. 完整性约束"></a>1. 完整性约束</h3><ul>
+        <h2 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h2><h3 id="1-完整性约束"><a href="#1-完整性约束" class="headerlink" title="1. 完整性约束"></a>1. 完整性约束</h3><ul>
 <li><p><strong>实体完整性</strong>: 实体完整性是指表中行的完整性，主要用于保证操作的数据（记录）非空，唯一且不重复。即:<em>实体完整性要求每个表有且仅有一个主键，每个主键值唯一，而且不允许为空或重复</em></p>
 </li>
 <li><p><strong>参照完整性</strong>: 参照完整性属于表间规则，对于永久关系的相关表，在更新插入或删除记录时，如果只改其一，则影响其数据的完整性。即<em>外键的取值必须是另一个表的主键的有效值或者空值</em></p>
@@ -438,8 +437,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>va基础知识回顾</p>
-<ol>
+        <ol>
 <li><p>JVM, JRE, JDK的区别</p>
 <p> JVM（java Virtual Machine）:java虚拟机，用于保证java的跨平台性</p>
 <p> JRE（Java Runtime Environmen）:java运行环境，包括JVM+Jave的系统类库</p>
@@ -697,7 +695,7 @@ new的对象保存在堆区，虚拟机会进行默认初始化。
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="docker"><a href="#docker" class="headerlink" title="docker"></a>docker</h1><h2 id="1-基本命令"><a href="#1-基本命令" class="headerlink" title="1.基本命令 :"></a>1.基本命令 :</h2><p>查看所有镜像：</p>
+        <h2 id="1-基本命令"><a href="#1-基本命令" class="headerlink" title="1.基本命令 :"></a>1.基本命令 :</h2><p>查看所有镜像：</p>
 <p><code>docker images</code></p>
 <p><code>docker image ls</code></p>
 <p>查看所有的容器：</p>
