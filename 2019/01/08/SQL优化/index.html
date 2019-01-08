@@ -7,18 +7,18 @@
   
   <title>SQL优化 | 未来在我手中，完全由我决定</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="SQL优化优化的目标: 解决瓶颈问题 减少IO次数  降低CPU计算   优化的具体措施查询 查询时，尽量避免全表扫描,首先应考虑在where及order by涉及的列上建立索引。  应尽量避免在where字句中对字段进行null值判断。否则将导致引擎放弃使用索引，进行全表扫描。  select id from table_name where col = null  应尽量避免在where子句中">
+  <meta name="description" content="优化的目标: 减少IO次数  降低CPU计算  提高查询效率   优化的具体措施查询 查询时，尽量避免全表扫描,首先应考虑在where及order by涉及的列上建立索引。  应尽量避免在where字句中对字段进行null值判断。否则将导致引擎放弃使用索引，进行全表扫描。  select id from table_name where col = null  应尽量避免在where子句中使用 !">
 <meta name="keywords" content="数据库">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SQL优化">
 <meta property="og:url" content="http://yoursite.com/2019/01/08/SQL优化/index.html">
 <meta property="og:site_name" content="未来在我手中，完全由我决定">
-<meta property="og:description" content="SQL优化优化的目标: 解决瓶颈问题 减少IO次数  降低CPU计算   优化的具体措施查询 查询时，尽量避免全表扫描,首先应考虑在where及order by涉及的列上建立索引。  应尽量避免在where字句中对字段进行null值判断。否则将导致引擎放弃使用索引，进行全表扫描。  select id from table_name where col = null  应尽量避免在where子句中">
+<meta property="og:description" content="优化的目标: 减少IO次数  降低CPU计算  提高查询效率   优化的具体措施查询 查询时，尽量避免全表扫描,首先应考虑在where及order by涉及的列上建立索引。  应尽量避免在where字句中对字段进行null值判断。否则将导致引擎放弃使用索引，进行全表扫描。  select id from table_name where col = null  应尽量避免在where子句中使用 !">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-01-08T05:31:59.998Z">
+<meta property="og:updated_time" content="2019-01-08T08:44:22.642Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SQL优化">
-<meta name="twitter:description" content="SQL优化优化的目标: 解决瓶颈问题 减少IO次数  降低CPU计算   优化的具体措施查询 查询时，尽量避免全表扫描,首先应考虑在where及order by涉及的列上建立索引。  应尽量避免在where字句中对字段进行null值判断。否则将导致引擎放弃使用索引，进行全表扫描。  select id from table_name where col = null  应尽量避免在where子句中">
+<meta name="twitter:description" content="优化的目标: 减少IO次数  降低CPU计算  提高查询效率   优化的具体措施查询 查询时，尽量避免全表扫描,首先应考虑在where及order by涉及的列上建立索引。  应尽量避免在where字句中对字段进行null值判断。否则将导致引擎放弃使用索引，进行全表扫描。  select id from table_name where col = null  应尽量避免在where子句中使用 !">
   
     <link rel="alternate" href="/atom.xml" title="未来在我手中，完全由我决定" type="application/atom+xml">
   
@@ -87,10 +87,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="SQL优化"><a href="#SQL优化" class="headerlink" title="SQL优化"></a>SQL优化</h1><h2 id="优化的目标-解决瓶颈问题"><a href="#优化的目标-解决瓶颈问题" class="headerlink" title="优化的目标: 解决瓶颈问题"></a>优化的目标: 解决瓶颈问题</h2><ul>
+        <h2 id="优化的目标"><a href="#优化的目标" class="headerlink" title="优化的目标:"></a>优化的目标:</h2><ul>
 <li><p>减少IO次数</p>
 </li>
 <li><p>降低CPU计算</p>
+</li>
+<li><p>提高查询效率</p>
 </li>
 </ul>
 <h2 id="优化的具体措施"><a href="#优化的具体措施" class="headerlink" title="优化的具体措施"></a>优化的具体措施</h2><h3 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h3><ol>
@@ -136,7 +138,12 @@
 </li>
 <li><p>尽量避免频繁的创建和删除临时表，以减少表资源的消耗。</p>
 </li>
+<li><p>如果使用到了临时表，在存储过程的最后务必将所有的临时表显式删除，先 truncate table ，然后 drop table ，这样可以避免系统表的较长时间锁定。</p>
+</li>
+<li><p>尽可能不要使用游标，他会占用大量资源。</p>
+</li>
 </ol>
+<p>未完…</p>
 
       
     </div>

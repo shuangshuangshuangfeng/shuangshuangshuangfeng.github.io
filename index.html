@@ -84,10 +84,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="SQL优化"><a href="#SQL优化" class="headerlink" title="SQL优化"></a>SQL优化</h1><h2 id="优化的目标-解决瓶颈问题"><a href="#优化的目标-解决瓶颈问题" class="headerlink" title="优化的目标: 解决瓶颈问题"></a>优化的目标: 解决瓶颈问题</h2><ul>
+        <h2 id="优化的目标"><a href="#优化的目标" class="headerlink" title="优化的目标:"></a>优化的目标:</h2><ul>
 <li><p>减少IO次数</p>
 </li>
 <li><p>降低CPU计算</p>
+</li>
+<li><p>提高查询效率</p>
 </li>
 </ul>
 <h2 id="优化的具体措施"><a href="#优化的具体措施" class="headerlink" title="优化的具体措施"></a>优化的具体措施</h2><h3 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h3><ol>
@@ -133,7 +135,12 @@
 </li>
 <li><p>尽量避免频繁的创建和删除临时表，以减少表资源的消耗。</p>
 </li>
+<li><p>如果使用到了临时表，在存储过程的最后务必将所有的临时表显式删除，先 truncate table ，然后 drop table ，这样可以避免系统表的较长时间锁定。</p>
+</li>
+<li><p>尽可能不要使用游标，他会占用大量资源。</p>
+</li>
 </ol>
+<p>未完…</p>
 
       
     </div>
