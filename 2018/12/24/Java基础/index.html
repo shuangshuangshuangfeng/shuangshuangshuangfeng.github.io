@@ -7,18 +7,18 @@
   
   <title>Java基础 | 未来在我手中，完全由我决定</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="JVM, JRE, JDK的区别  JVM（java Virtual Machine）:java虚拟机，用于保证java的跨平台性  JRE（Java Runtime Environmen）:java运行环境，包括JVM+Jave的系统类库  JDK（Java Development Kit）:Java的软件开发工具包, 他包含了Java的运行环境(JVM+Java系统类库)和Java工具  环">
+  <meta name="description" content="va基础知识回顾  JVM, JRE, JDK的区别  JVM（java Virtual Machine）:java虚拟机，用于保证java的跨平台性  JRE（Java Runtime Environmen）:java运行环境，包括JVM+Jave的系统类库  JDK（Java Development Kit）:Java的软件开发工具包, 他包含了Java的运行环境(JVM+Java系统类库)和">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java基础">
 <meta property="og:url" content="http://yoursite.com/2018/12/24/Java基础/index.html">
 <meta property="og:site_name" content="未来在我手中，完全由我决定">
-<meta property="og:description" content="JVM, JRE, JDK的区别  JVM（java Virtual Machine）:java虚拟机，用于保证java的跨平台性  JRE（Java Runtime Environmen）:java运行环境，包括JVM+Jave的系统类库  JDK（Java Development Kit）:Java的软件开发工具包, 他包含了Java的运行环境(JVM+Java系统类库)和Java工具  环">
+<meta property="og:description" content="va基础知识回顾  JVM, JRE, JDK的区别  JVM（java Virtual Machine）:java虚拟机，用于保证java的跨平台性  JRE（Java Runtime Environmen）:java运行环境，包括JVM+Jave的系统类库  JDK（Java Development Kit）:Java的软件开发工具包, 他包含了Java的运行环境(JVM+Java系统类库)和">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-01-07T07:17:15.634Z">
+<meta property="og:updated_time" content="2019-01-08T05:39:50.620Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java基础">
-<meta name="twitter:description" content="JVM, JRE, JDK的区别  JVM（java Virtual Machine）:java虚拟机，用于保证java的跨平台性  JRE（Java Runtime Environmen）:java运行环境，包括JVM+Jave的系统类库  JDK（Java Development Kit）:Java的软件开发工具包, 他包含了Java的运行环境(JVM+Java系统类库)和Java工具  环">
+<meta name="twitter:description" content="va基础知识回顾  JVM, JRE, JDK的区别  JVM（java Virtual Machine）:java虚拟机，用于保证java的跨平台性  JRE（Java Runtime Environmen）:java运行环境，包括JVM+Jave的系统类库  JDK（Java Development Kit）:Java的软件开发工具包, 他包含了Java的运行环境(JVM+Java系统类库)和">
   
     <link rel="alternate" href="/atom.xml" title="未来在我手中，完全由我决定" type="application/atom+xml">
   
@@ -87,7 +87,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ol>
+        <p>va基础知识回顾</p>
+<ol>
 <li><p>JVM, JRE, JDK的区别</p>
 <p> JVM（java Virtual Machine）:java虚拟机，用于保证java的跨平台性</p>
 <p> JRE（Java Runtime Environmen）:java运行环境，包括JVM+Jave的系统类库</p>
@@ -98,21 +99,15 @@
 </li>
 </ol>
 <p>3.关于java大小端的问题</p>
-<pre><code>这个问题起源于一次滴滴面试，当时面试官问到这个问题的时候一脸蒙逼，只怪自己学识太浅，仍需要加倍努力。
-
-什么是大端和小端？
-大端模式:数据的高字节保存在内存的低地址中,数据的低字节保存在内存的高地址中。
-
-小端模式:数据的高字节保存在内存的高地址中，数据的低字节保存在内存的低地址中。
-
-记忆方式:&quot;小端低低&quot;
-
-之所以有大小端之分，是因为：
-
-计算机中是以字节为单位的，每个地址单元都对应一个字节(8bit)，而在C语言，c++..的语言中，除了8bit的char类型，还有int,long float等类型,由于寄存器是大于一个字节的，所以，必然存在着怎样存放数据的问题，也就有了大端和小端。
-
-大端和小端的问题和计算机使用的芯片有关，目前Intel的80x86系列芯片是唯一还在坚持使用小端的芯片，ARM芯片默认采用小端，但可以切换为大端；而MIPS等芯片要么采用全部大端的方式储存，要么提供选项支持大端——可以在大小端之间切换，同时大端和小端的处理还与编译器的实现有关，在C语言中，默认是小端，由于Java是与平台无关的，所以Java默认是大端。
-</code></pre><ol start="4">
+<p>这个问题起源于一次滴滴面试，当时面试官问到这个问题的时候一脸蒙逼，只怪自己学识太浅，仍需要加倍努力。</p>
+<p><strong>什么是大端和小端</strong></p>
+<p>大端模式:数据的高字节保存在内存的低地址中,数据的低字节保存在内存的高地址中。</p>
+<p>小端模式:数据的高字节保存在内存的高地址中，数据的低字节保存在内存的低地址中。</p>
+<p>记忆方式:”小端低低”</p>
+<p><strong>之所以有大小端之分，是因为:</strong></p>
+<p>计算机中是以字节为单位的，每个地址单元都对应一个字节(8bit)，而在C语言，c++..的语言中，除了8bit的char类型，还有int,long float等类型,由于寄存器是大于一个字节的，所以，必然存在着怎样存放数据的问题，也就有了大端和小端。</p>
+<p>大端和小端的问题和计算机使用的芯片有关，目前Intel的80x86系列芯片是唯一还在坚持使用小端的芯片，ARM芯片默认采用小端，但可以切换为大端；而MIPS等芯片要么采用全部大端的方式储存，要么提供选项支持大端——可以在大小端之间切换，同时大端和小端的处理还与编译器的实现有关，在C语言中，默认是小端，由于Java是与平台无关的，所以Java默认是大端。</p>
+<ol start="4">
 <li><p>重载：</p>
 <p> 概念：在同一个类中，允许存在一个以上的同名<br> 函数，只要他们的参数个数或者参数类型不同</p>
 <p> 特点：返回值与类型无关,只看参数列表</p>
@@ -171,14 +166,10 @@
 <p>验证： 确保加载类的正确性</p>
 <p>准备： 负责为类的静态成员分配内存，并设置默认初始化值</p>
 <p>解析： 将类中的符号引用替换为直接引用</p>
+<p>初始化 : 局部变量保存在栈区,不许手动初始化，new的对象保存在堆区，虚拟机会进行默认初始化。 </p>
 </li>
 </ol>
-<pre><code>初始化 :
-
-局部变量保存在栈区,不许手动初始化
-
-new的对象保存在堆区，虚拟机会进行默认初始化。 
-</code></pre><ol start="14">
+<ol start="14">
 <li><p>Java对象的生命周期</p>
 <ol>
 <li>创建阶段</li>
@@ -224,6 +215,10 @@ new的对象保存在堆区，虚拟机会进行默认初始化。
 <li><p>对业务写方法加锁，对业务读方法没有加锁，容易出现脏读问题。（解决脏读问题的一个方法 : CopyOnRight）</p>
 </li>
 <li><p>线程安全概念: 当多个线程访问某一个类（或对象，或方法）时，这个类始终能表现出正确的行为，那么这个类(对象或方法)就是线程安全。</p>
+</li>
+<li><p>实现线程的两种方式:</p>
+<p> 继承Thread类</p>
+<p> 实现Runnable接口</p>
 </li>
 <li></li>
 </ol>
