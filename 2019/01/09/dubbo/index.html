@@ -5,15 +5,21 @@
   
 
   
-  <title>Tag: REST | 未来在我手中，完全由我决定</title>
+  <title>dubbo | 未来在我手中，完全由我决定</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="未来在我手中，完全由我决定">
-<meta property="og:url" content="http://yoursite.com/tags/REST/index.html">
+  <meta name="description" content="简介Dubbo 一个由阿里巴巴开源的、分布式的 *RPC(Remote Procedure Call Protocol-远程过程调用)**和微服务框架，现为Apache顶级项目。 RPC（远程过程调用）RPC采用客户机/服务器模式，请求程序是一个客户机，服务提供程序是一个服务器。 工作原理 : 运行时,一次客户机对服务器的RPC调用,其内部操作大致有如下十步：  调用客户端句柄；执行传送参数  调">
+<meta property="og:type" content="article">
+<meta property="og:title" content="dubbo">
+<meta property="og:url" content="http://yoursite.com/2019/01/09/dubbo/index.html">
 <meta property="og:site_name" content="未来在我手中，完全由我决定">
+<meta property="og:description" content="简介Dubbo 一个由阿里巴巴开源的、分布式的 *RPC(Remote Procedure Call Protocol-远程过程调用)**和微服务框架，现为Apache顶级项目。 RPC（远程过程调用）RPC采用客户机/服务器模式，请求程序是一个客户机，服务提供程序是一个服务器。 工作原理 : 运行时,一次客户机对服务器的RPC调用,其内部操作大致有如下十步：  调用客户端句柄；执行传送参数  调">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/sdf">
+<meta property="og:updated_time" content="2019-01-09T09:45:47.143Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="未来在我手中，完全由我决定">
+<meta name="twitter:title" content="dubbo">
+<meta name="twitter:description" content="简介Dubbo 一个由阿里巴巴开源的、分布式的 *RPC(Remote Procedure Call Protocol-远程过程调用)**和微服务框架，现为Apache顶级项目。 RPC（远程过程调用）RPC采用客户机/服务器模式，请求程序是一个客户机，服务提供程序是一个服务器。 工作原理 : 运行时,一次客户机对服务器的RPC调用,其内部操作大致有如下十步：  调用客户端句柄；执行传送参数  调">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/sdf">
   
     <link rel="alternate" href="/atom.xml" title="未来在我手中，完全由我决定" type="application/atom+xml">
   
@@ -60,40 +66,78 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/12/22/REST风格/" class="archive-article-date">
-  <time datetime="2018-12-22T04:40:33.000Z" itemprop="datePublished">Dec 22</time>
+        <section id="main"><article id="post-dubbo" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/09/dubbo/" class="article-date">
+  <time datetime="2019-01-09T09:45:26.000Z" itemprop="datePublished">2019-01-09</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/12/22/REST风格/">REST风格</a>
+    <h1 class="article-title" itemprop="name">
+      dubbo
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>Dubbo 一个由阿里巴巴开源的、分布式的 *RPC(Remote Procedure Call Protocol-远程过程调用)**和微服务框架，现为Apache顶级项目。</p>
+<h3 id="RPC（远程过程调用）"><a href="#RPC（远程过程调用）" class="headerlink" title="RPC（远程过程调用）"></a>RPC（远程过程调用）</h3><p>RPC采用客户机/服务器模式，请求程序是一个客户机，服务提供程序是一个服务器。</p>
+<p><strong>工作原理</strong> :</p>
+<p>运行时,一次客户机对服务器的RPC调用,其内部操作大致有如下十步：</p>
+<ol>
+<li><p>调用客户端句柄；执行传送参数</p>
+</li>
+<li><p>调用本地系统内核发送网络消息</p>
+</li>
+<li><p>消息传送到远程主机</p>
+</li>
+<li><p>服务器句柄得到消息并取得参数</p>
+</li>
+<li><p>执行远程过程</p>
+</li>
+<li><p>执行的过程将结果返回服务器句柄</p>
+</li>
+<li><p>服务器句柄返回结果，调用远程系统内核</p>
+</li>
+<li><p>消息传回本地主机</p>
+</li>
+<li><p>客户句柄由内核接收消息</p>
+</li>
+<li><p>客户接收句柄返回的数据</p>
+</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/sdf" alt="RPC工作原理"></p>
 
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/01/09/dubbo/" data-id="cjqp0159n00062eiebp5e4m5k" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/01/09/my_resume/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
 
 </section>
         
