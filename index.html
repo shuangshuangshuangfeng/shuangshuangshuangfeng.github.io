@@ -129,7 +129,7 @@
 </li>
 <li><p>索引并不是越多越好，索引固然可以提高相应的select的效率，单同时也降低了insert和update的效率，因为insert或update时可能会重建索引，所以怎样建立索引需要慎重考虑，视具体情况而定。一个表的索引数最好不要超过6个。</p>
 </li>
-<li><p>任何地方都不要使用select <em> , 用具体的字段替代 </em>, 不要返回用不到的字段。</p>
+<li><p>任何地方都不要使用select * , 用具体的字段替代 *, 不要返回用不到的字段。</p>
 </li>
 <li><p>尽量使用数字型字段，若只含数值信息的字段尽量不要设计为字符型，这会降低查询h额连接的性能，并会增加存储开销。</p>
 </li>
@@ -722,7 +722,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="python虚拟环境"><a href="#python虚拟环境" class="headerlink" title="python虚拟环境"></a>python虚拟环境</h1><h2 id="virtualenv"><a href="#virtualenv" class="headerlink" title="virtualenv"></a>virtualenv</h2><ol>
+        <p>n虚拟环境virtualenv用法</p>
+<h2 id="virtualenv"><a href="#virtualenv" class="headerlink" title="virtualenv"></a>virtualenv</h2><ol>
 <li><p>首先升级pip</p>
 <p> <code>pip install --upgrade pip</code></p>
 </li>
@@ -758,11 +759,9 @@
 <li><p>终止虚拟环境</p>
 <p> <code>deactive</code></p>
 </li>
-<li><p>删除虚拟环境</p>
-<p> <code>rmvirtualenv vir_name</code></p>
-</li>
 </ol>
-<p>注：<br>    不通的系统环境，配置文件的位置可能不一样<br>    每次要想使用virtualenvwrapper 工具时，都必须先激活virtualenvwrapper.sh， 另外，如果创建前要将即将的环境保存到Envs中，就要先设置一下环境变量：export WORKON_HOME=~/Envs，再搭建</p>
+<p><strong>注</strong> :</p>
+<p>不通的系统环境，配置文件的位置可能不一样<br>每次要想使用virtualenvwrapper 工具时，都必须先激活<code>virtualenvwrapper.sh</code>， 另外，如果创建前要将即将的环境保存到Envs中，就要先设置一下环境变量：export WORKON_HOME=~/Envs，再搭建</p>
 <p><a href="https://www.cnblogs.com/freely/p/8022923.html" target="_blank" rel="noopener">参考文章</a></p>
 
       

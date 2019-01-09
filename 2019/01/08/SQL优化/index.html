@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="未来在我手中，完全由我决定">
 <meta property="og:description" content="优化的目标: 减少IO次数  降低CPU计算  提高查询效率   优化的具体措施查询 查询时，尽量避免全表扫描,首先应考虑在where及order by涉及的列上建立索引。  应尽量避免在where字句中对字段进行null值判断。否则将导致引擎放弃使用索引，进行全表扫描。  select id from table_name where col = null  应尽量避免在where子句中使用 !">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-01-08T08:44:22.642Z">
+<meta property="og:updated_time" content="2019-01-09T03:20:53.373Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SQL优化">
 <meta name="twitter:description" content="优化的目标: 减少IO次数  降低CPU计算  提高查询效率   优化的具体措施查询 查询时，尽量避免全表扫描,首先应考虑在where及order by涉及的列上建立索引。  应尽量避免在where字句中对字段进行null值判断。否则将导致引擎放弃使用索引，进行全表扫描。  select id from table_name where col = null  应尽量避免在where子句中使用 !">
@@ -132,7 +132,7 @@
 </li>
 <li><p>索引并不是越多越好，索引固然可以提高相应的select的效率，单同时也降低了insert和update的效率，因为insert或update时可能会重建索引，所以怎样建立索引需要慎重考虑，视具体情况而定。一个表的索引数最好不要超过6个。</p>
 </li>
-<li><p>任何地方都不要使用select <em> , 用具体的字段替代 </em>, 不要返回用不到的字段。</p>
+<li><p>任何地方都不要使用select * , 用具体的字段替代 *, 不要返回用不到的字段。</p>
 </li>
 <li><p>尽量使用数字型字段，若只含数值信息的字段尽量不要设计为字符型，这会降低查询h额连接的性能，并会增加存储开销。</p>
 </li>
