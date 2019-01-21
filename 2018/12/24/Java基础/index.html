@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Java基础 | My Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="va基础知识回顾  JVM, JRE, JDK的区别  JVM（java Virtual Machine）:java虚拟机，用于保证java的跨平台性  JRE（Java Runtime Environmen）:java运行环境，包括JVM+Jave的系统类库  JDK（Java Development Kit）:Java的软件开发工具包, 他包含了Java的运行环境(JVM+Java系统类库)和">
+<meta name="keywords" content="Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java基础">
+<meta property="og:url" content="http://yoursite.com/2018/12/24/Java基础/index.html">
+<meta property="og:site_name" content="My Blog">
+<meta property="og:description" content="va基础知识回顾  JVM, JRE, JDK的区别  JVM（java Virtual Machine）:java虚拟机，用于保证java的跨平台性  JRE（Java Runtime Environmen）:java运行环境，包括JVM+Jave的系统类库  JDK（Java Development Kit）:Java的软件开发工具包, 他包含了Java的运行环境(JVM+Java系统类库)和">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-01-08T05:39:50.620Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java基础">
+<meta name="twitter:description" content="va基础知识回顾  JVM, JRE, JDK的区别  JVM（java Virtual Machine）:java虚拟机，用于保证java的跨平台性  JRE（Java Runtime Environmen）:java运行环境，包括JVM+Jave的系统类库  JDK（Java Development Kit）:Java的软件开发工具包, 他包含了Java的运行环境(JVM+Java系统类库)和">
+  
+    <link rel="alternate" href="/atom.xml" title="My Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">My Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">未来在我手中，完全由我决定</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Java基础" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/12/24/Java基础/" class="article-date">
+  <time datetime="2018-12-24T06:03:30.000Z" itemprop="datePublished">2018-12-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Java基础
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>va基础知识回顾</p>
+<ol>
+<li><p>JVM, JRE, JDK的区别</p>
+<p> JVM（java Virtual Machine）:java虚拟机，用于保证java的跨平台性</p>
+<p> JRE（Java Runtime Environmen）:java运行环境，包括JVM+Jave的系统类库</p>
+<p> JDK（Java Development Kit）:Java的软件开发工具包, 他包含了Java的运行环境(JVM+Java系统类库)和Java工具</p>
+</li>
+<li><p>环境变量Path和ClassPath的作用和区别<br> Path: 是配置可执行文件的搜索路径，当执行.exe文件时回去Path指定的路径查找可执行文件</p>
+<p> ClassPath: 是配置class文件所在的目录，用于指定类的搜索路径，JVM是通过ClassPath查找类的</p>
+</li>
+</ol>
+<p>3.关于java大小端的问题</p>
+<p>这个问题起源于一次滴滴面试，当时面试官问到这个问题的时候一脸蒙逼，只怪自己学识太浅，仍需要加倍努力。</p>
+<p><strong>什么是大端和小端</strong></p>
+<p>大端模式:数据的高字节保存在内存的低地址中,数据的低字节保存在内存的高地址中。</p>
+<p>小端模式:数据的高字节保存在内存的高地址中，数据的低字节保存在内存的低地址中。</p>
+<p>记忆方式:”小端低低”</p>
+<p><strong>之所以有大小端之分，是因为:</strong></p>
+<p>计算机中是以字节为单位的，每个地址单元都对应一个字节(8bit)，而在C语言，c++..的语言中，除了8bit的char类型，还有int,long float等类型,由于寄存器是大于一个字节的，所以，必然存在着怎样存放数据的问题，也就有了大端和小端。</p>
+<p>大端和小端的问题和计算机使用的芯片有关，目前Intel的80x86系列芯片是唯一还在坚持使用小端的芯片，ARM芯片默认采用小端，但可以切换为大端；而MIPS等芯片要么采用全部大端的方式储存，要么提供选项支持大端——可以在大小端之间切换，同时大端和小端的处理还与编译器的实现有关，在C语言中，默认是小端，由于Java是与平台无关的，所以Java默认是大端。</p>
+<ol start="4">
+<li><p>重载：</p>
+<p> 概念：在同一个类中，允许存在一个以上的同名<br> 函数，只要他们的参数个数或者参数类型不同</p>
+<p> 特点：返回值与类型无关,只看参数列表</p>
+<p> <code>public void testOverload(int a){
+ }</code></p>
+<p> <code>public void testOverload(String a){
+ }</code></p>
+<p><code>public void testOverload(int a, int b){}</code></p>
+</li>
+<li><p>构造方法和普通方法的区别:</p>
+<p> 构造方法和类名相同，并且没有返回类型，也没返回值</p>
+<p> 普通方法可以任意起名，必须有返回类型</p>
+</li>
+<li><p>this 和super的区别:</p>
+<p> this代表本类对象的引用</p>
+<p> super代表父类的存储空间</p>
+</li>
+<li><p>equals 和 == 的区别:</p>
+<p> ==: 比较的是变量的内存地址, 也就是看这两个对象是否是一个对象</p>
+<p> equals: 比较的是两个对象的内容是否一样，当一个类中，没有对equals()方法进行覆盖，那么使用的是Object类中的equals()方法，而Object类中的equals()方法返回的就是 == 的判断。</p>
+</li>
+<li><p>HashCode:<br> hashCode() 是Object类中的一个方法， 在Java中，hashCode() 方法主要作用是: 配合基于散列的集合一起使用，这样的散列集合包括: HashSet, HashMap Hashtable。</p>
+<p> Java中的hashCode() 方法，是根据一定的规则，将与对象相关的信息（比如对象的存储地址，对象的字段等）映射成一个数值，这个数值称作散列值。</p>
+</li>
+<li><p>hashCode() 与 equals() 方法:</p>
+<p> 首先要明白: <strong>如果两个对象的hashCode值相等，不能确定两个对象相等。</strong></p>
+<p> 在程序执行期间，只要equals()方法的比较操作得到的信息没有被修改，那么对同一个对象调用多次，hashCode()方法必须返回同一个值。</p>
+<p> 如果两个对象根据equals() 方法比较是相等的，那么调用hashCode()必须返回相同的值</p>
+<p> 如果两个对象根据equals() 方法比较是不相等的，但是hashCode() 不一定不相同</p>
+<p> 因此要记得: <strong>当重写equals() 方法的时候，记得重写hashCode()方法。</strong></p>
+</li>
+</ol>
+<ol start="11">
+<li><p>Object类中的方法</p>
+<p>  <code>public native int hashCode();</code></p>
+<p>  <code>public boolean equals(Object obj) {return (this == obj);}</code></p>
+<p>  <code>protected native Object clone() throws CloneNotSupportedException;</code></p>
+<p>  <code>public String toString() {return getClass().getName() + &quot;@&quot; + Integer.toHexString(hashCode()); }</code></p>
+<p> <code>public final native Class&lt;?&gt; getClass()</code></p>
+<p> <code>protected void finalize() throws Throwable { }</code></p>
+<p> <code>public final native void notify();</code></p>
+</li>
+</ol>
+<ol start="12">
+<li><p>反射机制</p>
+<p>Java反射机制：在运行状态中，对任意一个实体类,都能知道这个类的属性和方法，对于任意个个对象，都能调用他的任意方法和属性，这种动态获取信息以及动态调用对象的方法的功能称作Java反射机制.</p>
+<p>类型信息:</p>
+<p>Java让我们在运行时识别对象和类的信息，有两种方式:一种是RTTI（Run-Time Type Information)，它假定我们在编译时已经知道了所有类型信息; 一种是反射机制，它允许我们在运行时发现和使用类的信息。</p>
+<p>RTTI，编译器在编译时打开和检查.class文件 </p>
+<p>反射，运行时打开和检查.class文件</p>
+</li>
+<li><p>Java类加载</p>
+<p>当程序要使用某个类时，如果该类还未被加载到内存中， 系统会通过<strong>加载–&gt;连接–&gt;初始化</strong>三步对这个类进行初始化。</p>
+<p>加载 : 将class文件读入内存，并为之创建一个Class对象（任何类在被使用时，系统都会为它建立一个Class对象）。</p>
+<p>连接 : </p>
+<p>验证： 确保加载类的正确性</p>
+<p>准备： 负责为类的静态成员分配内存，并设置默认初始化值</p>
+<p>解析： 将类中的符号引用替换为直接引用</p>
+<p>初始化 : 局部变量保存在栈区,不许手动初始化，new的对象保存在堆区，虚拟机会进行默认初始化。 </p>
+</li>
+</ol>
+<ol start="14">
+<li><p>Java对象的生命周期</p>
+<ol>
+<li>创建阶段</li>
+<li>应用阶段</li>
+<li>不可见阶段</li>
+<li>不可达阶段</li>
+<li>收集阶段</li>
+<li>终结阶段</li>
+<li>对象空间重分配阶段</li>
+</ol>
+</li>
+<li><p>String, StringBuilder, StringBuffer</p>
+<ol>
+<li><p>运行速度比较 : String &lt; StringBuffer &lt; StringBuilder</p>
+</li>
+<li><p>线程安全 : StringBuffer是线程安全的，StringBulider是线程不安全的</p>
+</li>
+<li><p>使用范围 : </p>
+<p> String 适用于少量字符串使用</p>
+<p> StringBuffer适用多线程下字符缓冲区进行大量操作</p>
+<p> StringBulider适用单线程下字符缓冲区进行大量操作</p>
+</li>
+</ol>
+</li>
+<li><p>重载和重写的区别</p>
+<p>重写是子类重写父类方法</p>
+<p>重载是一个类中含有多个同名函数，其参数列表不同</p>
+</li>
+<li><p>Java对象的序列化与反序列化</p>
+<p>Java对象是只存在于虚拟机中的堆内存中的，如果要保存对象的状态，就用到了Java序列化，能够使Java对象持久化。</p>
+<p>Java序列化机制是Java语言内建的一种对象持久化机制。通过对象序列化，将对象的状态保存在字节数组中。</p>
+<p>对象反序列化就是将字节数组转化为JVM中活动的对象。</p>
+</li>
+</ol>
+<ol start="18">
+<li><p>多线程</p>
+</li>
+<li><p>synchronized 锁定的是对象，而不是代码。对于非static的synchronized党法，锁的是对象本身也就是this，对于static的方法，相当于锁定了代码段。</p>
+<p> 对于加了synchronized的的这段代码称为互斥区或者临界区。</p>
+</li>
+<li><p>同步方法和非同步方法是否可以同步调用： 可以的，同步方法需要锁，不同步方法不需要锁，两者不冲突。</p>
+</li>
+<li><p>对业务写方法加锁，对业务读方法没有加锁，容易出现脏读问题。（解决脏读问题的一个方法 : CopyOnRight）</p>
+</li>
+<li><p>线程安全概念: 当多个线程访问某一个类（或对象，或方法）时，这个类始终能表现出正确的行为，那么这个类(对象或方法)就是线程安全。</p>
+</li>
+<li><p>实现线程的两种方式:</p>
+<p> 继承Thread类</p>
+<p> 实现Runnable接口</p>
+</li>
+<li></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/12/24/Java基础/" data-id="cjr60f27k00019cie9d1ik94k" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/12/25/随笔/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          随笔
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/12/23/python虚拟环境/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">python虚拟环境</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/REST/">REST</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/virtualenv/">virtualenv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/简历/">简历</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/REST/" style="font-size: 10px;">REST</a> <a href="/tags/virtualenv/" style="font-size: 10px;">virtualenv</a> <a href="/tags/数据库/" style="font-size: 20px;">数据库</a> <a href="/tags/简历/" style="font-size: 10px;">简历</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/01/09/dubbo/">dubbo</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/09/my_resume/">个人简历</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/08/SQL优化/">SQL优化</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/07/session跨域共享/">session跨域共享</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/28/Maven/">Maven</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Trina<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

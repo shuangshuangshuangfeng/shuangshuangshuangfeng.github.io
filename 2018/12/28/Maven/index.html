@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Maven | My Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1.Maven的安装目录: bin: 包含了mvn运行的脚本，这些脚本用来配置java命令，准备好classpath和相关的java系统属性，然后执行 java命令。 boot:该目录只包含了一个文件，plexus-classworlds是一个类加载器框架，相对于默认的java类加载器，他提供了更丰富的语法以方便配置，mvn使用该框架加载自己的类库。 conf:该目录包含了一个 非常重要的文件，s">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Maven">
+<meta property="og:url" content="http://yoursite.com/2018/12/28/Maven/index.html">
+<meta property="og:site_name" content="My Blog">
+<meta property="og:description" content="1.Maven的安装目录: bin: 包含了mvn运行的脚本，这些脚本用来配置java命令，准备好classpath和相关的java系统属性，然后执行 java命令。 boot:该目录只包含了一个文件，plexus-classworlds是一个类加载器框架，相对于默认的java类加载器，他提供了更丰富的语法以方便配置，mvn使用该框架加载自己的类库。 conf:该目录包含了一个 非常重要的文件，s">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-01-07T07:17:48.858Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Maven">
+<meta name="twitter:description" content="1.Maven的安装目录: bin: 包含了mvn运行的脚本，这些脚本用来配置java命令，准备好classpath和相关的java系统属性，然后执行 java命令。 boot:该目录只包含了一个文件，plexus-classworlds是一个类加载器框架，相对于默认的java类加载器，他提供了更丰富的语法以方便配置，mvn使用该框架加载自己的类库。 conf:该目录包含了一个 非常重要的文件，s">
+  
+    <link rel="alternate" href="/atom.xml" title="My Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">My Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">未来在我手中，完全由我决定</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Maven" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/12/28/Maven/" class="article-date">
+  <time datetime="2018-12-28T07:37:29.000Z" itemprop="datePublished">2018-12-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Maven
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-Maven的安装目录"><a href="#1-Maven的安装目录" class="headerlink" title="1.Maven的安装目录:"></a>1.Maven的安装目录:</h3><ul>
+<li>bin: 包含了mvn运行的脚本，这些脚本用来配置java命令，准备好classpath和相关的java系统属性，然后执行 java命令。</li>
+<li>boot:该目录只包含了一个文件，plexus-classworlds是一个类加载器框架，相对于默认<br>的java类加载器，他提供了更丰富的语法以方便配置，mvn使用该框架加载自己的类库。</li>
+<li>conf:该目录包含了一个 非常重要的文件，setting.xml。直接修改该文件，就能在机器<br>上全局的定制Maven的行为。</li>
+</ul>
+<h3 id="2-maven的两个核心概念是：坐标和依赖"><a href="#2-maven的两个核心概念是：坐标和依赖" class="headerlink" title="2.maven的两个核心概念是：坐标和依赖:"></a>2.maven的两个核心概念是：坐标和依赖:</h3><ul>
+<li><p>Maven坐标为各种构件引入了秩序，任何一个构件都必须明确定义自己的坐标，而一组Maven坐标是通过一些元素定义的，他们是groupId，artifactId，version，packaging,classifier。<br>以下是坐标的定义：</p>
+<p>  <code>&lt;groupId&gt;org.sonatype.nexus&lt;/groupId&gt;</code></p>
+<p>  <code>&lt;artifactId&gt;nexus-indexer&lt;/artifactId&gt;</code></p>
+<p>  <code>&lt;version&gt;2.0.0&lt;/version&gt;</code></p>
+<p>  <code>&lt;packaging&gt;jar&lt;/packaging&gt;</code></p>
+</li>
+</ul>
+<p>其中：</p>
+<p>groupId:定义了项目属于哪个组，这个组和项目所在的组织或公司有关；</p>
+<p>artifactId:定义了当前项目在组中唯一的ID</p>
+<p>version：版本</p>
+<h3 id="3-每一个构建都有其唯一的坐标，根据这个坐标可以定义其在仓库中的唯一存储路径。"><a href="#3-每一个构建都有其唯一的坐标，根据这个坐标可以定义其在仓库中的唯一存储路径。" class="headerlink" title="3.每一个构建都有其唯一的坐标，根据这个坐标可以定义其在仓库中的唯一存储路径。"></a>3.每一个构建都有其唯一的坐标，根据这个坐标可以定义其在仓库中的唯一存储路径。</h3><p>对于Maven来说，仓库只有两类：本地库和远程库。当maven根据坐标寻找构建的时候，他首先会查看本地库，如果本地库存在此构件，则直接使用；如果本地库不存在此构件，或者需要查看是否有更新的构件版本，Maven就会去远程仓库查找，发现需要的构件以后下载到本地仓库再使用。如果本地仓库和远程仓库都没有需要的组件，Maven就会报错。</p>
+<h3 id="4-一些特殊的远程仓库：中央仓库和私服"><a href="#4-一些特殊的远程仓库：中央仓库和私服" class="headerlink" title="4.一些特殊的远程仓库：中央仓库和私服"></a>4.一些特殊的远程仓库：中央仓库和私服</h3><ul>
+<li>中央仓库是Maven核心自带的远程仓科，他包含了大部分开源的构件。在默认配置下，当为本地仓库没有Maven需要的构件的时候，Maven会尝试从中央仓库下载。</li>
+<li>私服是在局域网内假设的一个私有仓库服务器，用其代理所有外语的远程仓库，内部的项目还能部署到私服上供其他项目的使用。</li>
+<li>除了中央仓库和私服，还有很多其他公开的远程仓库。</li>
+</ul>
+<h3 id="5-Maven的快照版本-SNAPSHOT-和发布版本"><a href="#5-Maven的快照版本-SNAPSHOT-和发布版本" class="headerlink" title="5.Maven的快照版本(-SNAPSHOT)和发布版本"></a>5.Maven的快照版本(-SNAPSHOT)和发布版本</h3><p>首先要知道快照版本相对与发布版本是不稳定的。</p>
+<p>当一个快照版本(1.2.0-SNAPSHOT)的构件发布到私服的时候，Maven会自动为构件打上时间戳，有了时间戳，Maven就能随时在仓库中找到1.2.0-SNAPSHOT的最新文件。默认情况下，Maven每天检查一次更新。但基于快照版本机制，当有人调用1.2.0-SNAPSHOT的时候，maven能够确保得到最新可用的快照构件。<br>当项目经过完善的测试后需要发布的时候，就应该将快照版本改为发布版本，以确保每个人使用该构件时对应了唯一的构件。</p>
+<h3 id="6-Maven的三套生命周期-三套生命周期是相互独立的"><a href="#6-Maven的三套生命周期-三套生命周期是相互独立的" class="headerlink" title="6.Maven的三套生命周期(三套生命周期是相互独立的)"></a>6.Maven的三套生命周期(三套生命周期是相互独立的)</h3><p><strong>1.clean生命周期</strong>:</p>
+<p>目的：清理项目</p>
+<p>阶段：</p>
+<ul>
+<li>pre-clean 执行一些清理钱需要完成的工作。</li>
+<li>clean执行上一次构建生成的文件</li>
+<li>post-clean执行一些清理后要完成的工作</li>
+</ul>
+<p><strong>2.Default生命周期</strong>：</p>
+<p>Default生命周期定义了真正构建时所需要执行的所有步骤，是所有生命周期中最核心的部分。部分阶段如下：</p>
+<ul>
+<li>validate</li>
+<li>initialize</li>
+<li>compile：编译项目的主源码，一般是src/main/java目录下的java文件</li>
+<li>package: 接受编译好的代码，打包成可发布的格式，如jar</li>
+<li>install:将包安装到maven本地仓库，供本地其他Maven项目使用</li>
+<li>deploy：将最终的包复制到远程仓库，供开发人员和Maven项目使用。</li>
+</ul>
+<p><strong>3.Site生命周期：</strong></p>
+<p>目的：建立和发布站点</p>
+<p>阶段：</p>
+<ul>
+<li>pre-site执行一些生成项目站点之前需要完成的工作。</li>
+<li>site生成项目站点文档</li>
+<li>post-site执行一些在生成项目站点只有需要完成的工作</li>
+<li>site-deploy将生成的项目站点发布到服务器上。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/12/28/Maven/" data-id="cjr60f27m00029cie7sv306fz" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/01/07/session跨域共享/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          session跨域共享
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/12/25/数据库/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">数据库</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/REST/">REST</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/virtualenv/">virtualenv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/简历/">简历</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/REST/" style="font-size: 10px;">REST</a> <a href="/tags/virtualenv/" style="font-size: 10px;">virtualenv</a> <a href="/tags/数据库/" style="font-size: 20px;">数据库</a> <a href="/tags/简历/" style="font-size: 10px;">简历</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/01/09/dubbo/">dubbo</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/09/my_resume/">个人简历</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/08/SQL优化/">SQL优化</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/07/session跨域共享/">session跨域共享</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/28/Maven/">Maven</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Trina<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

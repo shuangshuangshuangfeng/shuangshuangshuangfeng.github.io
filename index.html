@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>My Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="My Blog">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="My Blog">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="My Blog">
+  
+    <link rel="alternate" href="/atom.xml" title="My Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">My Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">未来在我手中，完全由我决定</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-dubbo" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/09/dubbo/" class="article-date">
+  <time datetime="2019-01-09T09:45:26.000Z" itemprop="datePublished">2019-01-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/09/dubbo/">dubbo</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="微服务"><a href="#微服务" class="headerlink" title="微服务"></a>微服务</h3><p><strong>微服务的优势</strong>:</p>
+<ul>
+<li><p>降低复杂度</p>
+<p>  将原来耦合在一起的复杂业务拆分为单个服务，规避了原本复杂无止境的积累。每一个微服务专注与单一功能，并通过定义良好的接口清洗表述服务边界，每个服务开发者值专注于服务本身，通过使用缓存，DAL等技术手段来提升系统的性能，而对于消费者来说完全透明。</p>
+</li>
+<li><p>可独立部署</p>
+<p>  由于微服务具备独立的运行进程，所以每个微服务可以独立部署。当业务迭代时只需要发布相关服务的迭代即可，降低了测试的工作量同时也降低了服务发布的风险。</p>
+</li>
+<li><p>容错</p>
+<p> 在微服务架构下，当某一组件发生故障时，故障会被隔离在单个服务中。 通过限流、熔断等方式降低错误导致的危害，保障核心业务正常运行。</p>
+</li>
+<li><p>扩展</p>
+<p>  单块架构应用也可以实现横向扩展，就是将整个应用完整的复制到不同的节点。当应用的不同组件在扩展需求上存在差异时，微服务架构便体现出其灵活性，因为每个服务可以根据实际需求独立进行扩展。</p>
+</li>
+</ul>
+<h3 id="Dubbo简介"><a href="#Dubbo简介" class="headerlink" title="Dubbo简介"></a>Dubbo简介</h3><p>Dubbo 一个由阿里巴巴开源的、分布式的 RPC (Remote Procedure Call Protocol-远程过程调用)和微服务框架，现为Apache顶级项目。</p>
+<p><strong>dubbo工作过程</strong>:</p>
+<p><img src="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2019/01/09/dubbo/architecture.png" alt="dubbo工作过程"></p>
+<h3 id="RPC（远程过程调用）"><a href="#RPC（远程过程调用）" class="headerlink" title="RPC（远程过程调用）"></a>RPC（远程过程调用）</h3><p>RPC采用客户机/服务器模式，请求程序是一个客户机，服务提供程序是一个服务器。</p>
+<p><strong>工作原理</strong> :</p>
+<p>运行时,一次客户机对服务器的RPC调用,其内部操作大致有如下十步：</p>
+<ol>
+<li><p>调用客户端句柄；执行传送参数</p>
+</li>
+<li><p>调用本地系统内核发送网络消息</p>
+</li>
+<li><p>消息传送到远程主机</p>
+</li>
+<li><p>服务器句柄得到消息并取得参数</p>
+</li>
+<li><p>执行远程过程</p>
+</li>
+<li><p>执行的过程将结果返回服务器句柄</p>
+</li>
+<li><p>服务器句柄返回结果，调用远程系统内核</p>
+</li>
+<li><p>消息传回本地主机</p>
+</li>
+<li><p>客户句柄由内核接收消息</p>
+</li>
+<li><p>客户接收句柄返回的数据</p>
+</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2019/01/09/dubbo/%E8%BF%9C%E7%A8%8B%E8%BF%87%E7%A8%8B%E8%B0%83%E7%94%A8%E6%B5%81%E7%A8%8B%E5%9B%BE.jpg" alt="RPC工作原理"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/01/09/dubbo/" data-id="cjr60f27t00069ciesse6uvfr" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-my_resume" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/09/my_resume/" class="article-date">
+  <time datetime="2019-01-09T08:23:45.000Z" itemprop="datePublished">2019-01-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/09/my_resume/">个人简历</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="基本信息"><a href="#基本信息" class="headerlink" title="基本信息"></a>基本信息</h2><ul>
+<li><p><strong>姓名</strong> : 刘凤双</p>
+</li>
+<li><p><strong>性别</strong> : 女</p>
+</li>
+<li><p><strong>年龄</strong> : 23</p>
+</li>
+<li><p><strong>学历</strong> : 本科</p>
+</li>
+<li><p><strong>毕业院校</strong> : 河北大学</p>
+</li>
+<li><p><strong>专业</strong> : 计算机科学与技术</p>
+</li>
+<li><p><strong>所在城市</strong> : 北京</p>
+</li>
+<li><p><strong>电话</strong> : 13231297170</p>
+</li>
+<li><p><strong>邮箱</strong> : <a href="mailto:775001644@qq.com" target="_blank" rel="noopener">775001644@qq.com</a></p>
+</li>
+</ul>
+<h2 id="教育背景"><a href="#教育背景" class="headerlink" title="教育背景"></a>教育背景</h2><table>
+<thead>
+<tr>
+<th>时间</th>
+<th>学校</th>
+<th>专业</th>
+<th>学历</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2014年9月 – 2018年6月</td>
+<td>河北大学</td>
+<td>计算机科学与技术</td>
+<td>获得学士学位</td>
+</tr>
+</tbody>
+</table>
+<h2 id="实习经历"><a href="#实习经历" class="headerlink" title="实习经历"></a>实习经历</h2><ul>
+<li><p><strong>地点</strong> : 易联汇华科技有限公司</p>
+</li>
+<li><p><strong>职务</strong> : Java开发工程师</p>
+</li>
+<li><p><strong>时间</strong> : 2018年8月 至 2019年1月</p>
+</li>
+<li><p><strong>工作内容</strong> :<br>  主要负责公司风控系统的开发，风控服务接口的开发。</p>
+</li>
+</ul>
+<h2 id="技能"><a href="#技能" class="headerlink" title="技能"></a>技能</h2><ul>
+<li><p>熟悉Java的Web开发</p>
+</li>
+<li><p>熟练使用spring, mybatis,spring boot等框架</p>
+</li>
+<li><p>熟悉mysql等数据库的开发</p>
+</li>
+<li><p>了解基本的Linux命令</p>
+</li>
+</ul>
+<h2 id="证书奖励"><a href="#证书奖励" class="headerlink" title="证书奖励"></a>证书奖励</h2><ul>
+<li><p>CET4</p>
+</li>
+<li><p>挑战杯全国大学生数学建模竞赛省二等奖</p>
+</li>
+</ul>
+<h2 id="自我评价"><a href="#自我评价" class="headerlink" title="自我评价"></a>自我评价</h2><pre><code>1234567
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/01/09/my_resume/" data-id="cjr60f27v00099cie8tmnrj1a" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/简历/">简历</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-SQL优化" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/08/SQL优化/" class="article-date">
+  <time datetime="2019-01-08T05:31:10.000Z" itemprop="datePublished">2019-01-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/08/SQL优化/">SQL优化</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="优化的目标"><a href="#优化的目标" class="headerlink" title="优化的目标:"></a>优化的目标:</h2><ul>
+<li><p>减少IO次数</p>
+</li>
+<li><p>降低CPU计算</p>
+</li>
+<li><p>提高查询效率</p>
+</li>
+</ul>
+<h2 id="优化的具体措施"><a href="#优化的具体措施" class="headerlink" title="优化的具体措施"></a>优化的具体措施</h2><h3 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h3><ol>
+<li><p>查询时，尽量避免全表扫描,首先应考虑在where及order by涉及的列上建立索引。</p>
+</li>
+<li><p>应尽量避免在where字句中对字段进行null值判断。否则将导致引擎放弃使用索引，进行全表扫描。</p>
+<p> <code>select id from table_name where col = null</code></p>
+</li>
+<li><p>应尽量避免在where子句中使用 != , &lt;&gt;, 或 not in 操作符，否则引擎将放弃使用索引而全表扫描。</p>
+</li>
+<li><p>应尽量避免在where子句中使用or来连接条件，如果一个字段有索引，另一个字段没有索引，将导致引擎放弃所有索引。</p>
+<p> <code>select id from table_name where col1 = &#39;a&#39; or num = 10</code>    </p>
+<p> 应这样查询</p>
+<p> <code>select id from table_name where col1 = &#39;a&#39;</code></p>
+<p> <code>union all</code></p>
+<p> <code>select id from table_name where num = 10</code></p>
+</li>
+<li><p>尽量避免模糊查询，因为模糊查询会导致全表扫描。 若要提高效率，可以考虑全文检索。</p>
+</li>
+<li><p>在where子句中使用参数，会导致全表扫描。因为SQL只有在运行时才会解析局部变量，单优化程序不能将访问计划的选择推迟到运行时，他必须在编译时就进行选择。因此，如果在编译时就建立访问计划，变量的值还是未知的，无法作为索引选择的输入项。</p>
+<p> 例如下文中会使用全表扫描，不会使用索引:</p>
+<p> <code>select id from table_name where name = @name</code></p>
+<p> 可以改为强制查询使用索引 :</p>
+<p> <code>select id from table_name with (index(index_name)) where name = @name</code></p>
+</li>
+<li><p>应避免在where子句中对字段进行表达式操作，这将导致引擎放弃使用索引进行全表扫描。</p>
+<p> <code>select id from table_name where num/2 = 100</code></p>
+</li>
+<li><p>应避免在where子句中对字段进行函数操作， 这将导致引擎放弃使用索引而进行全表扫描。</p>
+<p> <code>select id from table_name where substring(name,1,3) = &#39;abc&#39;</code></p>
+</li>
+<li><p>不要在where子句中的等号左边进行函数，，算数运算或其他表达式的运算，否则系统将无法正确使用索引。</p>
+</li>
+</ol>
+<ol start="10">
+<li><p>如果只更新少数字段，不要update全部字段，否则频繁的调用会引起明显的性能消耗。</p>
+</li>
+<li><p>索引并不是越多越好，索引固然可以提高相应的select的效率，单同时也降低了insert和update的效率，因为insert或update时可能会重建索引，所以怎样建立索引需要慎重考虑，视具体情况而定。一个表的索引数最好不要超过6个。</p>
+</li>
+<li><p>任何地方都不要使用select * , 用具体的字段替代 *, 不要返回用不到的字段。</p>
+</li>
+<li><p>尽量使用数字型字段，若只含数值信息的字段尽量不要设计为字符型，这会降低查询h额连接的性能，并会增加存储开销。</p>
+</li>
+<li><p>尽量避免频繁的创建和删除临时表，以减少表资源的消耗。</p>
+</li>
+<li><p>如果使用到了临时表，在存储过程的最后务必将所有的临时表显式删除，先 truncate table ，然后 drop table ，这样可以避免系统表的较长时间锁定。</p>
+</li>
+<li><p>尽可能不要使用游标，他会占用大量资源。</p>
+</li>
+</ol>
+<p>未完…</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/01/08/SQL优化/" data-id="cjr60f27s00059cie4qfhas90" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据库/">数据库</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-session跨域共享" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/07/session跨域共享/" class="article-date">
+  <time datetime="2019-01-07T05:40:37.000Z" itemprop="datePublished">2019-01-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/07/session跨域共享/">session跨域共享</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="session共享"><a href="#session共享" class="headerlink" title="session共享"></a>session共享</h2><p>在一个分布式的环境下，已登录的用户发出多个请求，通过负载均衡，请求可能被不同的服务器处理，因此，我们需要不同服务器间共享session,以保证用户登陆同一个系统，只需要登陆一次。在不同的服务器（tomcat）之间共享session,称为session共享。</p>
+<h2 id="session跨域共享"><a href="#session跨域共享" class="headerlink" title="session跨域共享"></a>session跨域共享</h2><p>当我们有多个系统，并且进入这些系统时，只需要登陆一次，也就是说只登陆一次，便可以使用多个系统，这称为跨域。</p>
+<p>session跨域共享就是摒弃了系统（tomcat）提供的session，自定义session的机制，用以多个系统使用同一套登陆。</p>
+<p><img src="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2019/01/07/session%E8%B7%A8%E5%9F%9F%E5%85%B1%E4%BA%AB/session%E8%B7%A8%E5%9F%9F%E5%85%B1%E4%BA%AB%E5%8E%9F%E7%90%86.png" alt="session跨域共享"></p>
+<h2 id="单点登陆（single-sign-on）"><a href="#单点登陆（single-sign-on）" class="headerlink" title="单点登陆（single sign on）"></a>单点登陆（single sign on）</h2><p>用户只需要登陆一次就可以访问相互信任的应用系统。</p>
+<p>过程： 用户第一次访问应用系统的时候，如果还没登陆，会被引导到认证系统中进行登陆，根据用户提供的登陆信息，认证系统进行身份校验，如果通过校验，则返回给用户一个认证的凭据（ticket），用户再访问的时候，会把这个ticket带上，作为自己的认证凭据，应用系统接受请求之后会把ticket送到认证系统进行校验，检查ticket的合法性，如果通过校验，用户就可以在不用再次登陆的情况下访问其他系统了。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/01/07/session跨域共享/" data-id="cjr60f285000c9cie4l9cfaom" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Maven" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/12/28/Maven/" class="article-date">
+  <time datetime="2018-12-28T07:37:29.000Z" itemprop="datePublished">2018-12-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/28/Maven/">Maven</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-Maven的安装目录"><a href="#1-Maven的安装目录" class="headerlink" title="1.Maven的安装目录:"></a>1.Maven的安装目录:</h3><ul>
+<li>bin: 包含了mvn运行的脚本，这些脚本用来配置java命令，准备好classpath和相关的java系统属性，然后执行 java命令。</li>
+<li>boot:该目录只包含了一个文件，plexus-classworlds是一个类加载器框架，相对于默认<br>的java类加载器，他提供了更丰富的语法以方便配置，mvn使用该框架加载自己的类库。</li>
+<li>conf:该目录包含了一个 非常重要的文件，setting.xml。直接修改该文件，就能在机器<br>上全局的定制Maven的行为。</li>
+</ul>
+<h3 id="2-maven的两个核心概念是：坐标和依赖"><a href="#2-maven的两个核心概念是：坐标和依赖" class="headerlink" title="2.maven的两个核心概念是：坐标和依赖:"></a>2.maven的两个核心概念是：坐标和依赖:</h3><ul>
+<li><p>Maven坐标为各种构件引入了秩序，任何一个构件都必须明确定义自己的坐标，而一组Maven坐标是通过一些元素定义的，他们是groupId，artifactId，version，packaging,classifier。<br>以下是坐标的定义：</p>
+<p>  <code>&lt;groupId&gt;org.sonatype.nexus&lt;/groupId&gt;</code></p>
+<p>  <code>&lt;artifactId&gt;nexus-indexer&lt;/artifactId&gt;</code></p>
+<p>  <code>&lt;version&gt;2.0.0&lt;/version&gt;</code></p>
+<p>  <code>&lt;packaging&gt;jar&lt;/packaging&gt;</code></p>
+</li>
+</ul>
+<p>其中：</p>
+<p>groupId:定义了项目属于哪个组，这个组和项目所在的组织或公司有关；</p>
+<p>artifactId:定义了当前项目在组中唯一的ID</p>
+<p>version：版本</p>
+<h3 id="3-每一个构建都有其唯一的坐标，根据这个坐标可以定义其在仓库中的唯一存储路径。"><a href="#3-每一个构建都有其唯一的坐标，根据这个坐标可以定义其在仓库中的唯一存储路径。" class="headerlink" title="3.每一个构建都有其唯一的坐标，根据这个坐标可以定义其在仓库中的唯一存储路径。"></a>3.每一个构建都有其唯一的坐标，根据这个坐标可以定义其在仓库中的唯一存储路径。</h3><p>对于Maven来说，仓库只有两类：本地库和远程库。当maven根据坐标寻找构建的时候，他首先会查看本地库，如果本地库存在此构件，则直接使用；如果本地库不存在此构件，或者需要查看是否有更新的构件版本，Maven就会去远程仓库查找，发现需要的构件以后下载到本地仓库再使用。如果本地仓库和远程仓库都没有需要的组件，Maven就会报错。</p>
+<h3 id="4-一些特殊的远程仓库：中央仓库和私服"><a href="#4-一些特殊的远程仓库：中央仓库和私服" class="headerlink" title="4.一些特殊的远程仓库：中央仓库和私服"></a>4.一些特殊的远程仓库：中央仓库和私服</h3><ul>
+<li>中央仓库是Maven核心自带的远程仓科，他包含了大部分开源的构件。在默认配置下，当为本地仓库没有Maven需要的构件的时候，Maven会尝试从中央仓库下载。</li>
+<li>私服是在局域网内假设的一个私有仓库服务器，用其代理所有外语的远程仓库，内部的项目还能部署到私服上供其他项目的使用。</li>
+<li>除了中央仓库和私服，还有很多其他公开的远程仓库。</li>
+</ul>
+<h3 id="5-Maven的快照版本-SNAPSHOT-和发布版本"><a href="#5-Maven的快照版本-SNAPSHOT-和发布版本" class="headerlink" title="5.Maven的快照版本(-SNAPSHOT)和发布版本"></a>5.Maven的快照版本(-SNAPSHOT)和发布版本</h3><p>首先要知道快照版本相对与发布版本是不稳定的。</p>
+<p>当一个快照版本(1.2.0-SNAPSHOT)的构件发布到私服的时候，Maven会自动为构件打上时间戳，有了时间戳，Maven就能随时在仓库中找到1.2.0-SNAPSHOT的最新文件。默认情况下，Maven每天检查一次更新。但基于快照版本机制，当有人调用1.2.0-SNAPSHOT的时候，maven能够确保得到最新可用的快照构件。<br>当项目经过完善的测试后需要发布的时候，就应该将快照版本改为发布版本，以确保每个人使用该构件时对应了唯一的构件。</p>
+<h3 id="6-Maven的三套生命周期-三套生命周期是相互独立的"><a href="#6-Maven的三套生命周期-三套生命周期是相互独立的" class="headerlink" title="6.Maven的三套生命周期(三套生命周期是相互独立的)"></a>6.Maven的三套生命周期(三套生命周期是相互独立的)</h3><p><strong>1.clean生命周期</strong>:</p>
+<p>目的：清理项目</p>
+<p>阶段：</p>
+<ul>
+<li>pre-clean 执行一些清理钱需要完成的工作。</li>
+<li>clean执行上一次构建生成的文件</li>
+<li>post-clean执行一些清理后要完成的工作</li>
+</ul>
+<p><strong>2.Default生命周期</strong>：</p>
+<p>Default生命周期定义了真正构建时所需要执行的所有步骤，是所有生命周期中最核心的部分。部分阶段如下：</p>
+<ul>
+<li>validate</li>
+<li>initialize</li>
+<li>compile：编译项目的主源码，一般是src/main/java目录下的java文件</li>
+<li>package: 接受编译好的代码，打包成可发布的格式，如jar</li>
+<li>install:将包安装到maven本地仓库，供本地其他Maven项目使用</li>
+<li>deploy：将最终的包复制到远程仓库，供开发人员和Maven项目使用。</li>
+</ul>
+<p><strong>3.Site生命周期：</strong></p>
+<p>目的：建立和发布站点</p>
+<p>阶段：</p>
+<ul>
+<li>pre-site执行一些生成项目站点之前需要完成的工作。</li>
+<li>site生成项目站点文档</li>
+<li>post-site执行一些在生成项目站点只有需要完成的工作</li>
+<li>site-deploy将生成的项目站点发布到服务器上。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/12/28/Maven/" data-id="cjr60f27m00029cie7sv306fz" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-数据库" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/12/25/数据库/" class="article-date">
+  <time datetime="2018-12-25T15:25:45.000Z" itemprop="datePublished">2018-12-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/25/数据库/">数据库</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="数据库知识"><a href="#数据库知识" class="headerlink" title="数据库知识"></a>数据库知识</h1><h2 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h2><h3 id="1-完整性约束"><a href="#1-完整性约束" class="headerlink" title="1. 完整性约束"></a>1. 完整性约束</h3><ul>
+<li><p><strong>实体完整性</strong>: 实体完整性是指表中行的完整性，主要用于保证操作的数据（记录）非空，唯一且不重复。即:<em>实体完整性要求每个表有且仅有一个主键，每个主键值唯一，而且不允许为空或重复</em></p>
+</li>
+<li><p><strong>参照完整性</strong>: 参照完整性属于表间规则，对于永久关系的相关表，在更新插入或删除记录时，如果只改其一，则影响其数据的完整性。即<em>外键的取值必须是另一个表的主键的有效值或者空值</em></p>
+</li>
+<li><p><strong>用户定义完整性</strong>: 用户自定义完整性是对数据表中字段属性的约束，包括字段的值域，字段的类型，字段的有效规则等约束。如：百分制成绩的取值范围是0-100.</p>
+</li>
+</ul>
+<h3 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h3><p>数据库事务是作为一个逻辑工作单元执行的一系列操作,要么完全执行，要么完全不执行。</p>
+<p>事务的属性: 一致性，原子性，隔离性，持久性</p>
+<ul>
+<li><p><strong>原子性</strong> : 一个事务包含多个操作，这些操作要么全部执行，要么都不执行。即<em>某个操作失败后会回滚到事务执行之前的状态</em></p>
+</li>
+<li><p><strong>一致性</strong> : 一致性是对数据可见性的约束，保证在一个事务中的多次操作的数据中间状态对其他事务是不可见的，因为这些中间状态是一个过度状态，与事务的开始状态和事务的结束状态是不一致的。</p>
+</li>
+<li><p><strong>隔离性</strong> : 并发事务之间互相影响的程度。</p>
+</li>
+<li><p><strong>持久性</strong> : 事务提交后，对系统的影响是永久的。</p>
+</li>
+</ul>
+<h3 id="存储过程"><a href="#存储过程" class="headerlink" title="存储过程"></a>存储过程</h3><p><strong>定义:</strong></p>
+<p>存储过程是在大型数据库系统中，一组未来完成特定功能的SQL语句集，存储在数据库中，经过一次编译后调用不需要再次编译，用户通过指定存储过程的名字并给出参数来执行它。存储过程是数据库中的一个重要对象。</p>
+<p><strong>优点:</strong></p>
+<ul>
+<li>存储过程是一个预编译的代码块，执行效率高</li>
+<li>可以一定程序上确保数据安全</li>
+</ul>
+<h3 id="SQL语句"><a href="#SQL语句" class="headerlink" title="SQL语句"></a>SQL语句</h3><ul>
+<li>SQL数据定义语句的操作对象： 模式， 表， 视图， 索引。</li>
+<li>SQL数据定义语句的命令动词： CREATE, DROP, ALTER.</li>
+<li>RDBMS（Relational Database Management System， 关系数据库管理系统）中索引一般采用B+树或Hash来实现</li>
+<li>索引可以分为唯一索引，非唯一索引和聚簇索引</li>
+</ul>
+<p><strong>查询条件</strong> : </p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">查询条件</th>
+<th style="text-align:center">运算符</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">比较</td>
+<td style="text-align:center">=, &gt;=, &lt;=, &gt;, &lt;, &lt;&gt;, !&gt;, !&lt;</td>
+</tr>
+<tr>
+<td style="text-align:center">确定范围</td>
+<td style="text-align:center">BETWEEN AND, NOT BETWEEN AND</td>
+</tr>
+<tr>
+<td style="text-align:center">确定集合</td>
+<td style="text-align:center">IN, NOT IN</td>
+</tr>
+<tr>
+<td style="text-align:center">字符匹配</td>
+<td style="text-align:center">LIKE, NOT LIKE</td>
+</tr>
+<tr>
+<td style="text-align:center">空值</td>
+<td style="text-align:center">IS NULL, IS NOT NULL</td>
+</tr>
+<tr>
+<td style="text-align:center">多重条件</td>
+<td style="text-align:center">AND, OR, NOT</td>
+</tr>
+</tbody>
+</table>
+<p><strong>操作对象</strong> : </p>
+<table>
+<thead>
+<tr>
+<th>操作对象</th>
+<th>创建</th>
+<th>删除</th>
+<th>修改</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>模式</td>
+<td>CREATE SCHEMA</td>
+<td>DROP SCHEMA</td>
+<td></td>
+</tr>
+<tr>
+<td>表</td>
+<td>CREATE TABLE</td>
+<td>DROP TABLE</td>
+<td>ALTER TABLE</td>
+</tr>
+<tr>
+<td>视图</td>
+<td>CREATE VIEW</td>
+<td>DROP VIEW</td>
+<td></td>
+</tr>
+<tr>
+<td>索引</td>
+<td>CREATE INDEX</td>
+<td>DROP INDEX</td>
+</tr>
+</tbody>
+</table>
+<p><strong>实例</strong>:</p>
+<ol>
+<li><p>创建数据库:</p>
+<p> <code>create database database_name</code></p>
+</li>
+<li><p>删除数据库 :</p>
+<p> <code>drop database database_name</code></p>
+</li>
+<li><p>创建新表 :</p>
+<p> <code>create table table_name (table_id not null primary key, col1 type1, ...  )</code></p>
+</li>
+<li><p>删除新表 :</p>
+<p> <code>drop table table_name</code></p>
+</li>
+<li><p>增加一个列 :</p>
+<p> <code>alter table table_name add column col type</code></p>
+</li>
+<li><p>添加主键 :</p>
+<p> <code>alter table table_name add primary key (col)</code></p>
+</li>
+<li><p>删除主键 :</p>
+<p> <code>alter table table_name drop primary key(col)</code></p>
+</li>
+<li><p>创建索引 :</p>
+<p> <code>create [unique] index index_name on table_name(col, ...)</code></p>
+</li>
+<li><p>删除索引 :</p>
+<p> <code>drop index index_name</code></p>
+<p> 注意 : 索引是不能修改的，所以想更改必须删除重建</p>
+</li>
+<li><p>创建视图 :</p>
+<p> `create view view_name as (select …)</p>
+</li>
+<li><p>删除视图 :</p>
+<p><code>drop view view_name</code></p>
+</li>
+<li><p>UNION运算符 和 UNION ALL 运算符 :</p>
+<p><strong>UNION消除重复行</strong></p>
+<p><code>select column_names from table_name1 UNION select column_names from table_name2</code></p>
+<p><strong>UNION ALL 不消除重复行</strong></p>
+<p><code>select column_names from table_name1 UNION ALL select column_names from table_name2</code></p>
+</li>
+</ol>
+<h3 id="乐观锁与悲观锁"><a href="#乐观锁与悲观锁" class="headerlink" title="乐观锁与悲观锁"></a>乐观锁与悲观锁</h3><p><strong>悲观锁</strong>: 就是很悲观，每次去拿数据的时候都认为别人会修改，所以每次在拿数据的时候都会上锁。传统的关系数据库里边就用到了很多这种锁机制，比如行锁，表锁等，读锁，写锁等，都是在做操作之前先上锁。它指的是数据被修改的是保持保守态度，因此，在整个数据处理过程中，将数据处于锁定状态。悲观锁的实现，往往依靠数据库提供的锁机制。</p>
+<p><strong>乐观锁</strong>: 相对悲观锁而言，乐观锁采取了更加宽松的加锁机制。<em>乐观锁大多是基于数据版本（Version）记录机制实现</em>，读取数据时，将此版本号一同读出，之后更新时，对此版本号加一。此时，将提交数据的版本数据与数据库对应记录的当前版本信息进行比对，如果提交的数据版本号大于数据库表当前版本号，则给予更新，否则认为是过期数据。</p>
+<p><strong>适用场景</strong></p>
+<ul>
+<li><p>乐观锁: 多读场景（这样冲突很少发生，省去了锁的开销，增加了系统的吞吐量）</p>
+</li>
+<li><p>悲观锁: 多写场景（经常产生冲突,上层应用会不断的进行retry，反而降低了性能，因此悲观锁比较适合）</p>
+</li>
+</ul>
+<h3 id="临时表"><a href="#临时表" class="headerlink" title="临时表"></a>临时表</h3><p>临时表是建立在系统临时文件夹中的表，如果使用得当，完全可以像普通表一样进行操作。</p>
+<p><strong>临时表有两种类型： 本地表和全局表。</strong></p>
+<p><strong>本地表</strong>：存在于首次创建或引用表的实例连接期间，本地临时表对于创建者是可见的,当断开连接后，会删除临时表.</p>
+<p><strong>全局表</strong>: 全局表对于任何用户和任何连接都是可见的，当引用该表的所有用户都断开连接后，将删除全局临时表。</p>
+<p>临时表存储在tempdb中，因此临时表的访问是有可能造成物理IO的。</p>
+<p>临时表可以有索引。</p>
+<h3 id="表变量"><a href="#表变量" class="headerlink" title="表变量"></a>表变量</h3><p>表变量存储在内存中。也分为本地和全局两种</p>
+<p>表变量存放在内存是有一定限制的，如果表变量数据量超过阈值，会把内存耗尽，然后使用TempDB的空间，这样主要还是使用硬盘空间，但同时把内存基本耗尽，增加了内存调入调出的机会，反而降低速度。</p>
+<h2 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h2><p>抄一遍自己就理解了， 我理解能力差。。。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/12/25/数据库/" data-id="cjr60f286000e9ciez6k1q6f3" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据库/">数据库</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-随笔" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/12/25/随笔/" class="article-date">
+  <time datetime="2018-12-25T07:36:07.000Z" itemprop="datePublished">2018-12-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/25/随笔/">随笔</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>我相信，只要努力，就一定会有结果，学习的过程总不会那么容易，加油！</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/12/25/随笔/" data-id="cjr60f28b000g9cieynqnemnm" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Java基础" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/12/24/Java基础/" class="article-date">
+  <time datetime="2018-12-24T06:03:30.000Z" itemprop="datePublished">2018-12-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/24/Java基础/">Java基础</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>va基础知识回顾</p>
+<ol>
+<li><p>JVM, JRE, JDK的区别</p>
+<p> JVM（java Virtual Machine）:java虚拟机，用于保证java的跨平台性</p>
+<p> JRE（Java Runtime Environmen）:java运行环境，包括JVM+Jave的系统类库</p>
+<p> JDK（Java Development Kit）:Java的软件开发工具包, 他包含了Java的运行环境(JVM+Java系统类库)和Java工具</p>
+</li>
+<li><p>环境变量Path和ClassPath的作用和区别<br> Path: 是配置可执行文件的搜索路径，当执行.exe文件时回去Path指定的路径查找可执行文件</p>
+<p> ClassPath: 是配置class文件所在的目录，用于指定类的搜索路径，JVM是通过ClassPath查找类的</p>
+</li>
+</ol>
+<p>3.关于java大小端的问题</p>
+<p>这个问题起源于一次滴滴面试，当时面试官问到这个问题的时候一脸蒙逼，只怪自己学识太浅，仍需要加倍努力。</p>
+<p><strong>什么是大端和小端</strong></p>
+<p>大端模式:数据的高字节保存在内存的低地址中,数据的低字节保存在内存的高地址中。</p>
+<p>小端模式:数据的高字节保存在内存的高地址中，数据的低字节保存在内存的低地址中。</p>
+<p>记忆方式:”小端低低”</p>
+<p><strong>之所以有大小端之分，是因为:</strong></p>
+<p>计算机中是以字节为单位的，每个地址单元都对应一个字节(8bit)，而在C语言，c++..的语言中，除了8bit的char类型，还有int,long float等类型,由于寄存器是大于一个字节的，所以，必然存在着怎样存放数据的问题，也就有了大端和小端。</p>
+<p>大端和小端的问题和计算机使用的芯片有关，目前Intel的80x86系列芯片是唯一还在坚持使用小端的芯片，ARM芯片默认采用小端，但可以切换为大端；而MIPS等芯片要么采用全部大端的方式储存，要么提供选项支持大端——可以在大小端之间切换，同时大端和小端的处理还与编译器的实现有关，在C语言中，默认是小端，由于Java是与平台无关的，所以Java默认是大端。</p>
+<ol start="4">
+<li><p>重载：</p>
+<p> 概念：在同一个类中，允许存在一个以上的同名<br> 函数，只要他们的参数个数或者参数类型不同</p>
+<p> 特点：返回值与类型无关,只看参数列表</p>
+<p> <code>public void testOverload(int a){
+ }</code></p>
+<p> <code>public void testOverload(String a){
+ }</code></p>
+<p><code>public void testOverload(int a, int b){}</code></p>
+</li>
+<li><p>构造方法和普通方法的区别:</p>
+<p> 构造方法和类名相同，并且没有返回类型，也没返回值</p>
+<p> 普通方法可以任意起名，必须有返回类型</p>
+</li>
+<li><p>this 和super的区别:</p>
+<p> this代表本类对象的引用</p>
+<p> super代表父类的存储空间</p>
+</li>
+<li><p>equals 和 == 的区别:</p>
+<p> ==: 比较的是变量的内存地址, 也就是看这两个对象是否是一个对象</p>
+<p> equals: 比较的是两个对象的内容是否一样，当一个类中，没有对equals()方法进行覆盖，那么使用的是Object类中的equals()方法，而Object类中的equals()方法返回的就是 == 的判断。</p>
+</li>
+<li><p>HashCode:<br> hashCode() 是Object类中的一个方法， 在Java中，hashCode() 方法主要作用是: 配合基于散列的集合一起使用，这样的散列集合包括: HashSet, HashMap Hashtable。</p>
+<p> Java中的hashCode() 方法，是根据一定的规则，将与对象相关的信息（比如对象的存储地址，对象的字段等）映射成一个数值，这个数值称作散列值。</p>
+</li>
+<li><p>hashCode() 与 equals() 方法:</p>
+<p> 首先要明白: <strong>如果两个对象的hashCode值相等，不能确定两个对象相等。</strong></p>
+<p> 在程序执行期间，只要equals()方法的比较操作得到的信息没有被修改，那么对同一个对象调用多次，hashCode()方法必须返回同一个值。</p>
+<p> 如果两个对象根据equals() 方法比较是相等的，那么调用hashCode()必须返回相同的值</p>
+<p> 如果两个对象根据equals() 方法比较是不相等的，但是hashCode() 不一定不相同</p>
+<p> 因此要记得: <strong>当重写equals() 方法的时候，记得重写hashCode()方法。</strong></p>
+</li>
+</ol>
+<ol start="11">
+<li><p>Object类中的方法</p>
+<p>  <code>public native int hashCode();</code></p>
+<p>  <code>public boolean equals(Object obj) {return (this == obj);}</code></p>
+<p>  <code>protected native Object clone() throws CloneNotSupportedException;</code></p>
+<p>  <code>public String toString() {return getClass().getName() + &quot;@&quot; + Integer.toHexString(hashCode()); }</code></p>
+<p> <code>public final native Class&lt;?&gt; getClass()</code></p>
+<p> <code>protected void finalize() throws Throwable { }</code></p>
+<p> <code>public final native void notify();</code></p>
+</li>
+</ol>
+<ol start="12">
+<li><p>反射机制</p>
+<p>Java反射机制：在运行状态中，对任意一个实体类,都能知道这个类的属性和方法，对于任意个个对象，都能调用他的任意方法和属性，这种动态获取信息以及动态调用对象的方法的功能称作Java反射机制.</p>
+<p>类型信息:</p>
+<p>Java让我们在运行时识别对象和类的信息，有两种方式:一种是RTTI（Run-Time Type Information)，它假定我们在编译时已经知道了所有类型信息; 一种是反射机制，它允许我们在运行时发现和使用类的信息。</p>
+<p>RTTI，编译器在编译时打开和检查.class文件 </p>
+<p>反射，运行时打开和检查.class文件</p>
+</li>
+<li><p>Java类加载</p>
+<p>当程序要使用某个类时，如果该类还未被加载到内存中， 系统会通过<strong>加载–&gt;连接–&gt;初始化</strong>三步对这个类进行初始化。</p>
+<p>加载 : 将class文件读入内存，并为之创建一个Class对象（任何类在被使用时，系统都会为它建立一个Class对象）。</p>
+<p>连接 : </p>
+<p>验证： 确保加载类的正确性</p>
+<p>准备： 负责为类的静态成员分配内存，并设置默认初始化值</p>
+<p>解析： 将类中的符号引用替换为直接引用</p>
+<p>初始化 : 局部变量保存在栈区,不许手动初始化，new的对象保存在堆区，虚拟机会进行默认初始化。 </p>
+</li>
+</ol>
+<ol start="14">
+<li><p>Java对象的生命周期</p>
+<ol>
+<li>创建阶段</li>
+<li>应用阶段</li>
+<li>不可见阶段</li>
+<li>不可达阶段</li>
+<li>收集阶段</li>
+<li>终结阶段</li>
+<li>对象空间重分配阶段</li>
+</ol>
+</li>
+<li><p>String, StringBuilder, StringBuffer</p>
+<ol>
+<li><p>运行速度比较 : String &lt; StringBuffer &lt; StringBuilder</p>
+</li>
+<li><p>线程安全 : StringBuffer是线程安全的，StringBulider是线程不安全的</p>
+</li>
+<li><p>使用范围 : </p>
+<p> String 适用于少量字符串使用</p>
+<p> StringBuffer适用多线程下字符缓冲区进行大量操作</p>
+<p> StringBulider适用单线程下字符缓冲区进行大量操作</p>
+</li>
+</ol>
+</li>
+<li><p>重载和重写的区别</p>
+<p>重写是子类重写父类方法</p>
+<p>重载是一个类中含有多个同名函数，其参数列表不同</p>
+</li>
+<li><p>Java对象的序列化与反序列化</p>
+<p>Java对象是只存在于虚拟机中的堆内存中的，如果要保存对象的状态，就用到了Java序列化，能够使Java对象持久化。</p>
+<p>Java序列化机制是Java语言内建的一种对象持久化机制。通过对象序列化，将对象的状态保存在字节数组中。</p>
+<p>对象反序列化就是将字节数组转化为JVM中活动的对象。</p>
+</li>
+</ol>
+<ol start="18">
+<li><p>多线程</p>
+</li>
+<li><p>synchronized 锁定的是对象，而不是代码。对于非static的synchronized党法，锁的是对象本身也就是this，对于static的方法，相当于锁定了代码段。</p>
+<p> 对于加了synchronized的的这段代码称为互斥区或者临界区。</p>
+</li>
+<li><p>同步方法和非同步方法是否可以同步调用： 可以的，同步方法需要锁，不同步方法不需要锁，两者不冲突。</p>
+</li>
+<li><p>对业务写方法加锁，对业务读方法没有加锁，容易出现脏读问题。（解决脏读问题的一个方法 : CopyOnRight）</p>
+</li>
+<li><p>线程安全概念: 当多个线程访问某一个类（或对象，或方法）时，这个类始终能表现出正确的行为，那么这个类(对象或方法)就是线程安全。</p>
+</li>
+<li><p>实现线程的两种方式:</p>
+<p> 继承Thread类</p>
+<p> 实现Runnable接口</p>
+</li>
+<li></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/12/24/Java基础/" data-id="cjr60f27k00019cie9d1ik94k" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-python虚拟环境" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/12/23/python虚拟环境/" class="article-date">
+  <time datetime="2018-12-23T04:39:39.000Z" itemprop="datePublished">2018-12-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/23/python虚拟环境/">python虚拟环境</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>n虚拟环境virtualenv用法</p>
+<h2 id="virtualenv"><a href="#virtualenv" class="headerlink" title="virtualenv"></a>virtualenv</h2><ol>
+<li><p>首先升级pip</p>
+<p> <code>pip install --upgrade pip</code></p>
+</li>
+<li><p>安装virtualenv</p>
+<p>  <code>pip install virtualenv</code></p>
+</li>
+<li><p>测试安装</p>
+<p> <code>virtualenv --version</code></p>
+</li>
+<li><p>搭建虚拟环境</p>
+<p> <code>virtualenv test</code></p>
+</li>
+<li><p>设置虚拟环境python版本</p>
+<p> <code>virtualenv -p python3 test</code></p>
+</li>
+<li><p>当前目录下，启动虚拟环境</p>
+<p> <code>souce  test/bin/ activate</code></p>
+</li>
+<li><p>使用</p>
+<p> <code>pip install requests</code></p>
+</li>
+<li><p>停用虚拟环境</p>
+<p> <code>deactivate</code></p>
+</li>
+</ol>
+<h2 id="virtualenvwrapper"><a href="#virtualenvwrapper" class="headerlink" title="virtualenvwrapper"></a>virtualenvwrapper</h2><ol>
+<li><p>进入虚拟环境</p>
+<p> <code>workon vir_name</code></p>
+</li>
+<li><p>创建虚拟环境</p>
+<p> <code>mkvirtualenv vir_name</code></p>
+</li>
+<li><p>终止虚拟环境</p>
+<p> <code>deactive</code></p>
+</li>
+</ol>
+<p><strong>注</strong> :</p>
+<p>不通的系统环境，配置文件的位置可能不一样<br>每次要想使用virtualenvwrapper 工具时，都必须先激活<code>virtualenvwrapper.sh</code>， 另外，如果创建前要将即将的环境保存到Envs中，就要先设置一下环境变量：export WORKON_HOME=~/Envs，再搭建</p>
+<p><a href="https://www.cnblogs.com/freely/p/8022923.html" target="_blank" rel="noopener">参考文章</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/12/23/python虚拟环境/" data-id="cjr60f27w000a9cieft8ecae2" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/virtualenv/">virtualenv</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Docker" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/12/23/Docker/" class="article-date">
+  <time datetime="2018-12-23T04:20:50.000Z" itemprop="datePublished">2018-12-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/23/Docker/">Docker</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-基本命令"><a href="#1-基本命令" class="headerlink" title="1.基本命令 :"></a>1.基本命令 :</h2><p>查看所有镜像：</p>
+<p><code>docker images</code></p>
+<p><code>docker image ls</code></p>
+<p>查看所有的容器：</p>
+<p><code>docker ps -a</code></p>
+<p>查看运行中的容器：</p>
+<p><code>docker ps</code></p>
+<p>删除镜像：</p>
+<p><code>docker rmi image_id</code></p>
+<p>删除容器：</p>
+<p><code>docker rm container_id</code></p>
+<p>查找镜像：</p>
+<p><code>docker search imager_name</code>    // docker search mysql</p>
+<p>下载镜像：</p>
+<p><code>docker pull imager_name</code></p>
+<p>启动容器，并且创建一个具有tty伪终端</p>
+<p><code>docker run -it image_name /bin/bash</code></p>
+<p>-t：是带终端<br>-d：在后台运行<br>-P：</p>
+<p>暂停容器：</p>
+<p><code>docker stop container_name</code></p>
+<p>停止正在运行的所有容器：</p>
+<p><code>docker kill $(sudo docker ps -q)</code></p>
+<p>临时退出一个正在交互的容器终端，而不终止他</p>
+<p><code>先按ctrl+p， 后按ctrl+q</code></p>
+<p> 如果按ctrl+c会使容器内的应用进程终止，进而会使容器终止 </p>
+<h2 id="2-dockerfile语法"><a href="#2-dockerfile语法" class="headerlink" title="2.dockerfile语法"></a>2.dockerfile语法</h2><p><code>ADD</code>：从源系统的文件系统复制文件到目标容器的文件系统<br>    ADD命令有两个参数，源和目标。</p>
+<p><code>ADD /local_folder    /container_folder</code></p>
+<p><code>CMD</code>：和RUN命令类似，CMD可以用于执行特定的命令。和RUN不同的是，这些命令不是在镜像都建的过程中执行的，而是在用镜像构件容器后被调用的。</p>
+<p><code>CMD &#39;echo&#39; &#39;&#39;hello world!&#39;</code></p>
+<p><code>ENV</code>: 用于设置环境变量，变量以‘key=value’的形式存在，并且可以在容器内被脚本或者程序调用。</p>
+<p><code>ENV JAVA_HOME /usr/local/jdk1.8.0_144</code></p>
+<p><code>EXPOSE</code>: 用来指定端口，使容器内的应用可以通过端口和外界交互</p>
+<p><code>EXPOSE 8080</code></p>
+<p><code>FROM</code>： 定义了使用哪个基础镜像启动构件流程。基础镜像可以为任意镜像，如果基础镜像没有被发现，docker将师徒从docker image index 来查找该镜像。</p>
+<p><code>from ubuntu</code></p>
+<p><code>MAINTAINER</code>:建议这个命令放在dockerfile的起始部分，虽然理论上可以放在任意位置，这个命令用于声明作者,放在FROM命令后面</p>
+<p><code>MAINTAINER author_name</code></p>
+<p><code>USER</code>:用于设置运行容器的UID</p>
+<p><code>USER 888</code></p>
+<p><code>RUN</code>：RUN命令是dockerfile执行命令的核心部分，他接受命令作为参数并用于创建镜像。</p>
+<p><code>RUN aptitude install -y riak</code></p>
+<p><code>VOLUME</code>: 用于让你的容器访问宿主机上的目录</p>
+<p><code>VOLUME /usr/local/</code></p>
+<p><code>WORKDIR</code>：用于设置CMD指明的命令运行的目录</p>
+<p><code>WORKDIR ~/</code></p>
+<p><code>ENTERPOINT</code>:设置容器的入口程序</p>
+<h3 id="示例1：构建jdk1-8的镜像"><a href="#示例1：构建jdk1-8的镜像" class="headerlink" title="示例1：构建jdk1.8的镜像"></a>示例1：构建jdk1.8的镜像</h3><p>（需要注意的是：jdk-8u191-linux-x64.tar.gz是在本地已经下载好的包，需要放在当前目录下）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">FROM centos</span><br><span class="line"></span><br><span class="line">MAINTAINER  lfs</span><br><span class="line"></span><br><span class="line">ADD jdk-8u191-linux-x64.tar.gz  /usr/local/</span><br><span class="line"></span><br><span class="line">ENV JAVA_HOME /usr/local/jdk1.8.0_144</span><br><span class="line">ENV CLASSPATH $JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar</span><br><span class="line">ENV PATH $PATH:$JAVA_HOME/bin</span><br></pre></td></tr></table></figure></p>
+<p>详情：<a href="https://blog.csdn.net/wo18237095579/article/details/80540571" target="_blank" rel="noopener">docker定制镜像</a></p>
+<h2 id="3-docker中安装vim"><a href="#3-docker中安装vim" class="headerlink" title="3.docker中安装vim"></a>3.docker中安装vim</h2><figure class="highlight plain"><figcaption><span>/etc/apt/sources.list</span><a href="/etc/apt/sources.list.bak">link</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;deb http://mirrors.163.com/debian/ jessie main non-free contrib&quot; &gt;/etc/apt/sources.list</span><br><span class="line">echo &quot;deb http://mirrors.163.com/debian/ jessie-proposed-updates main non-free contrib&quot; &gt;&gt;/etc/apt/sources.list</span><br><span class="line">echo &quot;deb-src http://mirrors.163.com/debian/ jessie main non-free contrib&quot; &gt;&gt;/etc/apt/sources.list</span><br><span class="line">echo &quot;deb-src http://mirrors.163.com/debian/ jessie-proposed-updates main non-free contrib&quot; &gt;&gt;/etc/apt/sources.list</span><br><span class="line">apt-get update</span><br><span class="line">apt-get install -y vim</span><br></pre></td></tr></table></figure>
+<h3 id="4-docker-本地镜像存放在"><a href="#4-docker-本地镜像存放在" class="headerlink" title="4.docker 本地镜像存放在:"></a>4.docker 本地镜像存放在:</h3><pre><code>Docker相关的本地资源存放在var/lib/docker/目录下,其中containers目录存放容器信息，image目录存放镜像信息，aufs目录下存放具体的镜像底层文件。
+</code></pre><h3 id="5-构建docker镜像应注意哪些原则："><a href="#5-构建docker镜像应注意哪些原则：" class="headerlink" title="5.构建docker镜像应注意哪些原则："></a>5.构建docker镜像应注意哪些原则：</h3><pre><code>整体原则上，尽量保持镜像功能的明确和内容的精简，要点包括：
+（1）尽量选择满足需求但较小的基础系统镜像
+（2）清理编译生成文件，安装包的缓存等临时文件
+（3）安装各个软件时候要指定准确的版本号，并避免引入不必要的依赖
+（4）从安全的角度考虑，应尽量使用系统的库和依赖
+（5）使用dockerfile创建镜像时要添加.dockerignore文件或者使用干净的工作目录
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/12/23/Docker/" data-id="cjr60f27e00009cie26sasykg" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">下一页 &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/REST/">REST</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/virtualenv/">virtualenv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/简历/">简历</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/REST/" style="font-size: 10px;">REST</a> <a href="/tags/virtualenv/" style="font-size: 10px;">virtualenv</a> <a href="/tags/数据库/" style="font-size: 20px;">数据库</a> <a href="/tags/简历/" style="font-size: 10px;">简历</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/01/09/dubbo/">dubbo</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/09/my_resume/">个人简历</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/08/SQL优化/">SQL优化</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/07/session跨域共享/">session跨域共享</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/28/Maven/">Maven</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Trina<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
