@@ -264,6 +264,117 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-Docker" class="article article-type-post" itemscope="" itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/12/23/Docker/" class="article-date">
+      <time datetime="2018-12-23T04:20:50.000Z" itemprop="datePublished">2018-12-23</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/23/Docker/">Docker</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="1-基本命令"><a href="#1-基本命令" class="headerlink" title="1.基本命令 :"></a>1.基本命令 :</h2><p>查看所有镜像：</p>
+<p><code>docker images</code></p>
+<p><code>docker image ls</code></p>
+<p>查看所有的容器：</p>
+<p><code>docker ps -a</code></p>
+<p>查看运行中的容器：</p>
+<p><code>docker ps</code></p>
+<p>删除镜像：</p>
+<p><code>docker rmi image_id</code></p>
+<p>删除容器：</p>
+<p><code>docker rm container_id</code></p>
+<p>查找镜像：</p>
+<p><code>docker search imager_name</code>    // docker search mysql</p>
+<p>下载镜像：</p>
+<p><code>docker pull imager_name</code></p>
+<p>启动容器，并且创建一个具有tty伪终端</p>
+<p><code>docker run -it image_name /bin/bash</code></p>
+<p>-t：是带终端<br>-d：在后台运行<br>-P：</p>
+<p>暂停容器：</p>
+<p><code>docker stop container_name</code></p>
+<p>停止正在运行的所有容器：</p>
+<p><code>docker kill $(sudo docker ps -q)</code></p>
+<p>临时退出一个正在交互的容器终端，而不终止他</p>
+<p><code>先按ctrl+p， 后按ctrl+q</code></p>
+<p> 如果按ctrl+c会使容器内的应用进程终止，进而会使容器终止 </p>
+<h2 id="2-dockerfile语法"><a href="#2-dockerfile语法" class="headerlink" title="2.dockerfile语法"></a>2.dockerfile语法</h2><p><code>ADD</code>：从源系统的文件系统复制文件到目标容器的文件系统<br>    ADD命令有两个参数，源和目标。</p>
+<p><code>ADD /local_folder    /container_folder</code></p>
+<p><code>CMD</code>：和RUN命令类似，CMD可以用于执行特定的命令。和RUN不同的是，这些命令不是在镜像都建的过程中执行的，而是在用镜像构件容器后被调用的。</p>
+<p><code>CMD &#39;echo&#39; &#39;&#39;hello world!&#39;</code></p>
+<p><code>ENV</code>: 用于设置环境变量，变量以‘key=value’的形式存在，并且可以在容器内被脚本或者程序调用。</p>
+<p><code>ENV JAVA_HOME /usr/local/jdk1.8.0_144</code></p>
+<p><code>EXPOSE</code>: 用来指定端口，使容器内的应用可以通过端口和外界交互</p>
+<p><code>EXPOSE 8080</code></p>
+<p><code>FROM</code>： 定义了使用哪个基础镜像启动构件流程。基础镜像可以为任意镜像，如果基础镜像没有被发现，docker将师徒从docker image index 来查找该镜像。</p>
+<p><code>from ubuntu</code></p>
+<p><code>MAINTAINER</code>:建议这个命令放在dockerfile的起始部分，虽然理论上可以放在任意位置，这个命令用于声明作者,放在FROM命令后面</p>
+<p><code>MAINTAINER author_name</code></p>
+<p><code>USER</code>:用于设置运行容器的UID</p>
+<p><code>USER 888</code></p>
+<p><code>RUN</code>：RUN命令是dockerfile执行命令的核心部分，他接受命令作为参数并用于创建镜像。</p>
+<p><code>RUN aptitude install -y riak</code></p>
+<p><code>VOLUME</code>: 用于让你的容器访问宿主机上的目录</p>
+<p><code>VOLUME /usr/local/</code></p>
+<p><code>WORKDIR</code>：用于设置CMD指明的命令运行的目录</p>
+<p><code>WORKDIR ~/</code></p>
+<p><code>ENTERPOINT</code>:设置容器的入口程序</p>
+<h3 id="示例1：构建jdk1-8的镜像"><a href="#示例1：构建jdk1-8的镜像" class="headerlink" title="示例1：构建jdk1.8的镜像"></a>示例1：构建jdk1.8的镜像</h3><p>（需要注意的是：jdk-8u191-linux-x64.tar.gz是在本地已经下载好的包，需要放在当前目录下）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">FROM centos</span><br><span class="line"></span><br><span class="line">MAINTAINER  lfs</span><br><span class="line"></span><br><span class="line">ADD jdk-8u191-linux-x64.tar.gz  /usr/local/</span><br><span class="line"></span><br><span class="line">ENV JAVA_HOME /usr/local/jdk1.8.0_144</span><br><span class="line">ENV CLASSPATH $JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar</span><br><span class="line">ENV PATH $PATH:$JAVA_HOME/bin</span><br></pre></td></tr></table></figure></p>
+<p>详情：<a href="https://blog.csdn.net/wo18237095579/article/details/80540571" target="_blank" rel="noopener">docker定制镜像</a></p>
+<h2 id="3-docker中安装vim"><a href="#3-docker中安装vim" class="headerlink" title="3.docker中安装vim"></a>3.docker中安装vim</h2><figure class="highlight plain"><figcaption><span>/etc/apt/sources.list</span><a href="/etc/apt/sources.list.bak">link</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;deb http://mirrors.163.com/debian/ jessie main non-free contrib&quot; &gt;/etc/apt/sources.list</span><br><span class="line">echo &quot;deb http://mirrors.163.com/debian/ jessie-proposed-updates main non-free contrib&quot; &gt;&gt;/etc/apt/sources.list</span><br><span class="line">echo &quot;deb-src http://mirrors.163.com/debian/ jessie main non-free contrib&quot; &gt;&gt;/etc/apt/sources.list</span><br><span class="line">echo &quot;deb-src http://mirrors.163.com/debian/ jessie-proposed-updates main non-free contrib&quot; &gt;&gt;/etc/apt/sources.list</span><br><span class="line">apt-get update</span><br><span class="line">apt-get install -y vim</span><br></pre></td></tr></table></figure>
+<h3 id="4-docker-本地镜像存放在"><a href="#4-docker-本地镜像存放在" class="headerlink" title="4.docker 本地镜像存放在:"></a>4.docker 本地镜像存放在:</h3><pre><code>Docker相关的本地资源存放在var/lib/docker/目录下,其中containers目录存放容器信息，image目录存放镜像信息，aufs目录下存放具体的镜像底层文件。
+</code></pre><h3 id="5-构建docker镜像应注意哪些原则："><a href="#5-构建docker镜像应注意哪些原则：" class="headerlink" title="5.构建docker镜像应注意哪些原则："></a>5.构建docker镜像应注意哪些原则：</h3><pre><code>整体原则上，尽量保持镜像功能的明确和内容的精简，要点包括：
+（1）尽量选择满足需求但较小的基础系统镜像
+（2）清理编译生成文件，安装包的缓存等临时文件
+（3）安装各个软件时候要指定准确的版本号，并避免引入不必要的依赖
+（4）从安全的角度考虑，应尽量使用系统的库和依赖
+（5）使用dockerfile创建镜像时要添加.dockerignore文件或者使用干净的工作目录
+</code></pre>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-REST风格" class="article article-type-post" itemscope="" itemprop="blogPost">
   
     <div class="article-meta">
