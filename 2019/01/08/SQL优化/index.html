@@ -15,18 +15,18 @@
 
 
 
-<meta name="description" content="优化的目标: 减少IO次数  降低CPU计算  提高查询效率   优化的具体措施查询 查询时，尽量避免全表扫描,首先应考虑在where及order by涉及的列上建立索引。  应尽量避免在where字句中对字段进行null值判断。否则将导致引擎放弃使用索引，进行全表扫描。  select id from table_name where col = null  应尽量避免在where子句中使用 !">
+<meta name="description" content="优化的目标: 减少IO次数  降低CPU计算  提高查询效率   优化的具体措施">
 <meta name="keywords" content="数据库">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SQL优化">
 <meta property="og:url" content="http://yoursite.com/2019/01/08/SQL优化/index.html">
 <meta property="og:site_name" content="My Blog">
-<meta property="og:description" content="优化的目标: 减少IO次数  降低CPU计算  提高查询效率   优化的具体措施查询 查询时，尽量避免全表扫描,首先应考虑在where及order by涉及的列上建立索引。  应尽量避免在where字句中对字段进行null值判断。否则将导致引擎放弃使用索引，进行全表扫描。  select id from table_name where col = null  应尽量避免在where子句中使用 !">
+<meta property="og:description" content="优化的目标: 减少IO次数  降低CPU计算  提高查询效率   优化的具体措施">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-01-09T03:20:53.373Z">
+<meta property="og:updated_time" content="2019-01-21T09:04:18.396Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SQL优化">
-<meta name="twitter:description" content="优化的目标: 减少IO次数  降低CPU计算  提高查询效率   优化的具体措施查询 查询时，尽量避免全表扫描,首先应考虑在where及order by涉及的列上建立索引。  应尽量避免在where字句中对字段进行null值判断。否则将导致引擎放弃使用索引，进行全表扫描。  select id from table_name where col = null  应尽量避免在where子句中使用 !">
+<meta name="twitter:description" content="优化的目标: 减少IO次数  降低CPU计算  提高查询效率   优化的具体措施">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -310,7 +310,8 @@
 <li><p>提高查询效率</p>
 </li>
 </ul>
-<h2 id="优化的具体措施"><a href="#优化的具体措施" class="headerlink" title="优化的具体措施"></a>优化的具体措施</h2><h3 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h3><ol>
+<h2 id="优化的具体措施"><a href="#优化的具体措施" class="headerlink" title="优化的具体措施"></a>优化的具体措施</h2><a id="more"></a>
+<h3 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h3><ol>
 <li><p>查询时，尽量避免全表扫描,首先应考虑在where及order by涉及的列上建立索引。</p>
 </li>
 <li><p>应尽量避免在where字句中对字段进行null值判断。否则将导致引擎放弃使用索引，进行全表扫描。</p>
@@ -370,7 +371,7 @@
         <p><span>本文标题:</span><a href="/2019/01/08/SQL优化/">SQL优化</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Trina</a></p>
         <p><span>发布时间:</span>2019-01-08, 13:31:10</p>
-        <p><span>最后更新:</span>2019-01-09, 11:20:53</p>
+        <p><span>最后更新:</span>2019-01-21, 17:04:18</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/01/08/SQL优化/" title="SQL优化">http://yoursite.com/2019/01/08/SQL优化/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/01/08/SQL优化/　　作者: Trina" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
