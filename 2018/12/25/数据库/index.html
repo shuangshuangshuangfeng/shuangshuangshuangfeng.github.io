@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="My Blog">
 <meta property="og:description" content="数据库知识基础知识1. 完整性约束 实体完整性: 实体完整性是指表中行的完整性，主要用于保证操作的数据（记录）非空，唯一且不重复。即:实体完整性要求每个表有且仅有一个主键，每个主键值唯一，而且不允许为空或重复  参照完整性: 参照完整性属于表间规则，对于永久关系的相关表，在更新插入或删除记录时，如果只改其一，则影响其数据的完整性。即外键的取值必须是另一个表的主键的有效值或者空值  用户定义完整性:">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-01-21T09:04:53.545Z">
+<meta property="og:updated_time" content="2019-01-22T14:50:11.481Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据库">
 <meta name="twitter:description" content="数据库知识基础知识1. 完整性约束 实体完整性: 实体完整性是指表中行的完整性，主要用于保证操作的数据（记录）非空，唯一且不重复。即:实体完整性要求每个表有且仅有一个主键，每个主键值唯一，而且不允许为空或重复  参照完整性: 参照完整性属于表间规则，对于永久关系的相关表，在更新插入或删除记录时，如果只改其一，则影响其数据的完整性。即外键的取值必须是另一个表的主键的有效值或者空值  用户定义完整性:">
@@ -314,14 +314,10 @@
 <h3 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h3><p>数据库事务是作为一个逻辑工作单元执行的一系列操作,要么完全执行，要么完全不执行。</p>
 <p>事务的属性: 一致性，原子性，隔离性，持久性</p>
 <ul>
-<li><p><strong>原子性</strong> : 一个事务包含多个操作，这些操作要么全部执行，要么都不执行。即<em>某个操作失败后会回滚到事务执行之前的状态</em></p>
-</li>
-<li><p><strong>一致性</strong> : 一致性是对数据可见性的约束，保证在一个事务中的多次操作的数据中间状态对其他事务是不可见的，因为这些中间状态是一个过度状态，与事务的开始状态和事务的结束状态是不一致的。</p>
-</li>
-<li><p><strong>隔离性</strong> : 并发事务之间互相影响的程度。</p>
-</li>
-<li><p><strong>持久性</strong> : 事务提交后，对系统的影响是永久的。</p>
-</li>
+<li><strong>原子性</strong> : 一个事务包含多个操作，这些操作要么全部执行，要么都不执行。即<em>某个操作失败后会回滚到事务执行之前的状态</em></li>
+<li><strong>一致性</strong> : 一致性是对数据可见性的约束，保证在一个事务中的多次操作的数据中间状态对其他事务是不可见的，因为这些中间状态是一个过度状态，与事务的开始状态和事务的结束状态是不一致的。</li>
+<li><strong>隔离性</strong> : 并发事务之间互相影响的程度。</li>
+<li><strong>持久性</strong> : 事务提交后，对系统的影响是永久的。</li>
 </ul>
 <h3 id="存储过程"><a href="#存储过程" class="headerlink" title="存储过程"></a>存储过程</h3><p><strong>定义:</strong></p>
 <p>存储过程是在大型数据库系统中，一组未来完成特定功能的SQL语句集，存储在数据库中，经过一次编译后调用不需要再次编译，用户通过指定存储过程的名字并给出参数来执行它。存储过程是数据库中的一个重要对象。</p>
@@ -479,7 +475,7 @@
         <p><span>本文标题:</span><a href="/2018/12/25/数据库/">数据库</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Trina</a></p>
         <p><span>发布时间:</span>2018-12-25, 23:25:45</p>
-        <p><span>最后更新:</span>2019-01-21, 17:04:53</p>
+        <p><span>最后更新:</span>2019-01-22, 22:50:11</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/12/25/数据库/" title="数据库">http://yoursite.com/2018/12/25/数据库/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2018/12/25/数据库/　　作者: Trina" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
