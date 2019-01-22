@@ -15,17 +15,17 @@
 
 
 
-<meta name="description" content="1.Maven的安装目录: bin: 包含了mvn运行的脚本，这些脚本用来配置java命令，准备好classpath和相关的java系统属性，然后执行 java命令。 boot:该目录只包含了一个文件，plexus-classworlds是一个类加载器框架，相对于默认的java类加载器，他提供了更丰富的语法以方便配置，mvn使用该框架加载自己的类库。 conf:该目录包含了一个 非常重要的文件，s">
+<meta name="description" content="Maven的安装目录: bin: 包含了mvn运行的脚本，这些脚本用来配置java命令，准备好classpath和相关的java系统属性，然后执行 java命令。 boot:该目录只包含了一个文件，plexus-classworlds是一个类加载器框架，相对于默认的java类加载器，他提供了更丰富的语法以方便配置，mvn使用该框架加载自己的类库。 conf:该目录包含了一个 非常重要的文件，set">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Maven">
 <meta property="og:url" content="http://yoursite.com/2018/12/28/Maven/index.html">
 <meta property="og:site_name" content="My Blog">
-<meta property="og:description" content="1.Maven的安装目录: bin: 包含了mvn运行的脚本，这些脚本用来配置java命令，准备好classpath和相关的java系统属性，然后执行 java命令。 boot:该目录只包含了一个文件，plexus-classworlds是一个类加载器框架，相对于默认的java类加载器，他提供了更丰富的语法以方便配置，mvn使用该框架加载自己的类库。 conf:该目录包含了一个 非常重要的文件，s">
+<meta property="og:description" content="Maven的安装目录: bin: 包含了mvn运行的脚本，这些脚本用来配置java命令，准备好classpath和相关的java系统属性，然后执行 java命令。 boot:该目录只包含了一个文件，plexus-classworlds是一个类加载器框架，相对于默认的java类加载器，他提供了更丰富的语法以方便配置，mvn使用该框架加载自己的类库。 conf:该目录包含了一个 非常重要的文件，set">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-01-21T09:02:26.815Z">
+<meta property="og:updated_time" content="2019-01-22T15:18:08.663Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Maven">
-<meta name="twitter:description" content="1.Maven的安装目录: bin: 包含了mvn运行的脚本，这些脚本用来配置java命令，准备好classpath和相关的java系统属性，然后执行 java命令。 boot:该目录只包含了一个文件，plexus-classworlds是一个类加载器框架，相对于默认的java类加载器，他提供了更丰富的语法以方便配置，mvn使用该框架加载自己的类库。 conf:该目录包含了一个 非常重要的文件，s">
+<meta name="twitter:description" content="Maven的安装目录: bin: 包含了mvn运行的脚本，这些脚本用来配置java命令，准备好classpath和相关的java系统属性，然后执行 java命令。 boot:该目录只包含了一个文件，plexus-classworlds是一个类加载器框架，相对于默认的java类加载器，他提供了更丰富的语法以方便配置，mvn使用该框架加载自己的类库。 conf:该目录包含了一个 非常重要的文件，set">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -297,13 +297,13 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h3 id="1-Maven的安装目录"><a href="#1-Maven的安装目录" class="headerlink" title="1.Maven的安装目录:"></a>1.Maven的安装目录:</h3><ul>
+        <h3 id="Maven的安装目录"><a href="#Maven的安装目录" class="headerlink" title="Maven的安装目录:"></a>Maven的安装目录:</h3><ul>
 <li>bin: 包含了mvn运行的脚本，这些脚本用来配置java命令，准备好classpath和相关的java系统属性，然后执行 java命令。</li>
 <li>boot:该目录只包含了一个文件，plexus-classworlds是一个类加载器框架，相对于默认<br>的java类加载器，他提供了更丰富的语法以方便配置，mvn使用该框架加载自己的类库。</li>
 <li>conf:该目录包含了一个 非常重要的文件，setting.xml。直接修改该文件，就能在机器<br>上全局的定制Maven的行为。</li>
 </ul>
 <a id="more"></a>
-<h3 id="2-maven的两个核心概念是：坐标和依赖"><a href="#2-maven的两个核心概念是：坐标和依赖" class="headerlink" title="2.maven的两个核心概念是：坐标和依赖:"></a>2.maven的两个核心概念是：坐标和依赖:</h3><ul>
+<h3 id="maven的两个核心概念是：坐标和依赖"><a href="#maven的两个核心概念是：坐标和依赖" class="headerlink" title="maven的两个核心概念是：坐标和依赖:"></a>maven的两个核心概念是：坐标和依赖:</h3><ul>
 <li><p>Maven坐标为各种构件引入了秩序，任何一个构件都必须明确定义自己的坐标，而一组Maven坐标是通过一些元素定义的，他们是groupId，artifactId，version，packaging,classifier。<br>以下是坐标的定义：</p>
 <p>  <code>&lt;groupId&gt;org.sonatype.nexus&lt;/groupId&gt;</code></p>
 <p>  <code>&lt;artifactId&gt;nexus-indexer&lt;/artifactId&gt;</code></p>
@@ -315,15 +315,15 @@
 <p>groupId:定义了项目属于哪个组，这个组和项目所在的组织或公司有关；</p>
 <p>artifactId:定义了当前项目在组中唯一的ID</p>
 <p>version：版本</p>
-<h3 id="3-每一个构建都有其唯一的坐标，根据这个坐标可以定义其在仓库中的唯一存储路径。"><a href="#3-每一个构建都有其唯一的坐标，根据这个坐标可以定义其在仓库中的唯一存储路径。" class="headerlink" title="3.每一个构建都有其唯一的坐标，根据这个坐标可以定义其在仓库中的唯一存储路径。"></a>3.每一个构建都有其唯一的坐标，根据这个坐标可以定义其在仓库中的唯一存储路径。</h3><p>对于Maven来说，仓库只有两类：本地库和远程库。当maven根据坐标寻找构建的时候，他首先会查看本地库，如果本地库存在此构件，则直接使用；如果本地库不存在此构件，或者需要查看是否有更新的构件版本，Maven就会去远程仓库查找，发现需要的构件以后下载到本地仓库再使用。如果本地仓库和远程仓库都没有需要的组件，Maven就会报错。</p>
-<h3 id="4-一些特殊的远程仓库：中央仓库和私服"><a href="#4-一些特殊的远程仓库：中央仓库和私服" class="headerlink" title="4.一些特殊的远程仓库：中央仓库和私服"></a>4.一些特殊的远程仓库：中央仓库和私服</h3><ul>
+<h3 id="每一个构建都有其唯一的坐标，根据这个坐标可以定义其在仓库中的唯一存储路径。"><a href="#每一个构建都有其唯一的坐标，根据这个坐标可以定义其在仓库中的唯一存储路径。" class="headerlink" title="每一个构建都有其唯一的坐标，根据这个坐标可以定义其在仓库中的唯一存储路径。"></a>每一个构建都有其唯一的坐标，根据这个坐标可以定义其在仓库中的唯一存储路径。</h3><p>对于Maven来说，仓库只有两类：本地库和远程库。当maven根据坐标寻找构建的时候，他首先会查看本地库，如果本地库存在此构件，则直接使用；如果本地库不存在此构件，或者需要查看是否有更新的构件版本，Maven就会去远程仓库查找，发现需要的构件以后下载到本地仓库再使用。如果本地仓库和远程仓库都没有需要的组件，Maven就会报错。</p>
+<h3 id="一些特殊的远程仓库：中央仓库和私服"><a href="#一些特殊的远程仓库：中央仓库和私服" class="headerlink" title="一些特殊的远程仓库：中央仓库和私服"></a>一些特殊的远程仓库：中央仓库和私服</h3><ul>
 <li>中央仓库是Maven核心自带的远程仓科，他包含了大部分开源的构件。在默认配置下，当为本地仓库没有Maven需要的构件的时候，Maven会尝试从中央仓库下载。</li>
 <li>私服是在局域网内假设的一个私有仓库服务器，用其代理所有外语的远程仓库，内部的项目还能部署到私服上供其他项目的使用。</li>
 <li>除了中央仓库和私服，还有很多其他公开的远程仓库。</li>
 </ul>
-<h3 id="5-Maven的快照版本-SNAPSHOT-和发布版本"><a href="#5-Maven的快照版本-SNAPSHOT-和发布版本" class="headerlink" title="5.Maven的快照版本(-SNAPSHOT)和发布版本"></a>5.Maven的快照版本(-SNAPSHOT)和发布版本</h3><p>首先要知道快照版本相对与发布版本是不稳定的。</p>
+<h3 id="Maven的快照版本-SNAPSHOT-和发布版本"><a href="#Maven的快照版本-SNAPSHOT-和发布版本" class="headerlink" title="Maven的快照版本(-SNAPSHOT)和发布版本"></a>Maven的快照版本(-SNAPSHOT)和发布版本</h3><p>首先要知道快照版本相对与发布版本是不稳定的。</p>
 <p>当一个快照版本(1.2.0-SNAPSHOT)的构件发布到私服的时候，Maven会自动为构件打上时间戳，有了时间戳，Maven就能随时在仓库中找到1.2.0-SNAPSHOT的最新文件。默认情况下，Maven每天检查一次更新。但基于快照版本机制，当有人调用1.2.0-SNAPSHOT的时候，maven能够确保得到最新可用的快照构件。<br>当项目经过完善的测试后需要发布的时候，就应该将快照版本改为发布版本，以确保每个人使用该构件时对应了唯一的构件。</p>
-<h3 id="6-Maven的三套生命周期-三套生命周期是相互独立的"><a href="#6-Maven的三套生命周期-三套生命周期是相互独立的" class="headerlink" title="6.Maven的三套生命周期(三套生命周期是相互独立的)"></a>6.Maven的三套生命周期(三套生命周期是相互独立的)</h3><p><strong>1.clean生命周期</strong>:</p>
+<h3 id="Maven的三套生命周期-三套生命周期是相互独立的"><a href="#Maven的三套生命周期-三套生命周期是相互独立的" class="headerlink" title="Maven的三套生命周期(三套生命周期是相互独立的)"></a>Maven的三套生命周期(三套生命周期是相互独立的)</h3><p><strong>1.clean生命周期</strong>:</p>
 <p>目的：清理项目</p>
 <p>阶段：</p>
 <ul>
@@ -361,7 +361,7 @@
         <p><span>本文标题:</span><a href="/2018/12/28/Maven/">Maven</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">Trina</a></p>
         <p><span>发布时间:</span>2018-12-28, 15:37:29</p>
-        <p><span>最后更新:</span>2019-01-21, 17:02:26</p>
+        <p><span>最后更新:</span>2019-01-22, 23:18:08</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/12/28/Maven/" title="Maven">http://yoursite.com/2018/12/28/Maven/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2018/12/28/Maven/　　作者: Trina" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -397,7 +397,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Maven的安装目录"><span class="toc-number">1.</span> <span class="toc-text">1.Maven的安装目录:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-maven的两个核心概念是：坐标和依赖"><span class="toc-number">2.</span> <span class="toc-text">2.maven的两个核心概念是：坐标和依赖:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-每一个构建都有其唯一的坐标，根据这个坐标可以定义其在仓库中的唯一存储路径。"><span class="toc-number">3.</span> <span class="toc-text">3.每一个构建都有其唯一的坐标，根据这个坐标可以定义其在仓库中的唯一存储路径。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-一些特殊的远程仓库：中央仓库和私服"><span class="toc-number">4.</span> <span class="toc-text">4.一些特殊的远程仓库：中央仓库和私服</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-Maven的快照版本-SNAPSHOT-和发布版本"><span class="toc-number">5.</span> <span class="toc-text">5.Maven的快照版本(-SNAPSHOT)和发布版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-Maven的三套生命周期-三套生命周期是相互独立的"><span class="toc-number">6.</span> <span class="toc-text">6.Maven的三套生命周期(三套生命周期是相互独立的)</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Maven的安装目录"><span class="toc-number">1.</span> <span class="toc-text">Maven的安装目录:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#maven的两个核心概念是：坐标和依赖"><span class="toc-number">2.</span> <span class="toc-text">maven的两个核心概念是：坐标和依赖:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#每一个构建都有其唯一的坐标，根据这个坐标可以定义其在仓库中的唯一存储路径。"><span class="toc-number">3.</span> <span class="toc-text">每一个构建都有其唯一的坐标，根据这个坐标可以定义其在仓库中的唯一存储路径。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一些特殊的远程仓库：中央仓库和私服"><span class="toc-number">4.</span> <span class="toc-text">一些特殊的远程仓库：中央仓库和私服</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Maven的快照版本-SNAPSHOT-和发布版本"><span class="toc-number">5.</span> <span class="toc-text">Maven的快照版本(-SNAPSHOT)和发布版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Maven的三套生命周期-三套生命周期是相互独立的"><span class="toc-number">6.</span> <span class="toc-text">Maven的三套生命周期(三套生命周期是相互独立的)</span></a></li></ol>
         
     </div>
     <style>
