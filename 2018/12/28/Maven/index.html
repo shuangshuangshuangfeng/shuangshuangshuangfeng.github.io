@@ -22,7 +22,7 @@
 <meta property="og:site_name" content="My Blog">
 <meta property="og:description" content="Maven的安装目录: bin: 包含了mvn运行的脚本，这些脚本用来配置java命令，准备好classpath和相关的java系统属性，然后执行 java命令。 boot:该目录只包含了一个文件，plexus-classworlds是一个类加载器框架，相对于默认的java类加载器，他提供了更丰富的语法以方便配置，mvn使用该框架加载自己的类库。 conf:该目录包含了一个 非常重要的文件，set">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-01-22T15:18:08.663Z">
+<meta property="og:updated_time" content="2019-01-23T03:29:32.195Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Maven">
 <meta name="twitter:description" content="Maven的安装目录: bin: 包含了mvn运行的脚本，这些脚本用来配置java命令，准备好classpath和相关的java系统属性，然后执行 java命令。 boot:该目录只包含了一个文件，plexus-classworlds是一个类加载器框架，相对于默认的java类加载器，他提供了更丰富的语法以方便配置，mvn使用该框架加载自己的类库。 conf:该目录包含了一个 非常重要的文件，set">
@@ -207,7 +207,7 @@
                 
                 <section class="switch-part switch-part4">
                 
-                    <div id="js-aboutme">zzzzz</div>
+                    <div id="js-aboutme">五流程序员， 三流代码， 一流bug</div>
                 </section>
                 
             </div>
@@ -352,6 +352,12 @@
 <li>post-site执行一些在生成项目站点只有需要完成的工作</li>
 <li>site-deploy将生成的项目站点发布到服务器上。</li>
 </ul>
+<h2 id="Maven在依赖管理中有以下几个原则"><a href="#Maven在依赖管理中有以下几个原则" class="headerlink" title="Maven在依赖管理中有以下几个原则"></a>Maven在依赖管理中有以下几个原则</h2><ol>
+<li>依赖是使用Maven坐标来定位的，而Maven坐标主要由GAV（groupId, artifactId, version）构成。如果两个相同的依赖包，如果groupId, artifactId, version不同，那么maven也认为这两个是不同的。</li>
+<li>依赖会传递，A依赖了B，B依赖了C，那么A的依赖中就会出现B和C。</li>
+<li>Maven对同一个groupId, artifactId的冲突仲裁，不是以version越大越保留，而是依赖路径越短越优先，然后进行保留。</li>
+<li>依赖的scope会影响依赖的影响范围。</li>
+</ol>
 
       
     </div>
@@ -363,7 +369,7 @@
         <p><span>本文标题:</span><a href="/2018/12/28/Maven/">Maven</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">刘凤双</a></p>
         <p><span>发布时间:</span>2018-12-28, 15:37:29</p>
-        <p><span>最后更新:</span>2019-01-22, 23:18:08</p>
+        <p><span>最后更新:</span>2019-01-23, 11:29:32</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/12/28/Maven/" title="Maven">http://yoursite.com/2018/12/28/Maven/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2018/12/28/Maven/　　作者: 刘凤双" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -399,9 +405,9 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Maven的安装目录"><span class="toc-number">1.</span> <span class="toc-text">Maven的安装目录:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#maven的两个核心概念是：坐标和依赖"><span class="toc-number">2.</span> <span class="toc-text">maven的两个核心概念是：坐标和依赖:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#每一个构建都有其唯一的坐标，根据这个坐标可以定义其在仓库中的唯一存储路径。"><span class="toc-number">3.</span> <span class="toc-text">每一个构建都有其唯一的坐标，根据这个坐标可以定义其在仓库中的唯一存储路径。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一些特殊的远程仓库：中央仓库和私服"><span class="toc-number">4.</span> <span class="toc-text">一些特殊的远程仓库：中央仓库和私服</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Maven的快照版本-SNAPSHOT-和发布版本"><span class="toc-number">5.</span> <span class="toc-text">Maven的快照版本(-SNAPSHOT)和发布版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Maven的三套生命周期-三套生命周期是相互独立的"><span class="toc-number">6.</span> <span class="toc-text">Maven的三套生命周期(三套生命周期是相互独立的)</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Maven的安装目录"><span class="toc-number">1.</span> <span class="toc-text">Maven的安装目录:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#maven的两个核心概念是：坐标和依赖"><span class="toc-number">2.</span> <span class="toc-text">maven的两个核心概念是：坐标和依赖:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#每一个构建都有其唯一的坐标，根据这个坐标可以定义其在仓库中的唯一存储路径。"><span class="toc-number">3.</span> <span class="toc-text">每一个构建都有其唯一的坐标，根据这个坐标可以定义其在仓库中的唯一存储路径。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一些特殊的远程仓库：中央仓库和私服"><span class="toc-number">4.</span> <span class="toc-text">一些特殊的远程仓库：中央仓库和私服</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Maven的快照版本-SNAPSHOT-和发布版本"><span class="toc-number">5.</span> <span class="toc-text">Maven的快照版本(-SNAPSHOT)和发布版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Maven的三套生命周期-三套生命周期是相互独立的"><span class="toc-number">6.</span> <span class="toc-text">Maven的三套生命周期(三套生命周期是相互独立的)</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#Maven在依赖管理中有以下几个原则"><span class="toc-number"></span> <span class="toc-text">Maven在依赖管理中有以下几个原则</span></a>
         
-    </div>
+    </li></div>
     <style>
         .left-col .switch-btn,
         .left-col .switch-area {
