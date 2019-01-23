@@ -15,19 +15,21 @@
 
 
 
-<meta name="description" content="一个简单的C语句运行结构C程序运行的核心是函数的执行和调用，它构成了整个C语言运行结构的基础框架。这一运行过程只要是在程序指令的驱动以及数据压栈、清栈的支持下实现的。">
+<meta name="description" content="一个简单C语言的运行时结构内存划分C程序运行的核心是函数的执行和调用，它构成了整个C语言运行结构的基础框架。这一运行过程只要是在程序指令的驱动以及数据压栈、清栈的支持下实现的。">
 <meta name="keywords" content="编译原理">
 <meta property="og:type" content="article">
 <meta property="og:title" content="编译原理0">
 <meta property="og:url" content="http://yoursite.com/2019/01/23/编译原理0/index.html">
 <meta property="og:site_name" content="My Blog">
-<meta property="og:description" content="一个简单的C语句运行结构C程序运行的核心是函数的执行和调用，它构成了整个C语言运行结构的基础框架。这一运行过程只要是在程序指令的驱动以及数据压栈、清栈的支持下实现的。">
+<meta property="og:description" content="一个简单C语言的运行时结构内存划分C程序运行的核心是函数的执行和调用，它构成了整个C语言运行结构的基础框架。这一运行过程只要是在程序指令的驱动以及数据压栈、清栈的支持下实现的。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2019/01/23/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%860/IMG_0687.JPG">
-<meta property="og:updated_time" content="2019-01-23T09:21:10.308Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2019/01/23/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%860/IMG_0688.JPG">
+<meta property="og:image" content="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2019/01/23/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%860/IMG_0689.JPG">
+<meta property="og:updated_time" content="2019-01-23T09:36:28.736Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="编译原理0">
-<meta name="twitter:description" content="一个简单的C语句运行结构C程序运行的核心是函数的执行和调用，它构成了整个C语言运行结构的基础框架。这一运行过程只要是在程序指令的驱动以及数据压栈、清栈的支持下实现的。">
+<meta name="twitter:description" content="一个简单C语言的运行时结构内存划分C程序运行的核心是函数的执行和调用，它构成了整个C语言运行结构的基础框架。这一运行过程只要是在程序指令的驱动以及数据压栈、清栈的支持下实现的。">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2019/01/23/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%860/IMG_0687.JPG">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -306,12 +308,15 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="一个简单的C语句运行结构"><a href="#一个简单的C语句运行结构" class="headerlink" title="一个简单的C语句运行结构"></a>一个简单的C语句运行结构</h2><p>C程序运行的核心是函数的执行和调用，它构成了整个C语言运行结构的基础框架。这一运行过程只要是在程序指令的驱动以及数据压栈、清栈的支持下实现的。</p>
+        <h2 id="一个简单C语言的运行时结构"><a href="#一个简单C语言的运行时结构" class="headerlink" title="一个简单C语言的运行时结构"></a>一个简单C语言的运行时结构</h2><h3 id="内存划分"><a href="#内存划分" class="headerlink" title="内存划分"></a>内存划分</h3><p>C程序运行的核心是函数的执行和调用，它构成了整个C语言运行结构的基础框架。这一运行过程只要是在程序指令的驱动以及数据压栈、清栈的支持下实现的。</p>
 <a id="more"></a>
 <p>下面是一段简单的C语言程序：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fun</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>;</span><br><span class="line"><span class="keyword">int</span> m = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">4</span>;</span><br><span class="line">    <span class="keyword">int</span> j = <span class="number">5</span>;</span><br><span class="line">    m = fun(i, j);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fun</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> c =  <span class="number">0</span>;</span><br><span class="line">    c = a + b;</span><br><span class="line">    <span class="keyword">return</span> c;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">int fun(int a, int b);</span><br><span class="line">int m = 10;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">    int i = 4;</span><br><span class="line">    int j = 5;</span><br><span class="line">    m = fun(i, j);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int fun(int a, int b)&#123;</span><br><span class="line">    int c =  0;</span><br><span class="line">    c = a + b;</span><br><span class="line">    return c; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>代码执行的内存供有三个区域，分别是代码区、静态数据区、动态数据区。如下图所示:<br> <img src="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2019/01/23/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%860/IMG_0687.JPG" alt="内存区域展示"></p>
-<p><strong>程序执行的本质就是代码区的指令不断执行，驱使动态数据区和静态数据区产生数据变化。</strong><br>全局变量m的值装在静态数据区.<br>程序执行前，动态数据区中没有数据，在程序执行后，在指令的驱动下，这一区域才会产生数据，压栈和清栈的工作就是在这一区域完成。</p>
+<h3 id="程序执行"><a href="#程序执行" class="headerlink" title="程序执行"></a>程序执行</h3><p><strong>程序执行的本质就是代码区的指令不断执行，驱使动态数据区和静态数据区产生数据变化。</strong><br>全局变量m的值装在静态数据区.<br>程序执行前，动态数据区中没有数据，在程序执行后，在指令的驱动下，这一区域才会产生数据，压栈和清栈的工作就是在这一区域完成。</p>
+<p> <img src="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2019/01/23/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%860/IMG_0688.JPG" alt="压栈和清栈"></p>
+<p>CPU中有三个寄存器，分别是eip, ebp和esp。<br>    eip指向代码区将要执行的下一条指令，他的管控方式有两种，一种是“顺序执行”，即程序执行完一条指令后自动指向下一条执行；另一种跳转，也就是执行完一条指令后跳转到指定位置。<br>    ebp和esp是用来管控栈空间的，ebp指向栈低，esp指向栈顶，在代码区中，函数调用，返回和执行伴随着不断的压栈和清栈。栈中数据存储和释放的原则是后进先出。</p>
+<p> <img src="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2019/01/23/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%860/IMG_0689.JPG" alt="对代码区和动态数据区的管控"></p>
 
       
     </div>
@@ -323,7 +328,7 @@
         <p><span>本文标题:</span><a href="/2019/01/23/编译原理0/">编译原理0</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">刘凤双</a></p>
         <p><span>发布时间:</span>2019-01-23, 13:55:47</p>
-        <p><span>最后更新:</span>2019-01-23, 17:21:10</p>
+        <p><span>最后更新:</span>2019-01-23, 17:36:28</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/01/23/编译原理0/" title="编译原理0">http://yoursite.com/2019/01/23/编译原理0/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/01/23/编译原理0/　　作者: 刘凤双" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -353,7 +358,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一个简单的C语句运行结构"><span class="toc-number">1.</span> <span class="toc-text">一个简单的C语句运行结构</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一个简单C语言的运行时结构"><span class="toc-number">1.</span> <span class="toc-text">一个简单C语言的运行时结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#内存划分"><span class="toc-number">1.1.</span> <span class="toc-text">内存划分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#程序执行"><span class="toc-number">1.2.</span> <span class="toc-text">程序执行</span></a></li></ol></li></ol>
         
     </div>
     <style>
