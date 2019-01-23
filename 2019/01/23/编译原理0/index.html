@@ -15,18 +15,18 @@
 
 
 
-<meta name="description" content="一个简单的C语句运行结构C程序运行的核心是函数的执行和调用，它构成了整个C语言运行结构的基础框架。这一运行过程只要是在程序指令的驱动以及数据压栈、清栈的支持下实现的。 下面是一段简单的C语言程序： 123456789101112131415int fun(int a, int b);int m = 10;int main()&amp;#123;    int i = 4;    int j = 5;">
+<meta name="description" content="一个简单的C语句运行结构C程序运行的核心是函数的执行和调用，它构成了整个C语言运行结构的基础框架。这一运行过程只要是在程序指令的驱动以及数据压栈、清栈的支持下实现的。">
 <meta name="keywords" content="编译原理">
 <meta property="og:type" content="article">
 <meta property="og:title" content="编译原理0">
 <meta property="og:url" content="http://yoursite.com/2019/01/23/编译原理0/index.html">
 <meta property="og:site_name" content="My Blog">
-<meta property="og:description" content="一个简单的C语句运行结构C程序运行的核心是函数的执行和调用，它构成了整个C语言运行结构的基础框架。这一运行过程只要是在程序指令的驱动以及数据压栈、清栈的支持下实现的。 下面是一段简单的C语言程序： 123456789101112131415int fun(int a, int b);int m = 10;int main()&amp;#123;    int i = 4;    int j = 5;">
+<meta property="og:description" content="一个简单的C语句运行结构C程序运行的核心是函数的执行和调用，它构成了整个C语言运行结构的基础框架。这一运行过程只要是在程序指令的驱动以及数据压栈、清栈的支持下实现的。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-01-23T06:05:53.720Z">
+<meta property="og:updated_time" content="2019-01-23T07:15:32.707Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="编译原理0">
-<meta name="twitter:description" content="一个简单的C语句运行结构C程序运行的核心是函数的执行和调用，它构成了整个C语言运行结构的基础框架。这一运行过程只要是在程序指令的驱动以及数据压栈、清栈的支持下实现的。 下面是一段简单的C语言程序： 123456789101112131415int fun(int a, int b);int m = 10;int main()&amp;#123;    int i = 4;    int j = 5;">
+<meta name="twitter:description" content="一个简单的C语句运行结构C程序运行的核心是函数的执行和调用，它构成了整个C语言运行结构的基础框架。这一运行过程只要是在程序指令的驱动以及数据压栈、清栈的支持下实现的。">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -305,6 +305,7 @@
       
           
         <h2 id="一个简单的C语句运行结构"><a href="#一个简单的C语句运行结构" class="headerlink" title="一个简单的C语句运行结构"></a>一个简单的C语句运行结构</h2><p>C程序运行的核心是函数的执行和调用，它构成了整个C语言运行结构的基础框架。这一运行过程只要是在程序指令的驱动以及数据压栈、清栈的支持下实现的。</p>
+<a id="more"></a>
 <p>下面是一段简单的C语言程序：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fun</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>;</span><br><span class="line"><span class="keyword">int</span> m = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">4</span>;</span><br><span class="line">    <span class="keyword">int</span> j = <span class="number">5</span>;</span><br><span class="line">    m = fun(i, j);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fun</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> c =  <span class="number">0</span>;</span><br><span class="line">    c = a + b;</span><br><span class="line">    <span class="keyword">return</span> c;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -318,7 +319,7 @@
         <p><span>本文标题:</span><a href="/2019/01/23/编译原理0/">编译原理0</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">刘凤双</a></p>
         <p><span>发布时间:</span>2019-01-23, 13:55:47</p>
-        <p><span>最后更新:</span>2019-01-23, 14:05:53</p>
+        <p><span>最后更新:</span>2019-01-23, 15:15:32</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/01/23/编译原理0/" title="编译原理0">http://yoursite.com/2019/01/23/编译原理0/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/01/23/编译原理0/　　作者: 刘凤双" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
