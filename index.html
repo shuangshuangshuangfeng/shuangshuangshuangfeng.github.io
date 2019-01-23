@@ -187,7 +187,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/REST/">REST</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/virtualenv/">virtualenv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机组成原理/">计算机组成原理</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/REST/">REST</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/virtualenv/">virtualenv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/编译原理/">编译原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机组成原理/">计算机组成原理</a></li></ul>
                     </div>
                 </section>
                 
@@ -265,6 +265,70 @@
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-编译原理0" class="article article-type-post" itemscope="" itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/01/23/编译原理0/" class="article-date">
+      <time datetime="2019-01-23T05:55:47.000Z" itemprop="datePublished">2019-01-23</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/23/编译原理0/">编译原理0</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="一个简单的C语句运行结构"><a href="#一个简单的C语句运行结构" class="headerlink" title="一个简单的C语句运行结构"></a>一个简单的C语句运行结构</h2><p>C程序运行的核心是函数的执行和调用，它构成了整个C语言运行结构的基础框架。这一运行过程只要是在程序指令的驱动以及数据压栈、清栈的支持下实现的。</p>
+<p>下面是一段简单的C语言程序：</p>
+<p>` int fun(int a, int b);<br>int m = 10;</p>
+<p>int main(){<br>    int i = 4;<br>    int j = 5;<br>    m = fun(i, j);<br>    return 0;<br>}</p>
+<p>int fun(int a, int b){<br>    int c =  0;<br>    c = a + b;<br>    return c;<br>}`</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编译原理/">编译原理</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-计算机组成原理0" class="article article-type-post" itemscope="" itemprop="blogPost">
   
@@ -831,73 +895,6 @@
       
         <p class="article-more-link">
           <a href="/2018/12/23/python虚拟环境/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Docker" class="article article-type-post" itemscope="" itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2018/12/23/Docker/" class="article-date">
-      <time datetime="2018-12-23T04:20:50.000Z" itemprop="datePublished">2018-12-23</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/23/Docker/">Docker</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h2 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令 :"></a>基本命令 :</h2><p>查看所有镜像：</p>
-<p><code>docker images</code></p>
-<p><code>docker image ls</code></p>
-<p>查看所有的容器：</p>
-<p><code>docker ps -a</code></p>
-<p>查看运行中的容器：</p>
-<p><code>docker ps</code></p>
-<p>删除镜像：</p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-        <p class="article-more-link">
-          <a href="/2018/12/23/Docker/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
