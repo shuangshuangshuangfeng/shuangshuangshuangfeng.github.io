@@ -165,18 +165,16 @@
                         
                             <li><a href="/about/">关于我</a></li>
                         
-                            <li><a href="/tags/algorithm/">数据结构</a></li>
-                        
-                            <li><a href="/tags/Java/">java</a></li>
-                        
-                            <li><a href="/tags/network/">计算机网络</a></li>
-                        
-                            <li><a href="/tags/Machine_Learning">机器学习</a></li>
-                        
                         </ul>
                     </nav>
                     <nav class="header-nav">
                         <ul class="social">
+                            
+                                <a class="fa Email" href="/775001644@qq.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="https://shuangshuangshuangfeng.github.io/" title="GitHub"></a>
+                            
+                                <a class="fa QQ" href="/775001644" title="QQ"></a>
                             
                         </ul>
                     </nav>
@@ -197,8 +195,6 @@
                       <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
                     
                       <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
-                    
-                      <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
                     
                     </div>
                 </section>
@@ -246,19 +242,17 @@
                 
                     <li><a href="/about/">关于我</a></li>
                 
-                    <li><a href="/tags/algorithm/">数据结构</a></li>
-                
-                    <li><a href="/tags/Java/">java</a></li>
-                
-                    <li><a href="/tags/network/">计算机网络</a></li>
-                
-                    <li><a href="/tags/Machine_Learning">机器学习</a></li>
-                
                 <div class="clearfix"></div>
                 </ul>
             </nav>
             <nav class="header-nav">
                         <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="/775001644@qq.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://shuangshuangshuangfeng.github.io/" title="GitHub"></a>
+                            
+                                <a class="fa QQ" target="_blank" href="/775001644" title="QQ"></a>
                             
                         </ul>
             </nav>
@@ -514,6 +508,23 @@
         }
     
 </script>
+
+    <script>
+        var originTitle = document.title;
+        var titleTime;
+        document.addEventListener("visibilitychange", function() {
+            if (document.hidden) {
+                document.title = "" + originTitle;
+                clearTimeout(titleTime);
+            }
+            else {
+                document.title = "" + originTitle;
+                titleTime = setTimeout(function() {
+                    document.title = originTitle;
+                }, 2000);
+            }
+        })
+    </script>
 
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
