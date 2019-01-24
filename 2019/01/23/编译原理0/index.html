@@ -26,7 +26,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2019/01/23/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%860/IMG_0687.JPG">
 <meta property="og:image" content="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2019/01/23/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%860/IMG_0688.JPG">
 <meta property="og:image" content="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2019/01/23/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%860/IMG_0689.JPG">
-<meta property="og:updated_time" content="2019-01-24T03:30:08.492Z">
+<meta property="og:updated_time" content="2019-01-24T03:33:23.579Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="编译原理0">
 <meta name="twitter:description" content="一个简单C语言的运行时结构内存划分C程序运行的核心是函数的执行和调用，它构成了整个C语言运行结构的基础框架。这一运行过程只要是在程序指令的驱动以及数据压栈、清栈的支持下实现的。">
@@ -318,9 +318,9 @@
 <p>CPU中有三个寄存器，分别是eip, ebp和esp。<br>    eip指向代码区将要执行的下一条指令，他的管控方式有两种，一种是“顺序执行”，即程序执行完一条指令后自动指向下一条执行；另一种跳转，也就是执行完一条指令后跳转到指定位置。<br>    ebp和esp是用来管控栈空间的，ebp指向栈低，esp指向栈顶，在代码区中，函数调用，返回和执行伴随着不断的压栈和清栈。栈中数据存储和释放的原则是后进先出。</p>
 <p> <img src="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2019/01/23/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%860/IMG_0689.JPG" alt="对代码区和动态数据区的管控"></p>
 <h3 id="编译过程概述"><a href="#编译过程概述" class="headerlink" title="编译过程概述"></a>编译过程概述</h3><p>源程序是给人看的，本质上就是文本文件，但是计算机无法直接执行源程序，需要通过编译器将源程序编译为计算机可执行程序。<br><strong>编译过程主要分为词法分析、语法分析、中间代码生成、目标代码生成（忽略预处理，语义分析，优化等）。</strong></p>
-<h3 id="词法分析"><a href="#词法分析" class="headerlink" title="词法分析"></a>词法分析</h3><p>编译的第一阶段是词法分析，目的就是将字符序列转换为单词序列。<br>在词法分析阶段能够吃瘪出一些单词的含义，他们包括关键字，数字，字符串，分隔符，比如”int”代表整数类型，它不可能是一个变量名称。<br>进行词法分析的程序或者函数叫做词法分析器，也叫扫描器。</p>
-<h3 id="语法分析"><a href="#语法分析" class="headerlink" title="语法分析"></a>语法分析</h3><p>编译的第二阶段是语法分析，目的是在词法分析的基础上，将单词序列组合成各类语法短语。<br>在语法分析器中将C语言语法映射成一套模板，并把这套模板融合在语法分析器的程序中。语法分析器的作用就是将词法分析器中识别出的单词一个一个的与这套模板进行匹配，匹配上这套模板中的某个语法。</p>
-<h3 id="语法树"><a href="#语法树" class="headerlink" title="语法树"></a>语法树</h3><p><strong>定义</strong> : 语法树是源代码抽象语法结构的树状表现形式，这里特指编程语言的源代码。树上的每个节点代表源代码中的一种结构。</p>
+<h3 id="词法分析"><a href="#词法分析" class="headerlink" title="词法分析"></a>词法分析</h3><p>编译的第一阶段是词法分析，目的就是<strong>将字符序列转换为单词序列</strong>。<br>在词法分析阶段能够吃瘪出一些单词的含义，他们包括关键字，数字，字符串，分隔符，比如”int”代表整数类型，它不可能是一个变量名称。<br>进行词法分析的程序或者函数叫做词法分析器，也叫扫描器。</p>
+<h3 id="语法分析"><a href="#语法分析" class="headerlink" title="语法分析"></a>语法分析</h3><p>编译的第二阶段是语法分析，目的是在词法分析的基础上，<strong>将单词序列组合成各类语法短语</strong>。<br>在语法分析器中将C语言语法映射成一套模板，并把这套模板融合在语法分析器的程序中。语法分析器的作用就是将词法分析器中识别出的单词一个一个的与这套模板进行匹配，匹配上这套模板中的某个语法。</p>
+<h4 id="语法树"><a href="#语法树" class="headerlink" title="语法树"></a>语法树</h4><p><strong>定义</strong> : 语法树(abstract syntax tree或者缩写为AST)是源代码抽象语法结构的树状表现形式，这里特指编程语言的源代码。树上的每个节点代表源代码中的一种结构。</p>
 
       
     </div>
@@ -332,7 +332,7 @@
         <p><span>本文标题:</span><a href="/2019/01/23/编译原理0/">编译原理0</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">刘凤双</a></p>
         <p><span>发布时间:</span>2019-01-23, 13:55:47</p>
-        <p><span>最后更新:</span>2019-01-24, 11:30:08</p>
+        <p><span>最后更新:</span>2019-01-24, 11:33:23</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/01/23/编译原理0/" title="编译原理0">http://yoursite.com/2019/01/23/编译原理0/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/01/23/编译原理0/　　作者: 刘凤双" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -362,7 +362,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一个简单C语言的运行时结构"><span class="toc-number">1.</span> <span class="toc-text">一个简单C语言的运行时结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#内存划分"><span class="toc-number">1.1.</span> <span class="toc-text">内存划分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#程序执行"><span class="toc-number">1.2.</span> <span class="toc-text">程序执行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编译过程概述"><span class="toc-number">1.3.</span> <span class="toc-text">编译过程概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#词法分析"><span class="toc-number">1.4.</span> <span class="toc-text">词法分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#语法分析"><span class="toc-number">1.5.</span> <span class="toc-text">语法分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#语法树"><span class="toc-number">1.6.</span> <span class="toc-text">语法树</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一个简单C语言的运行时结构"><span class="toc-number">1.</span> <span class="toc-text">一个简单C语言的运行时结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#内存划分"><span class="toc-number">1.1.</span> <span class="toc-text">内存划分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#程序执行"><span class="toc-number">1.2.</span> <span class="toc-text">程序执行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编译过程概述"><span class="toc-number">1.3.</span> <span class="toc-text">编译过程概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#词法分析"><span class="toc-number">1.4.</span> <span class="toc-text">词法分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#语法分析"><span class="toc-number">1.5.</span> <span class="toc-text">语法分析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#语法树"><span class="toc-number">1.5.1.</span> <span class="toc-text">语法树</span></a></li></ol></li></ol></li></ol>
         
     </div>
     <style>
