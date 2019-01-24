@@ -26,7 +26,8 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2019/01/23/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%860/IMG_0687.JPG">
 <meta property="og:image" content="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2019/01/23/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%860/IMG_0688.JPG">
 <meta property="og:image" content="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2019/01/23/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%860/IMG_0689.JPG">
-<meta property="og:updated_time" content="2019-01-24T03:33:23.579Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2019/01/23/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%860/%E8%AF%AD%E6%B3%95%E6%A0%91.png">
+<meta property="og:updated_time" content="2019-01-24T05:39:26.392Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="编译原理0">
 <meta name="twitter:description" content="一个简单C语言的运行时结构内存划分C程序运行的核心是函数的执行和调用，它构成了整个C语言运行结构的基础框架。这一运行过程只要是在程序指令的驱动以及数据压栈、清栈的支持下实现的。">
@@ -321,6 +322,14 @@
 <h3 id="词法分析"><a href="#词法分析" class="headerlink" title="词法分析"></a>词法分析</h3><p>编译的第一阶段是词法分析，目的就是<strong>将字符序列转换为单词序列</strong>。<br>在词法分析阶段能够吃瘪出一些单词的含义，他们包括关键字，数字，字符串，分隔符，比如”int”代表整数类型，它不可能是一个变量名称。<br>进行词法分析的程序或者函数叫做词法分析器，也叫扫描器。</p>
 <h3 id="语法分析"><a href="#语法分析" class="headerlink" title="语法分析"></a>语法分析</h3><p>编译的第二阶段是语法分析，目的是在词法分析的基础上，<strong>将单词序列组合成各类语法短语</strong>。<br>在语法分析器中将C语言语法映射成一套模板，并把这套模板融合在语法分析器的程序中。语法分析器的作用就是将词法分析器中识别出的单词一个一个的与这套模板进行匹配，匹配上这套模板中的某个语法。</p>
 <h4 id="语法树"><a href="#语法树" class="headerlink" title="语法树"></a>语法树</h4><p><strong>定义</strong> : 语法树(abstract syntax tree或者缩写为AST)是源代码抽象语法结构的树状表现形式，这里特指编程语言的源代码。树上的每个节点代表源代码中的一种结构。</p>
+<p>AST主要有三步:</p>
+<ul>
+<li>解析: 将代码祖富春解析成抽象语法树</li>
+<li>转换: 对抽象语法树进行转换操作</li>
+<li><p>生成: 根据变换后的抽象语法树再生成代码字符串</p>
+<p><img src="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2019/01/23/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%860/%E8%AF%AD%E6%B3%95%E6%A0%91.png" alt="语法树"></p>
+</li>
+</ul>
 
       
     </div>
@@ -332,7 +341,7 @@
         <p><span>本文标题:</span><a href="/2019/01/23/编译原理0/">编译原理0</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">刘凤双</a></p>
         <p><span>发布时间:</span>2019-01-23, 13:55:47</p>
-        <p><span>最后更新:</span>2019-01-24, 11:33:23</p>
+        <p><span>最后更新:</span>2019-01-24, 13:39:26</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/01/23/编译原理0/" title="编译原理0">http://yoursite.com/2019/01/23/编译原理0/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/01/23/编译原理0/　　作者: 刘凤双" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
