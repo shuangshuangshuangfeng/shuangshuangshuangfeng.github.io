@@ -29,7 +29,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2019/01/23/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%860/%E8%AF%AD%E6%B3%95%E6%A0%91.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2019/01/23/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%860/python%E8%AF%AD%E6%B3%95%E6%A0%91.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2019/01/23/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%860/fun%E5%87%BD%E6%95%B0%E8%AF%AD%E6%B3%95%E6%A0%91.JPG">
-<meta property="og:updated_time" content="2019-01-24T07:16:36.030Z">
+<meta property="og:updated_time" content="2019-01-24T08:47:42.288Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="编译原理0">
 <meta name="twitter:description" content="一个简单C语言的运行时结构内存划分C程序运行的核心是函数的执行和调用，它构成了整个C语言运行结构的基础框架。这一运行过程只要是在程序指令的驱动以及数据压栈、清栈的支持下实现的。">
@@ -334,7 +334,7 @@
 <p>BinOp op = Mult()表示乘法运算，与*相对应；<br>BinOp op = Add()表示加法运算，与+相对应；<br>Num n = 1既为数值1。<br> <img src="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2019/01/23/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%860/python%E8%AF%AD%E6%B3%95%E6%A0%91.png" alt="Python语法树"></p>
 <h4 id="函数语法树"><a href="#函数语法树" class="headerlink" title="函数语法树"></a>函数语法树</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">int fun(int a, int b)&#123;</span><br><span class="line">    int c =  0;</span><br><span class="line">    c = a + b;</span><br><span class="line">    return c; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>fun函数的语法树如下:<br> <img src="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2019/01/23/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%860/fun%E5%87%BD%E6%95%B0%E8%AF%AD%E6%B3%95%E6%A0%91.JPG" alt="fun函数语法树"></p>
-<p>###　中间代码生成<br>中间代码的最初设计思想是: 从语法树转换为目标代码,理论和实际都是可行的,但是计算机中存在多种CPU硬件平台,考虑带程序在不同CPU之间的可移植性,先转换为一个通用的抽象的”CPU指令”.<br>选定具体的CPU、操作系统后，中间代码就可以转换为目标代码-汇编代码，这时操作系统的影响还比较小。</p>
+<h3 id="中间代码生成"><a href="#中间代码生成" class="headerlink" title="中间代码生成"></a>中间代码生成</h3><p>中间代码的最初设计思想是: 从语法树转换为目标代码,理论和实际都是可行的,但是计算机中存在多种CPU硬件平台,考虑带程序在不同CPU之间的可移植性,先转换为一个通用的抽象的”CPU指令”.<br>选定具体的CPU、操作系统后，中间代码就可以转换为目标代码-汇编代码，这时操作系统的影响还比较小。</p>
 <p>然后由汇编器选定操作系统的目标文件格式，将.s文件转换为具体的目标文件，对于Linux而言是.o文件，对于Windows而言是.obj文件。目标文件已经是选定的CPU机器指令了。</p>
 
       
@@ -347,7 +347,7 @@
         <p><span>本文标题:</span><a href="/2019/01/23/编译原理0/">编译原理0</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">刘凤双</a></p>
         <p><span>发布时间:</span>2019-01-23, 13:55:47</p>
-        <p><span>最后更新:</span>2019-01-24, 15:16:36</p>
+        <p><span>最后更新:</span>2019-01-24, 16:47:42</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/01/23/编译原理0/" title="编译原理0">http://yoursite.com/2019/01/23/编译原理0/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/01/23/编译原理0/　　作者: 刘凤双" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -377,7 +377,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一个简单C语言的运行时结构"><span class="toc-number">1.</span> <span class="toc-text">一个简单C语言的运行时结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#内存划分"><span class="toc-number">1.1.</span> <span class="toc-text">内存划分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#程序执行"><span class="toc-number">1.2.</span> <span class="toc-text">程序执行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编译过程概述"><span class="toc-number">1.3.</span> <span class="toc-text">编译过程概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#词法分析"><span class="toc-number">1.4.</span> <span class="toc-text">词法分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#语法分析"><span class="toc-number">1.5.</span> <span class="toc-text">语法分析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#语法树"><span class="toc-number">1.5.1.</span> <span class="toc-text">语法树</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Python语法树"><span class="toc-number">1.5.2.</span> <span class="toc-text">Python语法树</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#函数语法树"><span class="toc-number">1.5.3.</span> <span class="toc-text">函数语法树</span></a></li></ol></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一个简单C语言的运行时结构"><span class="toc-number">1.</span> <span class="toc-text">一个简单C语言的运行时结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#内存划分"><span class="toc-number">1.1.</span> <span class="toc-text">内存划分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#程序执行"><span class="toc-number">1.2.</span> <span class="toc-text">程序执行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编译过程概述"><span class="toc-number">1.3.</span> <span class="toc-text">编译过程概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#词法分析"><span class="toc-number">1.4.</span> <span class="toc-text">词法分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#语法分析"><span class="toc-number">1.5.</span> <span class="toc-text">语法分析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#语法树"><span class="toc-number">1.5.1.</span> <span class="toc-text">语法树</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Python语法树"><span class="toc-number">1.5.2.</span> <span class="toc-text">Python语法树</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#函数语法树"><span class="toc-number">1.5.3.</span> <span class="toc-text">函数语法树</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#中间代码生成"><span class="toc-number">1.6.</span> <span class="toc-text">中间代码生成</span></a></li></ol></li></ol>
         
     </div>
     <style>
