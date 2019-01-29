@@ -15,19 +15,19 @@
 
 
 
-<meta name="description" content="Java集合框架Java的集合框架有下图所示：   Collection 有序接口Collection的主要方法有: boolean add(Object o)添加对象到集合 boolean remove(Object o)删除指定对象 int size() 返回当前集合中的元素 boolean contains(Object O)查找集合中是否有指定对象 boolean isEmpty() 判断">
+<meta name="description" content="Java集合框架介绍">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java集合">
 <meta property="og:url" content="http://yoursite.com/2019/01/29/Java集合/index.html">
 <meta property="og:site_name" content="My Blog">
-<meta property="og:description" content="Java集合框架Java的集合框架有下图所示：   Collection 有序接口Collection的主要方法有: boolean add(Object o)添加对象到集合 boolean remove(Object o)删除指定对象 int size() 返回当前集合中的元素 boolean contains(Object O)查找集合中是否有指定对象 boolean isEmpty() 判断">
+<meta property="og:description" content="Java集合框架介绍">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2019/01/29/Java%E9%9B%86%E5%90%88/java%E9%9B%86%E5%90%88.png">
-<meta property="og:updated_time" content="2019-01-29T03:09:46.444Z">
+<meta property="og:updated_time" content="2019-01-29T06:00:58.468Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java集合">
-<meta name="twitter:description" content="Java集合框架Java的集合框架有下图所示：   Collection 有序接口Collection的主要方法有: boolean add(Object o)添加对象到集合 boolean remove(Object o)删除指定对象 int size() 返回当前集合中的元素 boolean contains(Object O)查找集合中是否有指定对象 boolean isEmpty() 判断">
+<meta name="twitter:description" content="Java集合框架介绍">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2019/01/29/Java%E9%9B%86%E5%90%88/java%E9%9B%86%E5%90%88.png">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -306,7 +306,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="Java集合框架"><a href="#Java集合框架" class="headerlink" title="Java集合框架"></a>Java集合框架</h2><p>Java的集合框架有下图所示：</p>
+        <h2 id="Java集合框架介绍"><a href="#Java集合框架介绍" class="headerlink" title="Java集合框架介绍"></a>Java集合框架介绍</h2><a id="more"></a>
+<p>Java的集合框架有下图所示：</p>
 <p> <img src="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2019/01/29/Java%E9%9B%86%E5%90%88/java%E9%9B%86%E5%90%88.png" alt="Java集合继承关系图"></p>
 <h3 id="Collection-有序接口"><a href="#Collection-有序接口" class="headerlink" title="Collection 有序接口"></a>Collection 有序接口</h3><h4 id="Collection的主要方法有"><a href="#Collection的主要方法有" class="headerlink" title="Collection的主要方法有:"></a>Collection的主要方法有:</h4><ul>
 <li>boolean add(Object o)添加对象到集合</li>
@@ -321,7 +322,37 @@
 <li>void removeAll(Collection c)从集合中删除c集合中也有的元素</li>
 <li>void retainAll(Collection c)从集合中删除集合c中不包含的元素</li>
 </ul>
-<h4 id="Collection主要子接口对象"><a href="#Collection主要子接口对象" class="headerlink" title="Collection主要子接口对象"></a>Collection主要子接口对象</h4>
+<h3 id="List抽象接口"><a href="#List抽象接口" class="headerlink" title="List抽象接口"></a>List抽象接口</h3><p>List抽象接口可以重读有序</p>
+<h4 id="List的主要方法"><a href="#List的主要方法" class="headerlink" title="List的主要方法"></a>List的主要方法</h4><ul>
+<li>void add(int index, Object element)在指定位置添加一个元素</li>
+<li>boolean addAll(int index, Collect c)将集合c中的元素添加到指定的位置</li>
+<li>Object get(int index) 返回List中某个指定位置的元素</li>
+<li>int indexOf(Object o) 返回第一个出现元素o的位置</li>
+<li>Object remove(int index)删除指定位置的元素</li>
+<li>Object set(int index, Object element)用元素element取代位置为index上的元素，返回被取代的元素</li>
+<li>void sort() 排序</li>
+</ul>
+<h4 id="List主要接口对象"><a href="#List主要接口对象" class="headerlink" title="List主要接口对象"></a>List主要接口对象</h4><ul>
+<li>LinkedList没有同步方法</li>
+<li>ArrayList是非同步的</li>
+<li>Vector是同步的(synchronized)，类似于ArrayList</li>
+</ul>
+<h3 id="Set集合"><a href="#Set集合" class="headerlink" title="Set集合"></a>Set集合</h3><p>Java中使用Set接口的集合不允许有重复值,也就是说Set中的每一个元素都是唯一的。</p>
+<h4 id="Set的主要方法"><a href="#Set的主要方法" class="headerlink" title="Set的主要方法"></a>Set的主要方法</h4><ul>
+<li>int size() 获取集合中元素的个数</li>
+<li>add(Object o)向集合中添加元素</li>
+<li>Object remove(Object o) 在集合中删除元素o</li>
+<li>boolean contains(Object o) 判断集合中是否含有元素o</li>
+<li>iterator() 排序</li>
+</ul>
+<h4 id="Set接口的实现类-HashSet"><a href="#Set接口的实现类-HashSet" class="headerlink" title="Set接口的实现类-HashSet"></a>Set接口的实现类-HashSet</h4><p><strong>HashSet通过Hash算法排布集合内的元素，是一个无序，不可重复的集合。</strong></p>
+<ul>
+<li>HashSet不能保证元素的顺序，不可重复，不是线程安全的，集合元素可以为Null.</li>
+<li>其底层实现实际上是一个数组，存在的意义就是加快查询速度.</li>
+<li>对于HashSet集合中存在两个对象通过equals()方法返回true,那么这两个对象的hashCode值也应该相同。</li>
+</ul>
+<p><strong>注意</strong>: 每一个存储到哈希表中的对象，都要提供hashCode()和equals()方法的实现，用来判断是否是一个对象。</p>
+<h2 id="集合使用的算法"><a href="#集合使用的算法" class="headerlink" title="集合使用的算法"></a>集合使用的算法</h2>
       
     </div>
     
@@ -332,7 +363,7 @@
         <p><span>本文标题:</span><a href="/2019/01/29/Java集合/">Java集合</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">刘凤双</a></p>
         <p><span>发布时间:</span>2019-01-29, 10:39:00</p>
-        <p><span>最后更新:</span>2019-01-29, 11:09:46</p>
+        <p><span>最后更新:</span>2019-01-29, 14:00:58</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/01/29/Java集合/" title="Java集合">http://yoursite.com/2019/01/29/Java集合/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/01/29/Java集合/　　作者: 刘凤双" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -362,7 +393,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Java集合框架"><span class="toc-number">1.</span> <span class="toc-text">Java集合框架</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Collection-有序接口"><span class="toc-number">1.1.</span> <span class="toc-text">Collection 有序接口</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Collection的主要方法有"><span class="toc-number">1.1.1.</span> <span class="toc-text">Collection的主要方法有:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Collection主要子接口对象"><span class="toc-number">1.1.2.</span> <span class="toc-text">Collection主要子接口对象</span></a></li></ol></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Java集合框架介绍"><span class="toc-number">1.</span> <span class="toc-text">Java集合框架介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Collection-有序接口"><span class="toc-number">1.1.</span> <span class="toc-text">Collection 有序接口</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Collection的主要方法有"><span class="toc-number">1.1.1.</span> <span class="toc-text">Collection的主要方法有:</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#List抽象接口"><span class="toc-number">1.2.</span> <span class="toc-text">List抽象接口</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#List的主要方法"><span class="toc-number">1.2.1.</span> <span class="toc-text">List的主要方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#List主要接口对象"><span class="toc-number">1.2.2.</span> <span class="toc-text">List主要接口对象</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Set集合"><span class="toc-number">1.3.</span> <span class="toc-text">Set集合</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Set的主要方法"><span class="toc-number">1.3.1.</span> <span class="toc-text">Set的主要方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Set接口的实现类-HashSet"><span class="toc-number">1.3.2.</span> <span class="toc-text">Set接口的实现类-HashSet</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#集合使用的算法"><span class="toc-number">2.</span> <span class="toc-text">集合使用的算法</span></a></li></ol>
         
     </div>
     <style>
