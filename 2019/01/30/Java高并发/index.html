@@ -15,18 +15,18 @@
 
 
 
-<meta name="description" content="hello">
+<meta name="description" content="“搞Java的怎么能不学并发呢？”  Java中如何创建一个线程？   继承Thread,覆写run()方法 实现Runnable接口，实现run()方法">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java高并发">
 <meta property="og:url" content="http://yoursite.com/2019/01/30/Java高并发/index.html">
 <meta property="og:site_name" content="My Blog">
-<meta property="og:description" content="hello">
+<meta property="og:description" content="“搞Java的怎么能不学并发呢？”  Java中如何创建一个线程？   继承Thread,覆写run()方法 实现Runnable接口，实现run()方法">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-01-30T02:58:17.269Z">
+<meta property="og:updated_time" content="2019-02-01T07:08:07.333Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java高并发">
-<meta name="twitter:description" content="hello">
+<meta name="twitter:description" content="“搞Java的怎么能不学并发呢？”  Java中如何创建一个线程？   继承Thread,覆写run()方法 实现Runnable接口，实现run()方法">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -187,7 +187,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/REST/">REST</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/virtualenv/">virtualenv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/编译原理/">编译原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机组成原理/">计算机组成原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/REST/">REST</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/virtualenv/">virtualenv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/编译原理/">编译原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机组成原理/">计算机组成原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
                     </div>
                 </section>
                 
@@ -304,7 +304,44 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="hello"><a href="#hello" class="headerlink" title="hello"></a>hello</h2>
+        <p>“搞Java的怎么能不学并发呢？”</p>
+<ol>
+<li>Java中如何创建一个线程？</li>
+</ol>
+<ul>
+<li>继承Thread,覆写run()方法</li>
+<li>实现Runnable接口，实现run()方法<a id="more"></a></li>
+</ul>
+<ol start="2">
+<li>Vector如何实现线程安全？</li>
+</ol>
+<ul>
+<li>通过synchronized关键字修饰每个方法</li>
+</ul>
+<ol start="3">
+<li>synchronized修饰方法和代码块的区别？</li>
+</ol>
+<ul>
+<li>修饰方法时: this引用的当前实例持有锁</li>
+<li>修饰代码时: 要指定一个对象，该对象持有锁</li>
+</ul>
+<ol start="4">
+<li>wait() 和 sleep()的区别:</li>
+</ol>
+<ul>
+<li>sleep()来自Thread类，wait()来自Object类</li>
+<li>调用sleep()方法的过程中，线程不会释放对象锁；调用wait()方法线程会释放对象锁。</li>
+<li>sleep睡眠后不出让系统资源，wait让出系统资源其他线程可以调用CPU</li>
+<li>sleep(milliseconds)需要制定一个睡眠时间，时间一到就会自动唤醒</li>
+</ul>
+<ol start="5">
+<li>为什么wait(), notify(),notifyAll()这些方法不在thread类里面？</li>
+</ol>
+<ul>
+<li>主要是Java提供的锁是对象级别而不是线程的，每个对象都有锁，通过线程获得，由于wait(), notify(), notifyAll()都是锁级别的操作，所以把他们定义在Object类中是因为锁属于对象。</li>
+</ul>
+<p>—未完待续</p>
+
       
     </div>
     
@@ -315,7 +352,7 @@
         <p><span>本文标题:</span><a href="/2019/01/30/Java高并发/">Java高并发</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">刘凤双</a></p>
         <p><span>发布时间:</span>2019-01-30, 10:57:39</p>
-        <p><span>最后更新:</span>2019-01-30, 10:58:17</p>
+        <p><span>最后更新:</span>2019-02-01, 15:08:07</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/01/30/Java高并发/" title="Java高并发">http://yoursite.com/2019/01/30/Java高并发/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/01/30/Java高并发/　　作者: 刘凤双" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -351,7 +388,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#hello"><span class="toc-number">1.</span> <span class="toc-text">hello</span></a></li></ol>
+            
         
     </div>
     <style>
