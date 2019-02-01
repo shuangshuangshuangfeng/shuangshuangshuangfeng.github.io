@@ -295,14 +295,12 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="拦截器-Interceptor-与过滤器-Filter"><a href="#拦截器-Interceptor-与过滤器-Filter" class="headerlink" title="拦截器(Interceptor)与过滤器(Filter)"></a>拦截器(Interceptor)与过滤器(Filter)</h2><h3 id="拦截器使用"><a href="#拦截器使用" class="headerlink" title="拦截器使用"></a>拦截器使用</h3><ul>
+              <h2 id="拦截器-Interceptor-与过滤器-Filter"><a href="#拦截器-Interceptor-与过滤器-Filter" class="headerlink" title="拦截器(Interceptor)与过滤器(Filter)"></a>拦截器(Interceptor)与过滤器(Filter)</h2><h3 id="拦截器使用"><a href="#拦截器使用" class="headerlink" title="拦截器使用"></a>拦截器使用</h3><ul>
 <li>请求达到DispactcherServlet</li>
 <li>DispatcherServlet发送至Interceptor,执行preHandle()</li>
 <li>请求达到 Controller</li>
-<li>请求结束后，postHandle 执行<h3 id="过滤器-Filter-工作原理"><a href="#过滤器-Filter-工作原理" class="headerlink" title="过滤器(Filter)工作原理"></a>过滤器(Filter)工作原理</h3>只要你在web.xml文件配置好要拦截的客户端请求，它都会帮你拦截到请求，此时你就可以对请求或响应(Request、Response)统一设置编码，简化操作；同时还可进行逻辑判断，如用户是否已经登陆、有没有权限访问该页面等等工作。它是随你的web应用启动而启动的，只初始化一次，以后就可以拦截相关请求，只有当你的web应用停止或重新部署的时候才销毁<h3 id="拦截器和过滤器的执行顺序"><a href="#拦截器和过滤器的执行顺序" class="headerlink" title="拦截器和过滤器的执行顺序"></a>拦截器和过滤器的执行顺序</h3>过滤器-&gt;拦截器-&gt;Action-&gt;拦截器-&gt;过滤器<h3 id="过滤器的使用"><a href="#过滤器的使用" class="headerlink" title="过滤器的使用"></a>过滤器的使用</h3></li>
-<li></li>
-</ul>
-
+<li>请求结束后，postHandle 执行</li></ul>
+          
       
     </div>
     
@@ -315,6 +313,10 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a href="/2019/02/01/过滤器和拦截器/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
