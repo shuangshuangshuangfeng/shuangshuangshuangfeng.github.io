@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="My Blog">
 <meta property="og:description" content="“搞Java的怎么能不学并发呢？”  Java中如何创建一个线程？   继承Thread,覆写run()方法 实现Runnable接口，实现run()方法">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-01T07:08:07.333Z">
+<meta property="og:updated_time" content="2019-02-17T12:21:11.910Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java高并发">
 <meta name="twitter:description" content="“搞Java的怎么能不学并发呢？”  Java中如何创建一个线程？   继承Thread,覆写run()方法 实现Runnable接口，实现run()方法">
@@ -319,13 +319,14 @@
 <li>通过synchronized关键字修饰每个方法</li>
 </ul>
 <ol start="3">
-<li>synchronized修饰方法和代码块的区别？</li>
+<li>类锁和对象锁的区别:</li>
 </ol>
 <ul>
-<li>修饰方法时: this引用的当前实例持有锁</li>
-<li>修饰代码时: 要指定一个对象，该对象持有锁</li>
+<li>类锁:所有对象一把锁</li>
+<li>对象锁:一个对象一把锁，多个对象多把锁</li>
 </ul>
 <ol start="4">
+<li>synchronized修饰静态方法时，相当于类锁，修饰动态代码时，相当于对象锁</li>
 <li>wait() 和 sleep()的区别:</li>
 </ol>
 <ul>
@@ -334,7 +335,7 @@
 <li>sleep睡眠后不出让系统资源，wait让出系统资源其他线程可以调用CPU</li>
 <li>sleep(milliseconds)需要制定一个睡眠时间，时间一到就会自动唤醒</li>
 </ul>
-<ol start="5">
+<ol start="6">
 <li>为什么wait(), notify(),notifyAll()这些方法不在thread类里面？</li>
 </ol>
 <ul>
@@ -352,7 +353,7 @@
         <p><span>本文标题:</span><a href="/2019/01/30/Java高并发/">Java高并发</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">刘凤双</a></p>
         <p><span>发布时间:</span>2019-01-30, 10:57:39</p>
-        <p><span>最后更新:</span>2019-02-01, 15:08:07</p>
+        <p><span>最后更新:</span>2019-02-17, 20:21:11</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/01/30/Java高并发/" title="Java高并发">http://yoursite.com/2019/01/30/Java高并发/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/01/30/Java高并发/　　作者: 刘凤双" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
