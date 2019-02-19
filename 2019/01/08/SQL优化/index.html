@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="My Blog">
 <meta property="og:description" content="优化的目标: 减少IO次数 降低CPU计算 提高查询效率  优化的具体措施">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-01-22T14:56:46.542Z">
+<meta property="og:updated_time" content="2019-02-18T03:55:50.372Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SQL优化">
 <meta name="twitter:description" content="优化的目标: 减少IO次数 降低CPU计算 提高查询效率  优化的具体措施">
@@ -313,7 +313,7 @@
 <h3 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h3><ol>
 <li><p>查询时，尽量避免全表扫描,首先应考虑在where及order by涉及的列上建立索引。</p>
 </li>
-<li><p>应尽量避免在where字句中对字段进行null值判断。否则将导致引擎放弃使用索引，进行全表扫描。</p>
+<li><p>应尽量避免在where子句中对字段进行null值判断。否则将导致引擎放弃使用索引，进行全表扫描。</p>
 <p> <code>select id from table_name where col = null</code></p>
 </li>
 <li><p>应尽量避免在where子句中使用 != , &lt;&gt;, 或 not in 操作符，否则引擎将放弃使用索引而全表扫描。</p>
@@ -370,7 +370,7 @@
         <p><span>本文标题:</span><a href="/2019/01/08/SQL优化/">SQL优化</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">刘凤双</a></p>
         <p><span>发布时间:</span>2019-01-08, 13:31:10</p>
-        <p><span>最后更新:</span>2019-01-22, 22:56:46</p>
+        <p><span>最后更新:</span>2019-02-18, 11:55:50</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/01/08/SQL优化/" title="SQL优化">http://yoursite.com/2019/01/08/SQL优化/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/01/08/SQL优化/　　作者: 刘凤双" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
