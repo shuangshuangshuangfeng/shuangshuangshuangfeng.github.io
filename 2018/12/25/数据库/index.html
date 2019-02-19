@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="My Blog">
 <meta property="og:description" content="完整性约束 实体完整性: 实体完整性是指表中行的完整性，主要用于保证操作的数据（记录）非空，唯一且不重复。即:实体完整性要求每个表有且仅有一个主键，每个主键值唯一，而且不允许为空或重复 参照完整性: 参照完整性属于表间规则，对于永久关系的相关表，在更新插入或删除记录时，如果只改其一，则影响其数据的完整性。即外键的取值必须是另一个表的主键的有效值或者空值 用户定义完整性: 用户自定义完整性是对数据表">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-19T02:41:04.668Z">
+<meta property="og:updated_time" content="2019-02-19T02:48:59.066Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据库">
 <meta name="twitter:description" content="完整性约束 实体完整性: 实体完整性是指表中行的完整性，主要用于保证操作的数据（记录）非空，唯一且不重复。即:实体完整性要求每个表有且仅有一个主键，每个主键值唯一，而且不允许为空或重复 参照完整性: 参照完整性属于表间规则，对于永久关系的相关表，在更新插入或删除记录时，如果只改其一，则影响其数据的完整性。即外键的取值必须是另一个表的主键的有效值或者空值 用户定义完整性: 用户自定义完整性是对数据表">
@@ -461,8 +461,56 @@
 <h3 id="表变量"><a href="#表变量" class="headerlink" title="表变量"></a>表变量</h3><p>表变量存储在内存中。也分为本地和全局两种</p>
 <p>表变量存放在内存是有一定限制的，如果表变量数据量超过阈值，会把内存耗尽，然后使用TempDB的空间，这样主要还是使用硬盘空间，但同时把内存基本耗尽，增加了内存调入调出的机会，反而降低速度。</p>
 <h2 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h2><h3 id="笛卡尔积"><a href="#笛卡尔积" class="headerlink" title="笛卡尔积"></a>笛卡尔积</h3><p><strong>笛卡尔积</strong>:笛卡尔乘积在数学中，是指两个集合X和Y的笛卡尔积，又称直积<br>假设集合A={a,b},和集合B={0,1,2},则两个集合的笛卡尔积为{(a,0),(a,1),(a,2),(b,0),(b,1),(b,2)}</p>
-<h3 id="多表联查"><a href="#多表联查" class="headerlink" title="多表联查"></a>多表联查</h3><p>A表<br>| id  |  name  |<br>| —– | ——– |<br>| 1   | 张三  |<br>|  2  | 李四  |<br>|  3  |  王五 |</p>
-<p>B表<br>| id  |  job  |  parent_id |<br>| —- | —- | —– |<br>|1    |  11   |  1    |<br>| 2   |  22  |  2  |<br>|3   |  33  |  4  |</p>
+<h3 id="多表联查"><a href="#多表联查" class="headerlink" title="多表联查"></a>多表联查</h3><p>A表</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>张三</td>
+</tr>
+<tr>
+<td>2</td>
+<td>李四</td>
+</tr>
+<tr>
+<td>3</td>
+<td>王五</td>
+</tr>
+</tbody>
+</table>
+<p>B表</p>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>job</th>
+<th>parent_id</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>11</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>22</td>
+<td>2</td>
+</tr>
+<tr>
+<td>3</td>
+<td>33</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
 <ul>
 <li><strong>外连接</strong></li>
 </ul>
@@ -477,7 +525,7 @@
         <p><span>本文标题:</span><a href="/2018/12/25/数据库/">数据库</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">刘凤双</a></p>
         <p><span>发布时间:</span>2018-12-25, 23:25:45</p>
-        <p><span>最后更新:</span>2019-02-19, 10:41:04</p>
+        <p><span>最后更新:</span>2019-02-19, 10:48:59</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/12/25/数据库/" title="数据库">http://yoursite.com/2018/12/25/数据库/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2018/12/25/数据库/　　作者: 刘凤双" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
