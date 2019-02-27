@@ -15,18 +15,18 @@
 
 
 
-<meta name="description" content="拦截器(Interceptor)与过滤器(Filter)拦截器使用 请求达到DispactcherServlet DispatcherServlet发送至Interceptor,执行preHandle() 请求达到 Controller 请求结束后，postHandle 执行">
-<meta name="keywords" content="Java">
+<meta name="description" content="###记2018过去的一年。过去的一年，发生了很多事情，人生转折很大。考研初试成绩下来，成绩很接近复试线，倔强的我毅然决然选择拼一把，便去了北科的复试，本可以安心的走调剂，但却选择了这一条路，当初告诉自己，一定不要后悔，实际上，已经后悔了，就像进一步繁花似锦，退一步万丈深渊，虽没有这般夸张，但真的是决定一个人的未来。结果也可想而知，当了人家的炮灰，还好实验室的老师收留，我留在了河大，跟着本科跟了三">
+<meta name="keywords" content="随笔">
 <meta property="og:type" content="article">
-<meta property="og:title" content="过滤器和拦截器">
-<meta property="og:url" content="http://yoursite.com/2019/02/01/过滤器和拦截器/index.html">
+<meta property="og:title" content="记我的2018">
+<meta property="og:url" content="http://yoursite.com/2019/02/27/记我的2018/index.html">
 <meta property="og:site_name" content="My Blog">
-<meta property="og:description" content="拦截器(Interceptor)与过滤器(Filter)拦截器使用 请求达到DispactcherServlet DispatcherServlet发送至Interceptor,执行preHandle() 请求达到 Controller 请求结束后，postHandle 执行">
+<meta property="og:description" content="###记2018过去的一年。过去的一年，发生了很多事情，人生转折很大。考研初试成绩下来，成绩很接近复试线，倔强的我毅然决然选择拼一把，便去了北科的复试，本可以安心的走调剂，但却选择了这一条路，当初告诉自己，一定不要后悔，实际上，已经后悔了，就像进一步繁花似锦，退一步万丈深渊，虽没有这般夸张，但真的是决定一个人的未来。结果也可想而知，当了人家的炮灰，还好实验室的老师收留，我留在了河大，跟着本科跟了三">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-01T07:21:55.724Z">
+<meta property="og:updated_time" content="2019-02-27T05:11:29.243Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="过滤器和拦截器">
-<meta name="twitter:description" content="拦截器(Interceptor)与过滤器(Filter)拦截器使用 请求达到DispactcherServlet DispatcherServlet发送至Interceptor,执行preHandle() 请求达到 Controller 请求结束后，postHandle 执行">
+<meta name="twitter:title" content="记我的2018">
+<meta name="twitter:description" content="###记2018过去的一年。过去的一年，发生了很多事情，人生转折很大。考研初试成绩下来，成绩很接近复试线，倔强的我毅然决然选择拼一把，便去了北科的复试，本可以安心的走调剂，但却选择了这一条路，当初告诉自己，一定不要后悔，实际上，已经后悔了，就像进一步繁花似锦，退一步万丈深渊，虽没有这般夸张，但真的是决定一个人的未来。结果也可想而知，当了人家的炮灰，还好实验室的老师收留，我留在了河大，跟着本科跟了三">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -58,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>过滤器和拦截器 | My Blog</title>
+<title>记我的2018 | My Blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -264,11 +264,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
 </nav>
-      <div class="body-wrap"><article id="post-过滤器和拦截器" class="article article-type-post" itemscope="" itemprop="blogPost">
+      <div class="body-wrap"><article id="post-记我的2018" class="article article-type-post" itemscope="" itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/02/01/过滤器和拦截器/" class="article-date">
-      <time datetime="2019-02-01T06:58:22.000Z" itemprop="datePublished">2019-02-01</time>
+      <a href="/2019/02/27/记我的2018/" class="article-date">
+      <time datetime="2019-02-27T05:10:36.000Z" itemprop="datePublished">2019-02-27</time>
 </a>
 
 
@@ -283,7 +283,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      过滤器和拦截器
+      记我的2018
     </h1>
   
 
@@ -294,7 +294,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -304,27 +304,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="拦截器-Interceptor-与过滤器-Filter"><a href="#拦截器-Interceptor-与过滤器-Filter" class="headerlink" title="拦截器(Interceptor)与过滤器(Filter)"></a>拦截器(Interceptor)与过滤器(Filter)</h2><h3 id="拦截器使用"><a href="#拦截器使用" class="headerlink" title="拦截器使用"></a>拦截器使用</h3><ul>
-<li>请求达到DispactcherServlet</li>
-<li>DispatcherServlet发送至Interceptor,执行preHandle()</li>
-<li>请求达到 Controller</li>
-<li>请求结束后，postHandle 执行<a id="more"></a>
-<h3 id="过滤器-Filter-工作原理"><a href="#过滤器-Filter-工作原理" class="headerlink" title="过滤器(Filter)工作原理"></a>过滤器(Filter)工作原理</h3>只要你在web.xml文件配置好要拦截的客户端请求，它都会帮你拦截到请求，此时你就可以对请求或响应(Request、Response)统一设置编码，简化操作；同时还可进行逻辑判断，如用户是否已经登陆、有没有权限访问该页面等等工作。它是随你的web应用启动而启动的，只初始化一次，以后就可以拦截相关请求，只有当你的web应用停止或重新部署的时候才销毁<h3 id="拦截器和过滤器的执行顺序"><a href="#拦截器和过滤器的执行顺序" class="headerlink" title="拦截器和过滤器的执行顺序"></a>拦截器和过滤器的执行顺序</h3>过滤器-&gt;拦截器-&gt;Action-&gt;拦截器-&gt;过滤器<h3 id="过滤器和拦截器的主要区别"><a href="#过滤器和拦截器的主要区别" class="headerlink" title="过滤器和拦截器的主要区别"></a>过滤器和拦截器的主要区别</h3></li>
-<li>Filter是依赖于Servlet容器，属于Servlet规范的一部分，而拦截器是独立存在的。</li>
-<li>Filter的执行是由Servlet容器回调完成，不能使用Spring容器资源，而拦截器是通过动态代理的方式完成</li>
-<li>Filter的生命周期是由Servlet容器管理，而拦截器则可以通过IoC容器来管理。</li>
-<li>Filter是定义在web.xml中的<h3 id="拦截器和过滤器的一些用途"><a href="#拦截器和过滤器的一些用途" class="headerlink" title="拦截器和过滤器的一些用途"></a>拦截器和过滤器的一些用途</h3><h4 id="Request-Filter"><a href="#Request-Filter" class="headerlink" title="Request Filter:"></a>Request Filter:</h4></li>
-<li>进行安全检查</li>
-<li>格式化请求头和主体</li>
-<li>审查或者记录日志</li>
-<li>根据请求内容授权后者限制用户访问</li>
-<li>根据请求频率限制用户访问<h4 id="Response-Filter"><a href="#Response-Filter" class="headerlink" title="Response Filter:"></a>Response Filter:</h4></li>
-<li>压缩响应内容，比如让下载的内容更小</li>
-<li>追加或者修改响应<br>-创建或者整体修改响应<br>根据不同修改响应内容</li>
-</ul>
-<ul>
-<li></li>
-</ul>
+        <p>###记2018过去的一年。<br>过去的一年，发生了很多事情，人生转折很大。<br>考研初试成绩下来，成绩很接近复试线，倔强的我毅然决然选择拼一把，便去了北科的复试，本可以安心的走调剂，但却选择了这一条路，当初告诉自己，一定不要后悔，实际上，已经后悔了，就像进一步繁花似锦，退一步万丈深渊，虽没有这般夸张，但真的是决定一个人的未来。<br>结果也可想而知，当了人家的炮灰，还好实验室的老师收留，我留在了河大，跟着本科跟了三年的导师，继续读书。<br>后来因为一些原因，我休了学，出来找了工作。。<br>上班也有半年了，当初找工作时是那么的仓促，以至于没有多想就来了现在的公司，回想这半年来的收获，刻骨铭心的记忆没有，整日为了工作而工作,组长安排什么任务就做什么任务，浑浑噩噩，一点进步也没有，反倒是电视剧刷了不少，想想这样颓废的自己，实在是不能接受。就在昨天，毅然决然的辞去了工作，重新开始。</p>
 
       
     </div>
@@ -333,13 +313,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/02/01/过滤器和拦截器/">过滤器和拦截器</a></p>
+        <p><span>本文标题:</span><a href="/2019/02/27/记我的2018/">记我的2018</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">刘凤双</a></p>
-        <p><span>发布时间:</span>2019-02-01, 14:58:22</p>
-        <p><span>最后更新:</span>2019-02-01, 15:21:55</p>
+        <p><span>发布时间:</span>2019-02-27, 13:10:36</p>
+        <p><span>最后更新:</span>2019-02-27, 13:11:29</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/02/01/过滤器和拦截器/" title="过滤器和拦截器">http://yoursite.com/2019/02/01/过滤器和拦截器/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/02/01/过滤器和拦截器/　　作者: 刘凤双" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/02/27/记我的2018/" title="记我的2018">http://yoursite.com/2019/02/27/记我的2018/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/02/27/记我的2018/　　作者: 刘凤双" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -351,16 +331,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2019/02/21/排序算法/">
-                    排序算法
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2019/01/30/Java高并发/">
-                    Java高并发
+                <a href="/2019/02/21/排序算法/">
+                    排序算法
                 </a>
             </div>
         
@@ -372,7 +346,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#拦截器-Interceptor-与过滤器-Filter"><span class="toc-number">1.</span> <span class="toc-text">拦截器(Interceptor)与过滤器(Filter)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#拦截器使用"><span class="toc-number">1.1.</span> <span class="toc-text">拦截器使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#过滤器-Filter-工作原理"><span class="toc-number">1.2.</span> <span class="toc-text">过滤器(Filter)工作原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#拦截器和过滤器的执行顺序"><span class="toc-number">1.3.</span> <span class="toc-text">拦截器和过滤器的执行顺序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#过滤器和拦截器的主要区别"><span class="toc-number">1.4.</span> <span class="toc-text">过滤器和拦截器的主要区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#拦截器和过滤器的一些用途"><span class="toc-number">1.5.</span> <span class="toc-text">拦截器和过滤器的一些用途</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Request-Filter"><span class="toc-number">1.5.1.</span> <span class="toc-text">Request Filter:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Response-Filter"><span class="toc-number">1.5.2.</span> <span class="toc-text">Response Filter:</span></a></li></ol></li></ol></li></ol>
+            
         
     </div>
     <style>
@@ -408,7 +382,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"过滤器和拦截器　| My Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"记我的2018　| My Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -428,15 +402,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/02/21/排序算法/" title="上一篇: 排序算法">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2019/01/30/Java高并发/" title="下一篇: Java高并发">
+            <a href="/2019/02/21/排序算法/" title="下一篇: 排序算法">
                 <i class="fa fa-angle-right"></i>
             </a>
         
