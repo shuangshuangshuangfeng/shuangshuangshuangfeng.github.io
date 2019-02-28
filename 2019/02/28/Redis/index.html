@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="My Blog">
 <meta property="og:description" content="Redis介绍Redis是一个开源的使用C语言编写，可基于内存也可持久化的日志型，key-value数据库。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-28T13:59:02.217Z">
+<meta property="og:updated_time" content="2019-02-28T14:16:12.851Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis">
 <meta name="twitter:description" content="Redis介绍Redis是一个开源的使用C语言编写，可基于内存也可持久化的日志型，key-value数据库。">
@@ -334,6 +334,12 @@
 <li>ZSet的成员是唯一的，但是分数却是可以重复的。</li>
 </ul>
 <h3 id="持久化"><a href="#持久化" class="headerlink" title="持久化"></a>持久化</h3><p><strong>什么是Redis持久化?</strong><br>持久化就是把内存中的数据写道磁盘中去，防止服务宕机了内存数据丢失。<br>Redis提供了两种持久化的方法： RDB（默认）和AOF</p>
+<h4 id="RDB（redis-DataBase）"><a href="#RDB（redis-DataBase）" class="headerlink" title="RDB（redis DataBase）"></a>RDB（redis DataBase）</h4><p>RDB持久化是将内存中的数据库记录定时dump到磁盘上。</p>
+<h4 id="AOF（append-only-file）"><a href="#AOF（append-only-file）" class="headerlink" title="AOF（append-only file）"></a>AOF（append-only file）</h4><p>AOF持久化是将Redis的操作日志以追加的方式写入文件</p>
+<h4 id="两者区别"><a href="#两者区别" class="headerlink" title="两者区别"></a>两者区别</h4><ul>
+<li>RDB持久化是指在指定的时间间隔内将内存中的数据集快照写入磁盘，实际操作过程是fork一个子进程，先将数据集写入临时文件，写入成功后，再替换之前的文件，用二进制压缩存储。</li>
+<li>AOF持久化是以日志的形式记录服务器所处理的每一个写、删除操作，查询操作不会记录，以文本的方式记录，可以打开文件看到详细的操作记录。</li>
+</ul>
 
       
     </div>
@@ -345,7 +351,7 @@
         <p><span>本文标题:</span><a href="/2019/02/28/Redis/">Redis</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">刘凤双</a></p>
         <p><span>发布时间:</span>2019-02-28, 21:56:37</p>
-        <p><span>最后更新:</span>2019-02-28, 21:59:02</p>
+        <p><span>最后更新:</span>2019-02-28, 22:16:12</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/02/28/Redis/" title="Redis">http://yoursite.com/2019/02/28/Redis/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/02/28/Redis/　　作者: 刘凤双" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -375,7 +381,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Redis"><span class="toc-number">1.</span> <span class="toc-text">Redis</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#介绍"><span class="toc-number">1.1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#支持的数据类型"><span class="toc-number">1.2.</span> <span class="toc-text">支持的数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#String字符串"><span class="toc-number">1.2.1.</span> <span class="toc-text">String字符串</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Hash-哈希"><span class="toc-number">1.2.2.</span> <span class="toc-text">Hash(哈希)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#List（列表）"><span class="toc-number">1.2.3.</span> <span class="toc-text">List（列表）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Set（集合）"><span class="toc-number">1.2.4.</span> <span class="toc-text">Set（集合）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ZSet（有序集合）"><span class="toc-number">1.2.5.</span> <span class="toc-text">ZSet（有序集合）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#持久化"><span class="toc-number">1.3.</span> <span class="toc-text">持久化</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Redis"><span class="toc-number">1.</span> <span class="toc-text">Redis</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#介绍"><span class="toc-number">1.1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#支持的数据类型"><span class="toc-number">1.2.</span> <span class="toc-text">支持的数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#String字符串"><span class="toc-number">1.2.1.</span> <span class="toc-text">String字符串</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Hash-哈希"><span class="toc-number">1.2.2.</span> <span class="toc-text">Hash(哈希)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#List（列表）"><span class="toc-number">1.2.3.</span> <span class="toc-text">List（列表）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Set（集合）"><span class="toc-number">1.2.4.</span> <span class="toc-text">Set（集合）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ZSet（有序集合）"><span class="toc-number">1.2.5.</span> <span class="toc-text">ZSet（有序集合）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#持久化"><span class="toc-number">1.3.</span> <span class="toc-text">持久化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#RDB（redis-DataBase）"><span class="toc-number">1.3.1.</span> <span class="toc-text">RDB（redis DataBase）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#AOF（append-only-file）"><span class="toc-number">1.3.2.</span> <span class="toc-text">AOF（append-only file）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#两者区别"><span class="toc-number">1.3.3.</span> <span class="toc-text">两者区别</span></a></li></ol></li></ol></li></ol>
         
     </div>
     <style>
