@@ -15,13 +15,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="My Blog">
-<meta property="og:url" content="http://yoursite.com/archives/2019/index.html">
+<meta name="description" content="垃圾回收机制在Java中，程序员时不需要显式的区释放以恶对象内存的，而是由虚拟机自行执行。在JVM中，有一个垃圾回收线程，它是低优先级的，在正常情况下是不会被执行的，只有在虚拟机空闲或者当前堆内存不足的时候，才会触发执行，扫描那些没有被任何引用的对象，并且将他们添加到回收的集合中去，进行回收。 JVM内存划分 方法区（线程共享）: 常量，静态变量，即时编译器（JIT）编译后的代码也都再方法区 堆内">
+<meta name="keywords" content="Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java内存管理">
+<meta property="og:url" content="http://yoursite.com/2019/02/28/Java内存管理/index.html">
 <meta property="og:site_name" content="My Blog">
+<meta property="og:description" content="垃圾回收机制在Java中，程序员时不需要显式的区释放以恶对象内存的，而是由虚拟机自行执行。在JVM中，有一个垃圾回收线程，它是低优先级的，在正常情况下是不会被执行的，只有在虚拟机空闲或者当前堆内存不足的时候，才会触发执行，扫描那些没有被任何引用的对象，并且将他们添加到回收的集合中去，进行回收。 JVM内存划分 方法区（线程共享）: 常量，静态变量，即时编译器（JIT）编译后的代码也都再方法区 堆内">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-02-28T15:16:28.345Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="My Blog">
+<meta name="twitter:title" content="Java内存管理">
+<meta name="twitter:description" content="垃圾回收机制在Java中，程序员时不需要显式的区释放以恶对象内存的，而是由虚拟机自行执行。在JVM中，有一个垃圾回收线程，它是低优先级的，在正常情况下是不会被执行的，只有在虚拟机空闲或者当前堆内存不足的时候，才会触发执行，扫描那些没有被任何引用的对象，并且将他们添加到回收的集合中去，进行回收。 JVM内存划分 方法区（线程共享）: 常量，静态变量，即时编译器（JIT）编译后的代码也都再方法区 堆内">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -53,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Archives: 2019 | My Blog</title>
+<title>Java内存管理 | My Blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -63,8 +68,8 @@
         fancybox: true,
         animate: true,
         isHome: false,
-        isPost: false,
-        isArchive: true,
+        isPost: true,
+        isArchive: false,
         isTag: false,
         isCategory: false,
         fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
@@ -259,353 +264,186 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-Java内存管理" class="article article-type-post" itemscope="" itemprop="blogPost">
   
+    <div class="article-meta">
+      <a href="/2019/02/28/Java内存管理/" class="article-date">
+      <time datetime="2019-02-28T14:19:09.000Z" itemprop="datePublished">2019-02-28</time>
+</a>
+
+
+    </div>
   
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Java内存管理
+    </h1>
+  
+
+      </header>
       
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2019/02/28/Java内存管理/" class="archive-article-date">
-      <time datetime="2019-02-28T14:19:09.000Z" itemprop="datePublished">02-28</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/28/Java内存管理/">Java内存管理</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
+    <div class="article-entry" itemprop="articleBody">
+      
           
+        <h3 id="垃圾回收机制"><a href="#垃圾回收机制" class="headerlink" title="垃圾回收机制"></a>垃圾回收机制</h3><p>在Java中，程序员时不需要显式的区释放以恶对象内存的，而是由虚拟机自行执行。在JVM中，有一个垃圾回收线程，它是低优先级的，在正常情况下是不会被执行的，只有在虚拟机空闲或者当前堆内存不足的时候，才会触发执行，扫描那些没有被任何引用的对象，并且将他们添加到回收的集合中去，进行回收。</p>
+<h3 id="JVM内存划分"><a href="#JVM内存划分" class="headerlink" title="JVM内存划分"></a>JVM内存划分</h3><ul>
+<li>方法区（线程共享）: 常量，静态变量，即时编译器（JIT）编译后的代码也都再方法区</li>
+<li>堆内存（线程共享）:垃圾回收的主要场所</li>
+<li>程序计数器: 当前线程执行的字节码的位置指示器</li>
+<li>虚拟机栈（栈内存）:保存局部变量，基本数据类型变量以及对内存中谋份对象的引用变量</li>
+<li>本地方法栈: 为JVM提供native方法的服务</li>
+</ul>
+<h3 id="垃圾回收算法"><a href="#垃圾回收算法" class="headerlink" title="垃圾回收算法"></a>垃圾回收算法</h3><ul>
+<li>引用计数： 原理是此对象有一个引用，即增加一个技术，删除一个引用则减少一个计数，垃圾回收时，只用收集计数为0的对象，此算法最致命的是无法处理循环引用的问题。</li>
+<li>标记-清除: 此算法执行分为两个阶段。第一个阶段从引用根节点开始标记所有被引用的对象，第二阶段遍历整个堆，把未标记的对象清楚。</li>
+<li>复制算法: 此算法把内存空间分为两个相等的区域，每次只使用其中一个区域。垃圾回收时，遍历当前使用区域，把正在使用中的对象复制到另外一个区域中。<br>此算法只处理正在使用中的对象，因此复制成本比较小，同时，复制过去以后还能进行相应的内存整理，不会出现‘碎片’问题，当然此算法的缺点也是很明显的，就是需要两倍空间。</li>
+<li>标记-整理: 此算法结合了‘标记-清除’和‘复制’两个算法的优点，也是发呢为两个阶段，第一阶段从根节点开始标记多有被引用的对象，第二阶段遍历整个堆，清除未标记对象并且把存活对象‘压缩’到堆的其中一块，按顺序排放。<br>此算法避免了‘标记-清楚’的碎片问题，同时也避免了‘复制’算法的空间问题。</li>
+</ul>
+<h3 id="如何判断一个对象是否存活"><a href="#如何判断一个对象是否存活" class="headerlink" title="如何判断一个对象是否存活?"></a>如何判断一个对象是否存活?</h3><p>判断一个对象是否存活有两种方法：</p>
+<ul>
+<li>引用计数法<br>所谓引用计数法就是给每个对象设置一个引用计数器设置一个引用计数器，每当有一个地方引用这个对象时，就将计数器加一，引用失效时，计数器就减一。当一个对象的引用计数器为零时，说明此对象没有被引用，也就是‘死对象’，将会被垃圾回收。</li>
+<li>可达性算法（引用链法）<br>该算法的思想是：从一个被称为GC Roots的对象开始向下搜索，如果一个对象到GC Roots没有任何引用链相连时，则说明此对象不可用。<br>在java中可以作为GC Roots的对象有以下几种:</li>
+<li>虚拟机栈中引用的对象</li>
+<li>方法区类静态属性引用的对象</li>
+<li>方法区常量池引用的对象</li>
+<li>本地方法栈JNI引用的对象</li>
+</ul>
 
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2019/02/28/Java内存管理/">Java内存管理</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">刘凤双</a></p>
+        <p><span>发布时间:</span>2019-02-28, 22:19:09</p>
+        <p><span>最后更新:</span>2019-02-28, 23:16:28</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2019/02/28/Java内存管理/" title="Java内存管理">http://yoursite.com/2019/02/28/Java内存管理/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/02/28/Java内存管理/　　作者: 刘凤双" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target="_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
     </div>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2019/02/28/Redis/" class="archive-article-date">
-      <time datetime="2019-02-28T13:56:37.000Z" itemprop="datePublished">02-28</time>
-</a>
 
 
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/28/Redis/">Redis</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据库/">数据库</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2019/02/27/搜索引擎高级搜索语法/" class="archive-article-date">
-      <time datetime="2019-02-27T15:42:47.000Z" itemprop="datePublished">02-27</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/27/搜索引擎高级搜索语法/">搜索引擎高级搜索语法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2019/02/27/记我的2018/" class="archive-article-date">
-      <time datetime="2019-02-27T05:10:36.000Z" itemprop="datePublished">02-27</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/27/记我的2018/">记我的2018</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2019/02/21/排序算法/" class="archive-article-date">
-      <time datetime="2019-02-21T07:10:02.000Z" itemprop="datePublished">02-21</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/21/排序算法/">排序算法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2019/02/01/过滤器和拦截器/" class="archive-article-date">
-      <time datetime="2019-02-01T06:58:22.000Z" itemprop="datePublished">02-01</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/01/过滤器和拦截器/">过滤器和拦截器</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2019/01/30/Java高并发/" class="archive-article-date">
-      <time datetime="2019-01-30T02:57:39.000Z" itemprop="datePublished">01-30</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/01/30/Java高并发/">Java高并发</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2019/01/29/HTTP长链接与短链接/" class="archive-article-date">
-      <time datetime="2019-01-29T09:11:07.000Z" itemprop="datePublished">01-29</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/01/29/HTTP长链接与短链接/">HTTP长链接与短链接</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网络/">网络</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2019/01/29/Java集合/" class="archive-article-date">
-      <time datetime="2019-01-29T02:39:00.000Z" itemprop="datePublished">01-29</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/01/29/Java集合/">Java集合</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2019/01/23/编译原理0/" class="archive-article-date">
-      <time datetime="2019-01-23T05:55:47.000Z" itemprop="datePublished">01-23</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/01/23/编译原理0/">编译原理0</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编译原理/">编译原理</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2019/page/2/">2</a><a class="extend next" rel="next" href="/archives/2019/page/2/">Next &raquo;</a>
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2019/02/28/Redis/">
+                    Redis
+                </a>
+            </div>
+        
     </nav>
-  
 
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#垃圾回收机制"><span class="toc-number">1.</span> <span class="toc-text">垃圾回收机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JVM内存划分"><span class="toc-number">2.</span> <span class="toc-text">JVM内存划分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#垃圾回收算法"><span class="toc-number">3.</span> <span class="toc-text">垃圾回收算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何判断一个对象是否存活"><span class="toc-number">4.</span> <span class="toc-text">如何判断一个对象是否存活?</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-4 i,
+        .toc-level-4 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"Java内存管理　| My Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2019/02/28/Redis/" title="下一篇: Redis">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/02/28/Java内存管理/">Java内存管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/28/Redis/">Redis</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/27/搜索引擎高级搜索语法/">搜索引擎高级搜索语法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/27/记我的2018/">记我的2018</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/21/排序算法/">排序算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/01/过滤器和拦截器/">过滤器和拦截器</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/30/Java高并发/">Java高并发</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/29/HTTP长链接与短链接/">HTTP长链接与短链接</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/29/Java集合/">Java集合</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/23/编译原理0/">编译原理0</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/23/计算机组成原理0/">计算机组成原理0</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/09/dubbo/">dubbo</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/08/SQL优化/">SQL优化</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/07/session跨域共享/">session跨域共享</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/28/Maven/">Maven</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/25/数据库/">数据库</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/25/随笔/">随笔</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/24/Java基础/">Java基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/23/python虚拟环境/">python虚拟环境</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/23/Docker/">Docker</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/22/REST风格/">REST风格</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
 </div>
       <footer id="footer">
     <div class="outer">
