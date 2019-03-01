@@ -15,18 +15,18 @@
 
 
 
-<meta name="description" content="va基础知识回顾  JVM, JRE, JDK的区别  JVM（java Virtual Machine）:java虚拟机，用于保证java的跨平台性  JRE（Java Runtime Environmen）:java运行环境，包括JVM+Jave的系统类库  JDK（Java Development Kit）:Java的软件开发工具包, 他包含了Java的运行环境(JVM+Java系统类库)和">
+<meta name="description" content="Java基础知识回顾  JVM, JRE, JDK的区别  JVM（java Virtual Machine）:java虚拟机，用于保证java的跨平台性  JRE（Java Runtime Environmen）:java运行环境，包括JVM+Jave的系统类库  JDK（Java Development Kit）:Java的软件开发工具包, 他包含了Java的运行环境(JVM+Java系统类库">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java基础">
 <meta property="og:url" content="http://yoursite.com/2018/12/24/Java基础/index.html">
 <meta property="og:site_name" content="My Blog">
-<meta property="og:description" content="va基础知识回顾  JVM, JRE, JDK的区别  JVM（java Virtual Machine）:java虚拟机，用于保证java的跨平台性  JRE（Java Runtime Environmen）:java运行环境，包括JVM+Jave的系统类库  JDK（Java Development Kit）:Java的软件开发工具包, 他包含了Java的运行环境(JVM+Java系统类库)和">
+<meta property="og:description" content="Java基础知识回顾  JVM, JRE, JDK的区别  JVM（java Virtual Machine）:java虚拟机，用于保证java的跨平台性  JRE（Java Runtime Environmen）:java运行环境，包括JVM+Jave的系统类库  JDK（Java Development Kit）:Java的软件开发工具包, 他包含了Java的运行环境(JVM+Java系统类库">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-01-21T09:02:08.402Z">
+<meta property="og:updated_time" content="2019-03-01T08:50:42.424Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java基础">
-<meta name="twitter:description" content="va基础知识回顾  JVM, JRE, JDK的区别  JVM（java Virtual Machine）:java虚拟机，用于保证java的跨平台性  JRE（Java Runtime Environmen）:java运行环境，包括JVM+Jave的系统类库  JDK（Java Development Kit）:Java的软件开发工具包, 他包含了Java的运行环境(JVM+Java系统类库)和">
+<meta name="twitter:description" content="Java基础知识回顾  JVM, JRE, JDK的区别  JVM（java Virtual Machine）:java虚拟机，用于保证java的跨平台性  JRE（Java Runtime Environmen）:java运行环境，包括JVM+Jave的系统类库  JDK（Java Development Kit）:Java的软件开发工具包, 他包含了Java的运行环境(JVM+Java系统类库">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -304,7 +304,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>va基础知识回顾</p>
+        <p>Java基础知识回顾</p>
 <ol>
 <li><p>JVM, JRE, JDK的区别</p>
 <p> JVM（java Virtual Machine）:java虚拟机，用于保证java的跨平台性</p>
@@ -438,8 +438,42 @@
 <p> 继承Thread类</p>
 <p> 实现Runnable接口</p>
 </li>
-<li></li>
+<li><p>static、 abstact、final的区别</p>
+</li>
+<li>static</li>
 </ol>
+<ul>
+<li>修饰属性（类变量），那么这个属性可以用类名属性名来访问，也就是使这个属性成为本类的类变量，为本类对象所共有，这个属性就是全类共有。</li>
+<li>修饰方法（静态方法），会使这个方法成为整个类所公有的方法，可以用类名.方法名访问。</li>
+<li>修饰初始代码块，这时这个初始代码块叫做静态初始代码块，这个<strong>代码块只在类加载时被执行一次，可以用静态代码块初始化一个类</strong>。</li>
+</ul>
+<ol start="2">
+<li>final</li>
+</ol>
+<ul>
+<li>修饰变量，变量会变成常量（常量应当大写），一旦赋值，不能改变，final的常量不会有默认初始值，对于初始化赋值时，final修饰符通常与static修饰符一起使用。</li>
+<li>修饰方法时，修饰的方法不能被其子类覆盖。也就是说子类不能对final修饰的方法进行修改。</li>
+<li>final修饰类，被修饰的类不能被继承，比如String类。</li>
+</ul>
+<ol start="3">
+<li>abstact</li>
+</ol>
+<ul>
+<li>修饰类,会使这个类变成一个抽象类，这个类将不能生成对象实例，但可以作为对象变量声明的类型，也就是编译时类型，抽象类就相当于一个类的半成品。</li>
+<li>修饰方法，会使这个方法变成抽象方法，也就只有声明，没有实现。</li>
+</ul>
+<ol start="20">
+<li><p>Servlet与JSP<br><strong>运行过程：</strong><br>用户在第一次请求JSP时，请求会比较慢，时因为JSP引擎首先把JSP转换成Servlet代码，直接将他编译为.class文件以后储存在内存中再次调用时速度就快了。</p>
+</li>
+<li><p>session 与 Cookie的区别</p>
+</li>
+</ol>
+<ul>
+<li>cookie在客户端，session在服务端</li>
+<li>cookie只能存储字符串，session可以存任意对象</li>
+<li>session过多时会消耗服务器资源，因此大型网站会有专门session服务器，cookie存在客户端就没问题</li>
+<li>cookie可以设定有效时间，session则在会话期间起作用</li>
+</ul>
 
       
     </div>
@@ -451,7 +485,7 @@
         <p><span>本文标题:</span><a href="/2018/12/24/Java基础/">Java基础</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">刘凤双</a></p>
         <p><span>发布时间:</span>2018-12-24, 14:03:30</p>
-        <p><span>最后更新:</span>2019-01-21, 17:02:08</p>
+        <p><span>最后更新:</span>2019-03-01, 16:50:42</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/12/24/Java基础/" title="Java基础">http://yoursite.com/2018/12/24/Java基础/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2018/12/24/Java基础/　　作者: 刘凤双" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
