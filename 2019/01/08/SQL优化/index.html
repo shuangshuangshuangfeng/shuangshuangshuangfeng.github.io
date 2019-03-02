@@ -15,18 +15,18 @@
 
 
 
-<meta name="description" content="优化的目标: 减少IO次数 降低CPU计算 提高查询效率  优化的具体措施">
+<meta name="description" content="优化的目标: 减少IO次数 降低CPU计算 提高查询效率  优化数据库优化包括四个方面：  数据库设计的优化 数据库查询的优化 大型存储方面优化 索引方面优化">
 <meta name="keywords" content="数据库">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SQL优化">
 <meta property="og:url" content="http://yoursite.com/2019/01/08/SQL优化/index.html">
 <meta property="og:site_name" content="My Blog">
-<meta property="og:description" content="优化的目标: 减少IO次数 降低CPU计算 提高查询效率  优化的具体措施">
+<meta property="og:description" content="优化的目标: 减少IO次数 降低CPU计算 提高查询效率  优化数据库优化包括四个方面：  数据库设计的优化 数据库查询的优化 大型存储方面优化 索引方面优化">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-18T03:55:50.372Z">
+<meta property="og:updated_time" content="2019-03-02T13:28:17.541Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SQL优化">
-<meta name="twitter:description" content="优化的目标: 减少IO次数 降低CPU计算 提高查询效率  优化的具体措施">
+<meta name="twitter:description" content="优化的目标: 减少IO次数 降低CPU计算 提高查询效率  优化数据库优化包括四个方面：  数据库设计的优化 数据库查询的优化 大型存储方面优化 索引方面优化">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -187,7 +187,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/REST/">REST</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/virtualenv/">virtualenv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/’Java/">’Java'</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/编译原理/">编译原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机组成原理/">计算机组成原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/REST/">REST</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/virtualenv/">virtualenv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/编译原理/">编译原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机组成原理/">计算机组成原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
                     </div>
                 </section>
                 
@@ -309,8 +309,32 @@
 <li>降低CPU计算</li>
 <li>提高查询效率</li>
 </ul>
-<h2 id="优化的具体措施"><a href="#优化的具体措施" class="headerlink" title="优化的具体措施"></a>优化的具体措施</h2><a id="more"></a>
-<h3 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h3><ol>
+<h2 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h2><p>数据库优化包括四个方面：</p>
+<ul>
+<li>数据库设计的优化</li>
+<li>数据库查询的优化</li>
+<li>大型存储方面优化</li>
+<li>索引方面优化<a id="more"></a>
+</li>
+</ul>
+<h3 id="数据库设计的优化"><a href="#数据库设计的优化" class="headerlink" title="数据库设计的优化"></a>数据库设计的优化</h3><ol>
+<li>数据库设计属于第三范式，为了查询方便可以有一定的数据冗余</li>
+<li>选择数据类型优先级: int &gt; date, time &gt; enum, char &gt; varchar &gt; blob,选择数据类型时，可以考虑替换，如: ip地址可以用ip2long()函数转换为unsign int型进行存储</li>
+<li>对于char(n)类型，在数据完整的情况下尽量选择较小的n值</li>
+<li><p>在建表时用partition命令对单个表分区可以大大提升查询效率，MySQL支持RANGE,LIST,HASH,KEY分区类型，其中RANGE最为常用，分区方式为:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">create TABLE table_name&#123;</span><br><span class="line">&#125;ENGINE innodb/myisam CHARSET utf8 //选择数据库引擎和编码</span><br><span class="line">PARTITION BY RANGE/LIST(column), //按范围和预定义列表进行分区</span><br><span class="line">PARTITION partname VALUES LESS THAN /IN(n),命名分区并详细限定分区的范围</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>选择数据库引擎时要注意innodb和myisam的区别 </p>
+</li>
+</ol>
+<ul>
+<li>存储结构：MyISAM在磁盘上存储成三个文件，而InnoDB所有的表都保存在同一个数据文件中，一般为2GB</li>
+<li>事务支持：MyISAM不提供事务支持；InnoDB提供事务支持</li>
+<li>全文索引MyISAM支持FULLTEXT类型的全文索引，InnoDB不支持</li>
+<li>表的具体行数: MyISAM保存有表的总行数，查询count(*)很快，InnoDB没有保存表的总行数，需要重新计算</li>
+<li>外键： MyISAM不支持，InnoDB支持</li>
+</ul>
+<h3 id="查询的优化"><a href="#查询的优化" class="headerlink" title="查询的优化"></a>查询的优化</h3><ol>
 <li><p>查询时，尽量避免全表扫描,首先应考虑在where及order by涉及的列上建立索引。</p>
 </li>
 <li><p>应尽量避免在where子句中对字段进行null值判断。否则将导致引擎放弃使用索引，进行全表扫描。</p>
@@ -370,7 +394,7 @@
         <p><span>本文标题:</span><a href="/2019/01/08/SQL优化/">SQL优化</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">刘凤双</a></p>
         <p><span>发布时间:</span>2019-01-08, 13:31:10</p>
-        <p><span>最后更新:</span>2019-02-18, 11:55:50</p>
+        <p><span>最后更新:</span>2019-03-02, 21:28:17</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/01/08/SQL优化/" title="SQL优化">http://yoursite.com/2019/01/08/SQL优化/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/01/08/SQL优化/　　作者: 刘凤双" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -406,7 +430,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#优化的目标"><span class="toc-number">1.</span> <span class="toc-text">优化的目标:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#优化的具体措施"><span class="toc-number">2.</span> <span class="toc-text">优化的具体措施</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#查询"><span class="toc-number">2.1.</span> <span class="toc-text">查询</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#优化的目标"><span class="toc-number">1.</span> <span class="toc-text">优化的目标:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#优化"><span class="toc-number">2.</span> <span class="toc-text">优化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#数据库设计的优化"><span class="toc-number">2.1.</span> <span class="toc-text">数据库设计的优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查询的优化"><span class="toc-number">2.2.</span> <span class="toc-text">查询的优化</span></a></li></ol></li></ol>
         
     </div>
     <style>

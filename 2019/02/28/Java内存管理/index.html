@@ -15,18 +15,18 @@
 
 
 
-<meta name="description" content="垃圾回收机制在Java中，程序员时不需要显式的区释放以恶对象内存的，而是由虚拟机自行执行。在JVM中，有一个垃圾回收线程，它是低优先级的，在正常情况下是不会被执行的，只有在虚拟机空闲或者当前堆内存不足的时候，才会触发执行，扫描那些没有被任何引用的对象，并且将他们添加到回收的集合中去，进行回收。">
+<meta name="description" content="垃圾回收机制在Java中，程序员时不需要显式的区释放以对象内存的，而是由虚拟机自行执行。在JVM中，有一个垃圾回收线程，它是低优先级的，在正常情况下是不会被执行的，只有在虚拟机空闲或者当前堆内存不足的时候，才会触发执行，扫描那些没有被任何引用的对象，并且将他们添加到回收的集合中去，进行回收。">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java内存管理">
 <meta property="og:url" content="http://yoursite.com/2019/02/28/Java内存管理/index.html">
 <meta property="og:site_name" content="My Blog">
-<meta property="og:description" content="垃圾回收机制在Java中，程序员时不需要显式的区释放以恶对象内存的，而是由虚拟机自行执行。在JVM中，有一个垃圾回收线程，它是低优先级的，在正常情况下是不会被执行的，只有在虚拟机空闲或者当前堆内存不足的时候，才会触发执行，扫描那些没有被任何引用的对象，并且将他们添加到回收的集合中去，进行回收。">
+<meta property="og:description" content="垃圾回收机制在Java中，程序员时不需要显式的区释放以对象内存的，而是由虚拟机自行执行。在JVM中，有一个垃圾回收线程，它是低优先级的，在正常情况下是不会被执行的，只有在虚拟机空闲或者当前堆内存不足的时候，才会触发执行，扫描那些没有被任何引用的对象，并且将他们添加到回收的集合中去，进行回收。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-28T15:17:31.698Z">
+<meta property="og:updated_time" content="2019-03-02T13:21:48.688Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java内存管理">
-<meta name="twitter:description" content="垃圾回收机制在Java中，程序员时不需要显式的区释放以恶对象内存的，而是由虚拟机自行执行。在JVM中，有一个垃圾回收线程，它是低优先级的，在正常情况下是不会被执行的，只有在虚拟机空闲或者当前堆内存不足的时候，才会触发执行，扫描那些没有被任何引用的对象，并且将他们添加到回收的集合中去，进行回收。">
+<meta name="twitter:description" content="垃圾回收机制在Java中，程序员时不需要显式的区释放以对象内存的，而是由虚拟机自行执行。在JVM中，有一个垃圾回收线程，它是低优先级的，在正常情况下是不会被执行的，只有在虚拟机空闲或者当前堆内存不足的时候，才会触发执行，扫描那些没有被任何引用的对象，并且将他们添加到回收的集合中去，进行回收。">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -187,7 +187,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/REST/">REST</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/virtualenv/">virtualenv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/’Java/">’Java'</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/编译原理/">编译原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机组成原理/">计算机组成原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/REST/">REST</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/virtualenv/">virtualenv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/编译原理/">编译原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机组成原理/">计算机组成原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
                     </div>
                 </section>
                 
@@ -304,7 +304,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h3 id="垃圾回收机制"><a href="#垃圾回收机制" class="headerlink" title="垃圾回收机制"></a>垃圾回收机制</h3><p>在Java中，程序员时不需要显式的区释放以恶对象内存的，而是由虚拟机自行执行。在JVM中，有一个垃圾回收线程，它是低优先级的，在正常情况下是不会被执行的，只有在虚拟机空闲或者当前堆内存不足的时候，才会触发执行，扫描那些没有被任何引用的对象，并且将他们添加到回收的集合中去，进行回收。<br><a id="more"></a></p>
+        <h3 id="垃圾回收机制"><a href="#垃圾回收机制" class="headerlink" title="垃圾回收机制"></a>垃圾回收机制</h3><p>在Java中，程序员时不需要显式的区释放以对象内存的，而是由虚拟机自行执行。在JVM中，有一个垃圾回收线程，它是低优先级的，在正常情况下是不会被执行的，只有在虚拟机空闲或者当前堆内存不足的时候，才会触发执行，扫描那些没有被任何引用的对象，并且将他们添加到回收的集合中去，进行回收。<br><a id="more"></a></p>
 <h3 id="JVM内存划分"><a href="#JVM内存划分" class="headerlink" title="JVM内存划分"></a>JVM内存划分</h3><ul>
 <li>方法区（线程共享）: 常量，静态变量，即时编译器（JIT）编译后的代码也都再方法区</li>
 <li>堆内存（线程共享）:垃圾回收的主要场所</li>
@@ -338,7 +338,7 @@
         <p><span>本文标题:</span><a href="/2019/02/28/Java内存管理/">Java内存管理</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">刘凤双</a></p>
         <p><span>发布时间:</span>2019-02-28, 22:19:09</p>
-        <p><span>最后更新:</span>2019-02-28, 23:17:31</p>
+        <p><span>最后更新:</span>2019-03-02, 21:21:48</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/02/28/Java内存管理/" title="Java内存管理">http://yoursite.com/2019/02/28/Java内存管理/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/02/28/Java内存管理/　　作者: 刘凤双" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
