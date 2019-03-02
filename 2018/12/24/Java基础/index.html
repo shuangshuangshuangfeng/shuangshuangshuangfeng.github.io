@@ -23,10 +23,13 @@
 <meta property="og:site_name" content="My Blog">
 <meta property="og:description" content="Java基础知识回顾  JVM, JRE, JDK的区别  JVM（java Virtual Machine）:java虚拟机，用于保证java的跨平台性  JRE（Java Runtime Environmen）:java运行环境，包括JVM+Jave的系统类库  JDK（Java Development Kit）:Java的软件开发工具包, 他包含了Java的运行环境(JVM+Java系统类库">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-01T08:50:42.424Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2018/12/24/Java%E5%9F%BA%E7%A1%80/%E4%BE%8B1.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2018/12/24/Java%E5%9F%BA%E7%A1%80/%E4%BE%8B2.png">
+<meta property="og:updated_time" content="2019-03-02T04:28:07.579Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java基础">
 <meta name="twitter:description" content="Java基础知识回顾  JVM, JRE, JDK的区别  JVM（java Virtual Machine）:java虚拟机，用于保证java的跨平台性  JRE（Java Runtime Environmen）:java运行环境，包括JVM+Jave的系统类库  JDK（Java Development Kit）:Java的软件开发工具包, 他包含了Java的运行环境(JVM+Java系统类库">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2018/12/24/Java%E5%9F%BA%E7%A1%80/%E4%BE%8B1.png">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -474,6 +477,11 @@
 <li>session过多时会消耗服务器资源，因此大型网站会有专门session服务器，cookie存在客户端就没问题</li>
 <li>cookie可以设定有效时间，session则在会话期间起作用</li>
 </ul>
+<ol start="22">
+<li>Java中a+=b和a=a+b的区别？<br>在Java中a+=b 和 a=a+b的主要区别时在运算的精度上，类似的还有”-=”、”*=”、”/=”、”%=”</li>
+</ol>
+<p>以a+=b和a=a+b为例:<br>a=a+b:<br><img src="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2018/12/24/Java%E5%9F%BA%E7%A1%80/%E4%BE%8B1.png" alt="例1"><br>a+=b:<br><img src="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2018/12/24/Java%E5%9F%BA%E7%A1%80/%E4%BE%8B2.png" alt="例2"></p>
+<p>a=a+b: a为byte类型，b为int类型，a+b自动转换为int类型， a=a+b;因此报错。<br>a+=b: +=是一个符号，因此a+=b系统会自动类型转换类型，不会报错。</p>
 
       
     </div>
@@ -485,7 +493,7 @@
         <p><span>本文标题:</span><a href="/2018/12/24/Java基础/">Java基础</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">刘凤双</a></p>
         <p><span>发布时间:</span>2018-12-24, 14:03:30</p>
-        <p><span>最后更新:</span>2019-03-01, 16:50:42</p>
+        <p><span>最后更新:</span>2019-03-02, 12:28:07</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/12/24/Java基础/" title="Java基础">http://yoursite.com/2018/12/24/Java基础/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2018/12/24/Java基础/　　作者: 刘凤双" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
