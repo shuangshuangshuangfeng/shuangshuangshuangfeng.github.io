@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2019/01/29/Java%E9%9B%86%E5%90%88/java%E9%9B%86%E5%90%88.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2019/01/29/Java%E9%9B%86%E5%90%88/Hash%E8%A1%A8.jpg">
-<meta property="og:updated_time" content="2019-03-01T11:59:01.482Z">
+<meta property="og:updated_time" content="2019-03-02T03:40:34.892Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java集合">
 <meta name="twitter:description" content="Java集合框架介绍Java的集合框架有下图所示：">
@@ -335,9 +335,10 @@
 <h4 id="List主要接口对象"><a href="#List主要接口对象" class="headerlink" title="List主要接口对象"></a>List主要接口对象</h4><p>LinkedList时基于动态数组的集合类，ArrayList是基于链表的集合类。</p>
 <ul>
 <li>LinkedList没有同步方法</li>
-<li>ArrayList是非同步的</li>
-<li>Vector是同步的(synchronized)，类似于ArrayList</li>
+<li>ArrayList是非同步的; 扩容增量时原容量的0.5倍+1,如：ArrrayList的容量为10，一次扩容后的容量时10/2*3+1=16</li>
+<li>Vector是同步的(synchronized)，类似于ArrayList; Vector的加载因子是1，即：当元素个数超过容量长度时，进行扩容，扩容增量为原来的一倍。</li>
 </ul>
+<p>ArrayList和Vector的初始化长度是10</p>
 <h3 id="Set集合"><a href="#Set集合" class="headerlink" title="Set集合"></a>Set集合</h3><p>Java中使用Set接口的集合不允许有重复值,也就是说Set中的每一个元素都是唯一的。<br>因为Set是一个抽象接口，所以不能直接调用。<br><code>Set set = new Set()</code>这样是不正确的。 </p>
 <h4 id="Set的主要方法"><a href="#Set的主要方法" class="headerlink" title="Set的主要方法"></a>Set的主要方法</h4><ul>
 <li>int size() 获取集合中元素的个数</li>
@@ -351,13 +352,26 @@
 <li>HashSet不能保证元素的顺序，不可重复，不是线程安全的，集合元素可以为Null.</li>
 <li>其底层实现实际上是一个数组，存在的意义就是加快查询速度.</li>
 <li>对于HashSet集合中存在两个对象通过equals()方法返回true,那么这两个对象的hashCode值也应该相同。</li>
+<li>HashSet的初始化长度是16</li>
+<li>加载因子为0.75，即: 元素个数超过容量长度的0.75倍时，进行扩容</li>
+<li>扩容增量是原容量的1倍， 如：HashSet的容量是16，一次扩容后是32.<br><strong>注意</strong>: 每一个存储到哈希表中的对象，都要提供hashCode()和equals()方法的实现，用来判断是否是一个对象。<h4 id="TreeSet"><a href="#TreeSet" class="headerlink" title="TreeSet"></a>TreeSet</h4><h3 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h3>Map接口的实现类有：HashMap, Hashtable，TreeMap。</li>
 </ul>
-<p><strong>注意</strong>: 每一个存储到哈希表中的对象，都要提供hashCode()和equals()方法的实现，用来判断是否是一个对象。</p>
-<h4 id="TreeSet"><a href="#TreeSet" class="headerlink" title="TreeSet"></a>TreeSet</h4><h3 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h3><p>Map接口的实现类有：HashMap, Hashtable，TreeMap。</p>
-<h4 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h4><p>最常用的Map，它根据键的HashCode值存储数据，根据键可以直接获取它的值，具有很快的访问速度.HashMap最多只允许一条记录的键为Null(多条会覆盖);允许多条记录的值为 Null，非同步的。</p>
-<h4 id="Hashtable"><a href="#Hashtable" class="headerlink" title="Hashtable"></a>Hashtable</h4><p>与HashMap类似，不同的是key和value的值均不允许为null，他支持线程的同步.即任一时刻只有一个线程能写Hashtable,因此也导致了Hashtale在写入时会比较慢。</p>
-<h4 id="TreeMap"><a href="#TreeMap" class="headerlink" title="TreeMap"></a>TreeMap</h4><p>能够把它保存的记录根据键(key)排序,默认是按升序排序，也可以指定排序的比较器，当用Iterator 遍历TreeMap时，得到的记录是排过序的。TreeMap不允许key的值为null。非同步的。 </p>
-<h2 id="有关集合的面试题"><a href="#有关集合的面试题" class="headerlink" title="有关集合的面试题"></a>有关集合的面试题</h2><ol>
+<h4 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h4><p>最常用的Map，它根据键的HashCode值存储数据，根据键可以直接获取它的值，具有很快的访问速度.</p>
+<ul>
+<li>HashMap最多只允许一条记录的键为Null(多条会覆盖);</li>
+<li>允许多条记录的值为 Null;</li>
+<li>非同步的。</li>
+<li>HashMap的初始化长度是16，是为了降低碰撞的几率；</li>
+<li>扩容增量是原来的1倍<br>加载因子为0.75，即：当元素个数超过容量的0.75倍时进行扩容</li>
+</ul>
+<h4 id="Hashtable"><a href="#Hashtable" class="headerlink" title="Hashtable"></a>Hashtable</h4><ul>
+<li>与HashMap类似，不同的是key和value的值均不允许为null，</li>
+<li>支持线程的同步.即任一时刻只有一个线程能写Hashtable,因此也导致了Hashtale在写入时会比较慢。<h4 id="TreeMap"><a href="#TreeMap" class="headerlink" title="TreeMap"></a>TreeMap</h4></li>
+<li>能够把它保存的记录根据键(key)排序,默认是按升序排序，也可以指定排序的比较器，当用Iterator 遍历TreeMap时，得到的记录是排过序的。</li>
+<li>TreeMap不允许key的值为null。</li>
+<li>非同步的。 <h2 id="有关集合的面试题"><a href="#有关集合的面试题" class="headerlink" title="有关集合的面试题"></a>有关集合的面试题</h2></li>
+</ul>
+<ol>
 <li><p><strong>List初始化大小</strong>:<br>List arrayList = new ArrayList();<br>如果使用默认的构造方法，初始容量被设置为10，当ArrayList中的元素超过10个的时候，会使数组的大小增长到16.<br>通过调试可以看的到动态增长的数量变化是: 10-&gt;16-&gt;25-&gt;38-&gt;58-&gt;88-&gt;…<br>增长的计算公式为: 新容量 = (旧容量*3)/2+1</p>
 </li>
 <li><p><strong>ArrayList和Vector(旧的)</strong>的区别:<br><strong>共同点</strong>: 这两个类都实现了List接口，他们都是有序集合，即存储在这两个集合中的元素的位置都是有顺序的，相当于一种动态的数组，我们以后可以按位置索引号取出某个元素，并且其中的数据是允许重复。<br><strong>区别</strong>:</p>
@@ -399,7 +413,7 @@
         <p><span>本文标题:</span><a href="/2019/01/29/Java集合/">Java集合</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">刘凤双</a></p>
         <p><span>发布时间:</span>2019-01-29, 10:39:00</p>
-        <p><span>最后更新:</span>2019-03-01, 19:59:01</p>
+        <p><span>最后更新:</span>2019-03-02, 11:40:34</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/01/29/Java集合/" title="Java集合">http://yoursite.com/2019/01/29/Java集合/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/01/29/Java集合/　　作者: 刘凤双" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
