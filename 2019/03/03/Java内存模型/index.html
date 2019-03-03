@@ -15,18 +15,18 @@
 
 
 
-<meta name="description" content="什么是 Java 内存模型？我们知道，Java 程序是需要运行在 Java 虚拟机上面的，Java 内存模型（Java Memory Model，JMM）就是一种符合内存模型规范的，屏蔽了各种硬件和操作系统的访问差异的，保证了 Java 程序在各种平台下对内存的访问都能保证效果一致的机制及规范 Java 内存模型规定了所有的变量都存储在主内存中，每条线程还有自己的工作内存。 线程的工作内存中保存了">
+<meta name="description" content="什么是 Java 内存模型？我们知道，Java 程序是需要运行在 Java 虚拟机上面的，Java 内存模型（Java Memory Model，JMM）就是一种符合内存模型规范的，屏蔽了各种硬件和操作系统的访问差异的，保证了 Java 程序在各种平台下对内存的访问都能保证效果一致的机制及规范">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java内存模型">
 <meta property="og:url" content="http://yoursite.com/2019/03/03/Java内存模型/index.html">
 <meta property="og:site_name" content="My Blog">
-<meta property="og:description" content="什么是 Java 内存模型？我们知道，Java 程序是需要运行在 Java 虚拟机上面的，Java 内存模型（Java Memory Model，JMM）就是一种符合内存模型规范的，屏蔽了各种硬件和操作系统的访问差异的，保证了 Java 程序在各种平台下对内存的访问都能保证效果一致的机制及规范 Java 内存模型规定了所有的变量都存储在主内存中，每条线程还有自己的工作内存。 线程的工作内存中保存了">
+<meta property="og:description" content="什么是 Java 内存模型？我们知道，Java 程序是需要运行在 Java 虚拟机上面的，Java 内存模型（Java Memory Model，JMM）就是一种符合内存模型规范的，屏蔽了各种硬件和操作系统的访问差异的，保证了 Java 程序在各种平台下对内存的访问都能保证效果一致的机制及规范">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-03T02:06:19.357Z">
+<meta property="og:updated_time" content="2019-03-03T08:29:48.335Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java内存模型">
-<meta name="twitter:description" content="什么是 Java 内存模型？我们知道，Java 程序是需要运行在 Java 虚拟机上面的，Java 内存模型（Java Memory Model，JMM）就是一种符合内存模型规范的，屏蔽了各种硬件和操作系统的访问差异的，保证了 Java 程序在各种平台下对内存的访问都能保证效果一致的机制及规范 Java 内存模型规定了所有的变量都存储在主内存中，每条线程还有自己的工作内存。 线程的工作内存中保存了">
+<meta name="twitter:description" content="什么是 Java 内存模型？我们知道，Java 程序是需要运行在 Java 虚拟机上面的，Java 内存模型（Java Memory Model，JMM）就是一种符合内存模型规范的，屏蔽了各种硬件和操作系统的访问差异的，保证了 Java 程序在各种平台下对内存的访问都能保证效果一致的机制及规范">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -304,29 +304,12 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h3 id="什么是-Java-内存模型？"><a href="#什么是-Java-内存模型？" class="headerlink" title="什么是 Java 内存模型？"></a>什么是 Java 内存模型？</h3><p>我们知道，Java 程序是需要运行在 Java 虚拟机上面的，Java 内存模型（Java Memory Model，JMM）就是一种符合内存模型规范的，屏蔽了各种硬件和操作系统的访问差异的，保证了 Java 程序在各种平台下对内存的访问都能保证效果一致的机制及规范</p>
-<p>Java 内存模型规定了所有的变量都存储在主内存中，每条线程还有自己的工作内存。</p>
-<p>线程的工作内存中保存了该线程中用到的变量的主内存副本拷贝，线程对变量的所有操作都必须在工作内存中进行，而不能直接读写主内存。</p>
-<p>不同的线程之间也无法直接访问对方工作内存中的变量，线程间变量的传递均需要自己的工作内存和主存之间进行数据同步进行。</p>
-<p>而 JMM 就作用于工作内存和主存之间数据同步过程。它规定了如何做数据同步以及什么时候做数据同步。</p>
-<p>特别需要注意的是，<strong>主内存和工作内存与 JVM 内存结构中的 Java 堆、栈、方法区等并不是同一个层次的内存划分，无法直接类比</strong>。</p>
-<p>从变量、主内存、工作内存的定义来看，主内存主要对应于 Java 堆中的对象实例数据部分。而工作内存则对应于虚拟机栈中的部分区域。</p>
-<h3 id="Java内存模型的实现？"><a href="#Java内存模型的实现？" class="headerlink" title="Java内存模型的实现？"></a>Java内存模型的实现？</h3><p>了解 Java 多线程的朋友都知道，在 Java 中提供了一系列和并发处理相关的关键字，比如 Volatile、Synchronized、Final、Concurren 包等。</p>
-<p>其实这些就是 Java 内存模型封装了底层的实现后提供给程序员使用的一些关键字。</p>
-<p>在开发多线程的代码的时候，我们可以直接使用 Synchronized 等关键字来控制并发，这样就不需要关心底层的编译器优化、缓存一致性等问题。</p>
-<p>所以，Java 内存模型，除了定义了一套规范，还提供了一系列原语，封装了底层实现后，供开发者直接使用</p>
-<h4 id="原子性"><a href="#原子性" class="headerlink" title="原子性"></a>原子性</h4><p>在 Java 中，为了保证原子性，提供了两个高级的字节码指令 Monitorenter 和 Monitorexit。</p>
-<p>在 Synchronized 的实现原理文章中，介绍过，这两个字节码，在 Java 中对应的关键字就是 Synchronized。</p>
-<p>因此，在 Java 中可以使用 Synchronized 来保证方法和代码块内的操作是原子性的。</p>
-<h4 id="可见性"><a href="#可见性" class="headerlink" title="可见性"></a>可见性</h4><p>Java 内存模型是通过在变量修改后将新值同步回主内存，在变量读取前从主内存刷新变量值的这种依赖主内存作为传递媒介的方式来实现的。</p>
-<p>Java 中的 Volatile 关键字提供了一个功能，那就是被其修饰的变量在被修改后可以立即同步到主内存。</p>
-<p>被其修饰的变量在每次使用之前都从主内存刷新。因此，可以使用 Volatile 来保证多线程操作时变量的可见性。</p>
-<p>除了 Volatile，Java 中的 Synchronized 和 Final 两个关键字也可以实现可见性。只不过实现方式不同，这里不再展开了。</p>
+        <h3 id="什么是-Java-内存模型？"><a href="#什么是-Java-内存模型？" class="headerlink" title="什么是 Java 内存模型？"></a>什么是 Java 内存模型？</h3><p>我们知道，Java 程序是需要运行在 Java 虚拟机上面的，Java 内存模型（Java Memory Model，JMM）就是一种符合内存模型规范的，屏蔽了各种硬件和操作系统的访问差异的，保证了 Java 程序在各种平台下对内存的访问都能保证效果一致的机制及规范<br><a id="more"></a><br>Java 内存模型规定了所有的变量都存储在主内存中，每条线程还有自己的工作内存。<br>线程的工作内存中保存了该线程中用到的变量的主内存副本拷贝，线程对变量的所有操作都必须在工作内存中进行，而不能直接读写主内存。<br>不同的线程之间也无法直接访问对方工作内存中的变量，线程间变量的传递均需要自己的工作内存和主存之间进行数据同步进行。<br>而 JMM 就作用于工作内存和主存之间数据同步过程。它规定了如何做数据同步以及什么时候做数据同步。<br>特别需要注意的是，<strong>主内存和工作内存与 JVM 内存结构中的 Java 堆、栈、方法区等并不是同一个层次的内存划分，无法直接类比</strong>。<br>从变量、主内存、工作内存的定义来看，主内存主要对应于 Java 堆中的对象实例数据部分。而工作内存则对应于虚拟机栈中的部分区域。</p>
+<h3 id="Java内存模型的实现？"><a href="#Java内存模型的实现？" class="headerlink" title="Java内存模型的实现？"></a>Java内存模型的实现？</h3><p>了解 Java 多线程的朋友都知道，在 Java 中提供了一系列和并发处理相关的关键字，比如 Volatile、Synchronized、Final、Concurren 包等。<br>其实这些就是 Java 内存模型封装了底层的实现后提供给程序员使用的一些关键字。<br>在开发多线程的代码的时候，我们可以直接使用 Synchronized 等关键字来控制并发，这样就不需要关心底层的编译器优化、缓存一致性等问题。<br>所以，Java 内存模型，除了定义了一套规范，还提供了一系列原语，封装了底层实现后，供开发者直接使用</p>
+<h4 id="原子性"><a href="#原子性" class="headerlink" title="原子性"></a>原子性</h4><p>在 Java 中，为了保证原子性，提供了两个高级的字节码指令 Monitorenter 和 Monitorexit。<br>在 Synchronized 的实现原理文章中，介绍过，这两个字节码，在 Java 中对应的关键字就是 Synchronized。<br>因此，在 Java 中可以使用 Synchronized 来保证方法和代码块内的操作是原子性的。</p>
+<h4 id="可见性"><a href="#可见性" class="headerlink" title="可见性"></a>可见性</h4><p>Java 内存模型是通过在变量修改后将新值同步回主内存，在变量读取前从主内存刷新变量值的这种依赖主内存作为传递媒介的方式来实现的。<br>Java 中的 Volatile 关键字提供了一个功能，那就是被其修饰的变量在被修改后可以立即同步到主内存。<br>被其修饰的变量在每次使用之前都从主内存刷新。因此，可以使用 Volatile 来保证多线程操作时变量的可见性。<br>除了 Volatile，Java 中的 Synchronized 和 Final 两个关键字也可以实现可见性。只不过实现方式不同，这里不再展开了。</p>
 <h4 id="有序性"><a href="#有序性" class="headerlink" title="有序性"></a>有序性</h4><p>在 Java 中，可以使用 Synchronized 和 Volatile 来保证多线程之间操作的有序性。</p>
-<p>实现方式有所区别：Volatile 关键字会禁止指令重排。Synchronized 关键字保证同一时刻只允许一条线程操作。</p>
-<p>好了，这里简单的介绍完了 Java 并发编程中解决原子性、可见性以及有序性可以使用的关键字。</p>
-<p>读者可能发现了，好像 Synchronized 关键字是万能的，它可以同时满足以上三种特性，这也是很多人滥用 Synchronized 的原因。</p>
-<p>但是 Synchronized 是比较影响性能的，虽然编译器提供了很多锁优化技术，但是也不建议过度使用</p>
+<p>实现方式有所区别：Volatile 关键字会禁止指令重排。Synchronized 关键字保证同一时刻只允许一条线程操作。<br>好了，这里简单的介绍完了 Java 并发编程中解决原子性、可见性以及有序性可以使用的关键字。<br>读者可能发现了，好像 Synchronized 关键字是万能的，它可以同时满足以上三种特性，这也是很多人滥用 Synchronized 的原因。<br>但是 Synchronized 是比较影响性能的，虽然编译器提供了很多锁优化技术，但是也不建议过度使用</p>
 <p>摘自: <a href="https://blog.csdn.net/gupao123456/article/details/81221641" target="_blank" rel="noopener">https://blog.csdn.net/gupao123456/article/details/81221641</a></p>
 
       
@@ -339,7 +322,7 @@
         <p><span>本文标题:</span><a href="/2019/03/03/Java内存模型/">Java内存模型</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">刘凤双</a></p>
         <p><span>发布时间:</span>2019-03-03, 10:01:54</p>
-        <p><span>最后更新:</span>2019-03-03, 10:06:19</p>
+        <p><span>最后更新:</span>2019-03-03, 16:29:48</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/03/03/Java内存模型/" title="Java内存模型">http://yoursite.com/2019/03/03/Java内存模型/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/03/03/Java内存模型/　　作者: 刘凤双" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -445,7 +428,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/03/03/POST与GET/">POST与GET</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/03/Java内存模型/">Java内存模型</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/02/类加载机制/">类加载机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/02/Lock/">Lock</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/28/Java内存管理/">Java内存管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/28/Redis/">Redis</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/27/搜索引擎高级搜索语法/">搜索引擎高级搜索语法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/27/记我的2018/">记我的2018</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/21/排序算法/">排序算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/01/过滤器和拦截器/">过滤器和拦截器</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/30/Java高并发/">Java高并发</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/29/HTTP长链接与短链接/">HTTP长链接与短链接</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/29/Java集合/">Java集合</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/23/编译原理0/">编译原理0</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/23/计算机组成原理0/">计算机组成原理0</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/09/dubbo/">dubbo</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/08/SQL优化/">SQL优化</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/07/session跨域共享/">session跨域共享</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/28/Maven/">Maven</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/25/数据库/">数据库</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/25/随笔/">随笔</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/24/Java基础/">Java基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/23/python虚拟环境/">python虚拟环境</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/23/Docker/">Docker</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/22/REST风格/">REST风格</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/03/03/MySQL数据库引擎/">MySQL数据库引擎</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/03/POST与GET/">POST与GET</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/03/Java内存模型/">Java内存模型</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/02/类加载机制/">类加载机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/02/Lock/">Lock</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/28/Java内存管理/">Java内存管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/28/Redis/">Redis</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/27/搜索引擎高级搜索语法/">搜索引擎高级搜索语法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/27/记我的2018/">记我的2018</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/21/排序算法/">排序算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/01/过滤器和拦截器/">过滤器和拦截器</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/30/Java高并发/">Java高并发</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/29/HTTP长链接与短链接/">HTTP长链接与短链接</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/29/Java集合/">Java集合</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/23/编译原理0/">编译原理0</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/23/计算机组成原理0/">计算机组成原理0</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/09/dubbo/">dubbo</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/08/SQL优化/">SQL优化</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/07/session跨域共享/">session跨域共享</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/28/Maven/">Maven</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/25/数据库/">数据库</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/25/随笔/">随笔</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/24/Java基础/">Java基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/23/python虚拟环境/">python虚拟环境</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/23/Docker/">Docker</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/22/REST风格/">REST风格</a></li></ul>
 
 
 

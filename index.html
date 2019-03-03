@@ -266,6 +266,70 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-MySQL数据库引擎" class="article article-type-post" itemscope="" itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/03/03/MySQL数据库引擎/" class="article-date">
+      <time datetime="2019-03-03T08:17:53.000Z" itemprop="datePublished">2019-03-03</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/03/MySQL数据库引擎/">MySQL数据库引擎</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>MySQL引擎有四种: ISAM, MyISAM, HEAP, InnoDB<br></p>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据库/">数据库</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2019/03/03/MySQL数据库引擎/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-POST与GET" class="article article-type-post" itemscope="" itemprop="blogPost">
   
     <div class="article-meta">
@@ -295,28 +359,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Http定义了与服务器交互的不同方法，最基本的方法有4种，分别是GET，POST，PUT，DELETE。URL全称是资源描述符，我们可以这样认为：一个URL地址，它用于描述一个网络上的资源，而HTTP中的GET，POST，PUT，DELETE就对应着对这个资源的查，改，增，删4个操作。到这里，大家应该有个大概的了解了，GET一般用于获取/查询资源信息，而POST一般用于更新资源信息。</p>
-<p>因此有:</p>
-<ul>
-<li>GET用于信息获取</li>
-<li>POST是用于修改服务器上的资源的请求</li>
-</ul>
-<p>GET与POST的一个最大的区别就是:</p>
-<ul>
-<li>GET产生一个TCP数据包</li>
-<li>POST产生两个TCP数据包<br>对于GET方式的请求，浏览器会把http header和data一并发送出去，服务器响应200（返回数据）；<br>对于POST，浏览器先发送header，服务器响应100 continue，浏览器再发送data，服务器响应200 ok（返回数据）<br>UR可见性方面:</li>
-<li>GET请求参数URL可见</li>
-<li>POST请求URL与参数都不可见<br>数传输方面:</li>
-<li>GET请求通过URL拼接传递参数</li>
-<li>POST请求通过BODY体传递参数<br>缓存性:</li>
-<li>GET请求可以缓存</li>
-<li>POST请求不能缓存<br>后退页面的反应</li>
-<li>GET请求页面后退时，没影响</li>
-<li>POST请求页面后退时，会重复提交表单<br>传输数据大小</li>
-<li>GET请求传输数据大小要看浏览器地址栏可以有多大</li>
-<li>POST请求传输大小没有限制</li>
-</ul>
-
+              <p>Http定义了与服务器交互的不同方法，最基本的方法有4种，分别是GET，POST，PUT，DELETE。URL全称是资源描述符，我们可以这样认为：一个URL地址，它用于描述一个网络上的资源，而HTTP中的GET，POST，PUT，DELETE就对应着对这个资源的查，改，增，删4个操作。到这里，大家应该有个大概的了解了，GET一般用于获取/查询资源信息，而POST一般用于更新资源信息。<br></p>
+          
       
     </div>
     
@@ -325,6 +369,14 @@
       
 
       
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网络/">网络</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a href="/2019/03/03/POST与GET/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -371,31 +423,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h3 id="什么是-Java-内存模型？"><a href="#什么是-Java-内存模型？" class="headerlink" title="什么是 Java 内存模型？"></a>什么是 Java 内存模型？</h3><p>我们知道，Java 程序是需要运行在 Java 虚拟机上面的，Java 内存模型（Java Memory Model，JMM）就是一种符合内存模型规范的，屏蔽了各种硬件和操作系统的访问差异的，保证了 Java 程序在各种平台下对内存的访问都能保证效果一致的机制及规范</p>
-<p>Java 内存模型规定了所有的变量都存储在主内存中，每条线程还有自己的工作内存。</p>
-<p>线程的工作内存中保存了该线程中用到的变量的主内存副本拷贝，线程对变量的所有操作都必须在工作内存中进行，而不能直接读写主内存。</p>
-<p>不同的线程之间也无法直接访问对方工作内存中的变量，线程间变量的传递均需要自己的工作内存和主存之间进行数据同步进行。</p>
-<p>而 JMM 就作用于工作内存和主存之间数据同步过程。它规定了如何做数据同步以及什么时候做数据同步。</p>
-<p>特别需要注意的是，<strong>主内存和工作内存与 JVM 内存结构中的 Java 堆、栈、方法区等并不是同一个层次的内存划分，无法直接类比</strong>。</p>
-<p>从变量、主内存、工作内存的定义来看，主内存主要对应于 Java 堆中的对象实例数据部分。而工作内存则对应于虚拟机栈中的部分区域。</p>
-<h3 id="Java内存模型的实现？"><a href="#Java内存模型的实现？" class="headerlink" title="Java内存模型的实现？"></a>Java内存模型的实现？</h3><p>了解 Java 多线程的朋友都知道，在 Java 中提供了一系列和并发处理相关的关键字，比如 Volatile、Synchronized、Final、Concurren 包等。</p>
-<p>其实这些就是 Java 内存模型封装了底层的实现后提供给程序员使用的一些关键字。</p>
-<p>在开发多线程的代码的时候，我们可以直接使用 Synchronized 等关键字来控制并发，这样就不需要关心底层的编译器优化、缓存一致性等问题。</p>
-<p>所以，Java 内存模型，除了定义了一套规范，还提供了一系列原语，封装了底层实现后，供开发者直接使用</p>
-<h4 id="原子性"><a href="#原子性" class="headerlink" title="原子性"></a>原子性</h4><p>在 Java 中，为了保证原子性，提供了两个高级的字节码指令 Monitorenter 和 Monitorexit。</p>
-<p>在 Synchronized 的实现原理文章中，介绍过，这两个字节码，在 Java 中对应的关键字就是 Synchronized。</p>
-<p>因此，在 Java 中可以使用 Synchronized 来保证方法和代码块内的操作是原子性的。</p>
-<h4 id="可见性"><a href="#可见性" class="headerlink" title="可见性"></a>可见性</h4><p>Java 内存模型是通过在变量修改后将新值同步回主内存，在变量读取前从主内存刷新变量值的这种依赖主内存作为传递媒介的方式来实现的。</p>
-<p>Java 中的 Volatile 关键字提供了一个功能，那就是被其修饰的变量在被修改后可以立即同步到主内存。</p>
-<p>被其修饰的变量在每次使用之前都从主内存刷新。因此，可以使用 Volatile 来保证多线程操作时变量的可见性。</p>
-<p>除了 Volatile，Java 中的 Synchronized 和 Final 两个关键字也可以实现可见性。只不过实现方式不同，这里不再展开了。</p>
-<h4 id="有序性"><a href="#有序性" class="headerlink" title="有序性"></a>有序性</h4><p>在 Java 中，可以使用 Synchronized 和 Volatile 来保证多线程之间操作的有序性。</p>
-<p>实现方式有所区别：Volatile 关键字会禁止指令重排。Synchronized 关键字保证同一时刻只允许一条线程操作。</p>
-<p>好了，这里简单的介绍完了 Java 并发编程中解决原子性、可见性以及有序性可以使用的关键字。</p>
-<p>读者可能发现了，好像 Synchronized 关键字是万能的，它可以同时满足以上三种特性，这也是很多人滥用 Synchronized 的原因。</p>
-<p>但是 Synchronized 是比较影响性能的，虽然编译器提供了很多锁优化技术，但是也不建议过度使用</p>
-<p>摘自: <a href="https://blog.csdn.net/gupao123456/article/details/81221641" target="_blank" rel="noopener">https://blog.csdn.net/gupao123456/article/details/81221641</a></p>
-
+              <h3 id="什么是-Java-内存模型？"><a href="#什么是-Java-内存模型？" class="headerlink" title="什么是 Java 内存模型？"></a>什么是 Java 内存模型？</h3><p>我们知道，Java 程序是需要运行在 Java 虚拟机上面的，Java 内存模型（Java Memory Model，JMM）就是一种符合内存模型规范的，屏蔽了各种硬件和操作系统的访问差异的，保证了 Java 程序在各种平台下对内存的访问都能保证效果一致的机制及规范<br></p>
+          
       
     </div>
     
@@ -408,6 +437,10 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a href="/2019/03/03/Java内存模型/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -874,74 +907,6 @@
       
         <p class="article-more-link">
           <a href="/2019/02/21/排序算法/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-过滤器和拦截器" class="article article-type-post" itemscope="" itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/02/01/过滤器和拦截器/" class="article-date">
-      <time datetime="2019-02-01T06:58:22.000Z" itemprop="datePublished">2019-02-01</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/02/01/过滤器和拦截器/">过滤器和拦截器</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h2 id="拦截器-Interceptor-与过滤器-Filter"><a href="#拦截器-Interceptor-与过滤器-Filter" class="headerlink" title="拦截器(Interceptor)与过滤器(Filter)"></a>拦截器(Interceptor)与过滤器(Filter)</h2><h3 id="拦截器使用"><a href="#拦截器使用" class="headerlink" title="拦截器使用"></a>拦截器使用</h3><ul>
-<li>请求达到DispactcherServlet</li>
-<li>DispatcherServlet发送至Interceptor,执行preHandle()</li>
-<li>请求达到 Controller</li>
-<li>请求结束后，postHandle 执行</li></ul>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2019/02/01/过滤器和拦截器/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
