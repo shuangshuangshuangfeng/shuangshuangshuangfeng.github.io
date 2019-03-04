@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="My Blog">
 <meta property="og:description" content="MySQL引擎有四种: ISAM, MyISAM, HEAP, InnoDB">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-03T08:30:11.363Z">
+<meta property="og:updated_time" content="2019-03-04T01:06:09.359Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL数据库引擎">
 <meta name="twitter:description" content="MySQL引擎有四种: ISAM, MyISAM, HEAP, InnoDB">
@@ -307,7 +307,7 @@
         <p>MySQL引擎有四种: ISAM, MyISAM, HEAP, InnoDB<br><a id="more"></a><br>具体描述:</p>
 <ul>
 <li>ISAM是最老的引擎，执行读取操作的速度很快，而且不占用大量的内存和存储资源。不足:他不支持事务处理，也不能够容错。</li>
-<li>MyISAM是ISAM的MySQL的扩张，继承了ISAM的优点，还增加了一些功能，如:索引，字段管理功能，表格锁定的机制等。并强调了快速读取操作，所以web开发大多数用此引擎。缺点是和ISAM一样，不支持事务处理，也不能容错，二七人为了优化多个兵法的读写操作和锁定的机制，他必须经常运行OPTIMIZE TABLE命令，来恢复被更新机制所浪费的空间。</li>
+<li>MyISAM是ISAM的MySQL的扩张，继承了ISAM的优点，还增加了一些功能，如:索引，字段管理功能，表格锁定的机制等。并强调了快速读取操作，所以web开发大多数用此引擎。缺点是和ISAM一样，不支持事务处理，也不能容错，而且为了优化多个并发的读写操作和锁定的机制，他必须经常运行OPTIMIZE TABLE命令，来恢复被更新机制所浪费的空间。</li>
 <li>HEAP他允许只驻留在内存里的表格，驻留在内存里让HEAP要比ISAM和MyISAM都快，但是，他的表格存储在内存里，所以不及时保存的话，会造成数据丢失。</li>
 <li>InnoDB支持事务处理和外来键，但是速度比前者慢，一般用于处理巨大数据量时的最大性能设计。</li>
 </ul>
@@ -322,7 +322,7 @@
         <p><span>本文标题:</span><a href="/2019/03/03/MySQL数据库引擎/">MySQL数据库引擎</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">刘凤双</a></p>
         <p><span>发布时间:</span>2019-03-03, 16:17:53</p>
-        <p><span>最后更新:</span>2019-03-03, 16:30:11</p>
+        <p><span>最后更新:</span>2019-03-04, 09:06:09</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/03/03/MySQL数据库引擎/" title="MySQL数据库引擎">http://yoursite.com/2019/03/03/MySQL数据库引擎/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/03/03/MySQL数据库引擎/　　作者: 刘凤双" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
