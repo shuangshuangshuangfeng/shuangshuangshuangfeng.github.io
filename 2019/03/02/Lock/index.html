@@ -16,14 +16,14 @@
 
 
 <meta name="description" content="Java多线程线程和进程一个程序中至少有一个进程，而一个进程中至少有一个线程，他们的大小关系就是：程序&amp;gt;进程&amp;gt;线程。所以线程是进程执行流的最小单位，进程是系统进行资源分配和调度的独立单位，以下所讨论的都是建立在线程基础上的。">
-<meta name="keywords" content="Java">
+<meta name="keywords" content="’Java&#39;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Lock">
 <meta property="og:url" content="http://yoursite.com/2019/03/02/Lock/index.html">
 <meta property="og:site_name" content="My Blog">
 <meta property="og:description" content="Java多线程线程和进程一个程序中至少有一个进程，而一个进程中至少有一个线程，他们的大小关系就是：程序&amp;gt;进程&amp;gt;线程。所以线程是进程执行流的最小单位，进程是系统进行资源分配和调度的独立单位，以下所讨论的都是建立在线程基础上的。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-02T13:22:32.777Z">
+<meta property="og:updated_time" content="2019-03-05T02:09:02.288Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Lock">
 <meta name="twitter:description" content="Java多线程线程和进程一个程序中至少有一个进程，而一个进程中至少有一个线程，他们的大小关系就是：程序&amp;gt;进程&amp;gt;线程。所以线程是进程执行流的最小单位，进程是系统进行资源分配和调度的独立单位，以下所讨论的都是建立在线程基础上的。">
@@ -187,7 +187,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/REST/">REST</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/virtualenv/">virtualenv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/编译原理/">编译原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机组成原理/">计算机组成原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/REST/">REST</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/virtualenv/">virtualenv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/’Java/">’Java'</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/编译原理/">编译原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机组成原理/">计算机组成原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔/">随笔</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面试/">面试</a></li></ul>
                     </div>
                 </section>
                 
@@ -294,7 +294,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/’Java/">’Java'</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -322,7 +322,7 @@
 <li>当前线程时间片用完了，调用当前线程的yield()方法，当前线程进入就绪状态</li>
 <li>锁池里的线程拿到对象锁后，进入就绪状态<h4 id="运行中状态"><a href="#运行中状态" class="headerlink" title="运行中状态"></a>运行中状态</h4>线程调度程序从可运行池中选择一个线程作为当前线程时，该线程所处的状态就是运行状态<h4 id="阻塞状态"><a href="#阻塞状态" class="headerlink" title="阻塞状态"></a>阻塞状态</h4>阻塞状态时线程阻塞在进入synchronized关键字修饰的方法或者代码块时的状态<h4 id="等待"><a href="#等待" class="headerlink" title="等待"></a>等待</h4>处于这种状态的线程不会被分配CPU执行时间，他们要等待被显示的唤醒，否则将处于无限期等待的状态<h4 id="超时等待"><a href="#超时等待" class="headerlink" title="超时等待"></a>超时等待</h4>处于这种状态的线程不会被分配CPU执行时间，不过无需无限期<h3 id="synchronized-的缺陷"><a href="#synchronized-的缺陷" class="headerlink" title="synchronized 的缺陷"></a>synchronized 的缺陷</h3>synchronized是Java中的一个关键字，也就是说是Java语法内置的特性，那为什么会出现Lock呢？<br>因为如果一个代码块被synchronized修饰了，当一个线程获取了对应的锁，并执行该代码的时候，其他的线程就会一直等待，一直到该线程释放锁。那么这里获取锁的线程释放锁只会有两种情况：</li>
 <li>获取锁的线程执行完了该代码块，然后线程释放对锁的占有</li>
-<li>线程执行发生异常，JVM会让线程自动释放锁。<br>那么就有一种情况,<strong>当这个获取锁的线程遇到了等待I/O或者其他原因而被阻塞</strong>，但是他又不会释放锁，其他的线程只能一直等待下去。。。<br>这样就会影响程序的执行效率。。。因此就需要一种机制可以不让等待的线程一直无限期的等待下去，通过Lock就可以办到。<br>再者，当又多个线程写文件时，读操作和写操作会发生冲突，写操作和写操作也可以发生冲突，但是读操作和读操作不会发生冲突，那如果多个线程进行读操作，当一个线程在进行读操作的时候，其他线程只能等待无法进行读操作。<br>因此**就需要又一种机制来使得多个线程都只是读操作时，线程之间不会发生冲突，通过Lock就可以解决！<br>另外Lock时可以知道线程有没有成功获取锁的，这个synchronized时无法办到的。<br>结论：</li>
+<li>线程执行发生异常，JVM会让线程自动释放锁。<br>那么就有一种情况,<strong>当这个获取锁的线程遇到了等待I/O或者其他原因而被阻塞</strong>，但是他又不会释放锁，其他的线程只能一直等待下去。。。<br>这样就会影响程序的执行效率。。。因此就需要一种机制可以不让等待的线程一直无限期的等待下去，通过Lock就可以办到。<br>再者，当又多个线程写文件时，读操作和写操作会发生冲突，写操作和写操作也可以发生冲突，但是读操作和读操作不会发生冲突，那如果多个线程进行读操作，当一个线程在进行读操作的时候，其他线程只能等待无法进行读操作。<br>因此<strong>就需要又一种机制来使得多个线程都只是读操作时，线程之间不会发生冲突，通过Lock就可以解决！</strong><br>另外Lock时可以知道线程有没有成功获取锁的，这个synchronized时无法办到的。<br>结论：</li>
 <li>Lock不是Java语言内置的，synchronized是Java语言的关键字，因此是内置特性，Lock是一个类，通过这个类可以实现同步访问</li>
 <li>Lock与synchronized有一点非常大的不同，就是采用synchronized不需要用户去手动释放锁，当synchronized方法或代码块执行完后，系统会自动让线程释放对锁的占用；而Lock则必须要用户手动释放锁，如果没主动释放锁，就有可能造成死锁现象。</li>
 </ul>
@@ -337,7 +337,7 @@
         <p><span>本文标题:</span><a href="/2019/03/02/Lock/">Lock</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">刘凤双</a></p>
         <p><span>发布时间:</span>2019-03-02, 11:03:04</p>
-        <p><span>最后更新:</span>2019-03-02, 21:22:32</p>
+        <p><span>最后更新:</span>2019-03-05, 10:09:02</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/03/02/Lock/" title="Lock">http://yoursite.com/2019/03/02/Lock/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/03/02/Lock/　　作者: 刘凤双" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -443,7 +443,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/03/03/MySQL数据库引擎/">MySQL数据库引擎</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/03/POST与GET/">POST与GET</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/03/Java内存模型/">Java内存模型</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/02/类加载机制/">类加载机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/02/Lock/">Lock</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/28/Java内存管理/">Java内存管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/28/Redis/">Redis</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/27/搜索引擎高级搜索语法/">搜索引擎高级搜索语法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/27/记我的2018/">记我的2018</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/21/排序算法/">排序算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/01/过滤器和拦截器/">过滤器和拦截器</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/30/Java高并发/">Java高并发</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/29/HTTP长链接与短链接/">HTTP长链接与短链接</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/29/Java集合/">Java集合</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/23/编译原理0/">编译原理0</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/23/计算机组成原理0/">计算机组成原理0</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/09/dubbo/">dubbo</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/08/SQL优化/">SQL优化</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/07/session跨域共享/">session跨域共享</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/28/Maven/">Maven</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/25/数据库/">数据库</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/25/随笔/">随笔</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/24/Java基础/">Java基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/23/python虚拟环境/">python虚拟环境</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/23/Docker/">Docker</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/22/REST风格/">REST风格</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/03/06/记百度实习面试/">记百度实习面试</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/06/TCP-IP三次握手/">TCP/IP三次握手</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/03/MySQL数据库引擎/">MySQL数据库引擎</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/03/POST与GET/">POST与GET</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/03/Java内存模型/">Java内存模型</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/02/类加载机制/">类加载机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/02/Lock/">Lock</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/28/Java内存管理/">Java内存管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/28/Redis/">Redis</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/27/搜索引擎高级搜索语法/">搜索引擎高级搜索语法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/27/记我的2018/">记我的2018</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/21/排序算法/">排序算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/01/过滤器和拦截器/">过滤器和拦截器</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/30/Java高并发/">Java高并发</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/29/HTTP长链接与短链接/">HTTP长链接与短链接</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/29/Java集合/">Java集合</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/23/编译原理0/">编译原理0</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/23/计算机组成原理0/">计算机组成原理0</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/09/dubbo/">dubbo</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/08/SQL优化/">SQL优化</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/07/session跨域共享/">session跨域共享</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/28/Maven/">Maven</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/25/数据库/">数据库</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/25/随笔/">随笔</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/24/Java基础/">Java基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/23/python虚拟环境/">python虚拟环境</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/23/Docker/">Docker</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/22/REST风格/">REST风格</a></li></ul>
 
 
 
