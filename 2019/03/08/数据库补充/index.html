@@ -15,15 +15,20 @@
 
 
 
+<meta name="description" content="SQL高级查询LIMIT 检索前10行数据，显示1-10条数据1select * from Person where (...) LIMIT 10;">
 <meta name="keywords" content="数据库">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据库补充">
 <meta property="og:url" content="http://yoursite.com/2019/03/08/数据库补充/index.html">
 <meta property="og:site_name" content="My Blog">
+<meta property="og:description" content="SQL高级查询LIMIT 检索前10行数据，显示1-10条数据1select * from Person where (...) LIMIT 10;">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-08T12:15:08.554Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2019/03/08/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A5%E5%85%85/%E5%AD%A6%E7%94%9F%E8%A1%A8.png">
+<meta property="og:updated_time" content="2019-03-08T12:21:26.638Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据库补充">
+<meta name="twitter:description" content="SQL高级查询LIMIT 检索前10行数据，显示1-10条数据1select * from Person where (...) LIMIT 10;">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2019/03/08/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A5%E5%85%85/%E5%AD%A6%E7%94%9F%E8%A1%A8.png">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -301,7 +306,45 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        
+        <h3 id="SQL高级查询"><a href="#SQL高级查询" class="headerlink" title="SQL高级查询"></a>SQL高级查询</h3><h4 id="LIMIT"><a href="#LIMIT" class="headerlink" title="LIMIT"></a>LIMIT</h4><ol>
+<li>检索前10行数据，显示1-10条数据<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from Person where (...) LIMIT 10;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<a id="more"></a>
+<ol start="2">
+<li>检索从第2行开始，累加10条id记录，共显示id为2….11<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from Person where (...) LIMIT 1,10;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="TOP"><a href="#TOP" class="headerlink" title="TOP"></a>TOP</h4><ol>
+<li>检索前三行<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select TOP 3 * from Person where (...)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="IN"><a href="#IN" class="headerlink" title="IN"></a>IN</h4><ol>
+<li>是否是在某个范围中<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from Person where name IN (&apos;张三&apos;, &apos;李四&apos;, &apos;王五&apos;);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="BETWEEN"><a href="#BETWEEN" class="headerlink" title="BETWEEN"></a>BETWEEN</h4><ol>
+<li>是否在两个值之间的数据范围内<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from Person where age BETWEEN 10 AND 20;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="HAVING"><a href="#HAVING" class="headerlink" title="HAVING"></a>HAVING</h4><p>HAVING 通常和GROUP BY联合使用的，用来过滤GROUP BY语句返回的记录集。<br><strong>HAVING语句的存在弥补了WHERE关键字不能与聚合函数联合使用的不足</strong>。</p>
+<p>用法：<br><img src="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2019/03/08/%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A5%E5%85%85/%E5%AD%A6%E7%94%9F%E8%A1%A8.png" alt="学生表"></p>
+<ol>
+<li>查询每个老师的学生的平均年龄且平均年龄大于12的:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">select TeacherID, AGE(Age)</span><br><span class="line">as AGE from Student</span><br><span class="line">GROUP BY TeacherID</span><br><span class="line">HAVING AGE(Age)&gt;12;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h4><ol>
+<li><p>AVG()函数，返回数值列的平均值，如:返回平均年龄</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select AVG(age) from Person where (...);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>COUNT函数，返回指定列的值的记录数,如：返回年龄列数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select COUNT(age) from Person where (...);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>SUM()函数，返回数值列的总数，如:返回分数总数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select SUM(grade) from Person where (...);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
       
     </div>
     
@@ -312,7 +355,7 @@
         <p><span>本文标题:</span><a href="/2019/03/08/数据库补充/">数据库补充</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">刘凤双</a></p>
         <p><span>发布时间:</span>2019-03-08, 20:13:26</p>
-        <p><span>最后更新:</span>2019-03-08, 20:15:08</p>
+        <p><span>最后更新:</span>2019-03-08, 20:21:26</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/03/08/数据库补充/" title="数据库补充">http://yoursite.com/2019/03/08/数据库补充/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/03/08/数据库补充/　　作者: 刘凤双" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -342,7 +385,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#SQL高级查询"><span class="toc-number">1.</span> <span class="toc-text">SQL高级查询</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#LIMIT"><span class="toc-number">1.1.</span> <span class="toc-text">LIMIT</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#TOP"><span class="toc-number">1.2.</span> <span class="toc-text">TOP</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#IN"><span class="toc-number">1.3.</span> <span class="toc-text">IN</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#BETWEEN"><span class="toc-number">1.4.</span> <span class="toc-text">BETWEEN</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HAVING"><span class="toc-number">1.5.</span> <span class="toc-text">HAVING</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#函数"><span class="toc-number">1.6.</span> <span class="toc-text">函数</span></a></li></ol></li></ol>
         
     </div>
     <style>
