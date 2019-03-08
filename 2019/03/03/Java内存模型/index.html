@@ -23,10 +23,12 @@
 <meta property="og:site_name" content="My Blog">
 <meta property="og:description" content="什么是 Java 内存模型？我们知道，Java 程序是需要运行在 Java 虚拟机上面的，Java 内存模型（Java Memory Model，JMM）就是一种符合内存模型规范的，屏蔽了各种硬件和操作系统的访问差异的，保证了 Java 程序在各种平台下对内存的访问都能保证效果一致的机制及规范">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-03T08:29:48.335Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2019/03/03/Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B.png">
+<meta property="og:updated_time" content="2019-03-08T12:44:32.581Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java内存模型">
 <meta name="twitter:description" content="什么是 Java 内存模型？我们知道，Java 程序是需要运行在 Java 虚拟机上面的，Java 内存模型（Java Memory Model，JMM）就是一种符合内存模型规范的，屏蔽了各种硬件和操作系统的访问差异的，保证了 Java 程序在各种平台下对内存的访问都能保证效果一致的机制及规范">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2019/03/03/Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B.png">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -305,6 +307,7 @@
       
           
         <h3 id="什么是-Java-内存模型？"><a href="#什么是-Java-内存模型？" class="headerlink" title="什么是 Java 内存模型？"></a>什么是 Java 内存模型？</h3><p>我们知道，Java 程序是需要运行在 Java 虚拟机上面的，Java 内存模型（Java Memory Model，JMM）就是一种符合内存模型规范的，屏蔽了各种硬件和操作系统的访问差异的，保证了 Java 程序在各种平台下对内存的访问都能保证效果一致的机制及规范<br><a id="more"></a><br>Java 内存模型规定了所有的变量都存储在主内存中，每条线程还有自己的工作内存。<br>线程的工作内存中保存了该线程中用到的变量的主内存副本拷贝，线程对变量的所有操作都必须在工作内存中进行，而不能直接读写主内存。<br>不同的线程之间也无法直接访问对方工作内存中的变量，线程间变量的传递均需要自己的工作内存和主存之间进行数据同步进行。<br>而 JMM 就作用于工作内存和主存之间数据同步过程。它规定了如何做数据同步以及什么时候做数据同步。<br>特别需要注意的是，<strong>主内存和工作内存与 JVM 内存结构中的 Java 堆、栈、方法区等并不是同一个层次的内存划分，无法直接类比</strong>。<br>从变量、主内存、工作内存的定义来看，主内存主要对应于 Java 堆中的对象实例数据部分。而工作内存则对应于虚拟机栈中的部分区域。</p>
+<p><img src="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2019/03/03/Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B.png" alt="Java内存模型"></p>
 <h3 id="Java内存模型的实现？"><a href="#Java内存模型的实现？" class="headerlink" title="Java内存模型的实现？"></a>Java内存模型的实现？</h3><p>了解 Java 多线程的朋友都知道，在 Java 中提供了一系列和并发处理相关的关键字，比如 Volatile、Synchronized、Final、Concurren 包等。<br>其实这些就是 Java 内存模型封装了底层的实现后提供给程序员使用的一些关键字。<br>在开发多线程的代码的时候，我们可以直接使用 Synchronized 等关键字来控制并发，这样就不需要关心底层的编译器优化、缓存一致性等问题。<br>所以，Java 内存模型，除了定义了一套规范，还提供了一系列原语，封装了底层实现后，供开发者直接使用</p>
 <h4 id="原子性"><a href="#原子性" class="headerlink" title="原子性"></a>原子性</h4><p>在 Java 中，为了保证原子性，提供了两个高级的字节码指令 Monitorenter 和 Monitorexit。<br>在 Synchronized 的实现原理文章中，介绍过，这两个字节码，在 Java 中对应的关键字就是 Synchronized。<br>因此，在 Java 中可以使用 Synchronized 来保证方法和代码块内的操作是原子性的。</p>
 <h4 id="可见性"><a href="#可见性" class="headerlink" title="可见性"></a>可见性</h4><p>Java 内存模型是通过在变量修改后将新值同步回主内存，在变量读取前从主内存刷新变量值的这种依赖主内存作为传递媒介的方式来实现的。<br>Java 中的 Volatile 关键字提供了一个功能，那就是被其修饰的变量在被修改后可以立即同步到主内存。<br>被其修饰的变量在每次使用之前都从主内存刷新。因此，可以使用 Volatile 来保证多线程操作时变量的可见性。<br>除了 Volatile，Java 中的 Synchronized 和 Final 两个关键字也可以实现可见性。只不过实现方式不同，这里不再展开了。</p>
@@ -322,7 +325,7 @@
         <p><span>本文标题:</span><a href="/2019/03/03/Java内存模型/">Java内存模型</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">刘凤双</a></p>
         <p><span>发布时间:</span>2019-03-03, 10:01:54</p>
-        <p><span>最后更新:</span>2019-03-03, 16:29:48</p>
+        <p><span>最后更新:</span>2019-03-08, 20:44:32</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/03/03/Java内存模型/" title="Java内存模型">http://yoursite.com/2019/03/03/Java内存模型/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/03/03/Java内存模型/　　作者: 刘凤双" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
