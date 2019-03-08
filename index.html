@@ -359,7 +359,26 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        
+        <p>三次握手TCP/IP<br><a href="https://blog.csdn.net/huangshulang1234/article/details/79061438" target="_blank" rel="noopener">https://blog.csdn.net/huangshulang1234/article/details/79061438</a></p>
+<p><a href="https://www.cnblogs.com/kex1n/p/7401811.html" target="_blank" rel="noopener">https://www.cnblogs.com/kex1n/p/7401811.html</a></p>
+<h3 id="TCP-IP四层模型"><a href="#TCP-IP四层模型" class="headerlink" title="TCP/IP四层模型"></a>TCP/IP四层模型</h3><p><img src="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2019/03/06/TCP-IP%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B/TCP_IP%E5%9B%9B%E5%B1%82%E6%A8%A1%E5%9E%8B.png" alt="TCP四层模型"></p>
+<p>网络连接模型:<br><img src="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2019/03/06/TCP-IP%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B/%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5.png" alt="网络连接模型"></p>
+<p>网络层于运输层的区别:<br>在TCP/IP协议族中，网络层IP提供的是一种不可靠的服务，它只是尽可能快的把分组从源节点送到目的节点，但不提供任何可靠性的保证。<br>TCP在不可靠的IP层，提供了一个可靠的运输层，为了提供这种可靠的服务，TCP采用了超时重传，发送，和接受端到端的确认分组等机制。</p>
+<h3 id="TCP报文"><a href="#TCP报文" class="headerlink" title="TCP报文"></a>TCP报文</h3><h4 id="报文格式图"><a href="#报文格式图" class="headerlink" title="报文格式图"></a>报文格式图</h4><p>以下是TCP报文格式图:<br><img src="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2019/03/06/TCP-IP%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B/TCP%E6%8A%A5%E6%96%87%E6%A0%BC%E5%BC%8F.png" alt="TCP报文格式图"></p>
+<h4 id="报文字段解释"><a href="#报文字段解释" class="headerlink" title="报文字段解释"></a>报文字段解释</h4><ol>
+<li>序号：Seq序号，占32位，用来标识从TCP源端向目的端发送的字节流，发起方发送数据时对此进行标记</li>
+<li>确认序号：Ack序号，占32位，只有ACK标志位为1时，确认序号字段才有效，Ack=Seq+1</li>
+<li>标志位：共6个，即URG、ACK、PSH、RST、SYN、FIN等，具体含义如下:</li>
+</ol>
+<ul>
+<li>URG：紧急指针（urgent pointer）有效</li>
+<li>ACK：确认序号有效</li>
+<li>PSH：接收方应该尽快将这个报文交给应用层</li>
+<li>RST：重置连接</li>
+<li>SYN：发起一个新连接</li>
+<li>FIN：释放一个连接</li>
+</ul>
+
       
     </div>
     
