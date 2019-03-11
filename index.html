@@ -295,7 +295,23 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        
+        <h3 id="Spring-MVC工作流程图"><a href="#Spring-MVC工作流程图" class="headerlink" title="Spring MVC工作流程图"></a>Spring MVC工作流程图</h3><p>Spring MVC工作流程图如下:<br><img src="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2019/03/11/springMVC%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/springMVC%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86.jpg" alt="springMVC原理"></p>
+<h3 id="Spring-MVC流程"><a href="#Spring-MVC流程" class="headerlink" title="Spring MVC流程"></a>Spring MVC流程</h3><ol>
+<li>用户发送请求至前端控制器DispatcherServlet。</li>
+<li>DispatcherServlet收到请求调用HandlerMapping处理器映射器。</li>
+<li>处理器映射器找到具体的处理器(可以根据xml配置、注解进行查找)，生成处理器对象及处理器拦截器(如果有则生成)一并返回给DispatcherServlet。</li>
+<li><p>DispatcherServlet调用HandlerAdapter处理器适配器。</p>
+</li>
+<li><p>HandlerAdapter经过适配调用具体的处理器(Controller，也叫后端控制器)。</p>
+</li>
+<li>Controller执行完成返回ModelAndView。</li>
+<li>HandlerAdapter将controller执行结果ModelAndView返回给DispatcherServlet。</li>
+<li>DispatcherServlet将ModelAndView传给ViewReslover视图解析器。</li>
+<li>ViewReslover解析后返回具体View。</li>
+<li>DispatcherServlet根据View进行渲染视图（即将模型数据填充至视图中）。</li>
+<li>DispatcherServlet响应用户。</li>
+</ol>
+
       
     </div>
     
