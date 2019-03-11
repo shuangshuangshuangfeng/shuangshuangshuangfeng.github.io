@@ -23,7 +23,7 @@
 <meta property="og:site_name" content="My Blog">
 <meta property="og:description" content="完整性约束 实体完整性: 实体完整性是指表中行的完整性，主要用于保证操作的数据（记录）非空，唯一且不重复。即:实体完整性要求每个表有且仅有一个主键，每个主键值唯一，而且不允许为空或重复 参照完整性: 参照完整性属于表间规则，对于永久关系的相关表，在更新插入或删除记录时，如果只改其一，则影响其数据的完整性。即外键的取值必须是另一个表的主键的有效值或者空值 用户定义完整性: 用户自定义完整性是对数据表">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-08T12:21:09.922Z">
+<meta property="og:updated_time" content="2019-03-11T03:59:57.015Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据库">
 <meta name="twitter:description" content="完整性约束 实体完整性: 实体完整性是指表中行的完整性，主要用于保证操作的数据（记录）非空，唯一且不重复。即:实体完整性要求每个表有且仅有一个主键，每个主键值唯一，而且不允许为空或重复 参照完整性: 参照完整性属于表间规则，对于永久关系的相关表，在更新插入或删除记录时，如果只改其一，则影响其数据的完整性。即外键的取值必须是另一个表的主键的有效值或者空值 用户定义完整性: 用户自定义完整性是对数据表">
@@ -472,6 +472,12 @@
 <h3 id="B-Tree和B-Tree"><a href="#B-Tree和B-Tree" class="headerlink" title="B-Tree和B+Tree"></a>B-Tree和B+Tree</h3><p><strong>目前大部分数据库系统及文件系统都采用B-Tree或其变种B+Tree作为索引</strong>。</p>
 <p>那么<strong>为什么会使用B-Tree或B+Tree</strong>？</p>
 <p>一般来说，索引本身也很大，不可能全部存储在内存中，因此索引往往以索引文件的形式存储的磁盘上。这样的话，索引查找过程中就要产生磁盘I/O消耗，相对优于内存存取，I/O存取的消耗要高几个数量级，所以评价一个数据结构作为索引的优劣最重要的指标就是在查找过程中磁盘I/O操作次数的渐进复杂度。换句话说，索引的结构组织要尽量减少查找过程中磁盘I/O的存取次数。</p>
+<h3 id="建立索引的不足"><a href="#建立索引的不足" class="headerlink" title="建立索引的不足"></a>建立索引的不足</h3><p>不能因为建多因可以提高查询效率，就建立很多索引，建索引一方面要占用物理存储空间，另一方面，在进行dml操作(插入，更新，删除)时，会降低效率。</p>
+<h3 id="组合索引"><a href="#组合索引" class="headerlink" title="组合索引"></a>组合索引</h3><p>用户可以在多个列上建立索引，这种索引叫做组合索引，组合索引在数据库操作期间所需要的开销更小，可以代替多个单一索引。<br><strong>使用组合索引注意事项:</strong></p>
+<ul>
+<li>在查询使用时,最好将条件顺序按找索引的顺序,这样效率最高; </li>
+<li>注意不要过多用索引,否则对表更新的效率有很大的影响,因为在操作表的时候要化大量时间花在创建索引中 </li>
+</ul>
 <h2 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h2><h3 id="笛卡尔积"><a href="#笛卡尔积" class="headerlink" title="笛卡尔积"></a>笛卡尔积</h3><p><strong>笛卡尔积</strong>:笛卡尔乘积在数学中，是指两个集合X和Y的笛卡尔积，又称直积<br>假设集合A={a,b},和集合B={0,1,2},则两个集合的笛卡尔积为{(a,0),(a,1),(a,2),(b,0),(b,1),(b,2)}</p>
 <h3 id="多表联查"><a href="#多表联查" class="headerlink" title="多表联查"></a>多表联查</h3><p>A表</p>
 <table>
@@ -645,7 +651,7 @@
         <p><span>本文标题:</span><a href="/2018/12/25/数据库/">数据库</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">刘凤双</a></p>
         <p><span>发布时间:</span>2018-12-25, 23:25:45</p>
-        <p><span>最后更新:</span>2019-03-08, 20:21:09</p>
+        <p><span>最后更新:</span>2019-03-11, 11:59:57</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/12/25/数据库/" title="数据库">http://yoursite.com/2018/12/25/数据库/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2018/12/25/数据库/　　作者: 刘凤双" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -681,7 +687,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#完整性约束"><span class="toc-number">1.</span> <span class="toc-text">完整性约束</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#事务"><span class="toc-number">2.</span> <span class="toc-text">事务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#存储过程"><span class="toc-number">3.</span> <span class="toc-text">存储过程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#存储过程定义"><span class="toc-number">3.1.</span> <span class="toc-text">存储过程定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#那为什么要用存储过程呢？"><span class="toc-number">3.2.</span> <span class="toc-text">那为什么要用存储过程呢？</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SQL语句"><span class="toc-number">4.</span> <span class="toc-text">SQL语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#乐观锁与悲观锁"><span class="toc-number">5.</span> <span class="toc-text">乐观锁与悲观锁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#临时表"><span class="toc-number">6.</span> <span class="toc-text">临时表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#表变量"><span class="toc-number">7.</span> <span class="toc-text">表变量</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#索引"><span class="toc-number"></span> <span class="toc-text">索引</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#为什么会有索引这种数据结构？"><span class="toc-number">1.</span> <span class="toc-text">为什么会有索引这种数据结构？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#B-Tree和B-Tree"><span class="toc-number">2.</span> <span class="toc-text">B-Tree和B+Tree</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#面试题"><span class="toc-number"></span> <span class="toc-text">面试题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#笛卡尔积"><span class="toc-number">1.</span> <span class="toc-text">笛卡尔积</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多表联查"><span class="toc-number">2.</span> <span class="toc-text">多表联查</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#完整性约束"><span class="toc-number">1.</span> <span class="toc-text">完整性约束</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#事务"><span class="toc-number">2.</span> <span class="toc-text">事务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#存储过程"><span class="toc-number">3.</span> <span class="toc-text">存储过程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#存储过程定义"><span class="toc-number">3.1.</span> <span class="toc-text">存储过程定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#那为什么要用存储过程呢？"><span class="toc-number">3.2.</span> <span class="toc-text">那为什么要用存储过程呢？</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SQL语句"><span class="toc-number">4.</span> <span class="toc-text">SQL语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#乐观锁与悲观锁"><span class="toc-number">5.</span> <span class="toc-text">乐观锁与悲观锁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#临时表"><span class="toc-number">6.</span> <span class="toc-text">临时表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#表变量"><span class="toc-number">7.</span> <span class="toc-text">表变量</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#索引"><span class="toc-number"></span> <span class="toc-text">索引</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#为什么会有索引这种数据结构？"><span class="toc-number">1.</span> <span class="toc-text">为什么会有索引这种数据结构？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#B-Tree和B-Tree"><span class="toc-number">2.</span> <span class="toc-text">B-Tree和B+Tree</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#建立索引的不足"><span class="toc-number">3.</span> <span class="toc-text">建立索引的不足</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#组合索引"><span class="toc-number">4.</span> <span class="toc-text">组合索引</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#面试题"><span class="toc-number"></span> <span class="toc-text">面试题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#笛卡尔积"><span class="toc-number">1.</span> <span class="toc-text">笛卡尔积</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多表联查"><span class="toc-number">2.</span> <span class="toc-text">多表联查</span></a></li></ol>
         
     </li></div>
     <style>
