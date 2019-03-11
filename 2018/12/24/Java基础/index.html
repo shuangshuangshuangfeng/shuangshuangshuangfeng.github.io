@@ -26,7 +26,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2018/12/24/Java%E5%9F%BA%E7%A1%80/%E4%BE%8B1.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2018/12/24/Java%E5%9F%BA%E7%A1%80/%E4%BE%8B2.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2018/12/24/Java%E5%9F%BA%E7%A1%80/%E4%BF%AE%E9%A5%B0%E7%AC%A6.png">
-<meta property="og:updated_time" content="2019-03-10T05:37:24.870Z">
+<meta property="og:updated_time" content="2019-03-11T01:10:30.020Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java基础">
 <meta name="twitter:description" content="Java基础知识回顾  JVM, JRE, JDK的区别  JVM（java Virtual Machine）:java虚拟机，用于保证java的跨平台性  JRE（Java Runtime Environmen）:java运行环境，包括JVM+Jave的系统类库  JDK（Java Development Kit）:Java的软件开发工具包, 他包含了Java的运行环境(JVM+Java系统类库">
@@ -511,6 +511,16 @@
 <li>page</li>
 <li>exception</li>
 </ul>
+<ol start="27">
+<li><p>switch能否作用在byte上，能否作用在long上？String？<br>在switch（expr1）中，expr1只能是<strong>一个整数表达式或者枚举常量</strong>（更大字体），整数表达式可以是int基本类型或Integer包装类型，由于，byte,short,char都可以隐含转换为int，所以，这些类型以及这些类型的包装类型也是可以的。显然，long和String类型都不符合switch的语法规定，并且不能被隐式转换成int类型，所以，它们不能作用于swtich语句中。</p>
+</li>
+<li><p>使用final关键字修饰一个变量时，是引用不能变，还是引用的对象不能变？<br>使用final关键字修饰一个变量时，是指引用变量不能变，引用变量所指向的对象中的内容还是可以改变的.</p>
+</li>
+<li><p>面向对象的特征:<br>封装、继承、抽象、多态.</p>
+</li>
+<li><p>String是基本数据类型么？<br>基本数据类型包括byte、int、char、long、float、double、boolean和short。<br>java.lang.String类是final类型的，因此不可以继承这个类、不能修改这个类。为了提高效率节省空间，我们应该用StringBuffer类</p>
+</li>
+</ol>
 
       
     </div>
@@ -522,7 +532,7 @@
         <p><span>本文标题:</span><a href="/2018/12/24/Java基础/">Java基础</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">刘凤双</a></p>
         <p><span>发布时间:</span>2018-12-24, 14:03:30</p>
-        <p><span>最后更新:</span>2019-03-10, 13:37:24</p>
+        <p><span>最后更新:</span>2019-03-11, 09:10:30</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/12/24/Java基础/" title="Java基础">http://yoursite.com/2018/12/24/Java基础/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2018/12/24/Java基础/　　作者: 刘凤双" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
