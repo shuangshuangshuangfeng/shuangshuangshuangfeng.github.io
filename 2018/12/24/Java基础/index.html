@@ -15,21 +15,21 @@
 
 
 
-<meta name="description" content="Java基础知识回顾  JVM, JRE, JDK的区别  JVM（java Virtual Machine）:java虚拟机，用于保证java的跨平台性  JRE（Java Runtime Environmen）:java运行环境，包括JVM+Jave的系统类库  JDK（Java Development Kit）:Java的软件开发工具包, 他包含了Java的运行环境(JVM+Java系统类库">
+<meta name="description" content="Java基础知识回顾  JVM, JRE, JDK的区别  JVM（java Virtual Machine）:java虚拟机，用于保证java的跨平台性">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java基础">
 <meta property="og:url" content="http://yoursite.com/2018/12/24/Java基础/index.html">
 <meta property="og:site_name" content="My Blog">
-<meta property="og:description" content="Java基础知识回顾  JVM, JRE, JDK的区别  JVM（java Virtual Machine）:java虚拟机，用于保证java的跨平台性  JRE（Java Runtime Environmen）:java运行环境，包括JVM+Jave的系统类库  JDK（Java Development Kit）:Java的软件开发工具包, 他包含了Java的运行环境(JVM+Java系统类库">
+<meta property="og:description" content="Java基础知识回顾  JVM, JRE, JDK的区别  JVM（java Virtual Machine）:java虚拟机，用于保证java的跨平台性">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2018/12/24/Java%E5%9F%BA%E7%A1%80/%E4%BE%8B1.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2018/12/24/Java%E5%9F%BA%E7%A1%80/%E4%BE%8B2.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2018/12/24/Java%E5%9F%BA%E7%A1%80/%E4%BF%AE%E9%A5%B0%E7%AC%A6.png">
-<meta property="og:updated_time" content="2019-03-12T07:26:17.574Z">
+<meta property="og:updated_time" content="2019-03-12T09:25:18.560Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java基础">
-<meta name="twitter:description" content="Java基础知识回顾  JVM, JRE, JDK的区别  JVM（java Virtual Machine）:java虚拟机，用于保证java的跨平台性  JRE（Java Runtime Environmen）:java运行环境，包括JVM+Jave的系统类库  JDK（Java Development Kit）:Java的软件开发工具包, 他包含了Java的运行环境(JVM+Java系统类库">
+<meta name="twitter:description" content="Java基础知识回顾  JVM, JRE, JDK的区别  JVM（java Virtual Machine）:java虚拟机，用于保证java的跨平台性">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2018/12/24/Java%E5%9F%BA%E7%A1%80/%E4%BE%8B1.png">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -312,48 +312,44 @@
 <ol>
 <li><p>JVM, JRE, JDK的区别</p>
 <p> JVM（java Virtual Machine）:java虚拟机，用于保证java的跨平台性</p>
-<p> JRE（Java Runtime Environmen）:java运行环境，包括JVM+Jave的系统类库</p>
-<p> JDK（Java Development Kit）:Java的软件开发工具包, 他包含了Java的运行环境(JVM+Java系统类库)和Java工具</p>
-<p> JVM&lt;JRE&lt;JDK</p>
+<a id="more"></a>
+<p> JRE（Java Runtime Environmen）:java运行环境，包括JVM+Jave的系统类库<br> JDK（Java Development Kit）:Java的软件开发工具包, 他包含了Java的运行环境(JVM+Java系统类库)和Java工具<br> JVM&lt;JRE&lt;JDK</p>
 </li>
-<li><p>环境变量Path和ClassPath的作用和区别<br> Path: 是配置可执行文件的搜索路径，当执行.exe文件时回去Path指定的路径查找可执行文件</p>
-<p> ClassPath: 是配置class文件所在的目录，用于指定类的搜索路径，JVM是通过ClassPath查找类的</p>
+<li><p>环境变量Path和ClassPath的作用和区别<br> Path: 是配置可执行文件的搜索路径，当执行.exe文件时回去Path指定的路径查找可执行文件<br> ClassPath: 是配置class文件所在的目录，用于指定类的搜索路径，JVM是通过ClassPath查找类的</p>
 </li>
 </ol>
-<a id="more"></a>
-<p>3.关于java大小端的问题</p>
-<p>这个问题起源于一次滴滴面试，当时面试官问到这个问题的时候一脸蒙逼，只怪自己学识太浅，仍需要加倍努力。</p>
-<p><strong>什么是大端和小端</strong></p>
-<p>大端模式:数据的高字节保存在内存的低地址中,数据的低字节保存在内存的高地址中。</p>
-<p>小端模式:数据的高字节保存在内存的高地址中，数据的低字节保存在内存的低地址中。</p>
-<p>记忆方式:”小端低低”</p>
+<p>3.关于java大小端的问题<br>这个问题起源于一次滴滴面试，当时面试官问到这个问题的时候一脸蒙逼，只怪自己学识太浅，仍需要加倍努力。<br><strong>什么是大端和小端</strong><br>大端模式:数据的高字节保存在内存的低地址中,数据的低字节保存在内存的高地址中。<br>小端模式:数据的高字节保存在内存的高地址中，数据的低字节保存在内存的低地址中。<br>记忆方式:”小端低低”</p>
 <p><strong>之所以有大小端之分，是因为:</strong></p>
 <p>计算机中是以字节为单位的，每个地址单元都对应一个字节(8bit)，而在C语言，c++..的语言中，除了8bit的char类型，还有int,long float等类型,由于寄存器是大于一个字节的，所以，必然存在着怎样存放数据的问题，也就有了大端和小端。</p>
 <p>大端和小端的问题和计算机使用的芯片有关，目前Intel的80x86系列芯片是唯一还在坚持使用小端的芯片，ARM芯片默认采用小端，但可以切换为大端；而MIPS等芯片要么采用全部大端的方式储存，要么提供选项支持大端——可以在大小端之间切换，同时大端和小端的处理还与编译器的实现有关，在C语言中，默认是小端，由于Java是与平台无关的，所以Java默认是大端。</p>
 <ol start="4">
 <li><p>重载：</p>
-<p> 概念：在同一个类中，允许存在一个以上的同名<br> 函数，只要他们的参数个数或者参数类型不同</p>
-<p> 特点：返回值与类型无关,只看参数列表</p>
-<p> <code>public void testOverload(int a){
- }</code></p>
-<p> <code>public void testOverload(String a){
- }</code></p>
-<p><code>public void testOverload(int a, int b){}</code></p>
+<p> 概念：在同一个类中，允许存在一个以上的同名<br> 函数，只要他们的参数个数或者参数类型不同<br> 特点：返回值与类型无关,只看参数列表</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">public void testOverload(int a)&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">public void testOverload(String a)&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
+</ol>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public void testOverload(int a, int b)&#123;&#125;</span><br></pre></td></tr></table></figure>
+<ol start="5">
 <li><p>构造方法和普通方法的区别:</p>
 <p> 构造方法和类名相同，并且没有返回类型，也没返回值</p>
 <p> 普通方法可以任意起名，必须有返回类型</p>
 </li>
 <li><p>this 和super的区别:</p>
-<p> this代表本类对象的引用</p>
-<p> super代表父类的存储空间</p>
+<ul>
+<li>this代表本类对象的引用</li>
+<li>super代表父类的存储空间</li>
+</ul>
 </li>
 <li><p>equals 和 == 的区别:</p>
-<p> ==: 比较的是变量的内存地址, 也就是看这两个对象是否是一个对象</p>
-<p> equals: 比较的是两个对象的内容是否一样，当一个类中，没有对equals()方法进行覆盖，那么使用的是Object类中的equals()方法，而Object类中的equals()方法返回的就是 == 的判断。</p>
 </li>
-<li><p>HashCode:<br> hashCode() 是Object类中的一个方法， 在Java中，hashCode() 方法主要作用是: 配合基于散列的集合一起使用，这样的散列集合包括: HashSet, HashMap Hashtable。</p>
-<p> Java中的hashCode() 方法，是根据一定的规则，将与对象相关的信息（比如对象的存储地址，对象的字段等）映射成一个数值，这个数值称作散列值。</p>
+</ol>
+<ul>
+<li>==: 比较的是变量的内存地址, 也就是看这两个对象是否是一个对象</li>
+<li>equals: 比较的是两个对象的内容是否一样，当一个类中，没有对equals()方法进行覆盖，那么使用的是Object类中的equals()方法，而Object类中的equals()方法返回的就是 == 的判断。</li>
+</ul>
+<ol start="8">
+<li><p>HashCode:<br> hashCode() 是Object类中的一个方法， 在Java中，hashCode() 方法主要作用是: 配合基于散列的集合一起使用，这样的散列集合包括: HashSet, HashMap Hashtable。<br> Java中的hashCode() 方法，是根据一定的规则，将与对象相关的信息（比如对象的存储地址，对象的字段等）映射成一个数值，这个数值称作散列值。</p>
 </li>
 <li><p>hashCode() 与 equals() 方法:</p>
 <p> 首先要明白: <strong>如果两个对象的hashCode值相等，不能确定两个对象相等。</strong></p>
@@ -534,7 +530,7 @@
         <p><span>本文标题:</span><a href="/2018/12/24/Java基础/">Java基础</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">刘凤双</a></p>
         <p><span>发布时间:</span>2018-12-24, 14:03:30</p>
-        <p><span>最后更新:</span>2019-03-12, 15:26:17</p>
+        <p><span>最后更新:</span>2019-03-12, 17:25:18</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/12/24/Java基础/" title="Java基础">http://yoursite.com/2018/12/24/Java基础/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2018/12/24/Java基础/　　作者: 刘凤双" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
