@@ -28,7 +28,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2019/03/06/TCP-IP%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B/TCP%E6%8A%A5%E6%96%87%E6%A0%BC%E5%BC%8F.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2019/03/06/TCP-IP%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B/TCP_IP%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2019/03/06/TCP-IP%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B/TCP_IP%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B.png">
-<meta property="og:updated_time" content="2019-03-09T04:07:58.283Z">
+<meta property="og:updated_time" content="2019-03-16T08:57:14.327Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TCP&#x2F;IP三次握手">
 <meta name="twitter:description" content="TCP/IP四层模型">
@@ -349,7 +349,15 @@
 </li>
 <li><p>TCP为什么是四次挥手</p>
 </li>
+<li><p>为什么不是两次握手或者四次握手呢？<br>我们假设A和B是通信的双方。我理解的握手实际上就是通信，发一次信息就是进行一次握手。</p>
+</li>
 </ol>
+<ul>
+<li>第一次握手： A给B打电话说，你可以听到我说话吗？</li>
+<li>第二次握手： B收到了A的信息，然后对A说： 我可以听得到你说话啊，你能听得到我说话吗？  </li>
+<li>第三次握手： A收到了B的信息，然后说可以的，我要给你发信息啦！</li>
+</ul>
+<p>在三次握手之后，A和B都能确定这么一件事： 我说的话，你能听到； 你说的话，我也能听到。 这样，就可以开始正常通信了。<br>如果两次，那么B无法确定B的信息A是否能收到，所以如果B先说话，可能后面的A都收不到，会出现问题 。<br>如果四次，那么就造成了浪费，因为在三次结束之后，就已经可以保证A可以给B发信息，A可以收到B的信息； B可以给A发信息，B可以收到A的信息。</p>
 
       
     </div>
@@ -361,7 +369,7 @@
         <p><span>本文标题:</span><a href="/2019/03/06/TCP-IP三次握手/">TCP/IP三次握手</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">刘凤双</a></p>
         <p><span>发布时间:</span>2019-03-06, 10:49:03</p>
-        <p><span>最后更新:</span>2019-03-09, 12:07:58</p>
+        <p><span>最后更新:</span>2019-03-16, 16:57:14</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/03/06/TCP-IP三次握手/" title="TCP/IP三次握手">http://yoursite.com/2019/03/06/TCP-IP三次握手/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/03/06/TCP-IP三次握手/　　作者: 刘凤双" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
