@@ -295,9 +295,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h3 id="图像与视频的读取"><a href="#图像与视频的读取" class="headerlink" title="图像与视频的读取"></a>图像与视频的读取</h3><p>图像的属性包括:通道数目，高与宽，像素数据，图像类型等</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">import cv2 as cv</span><br><span class="line">import numpy as np</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def get_video_info():</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    读取视频信息</span><br><span class="line">    :return:</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    # 调用本地摄像头</span><br><span class="line">    capture = cv.VideoCapture(0)</span><br><span class="line">    # print(type(capture))</span><br><span class="line">    while True:</span><br><span class="line">        ret, frame = capture.read()</span><br><span class="line">        # 图像左右交换</span><br><span class="line">        frame = cv.flip(frame, 1)</span><br><span class="line">        cv.imshow(&quot;video&quot;, frame)</span><br><span class="line">        c = cv.waitKey(50)</span><br><span class="line">        if c == 27:</span><br><span class="line">            break</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def get_img_info(image):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    读取图像的属性</span><br><span class="line">    :param image: 图像</span><br><span class="line">    :return:</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    print(type(image))</span><br><span class="line">    print(image.shape)</span><br><span class="line">    print(image.size)</span><br><span class="line">    print(image.dtype)</span><br><span class="line">    pixel_data = np.array(image)</span><br><span class="line">    print(pixel_data)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 图片读入</span><br><span class="line">img = cv.imread(&quot;D:/1111.png&quot;)</span><br><span class="line"># get_video_info()</span><br><span class="line">get_img_info(img)</span><br><span class="line"># print(img.shape)</span><br><span class="line"># 获取灰度图像</span><br><span class="line">gray = cv.cvtColor(img, cv.COLOR_RGB2GRAY)</span><br><span class="line">cv.imwrite(&quot;D:/11111.png&quot;, gray)</span><br><span class="line"># cv.namedWindow(&quot;input Image&quot;)</span><br><span class="line"># cv.imshow(&quot;input Image&quot;, img)</span><br><span class="line"># 等待下一个用户的操作</span><br><span class="line"># cv.waitKey(0)</span><br><span class="line"># cv.destroyAllWindows()</span><br></pre></td></tr></table></figure>
-
+              <h3 id="图像与视频的读取"><a href="#图像与视频的读取" class="headerlink" title="图像与视频的读取"></a>图像与视频的读取</h3><p>图像的属性包括:通道数目，高与宽，像素数据，图像类型等<br></p>
+          
       
     </div>
     
@@ -310,6 +309,10 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/opencv-python3/">opencv-python3</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a href="/2019/05/28/图像视频读取与保存/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -356,37 +359,13 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h3 id="环境搭建内容"><a href="#环境搭建内容" class="headerlink" title="环境搭建内容"></a>环境搭建内容</h3><h4 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h4><ul>
+              <h3 id="环境搭建内容"><a href="#环境搭建内容" class="headerlink" title="环境搭建内容"></a>环境搭建内容</h3><h4 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h4><ul>
 <li>python3(目前python最新版本python3.8,但是opencv支持到python3.7,所以要求版本3.8以下)</li>
 <li>pycharm</li>
 <li>virtualenv虚拟环境(具体参考:<a href="https://www.liufengshuang.work/2018/12/23/python%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/" target="_blank" rel="noopener">https://www.liufengshuang.work/2018/12/23/python%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/</a>)</li>
 <li>pip install opencv-python</li>
-<li>pip install opencv-contrib-python</li>
-</ul>
-<h4 id="具体操作-详情请百度"><a href="#具体操作-详情请百度" class="headerlink" title="具体操作(详情请百度)"></a>具体操作(详情请百度)</h4><ol>
-<li>安装python3.7</li>
-<li>安装pycharm(破解详情百度)</li>
-<li>安装virtualenv和virtualenvwrapper-win</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">python -m pip install --upgrade pip # 更新pip</span><br><span class="line">pip install virtualenv  # 安装virtualenv </span><br><span class="line">pip install virtualenvwrapper-win</span><br></pre></td></tr></table></figure>
-<ol start="4">
-<li>配置WORKON_HOME环境变量(目的是将所有的虚拟环境放在同一个目录下)</li>
-<li><p>添加虚拟环境</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkvirtualenv test --python=(你想要创建的解释器的路径)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>进入虚拟环境</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">workon test</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在虚拟环境下安装包</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install opencv-python</span><br><span class="line">pip install opencv-contrib-python</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>打开pycharm,创建project,然后配置虚拟环境(详情百度)</p>
-</li>
-<li>测试环境搭建<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import cv2 as cv</span><br><span class="line"></span><br><span class="line"># 图片读入</span><br><span class="line">img = cv.imread(&quot;D:/1111.png&quot;)</span><br><span class="line">print(img.shape)</span><br><span class="line"></span><br><span class="line">cv.namedWindow(&quot;input Image&quot;)</span><br><span class="line">cv.imshow(&quot;input Image&quot;, img)</span><br><span class="line"># 等待下一个用户的操作</span><br><span class="line">cv.waitKey(0)</span><br><span class="line">cv.destroyAllWindows()</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>如果程序能够成功运行，那么恭喜，opencv python环境搭建完毕</p>
-
+<li>pip install opencv-contrib-python</li></ul>
+          
       
     </div>
     
@@ -399,6 +378,10 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/opencv-python3/">opencv-python3</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a href="/2019/05/28/环境搭建/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
