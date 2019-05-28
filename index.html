@@ -302,6 +302,29 @@
 <li>pip install opencv-python</li>
 <li>pip install opencv-contrib-python</li>
 </ul>
+<h4 id="具体操作-详情请百度"><a href="#具体操作-详情请百度" class="headerlink" title="具体操作(详情请百度)"></a>具体操作(详情请百度)</h4><ol>
+<li>安装python3.7</li>
+<li>安装pycharm(破解详情百度)</li>
+<li>安装virtualenv和virtualenvwrapper-win</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">python -m pip install --upgrade pip # 更新pip</span><br><span class="line">pip install virtualenv  # 安装virtualenv </span><br><span class="line">pip install virtualenvwrapper-win</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>配置WORKON_HOME环境变量(目的是将所有的虚拟环境放在同一个目录下)</li>
+<li><p>添加虚拟环境</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkvirtualenv test --python=(你想要创建的解释器的路径)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>进入虚拟环境</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">workon test</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在虚拟环境下安装包</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install opencv-python</span><br><span class="line">pip install opencv-contrib-python</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>打开pycharm,创建project,然后配置虚拟环境(详情百度)</p>
+</li>
+<li>测试环境搭建<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import cv2 as cv</span><br><span class="line"></span><br><span class="line"># 图片读入</span><br><span class="line">img = cv.imread(&quot;D:/1111.png&quot;)</span><br><span class="line">print(img.shape)</span><br><span class="line"></span><br><span class="line">cv.namedWindow(&quot;input Image&quot;)</span><br><span class="line">cv.imshow(&quot;input Image&quot;, img)</span><br><span class="line"># 等待下一个用户的操作</span><br><span class="line">cv.waitKey(0)</span><br><span class="line">cv.destroyAllWindows()</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>如果程序能够成功运行，那么恭喜，opencv python环境搭建完毕</p>
 
       
     </div>
