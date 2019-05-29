@@ -187,7 +187,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaWeb/">JavaWeb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Maven/">Maven</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/">Spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/opencv-python3/">opencv-python3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/编译原理/">编译原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机组成原理/">计算机组成原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件/">软件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔/">随笔</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面试/">面试</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaWeb/">JavaWeb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Maven/">Maven</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/">Spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/opencv-python3/">opencv-python3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/编译原理/">编译原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/脑机接口/">脑机接口</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机组成原理/">计算机组成原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件/">软件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔/">随笔</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面试/">面试</a></li></ul>
                     </div>
                 </section>
                 
@@ -265,6 +265,76 @@
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-脑机接口简介" class="article article-type-post" itemscope="" itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/05/29/脑机接口简介/" class="article-date">
+      <time datetime="2019-05-29T12:15:16.000Z" itemprop="datePublished">2019-05-29</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/29/脑机接口简介/">脑机接口简介</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="脑机接口简介"><a href="#脑机接口简介" class="headerlink" title="脑机接口简介"></a>脑机接口简介</h1><p>在本单元中，您将学习脑计算机接口的基础知识。您将了解可用的不同技术，BCI所需的主要组件和步骤，安全和道德问题以及该领域未来的概述。</p>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>脑机接口（BCI）是允许大脑和各种机器之间进行通信的系统。<br>它们分三个主要步骤：收集大脑信号，解释它们并根据收到的大脑信号向连接的机器输出命令。BCI可应用于各种任务，包括但不限于神经反馈，恢复瘫痪患者的运动功能，允许与锁定患者的通信和改善感觉处理。根据收集脑信号的方法不同，BCI可分为三类。</p>
+<h2 id="BCI分类"><a href="#BCI分类" class="headerlink" title="BCI分类"></a>BCI分类</h2><p>目前有许多不同的技术来测量大脑信号，我们可以将他们分为：</p>
+<ul>
+<li>非侵入式 : EEG信号是取自在头皮上放置的电极，因此在最外部。</li>
+<li>半侵入式 : ECoG信号取自置于硬脑膜或蛛网膜中的电极。</li>
+<li>侵入式 : Intraprynchymal信号直接植入皮质电极<br>下图显示了大脑的不同层以及信号的取自何处。<br><img src="" alt="大脑分层及信号"></li>
+</ul>
+<h3 id="无创"><a href="#无创" class="headerlink" title="无创"></a>无创</h3><p>将传感器放置在头皮上以测量由脑（EEG）或磁场（MEG）产生的电势。<br><img src="" alt="大脑分层及信号"></p>
+<h3 id="半侵入式"><a href="#半侵入式" class="headerlink" title="半侵入式"></a>半侵入式</h3><p>将电极放置在脑的暴露表面（ECoG）上。<br><img src="" alt="半侵入式"></p>
+<h3 id="侵入式"><a href="#侵入式" class="headerlink" title="侵入式"></a>侵入式</h3><p>将微电极直接放入皮层，测量单个神经元的活动。<br><img src="" alt="侵入式"><br>在神经外科手术期间，侵入性BCI被直接植入大脑。有单个单元 BCI，它可以检测来自单个脑细胞区域的信号，以及从多个区域检测到的多单元 BCI。电极具有不同的长度，例如，在MEA （1）中高达1.5mm（Utah，Blackrock Microsystems）或10mm（FMA，MicroProbes ）。信号质量最高，但该过程有几个问题，例如形成疤痕组织的风险。身体对异物作出反应并在电极周围形成疤痕，这会导致信号恶化。由于神经外科手术可能是一个危险且昂贵的过程，因此侵入性BCI的目标主要是盲人和瘫痪患者。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/脑机接口/">脑机接口</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-2019-5-29" class="article article-type-post" itemscope="" itemprop="blogPost">
   
@@ -830,70 +900,6 @@
       
         <p class="article-more-link">
           <a href="/2019/03/12/Java三大特性/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-MyBatis实现原理" class="article article-type-post" itemscope="" itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/03/12/MyBatis实现原理/" class="article-date">
-      <time datetime="2019-03-12T07:48:17.000Z" itemprop="datePublished">2019-03-12</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/12/MyBatis实现原理/">MyBatis实现原理</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h2 id="MyBatis基本介绍"><a href="#MyBatis基本介绍" class="headerlink" title="MyBatis基本介绍"></a>MyBatis基本介绍</h2><h3 id="MyBatis基本功能"><a href="#MyBatis基本功能" class="headerlink" title="MyBatis基本功能"></a>MyBatis基本功能</h3><p>MyBatis是支持普通SQL查询，存储过程和高级映射的优秀持久层框架。MyBatis消除了几乎所有的JDBC代码和参数的手工设置以及结果集的检索。MyBatis使用简单的XML或注解用于配置和原始映射，将接口和Java的POJO映射成数据库中的记录。<br></p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaWeb/">JavaWeb</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2019/03/12/MyBatis实现原理/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
