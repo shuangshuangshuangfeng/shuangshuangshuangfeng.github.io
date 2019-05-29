@@ -15,18 +15,18 @@
 
 
 
-<meta name="description" content="基本命令 :查看所有镜像： docker images docker image ls">
-<meta name="keywords" content="软件">
+<meta name="description" content="NumPy数组操作 遍历数组中的每个像素点 修改数组中像素点的值 data\dtype\size\shape\len  123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960import cv2 as cvimport numpy">
+<meta name="keywords" content="opencv-python3">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Docker">
-<meta property="og:url" content="http://yoursite.com/2018/12/23/Docker/index.html">
+<meta property="og:title" content="NumPy使用">
+<meta property="og:url" content="http://yoursite.com/2019/05/29/NumPy使用/index.html">
 <meta property="og:site_name" content="My Blog">
-<meta property="og:description" content="基本命令 :查看所有镜像： docker images docker image ls">
+<meta property="og:description" content="NumPy数组操作 遍历数组中的每个像素点 修改数组中像素点的值 data\dtype\size\shape\len  123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960import cv2 as cvimport numpy">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-13T05:06:55.897Z">
+<meta property="og:updated_time" content="2019-05-29T07:24:32.475Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Docker">
-<meta name="twitter:description" content="基本命令 :查看所有镜像： docker images docker image ls">
+<meta name="twitter:title" content="NumPy使用">
+<meta name="twitter:description" content="NumPy数组操作 遍历数组中的每个像素点 修改数组中像素点的值 data\dtype\size\shape\len  123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960import cv2 as cvimport numpy">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -58,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Docker | My Blog</title>
+<title>NumPy使用 | My Blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -264,11 +264,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
 </nav>
-      <div class="body-wrap"><article id="post-Docker" class="article article-type-post" itemscope="" itemprop="blogPost">
+      <div class="body-wrap"><article id="post-NumPy使用" class="article article-type-post" itemscope="" itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2018/12/23/Docker/" class="article-date">
-      <time datetime="2018-12-23T04:20:50.000Z" itemprop="datePublished">2018-12-23</time>
+      <a href="/2019/05/29/NumPy使用/" class="article-date">
+      <time datetime="2019-05-29T06:39:13.000Z" itemprop="datePublished">2019-05-29</time>
 </a>
 
 
@@ -283,7 +283,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Docker
+      NumPy使用
     </h1>
   
 
@@ -294,7 +294,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/软件/">软件</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/opencv-python3/">opencv-python3</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -304,64 +304,13 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令 :"></a>基本命令 :</h2><p>查看所有镜像：</p>
-<p><code>docker images</code></p>
-<p><code>docker image ls</code></p>
-<a id="more"></a>
-<p>查看所有的容器：</p>
-<p><code>docker ps -a</code></p>
-<p>查看运行中的容器：</p>
-<p><code>docker ps</code></p>
-<p>删除镜像：</p>
-<p><code>docker rmi image_id</code></p>
-<p>删除容器：</p>
-<p><code>docker rm container_id</code></p>
-<p>查找镜像：</p>
-<p><code>docker search imager_name</code>    // docker search mysql</p>
-<p>下载镜像：</p>
-<p><code>docker pull imager_name</code></p>
-<p>启动容器，并且创建一个具有tty伪终端</p>
-<p><code>docker run -it image_name /bin/bash</code></p>
-<p>-t：是带终端<br>-d：在后台运行<br>-P：</p>
-<p>暂停容器：</p>
-<p><code>docker stop container_name</code></p>
-<p>停止正在运行的所有容器：</p>
-<p><code>docker kill $(sudo docker ps -q)</code></p>
-<p>临时退出一个正在交互的容器终端，而不终止他</p>
-<p><code>先按ctrl+p， 后按ctrl+q</code></p>
-<p> 如果按ctrl+c会使容器内的应用进程终止，进而会使容器终止 </p>
-<h2 id="dockerfile语法"><a href="#dockerfile语法" class="headerlink" title="dockerfile语法"></a>dockerfile语法</h2><p><code>ADD</code>：从源系统的文件系统复制文件到目标容器的文件系统<br>    ADD命令有两个参数，源和目标。</p>
-<p><code>ADD /local_folder    /container_folder</code></p>
-<p><code>CMD</code>：和RUN命令类似，CMD可以用于执行特定的命令。和RUN不同的是，这些命令不是在镜像都建的过程中执行的，而是在用镜像构件容器后被调用的。</p>
-<p><code>CMD &#39;echo&#39; &#39;&#39;hello world!&#39;</code></p>
-<p><code>ENV</code>: 用于设置环境变量，变量以‘key=value’的形式存在，并且可以在容器内被脚本或者程序调用。</p>
-<p><code>ENV JAVA_HOME /usr/local/jdk1.8.0_144</code></p>
-<p><code>EXPOSE</code>: 用来指定端口，使容器内的应用可以通过端口和外界交互</p>
-<p><code>EXPOSE 8080</code></p>
-<p><code>FROM</code>： 定义了使用哪个基础镜像启动构件流程。基础镜像可以为任意镜像，如果基础镜像没有被发现，docker将师徒从docker image index 来查找该镜像。</p>
-<p><code>from ubuntu</code></p>
-<p><code>MAINTAINER</code>:建议这个命令放在dockerfile的起始部分，虽然理论上可以放在任意位置，这个命令用于声明作者,放在FROM命令后面</p>
-<p><code>MAINTAINER author_name</code></p>
-<p><code>USER</code>:用于设置运行容器的UID</p>
-<p><code>USER 888</code></p>
-<p><code>RUN</code>：RUN命令是dockerfile执行命令的核心部分，他接受命令作为参数并用于创建镜像。</p>
-<p><code>RUN aptitude install -y riak</code></p>
-<p><code>VOLUME</code>: 用于让你的容器访问宿主机上的目录</p>
-<p><code>VOLUME /usr/local/</code></p>
-<p><code>WORKDIR</code>：用于设置CMD指明的命令运行的目录</p>
-<p><code>WORKDIR ~/</code></p>
-<p><code>ENTERPOINT</code>:设置容器的入口程序</p>
-<h3 id="示例1：构建jdk1-8的镜像"><a href="#示例1：构建jdk1-8的镜像" class="headerlink" title="示例1：构建jdk1.8的镜像"></a>示例1：构建jdk1.8的镜像</h3><p>（需要注意的是：jdk-8u191-linux-x64.tar.gz是在本地已经下载好的包，需要放在当前目录下）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">FROM centos</span><br><span class="line"></span><br><span class="line">MAINTAINER  lfs</span><br><span class="line"></span><br><span class="line">ADD jdk-8u191-linux-x64.tar.gz  /usr/local/</span><br><span class="line"></span><br><span class="line">ENV JAVA_HOME /usr/local/jdk1.8.0_144</span><br><span class="line">ENV CLASSPATH $JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar</span><br><span class="line">ENV PATH $PATH:$JAVA_HOME/bin</span><br></pre></td></tr></table></figure></p>
-<p>详情：<a href="https://blog.csdn.net/wo18237095579/article/details/80540571" target="_blank" rel="noopener">docker定制镜像</a></p>
-<h2 id="docker中安装vim"><a href="#docker中安装vim" class="headerlink" title="docker中安装vim"></a>docker中安装vim</h2><figure class="highlight plain"><figcaption><span>/etc/apt/sources.list</span><a href="/etc/apt/sources.list.bak">link</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;deb http://mirrors.163.com/debian/ jessie main non-free contrib&quot; &gt;/etc/apt/sources.list</span><br><span class="line">echo &quot;deb http://mirrors.163.com/debian/ jessie-proposed-updates main non-free contrib&quot; &gt;&gt;/etc/apt/sources.list</span><br><span class="line">echo &quot;deb-src http://mirrors.163.com/debian/ jessie main non-free contrib&quot; &gt;&gt;/etc/apt/sources.list</span><br><span class="line">echo &quot;deb-src http://mirrors.163.com/debian/ jessie-proposed-updates main non-free contrib&quot; &gt;&gt;/etc/apt/sources.list</span><br><span class="line">apt-get update</span><br><span class="line">apt-get install -y vim</span><br></pre></td></tr></table></figure>
-<h3 id="4-docker-本地镜像存放在"><a href="#4-docker-本地镜像存放在" class="headerlink" title="4.docker 本地镜像存放在:"></a>4.docker 本地镜像存放在:</h3><pre><code>Docker相关的本地资源存放在var/lib/docker/目录下,其中containers目录存放容器信息，image目录存放镜像信息，aufs目录下存放具体的镜像底层文件。
-</code></pre><h3 id="5-构建docker镜像应注意哪些原则："><a href="#5-构建docker镜像应注意哪些原则：" class="headerlink" title="5.构建docker镜像应注意哪些原则："></a>5.构建docker镜像应注意哪些原则：</h3><pre><code>整体原则上，尽量保持镜像功能的明确和内容的精简，要点包括：
-（1）尽量选择满足需求但较小的基础系统镜像
-（2）清理编译生成文件，安装包的缓存等临时文件
-（3）安装各个软件时候要指定准确的版本号，并避免引入不必要的依赖
-（4）从安全的角度考虑，应尽量使用系统的库和依赖
-（5）使用dockerfile创建镜像时要添加.dockerignore文件或者使用干净的工作目录
-</code></pre>
+        <h3 id="NumPy数组操作"><a href="#NumPy数组操作" class="headerlink" title="NumPy数组操作"></a>NumPy数组操作</h3><ul>
+<li>遍历数组中的每个像素点</li>
+<li>修改数组中像素点的值</li>
+<li>data\dtype\size\shape\len</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">import cv2 as cv</span><br><span class="line">import numpy as np</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def access_pixels(image):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    传统访问像素</span><br><span class="line">    :param image: 图像</span><br><span class="line">    :return:</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    print(image.shape)</span><br><span class="line">    # 高</span><br><span class="line">    height = image.shape[0]</span><br><span class="line">    # 宽</span><br><span class="line">    wight = image.shape[1]</span><br><span class="line">    # 通道，RGB</span><br><span class="line">    channels = image.shape[2]</span><br><span class="line">    print(&quot;widths: %s , heights: %s, channels: %s&quot; % (wight, height, channels))</span><br><span class="line">    for row in range(height):</span><br><span class="line">        for col in range(wight):</span><br><span class="line">            for c in range(channels):</span><br><span class="line">                # 这时图像是一个三维的数组，获取每一个通道的值</span><br><span class="line">                pv = image[row, col, c]</span><br><span class="line">                # 对每个值进行修改</span><br><span class="line">                image[row, col, c] = 255 - pv</span><br><span class="line"></span><br><span class="line">    cv.imshow(&quot;pixels_demo&quot;, image)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def create_image():</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    创建图像，</span><br><span class="line">    :return:</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    &quot;&quot;&quot; 这里是多通道的</span><br><span class="line">    img = np.zeros([400, 400, 3], np.uint8)</span><br><span class="line">    # 用numpy对第一个通道赋值</span><br><span class="line">    # img[:, :, 0] = np.ones([400, 400])*255</span><br><span class="line">    img[:, :, 2] = np.ones([400, 400]) * 255</span><br><span class="line">    cv.imshow(&quot;create_img&quot;, img)</span><br><span class="line">    cv.waitKey(0)</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    # 单通道， 一般单通道的是灰度图像， 三通道的是RGB图像</span><br><span class="line">    img = np.zeros([400, 400, 1], np.uint8)</span><br><span class="line">    img[:, :, 0] = np.ones([400, 400])*127</span><br><span class="line">    # img = img*127</span><br><span class="line">    cv.imshow(&quot;create_img&quot;, img)</span><br><span class="line">    cv.waitKey(0)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 图片读入</span><br><span class="line"># img = cv.imread(&quot;D:/1111.png&quot;)</span><br><span class="line"># print(img.shape)</span><br><span class="line"># access_pixels(img)</span><br><span class="line"># cv.namedWindow(&quot;input Image&quot;)</span><br><span class="line"># cv.imshow(&quot;input Image&quot;, img)</span><br><span class="line"># 等待下一个用户的操作</span><br><span class="line"># cv.waitKey(0)</span><br><span class="line"># cv.destroyAllWindows()</span><br><span class="line">create_image()</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -369,13 +318,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2018/12/23/Docker/">Docker</a></p>
+        <p><span>本文标题:</span><a href="/2019/05/29/NumPy使用/">NumPy使用</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">刘凤双</a></p>
-        <p><span>发布时间:</span>2018-12-23, 12:20:50</p>
-        <p><span>最后更新:</span>2019-03-13, 13:06:55</p>
+        <p><span>发布时间:</span>2019-05-29, 14:39:13</p>
+        <p><span>最后更新:</span>2019-05-29, 15:24:32</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2018/12/23/Docker/" title="Docker">http://yoursite.com/2018/12/23/Docker/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2018/12/23/Docker/　　作者: 刘凤双" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/05/29/NumPy使用/" title="NumPy使用">http://yoursite.com/2019/05/29/NumPy使用/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/05/29/NumPy使用/　　作者: 刘凤双" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -387,16 +336,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2018/12/23/python虚拟环境/">
-                    python虚拟环境
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2018/12/22/REST风格/">
-                    REST风格
+                <a href="/2019/05/28/图像视频读取与保存/">
+                    图像视频读取与保存
                 </a>
             </div>
         
@@ -408,7 +351,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本命令"><span class="toc-number">1.</span> <span class="toc-text">基本命令 :</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dockerfile语法"><span class="toc-number">2.</span> <span class="toc-text">dockerfile语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#示例1：构建jdk1-8的镜像"><span class="toc-number">2.1.</span> <span class="toc-text">示例1：构建jdk1.8的镜像</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#docker中安装vim"><span class="toc-number">3.</span> <span class="toc-text">docker中安装vim</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-docker-本地镜像存放在"><span class="toc-number">3.1.</span> <span class="toc-text">4.docker 本地镜像存放在:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-构建docker镜像应注意哪些原则："><span class="toc-number">3.2.</span> <span class="toc-text">5.构建docker镜像应注意哪些原则：</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#NumPy数组操作"><span class="toc-number">1.</span> <span class="toc-text">NumPy数组操作</span></a></li></ol>
         
     </div>
     <style>
@@ -444,7 +387,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Docker　| My Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"NumPy使用　| My Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -464,15 +407,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2018/12/23/python虚拟环境/" title="上一篇: python虚拟环境">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2018/12/22/REST风格/" title="下一篇: REST风格">
+            <a href="/2019/05/28/图像视频读取与保存/" title="下一篇: 图像视频读取与保存">
                 <i class="fa fa-angle-right"></i>
             </a>
         
