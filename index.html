@@ -266,6 +266,66 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-2019-5-29" class="article article-type-post" itemscope="" itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/05/29/2019-5-29/" class="article-date">
+      <time datetime="2019-05-29T11:55:19.000Z" itemprop="datePublished">2019-05-29</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/29/2019-5-29/">2019_5_29</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>哎呀，果然坏情绪是可以传染的，被传染的有些不开心了，好难过T&gt;&lt;T…wuwuwu<br>心心念念的以为会做图像处理，然后老师给安排了脑机接口，然后给安排了大神老师带，好吧，既来之则安之，给安排啥就干啥呢，嘻嘻，以后，大神老师带我飞feifei.</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-NumPy使用" class="article article-type-post" itemscope="" itemprop="blogPost">
   
     <div class="article-meta">
@@ -295,13 +355,12 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h3 id="NumPy数组操作"><a href="#NumPy数组操作" class="headerlink" title="NumPy数组操作"></a>NumPy数组操作</h3><ul>
+              <h3 id="NumPy数组操作"><a href="#NumPy数组操作" class="headerlink" title="NumPy数组操作"></a>NumPy数组操作</h3><ul>
 <li>遍历数组中的每个像素点</li>
 <li>修改数组中像素点的值</li>
 <li>data\dtype\size\shape\len</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">import cv2 as cv</span><br><span class="line">import numpy as np</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def access_pixels(image):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    传统访问像素</span><br><span class="line">    :param image: 图像</span><br><span class="line">    :return:</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    print(image.shape)</span><br><span class="line">    # 高</span><br><span class="line">    height = image.shape[0]</span><br><span class="line">    # 宽</span><br><span class="line">    wight = image.shape[1]</span><br><span class="line">    # 通道，RGB</span><br><span class="line">    channels = image.shape[2]</span><br><span class="line">    print(&quot;widths: %s , heights: %s, channels: %s&quot; % (wight, height, channels))</span><br><span class="line">    for row in range(height):</span><br><span class="line">        for col in range(wight):</span><br><span class="line">            for c in range(channels):</span><br><span class="line">                # 这时图像是一个三维的数组，获取每一个通道的值</span><br><span class="line">                pv = image[row, col, c]</span><br><span class="line">                # 对每个值进行修改</span><br><span class="line">                image[row, col, c] = 255 - pv</span><br><span class="line"></span><br><span class="line">    cv.imshow(&quot;pixels_demo&quot;, image)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def create_image():</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    创建图像，</span><br><span class="line">    :return:</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    &quot;&quot;&quot; 这里是多通道的</span><br><span class="line">    img = np.zeros([400, 400, 3], np.uint8)</span><br><span class="line">    # 用numpy对第一个通道赋值</span><br><span class="line">    # img[:, :, 0] = np.ones([400, 400])*255</span><br><span class="line">    img[:, :, 2] = np.ones([400, 400]) * 255</span><br><span class="line">    cv.imshow(&quot;create_img&quot;, img)</span><br><span class="line">    cv.waitKey(0)</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    # 单通道， 一般单通道的是灰度图像， 三通道的是RGB图像</span><br><span class="line">    img = np.zeros([400, 400, 1], np.uint8)</span><br><span class="line">    img[:, :, 0] = np.ones([400, 400])*127</span><br><span class="line">    # img = img*127</span><br><span class="line">    cv.imshow(&quot;create_img&quot;, img)</span><br><span class="line">    cv.waitKey(0)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 图片读入</span><br><span class="line"># img = cv.imread(&quot;D:/1111.png&quot;)</span><br><span class="line"># print(img.shape)</span><br><span class="line"># access_pixels(img)</span><br><span class="line"># cv.namedWindow(&quot;input Image&quot;)</span><br><span class="line"># cv.imshow(&quot;input Image&quot;, img)</span><br><span class="line"># 等待下一个用户的操作</span><br><span class="line"># cv.waitKey(0)</span><br><span class="line"># cv.destroyAllWindows()</span><br><span class="line">create_image()</span><br></pre></td></tr></table></figure>
-
+          
       
     </div>
     
@@ -314,6 +373,10 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/opencv-python3/">opencv-python3</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a href="/2019/05/29/NumPy使用/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -831,70 +894,6 @@
       
         <p class="article-more-link">
           <a href="/2019/03/12/MyBatis实现原理/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Spring两大特性" class="article article-type-post" itemscope="" itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/03/12/Spring两大特性/" class="article-date">
-      <time datetime="2019-03-12T07:43:47.000Z" itemprop="datePublished">2019-03-12</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/12/Spring两大特性/">Spring两大特性</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h2 id="IOC控制反转与依赖注入"><a href="#IOC控制反转与依赖注入" class="headerlink" title="IOC控制反转与依赖注入"></a>IOC控制反转与依赖注入</h2><p>IOC:Inversion of Control, 即”控制反转”,这是一种思想，一种设计原则，是指对象的依赖由框架来控制，而不是由对象的提供者来控制。<br></p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/">Spring</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2019/03/12/Spring两大特性/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
