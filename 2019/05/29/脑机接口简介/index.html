@@ -23,10 +23,15 @@
 <meta property="og:site_name" content="My Blog">
 <meta property="og:description" content="脑机接口简介在本单元中，您将学习脑计算机接口的基础知识。您将了解可用的不同技术，BCI所需的主要组件和步骤，安全和道德问题以及该领域未来的概述。 定义脑机接口（BCI）是允许大脑和各种机器之间进行通信的系统。它们分三个主要步骤：收集大脑信号，解释它们并根据收到的大脑信号向连接的机器输出命令。BCI可应用于各种任务，包括但不限于神经反馈，恢复瘫痪患者的运动功能，允许与锁定患者的通信和改善感觉处理。根">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-29T12:36:33.868Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2019/05/29/%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E7%AE%80%E4%BB%8B/naofenceng_xinhao.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2019/05/29/%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E7%AE%80%E4%BB%8B/wuchuang_eeg.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2019/05/29/%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E7%AE%80%E4%BB%8B/banqinru_eeog.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2019/05/29/%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E7%AE%80%E4%BB%8B/qinru.png">
+<meta property="og:updated_time" content="2019-05-29T13:32:09.725Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="脑机接口简介">
 <meta name="twitter:description" content="脑机接口简介在本单元中，您将学习脑计算机接口的基础知识。您将了解可用的不同技术，BCI所需的主要组件和步骤，安全和道德问题以及该领域未来的概述。 定义脑机接口（BCI）是允许大脑和各种机器之间进行通信的系统。它们分三个主要步骤：收集大脑信号，解释它们并根据收到的大脑信号向连接的机器输出命令。BCI可应用于各种任务，包括但不限于神经反馈，恢复瘫痪患者的运动功能，允许与锁定患者的通信和改善感觉处理。根">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2019/05/29/%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E7%AE%80%E4%BB%8B/naofenceng_xinhao.png">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -305,16 +310,64 @@
       
           
         <h1 id="脑机接口简介"><a href="#脑机接口简介" class="headerlink" title="脑机接口简介"></a>脑机接口简介</h1><p>在本单元中，您将学习脑计算机接口的基础知识。您将了解可用的不同技术，BCI所需的主要组件和步骤，安全和道德问题以及该领域未来的概述。</p>
-<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>脑机接口（BCI）是允许大脑和各种机器之间进行通信的系统。<br>它们分三个主要步骤：收集大脑信号，解释它们并根据收到的大脑信号向连接的机器输出命令。BCI可应用于各种任务，包括但不限于神经反馈，恢复瘫痪患者的运动功能，允许与锁定患者的通信和改善感觉处理。根据收集脑信号的方法不同，BCI可分为三类。</p>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>脑机接口（BCI）是允许大脑和各种机器之间进行通信的系统。<br>它们分三个主要步骤：收集大脑信号，解释它们并根据收到的大脑信号向连接的机器输出命令。BCI可应用于各种任务，包括但不限于神经反馈，恢复瘫痪患者的运动功能，允许与锁定患者的通信和改善感觉处理。根据收集脑信号的方法不同，BCI可分为三类。<br><a id="more"></a></p>
 <h2 id="BCI分类"><a href="#BCI分类" class="headerlink" title="BCI分类"></a>BCI分类</h2><p>目前有许多不同的技术来测量大脑信号，我们可以将他们分为：</p>
 <ul>
 <li>非侵入式 : EEG信号是取自在头皮上放置的电极，因此在最外部。</li>
 <li>半侵入式 : ECoG信号取自置于硬脑膜或蛛网膜中的电极。</li>
-<li>侵入式 : Intraprynchymal信号直接植入皮质电极<br>下图显示了大脑的不同层以及信号的取自何处。<br><img src="" alt="大脑分层及信号"></li>
+<li>侵入式 : Intraprynchymal信号直接植入皮质电极<br>下图显示了大脑的不同层以及信号的取自何处。<br><img src="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2019/05/29/%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E7%AE%80%E4%BB%8B/naofenceng_xinhao.png" alt="大脑分层及信号"></li>
 </ul>
-<h3 id="无创"><a href="#无创" class="headerlink" title="无创"></a>无创</h3><p>将传感器放置在头皮上以测量由脑（EEG）或磁场（MEG）产生的电势。<br><img src="" alt="大脑分层及信号"></p>
-<h3 id="半侵入式"><a href="#半侵入式" class="headerlink" title="半侵入式"></a>半侵入式</h3><p>将电极放置在脑的暴露表面（ECoG）上。<br><img src="" alt="半侵入式"></p>
-<h3 id="侵入式"><a href="#侵入式" class="headerlink" title="侵入式"></a>侵入式</h3><p>将微电极直接放入皮层，测量单个神经元的活动。<br><img src="" alt="侵入式"><br>在神经外科手术期间，侵入性BCI被直接植入大脑。有单个单元 BCI，它可以检测来自单个脑细胞区域的信号，以及从多个区域检测到的多单元 BCI。电极具有不同的长度，例如，在MEA （1）中高达1.5mm（Utah，Blackrock Microsystems）或10mm（FMA，MicroProbes ）。信号质量最高，但该过程有几个问题，例如形成疤痕组织的风险。身体对异物作出反应并在电极周围形成疤痕，这会导致信号恶化。由于神经外科手术可能是一个危险且昂贵的过程，因此侵入性BCI的目标主要是盲人和瘫痪患者。</p>
+<h3 id="非侵入式"><a href="#非侵入式" class="headerlink" title="非侵入式"></a>非侵入式</h3><p>将传感器放置在头皮上以测量由脑（EEG）或磁场（MEG）产生的电势。<br><img src="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2019/05/29/%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E7%AE%80%E4%BB%8B/wuchuang_eeg.png" alt="大脑分层及信号"></p>
+<p>在下一节中，我们将简要回顾主要的非侵入性技术。有几种非侵入性技术用于研究大脑，其中EEG是最常用的，因为成本和硬件可移植性。</p>
+<ul>
+<li>MEG脑磁图</li>
+<li>PET正电子发射断层扫描</li>
+<li>fMRI功能磁共振成像</li>
+<li>fNIRS近红外光谱</li>
+<li>脑电图脑电图</li>
+</ul>
+<p>在下面的图像中可以看到不同的脑成像技术，通过空间和时间分辨率进行比较：<br> <img src="" alt="非侵入-比较"></p>
+<h4 id="MEG"><a href="#MEG" class="headerlink" title="MEG"></a>MEG</h4><p><strong>脑磁图</strong></p>
+<ul>
+<li><p><strong>它是什么？</strong><br>来自维基百科“是一种功能性神经影像技术，通过使用非常灵敏的磁力计记录大脑中自然产生的电流产生的磁场来映射大脑活动。”<br><img src="" alt="脑磁图"><br>图像：国家精神卫生研究所患者的MEG扫描仪</p>
+</li>
+<li><p><strong>它是如何工作的？</strong><br>MEG测量由大脑中的电流引起的磁场，与EEG相比，它提供了更好的空间分辨率（7）。为什么？因为磁场远远小于颅骨和脑内液体的空间模糊效应所产生的电场（8）。“MEG对切向源最敏感，对径向源的灵敏度低”“MEG在检测高频活动时（例如，高于60 Hz）优于EEG。这是因为磁场穿过头骨和头皮，而电场是通过这些组织传导的体积，这降低了更高频率下的信噪比。</p>
+</li>
+</ul>
+<h4 id="PET"><a href="#PET" class="headerlink" title="PET"></a>PET</h4><p><strong>正电子发射断层扫描</strong></p>
+<ul>
+<li><strong>它是什么？</strong><br>PET是一种用于医学的核成像技术，用于观察不同的过程，如血流，新陈代谢，神经递质，在体内发生。</li>
+</ul>
+<p><img src="" alt="PET"><br>“此图显示的是从配备ECAT Exact HR + PET扫描仪的典型PET设备拍摄的照片。像这样的PET扫描仪正逐渐被将PET和CT扫描仪组合成单个PET / CT成像设备的系统所取代。“</p>
+<ul>
+<li><strong>它是如何工作的？</strong><br>在血液中注入少量放射性物质，称为放射性示踪剂，以到达大脑。在大脑的情况下，放射性示踪剂附着在葡萄糖上并产生称为氟脱氧葡萄糖（FDG）的放射性核素（10）。大脑使用葡萄糖，它将根据不同区域的水平活动显示不同的水平。PET扫描的图像是多色的，其中活动较多的区域呈现较暖的颜色，如黄色和红色。大脑的PET扫描通常用于检测癌症或其他疾病。<br><img src="" alt="正常人脑PET扫描图"></li>
+</ul>
+<h4 id="fMRI"><a href="#fMRI" class="headerlink" title="fMRI"></a>fMRI</h4><p><strong>功能磁共振成像</strong></p>
+<ul>
+<li><strong>它是什么？</strong><br>功能性磁共振成像或功能性MRI（fMRI）是一种功能性神经影像学方法，使用MRI技术通过检测与血流相关的变化来测量大脑活动。该技术依赖于脑血流和神经元激活耦合的事实。当使用大脑区域时，到该区域的血流量也会增加。</li>
+</ul>
+<p>fMRI是在20世纪90年代开发的。它是一种非侵入性和安全的技术，它不使用辐射，它易于使用，并且具有出色的空间和良好的时间分辨率。</p>
+<p><img src="" alt="fMRI"></p>
+<ul>
+<li><strong>它是如何工作的？</strong><br>在大脑中，毛细血管红细胞中的血红蛋白向神经元输送氧气。活动导致对氧气的更多需求，这导致血液流量增加。血红蛋白的磁特性如果是否有氧化则会发生变化。这种差异允许MRI机器，其是具有强大电磁体的圆柱形管，以检测特定时刻大脑的哪些区域是活动的。</li>
+</ul>
+<h3 id="半侵入式"><a href="#半侵入式" class="headerlink" title="半侵入式"></a>半侵入式</h3><p>将电极放置在脑的暴露表面（ECoG）上。<br><img src="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2019/05/29/%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E7%AE%80%E4%BB%8B/banqinru_eeog.png" alt="半侵入式"></p>
+<h4 id="ECoG"><a href="#ECoG" class="headerlink" title="ECoG"></a>ECoG</h4><p>ECoG使用放置在大脑暴露表面上的电极来测量大脑皮层的电活动。它在20世纪50年代第一次被用于蒙特利尔神经学研究所。它被称为半侵入性，但仍需要开颅手术来植入电极。因此，仅在出于医学原因需要手术时（例如癫痫）才使用它。</p>
+<p>电极可以放置在硬脑膜外（硬膜外）或硬脑膜下（硬膜下）。条带或网格电极覆盖大面积的皮层（从4到256个电极），允许各种各样的认知研究。<br><img src="" alt="脑电图电极位置"><br>在图像中：患者大脑的MRI重建与电极重叠（红色：网格阵列;蓝色：条形阵列），以允许神经生理活动与神经解剖结构的精确匹配（图片来自：Yang等，Neuroimage，2012）<br><img src="" alt="脑电图电极位置_2"></p>
+<p>ECoG主要特点是:</p>
+<ul>
+<li>高空间分辨率和信号保真度</li>
+<li>抵抗噪音</li>
+<li>在较长的记录期内降低临床风险和稳健性</li>
+<li>幅度更高</li>
+</ul>
+<p><strong>空间分辨率</strong><br>ECoG优于EEG的一个好处是空间分辨率要高得多，因为信号不必前往头皮。ECoG的空间分辨率为十分之几毫米，而脑电图的空间分辨率为厘米<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">空间分辨率是什么意思？作为类比，我们可以采用图像的清晰度。具有更高空间分辨率的图像“更清晰”; 换句话说，它看起来更精确，因为它由每英寸更多像素组成，显示更多细节。具有较低空间分辨率的图片看起来不太清晰，或者更模糊，因为它由每英寸更少的像素组成。更好的空间分辨率使我们能够以更好的精度理解信号的来源。在EEG的情况下，当电信号穿过颅骨时，由于骨的低导电性而使其衰减。</span><br></pre></td></tr></table></figure></p>
+<p><strong>抗噪音</strong><br>ECoG信号不受噪声和伪影的影响，例如肌电图（由肌肉运动引起的肌电图）和EOG（眼电图 - 由眼睛运动引起）</p>
+<p><strong>降低临床风险</strong><br>电极阵列不需要穿透皮质，这比入侵记录更安全</p>
+<p><strong>幅度更高</strong><br>ECoG recordings are 50–100 µV maximum versus 10–20 µV<br>这里暂时不会翻译</p>
+<p><strong>在BCI中</strong><br>关于在BCI中使用ECoG的研究不同，但它们都局限于需要手术以消除癫痫病灶的病例。</p>
+<p>例如，在一项<a href="http://learn.neurotechedu.com/introtobci/#references" target="_blank" rel="noopener">研究</a>中，研究人员使用ECoG来控制二维的计算机光标。5名患者在准备癫痫手术时，植入了一段硬膜下电极，植入7-14天。经过不到30分钟的短暂训练，患者能够在两个维度上控制光标，平均成功率为53-73％。</p>
+<h3 id="侵入式"><a href="#侵入式" class="headerlink" title="侵入式"></a>侵入式</h3><p>将微电极直接放入皮层，测量单个神经元的活动。<br><img src="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2019/05/29/%E8%84%91%E6%9C%BA%E6%8E%A5%E5%8F%A3%E7%AE%80%E4%BB%8B/qinru.png" alt="侵入式"><br>在神经外科手术期间，侵入性BCI被直接植入大脑。有单个单元 BCI，它可以检测来自单个脑细胞区域的信号，以及从多个区域检测到的多单元 BCI。电极具有不同的长度，例如，在MEA （1）中高达1.5mm（Utah，Blackrock<br> Microsystems）或10mm（FMA，MicroProbes ）。信号质量最高，但该过程有几个问题，例如形成疤痕组织的风险。身体对异物作出反应并在电极周围形成疤痕，这会导致信号恶化。由于神经外科手术可能是一个危险且昂贵的过程，因此侵入性BCI的目标主要是盲人和瘫痪患者。</p>
 
       
     </div>
@@ -326,7 +379,7 @@
         <p><span>本文标题:</span><a href="/2019/05/29/脑机接口简介/">脑机接口简介</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">刘凤双</a></p>
         <p><span>发布时间:</span>2019-05-29, 20:15:16</p>
-        <p><span>最后更新:</span>2019-05-29, 20:36:33</p>
+        <p><span>最后更新:</span>2019-05-29, 21:32:09</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/05/29/脑机接口简介/" title="脑机接口简介">http://yoursite.com/2019/05/29/脑机接口简介/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/05/29/脑机接口简介/　　作者: 刘凤双" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -356,7 +409,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#脑机接口简介"><span class="toc-number">1.</span> <span class="toc-text">脑机接口简介</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#定义"><span class="toc-number">1.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BCI分类"><span class="toc-number">1.2.</span> <span class="toc-text">BCI分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#无创"><span class="toc-number">1.2.1.</span> <span class="toc-text">无创</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#半侵入式"><span class="toc-number">1.2.2.</span> <span class="toc-text">半侵入式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#侵入式"><span class="toc-number">1.2.3.</span> <span class="toc-text">侵入式</span></a></li></ol></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#脑机接口简介"><span class="toc-number">1.</span> <span class="toc-text">脑机接口简介</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#定义"><span class="toc-number">1.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BCI分类"><span class="toc-number">1.2.</span> <span class="toc-text">BCI分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#非侵入式"><span class="toc-number">1.2.1.</span> <span class="toc-text">非侵入式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#MEG"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">MEG</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#PET"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">PET</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#fMRI"><span class="toc-number">1.2.1.3.</span> <span class="toc-text">fMRI</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#半侵入式"><span class="toc-number">1.2.2.</span> <span class="toc-text">半侵入式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ECoG"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">ECoG</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#侵入式"><span class="toc-number">1.2.3.</span> <span class="toc-text">侵入式</span></a></li></ol></li></ol></li></ol>
         
     </div>
     <style>
