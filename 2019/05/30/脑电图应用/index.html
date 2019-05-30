@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="author" content="刘凤双">
+
+
+
+<meta name="description" content="脑电图应用本单元重点介绍使用EEG的BCI应用程序，因为它是最便宜和最成熟的技术。您很快就会看到可以使用它们构建各种各样的应用程序。">
+<meta name="keywords" content="脑机接口">
+<meta property="og:type" content="article">
+<meta property="og:title" content="脑电图应用">
+<meta property="og:url" content="http://yoursite.com/2019/05/30/脑电图应用/index.html">
+<meta property="og:site_name" content="My Blog">
+<meta property="og:description" content="脑电图应用本单元重点介绍使用EEG的BCI应用程序，因为它是最便宜和最成熟的技术。您很快就会看到可以使用它们构建各种各样的应用程序。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-05-30T07:56:26.358Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="脑电图应用">
+<meta name="twitter:description" content="脑电图应用本单元重点介绍使用EEG的BCI应用程序，因为它是最便宜和最成熟的技术。您很快就会看到可以使用它们构建各种各样的应用程序。">
+
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="My Blog" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/img/touxiang.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>脑电图应用 | My Blog</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: false
+    }
+</script>
+
+
+    <script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head></html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/touxiang.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">刘凤双</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">未来在我手中，完全由我决定</p>
+        
+
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/随笔/">随笔</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" href="/775001644@qq.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" href="https://shuangshuangshuangfeng.github.io/" title="GitHub"></a>
+                            
+                                <a class="fa QQ" href="/775001644" title="QQ"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaWeb/">JavaWeb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Maven/">Maven</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/">Spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/opencv-python3/">opencv-python3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/编译原理/">编译原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/脑机接口/">脑机接口</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机组成原理/">计算机组成原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件/">软件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔/">随笔</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面试/">面试</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">五流程序员， 三流代码， 一流bug</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">刘凤双</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/touxiang.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">刘凤双</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">未来在我手中，完全由我决定</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/随笔/">随笔</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa Email" target="_blank" href="/775001644@qq.com" title="Email"></a>
+                            
+                                <a class="fa GitHub" target="_blank" href="https://shuangshuangshuangfeng.github.io/" title="GitHub"></a>
+                            
+                                <a class="fa QQ" target="_blank" href="/775001644" title="QQ"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
+</nav>
+      <div class="body-wrap"><article id="post-脑电图应用" class="article article-type-post" itemscope="" itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/05/30/脑电图应用/" class="article-date">
+      <time datetime="2019-05-30T06:58:12.000Z" itemprop="datePublished">2019-05-30</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      脑电图应用
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/脑机接口/">脑机接口</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="脑电图应用"><a href="#脑电图应用" class="headerlink" title="脑电图应用"></a>脑电图应用</h1><p>本单元重点介绍使用EEG的BCI应用程序，因为它是最便宜和最成熟的技术。您很快就会看到可以使用它们构建各种各样的应用程序。</p>
+<a id="more"></a>
+<h2 id="娱乐"><a href="#娱乐" class="headerlink" title="娱乐"></a>娱乐</h2><h3 id="Neurogaming"><a href="#Neurogaming" class="headerlink" title="Neurogaming"></a>Neurogaming</h3><p>Emotiv和NeuroSky是两家开发游戏以配合eeg耳机的公司，但似乎Emotiv已停止销售它们。如果您对玩大脑控制游戏感兴趣，可以从Neurosky开始。否则你可能会试着找一些开源游戏。</p>
+<p><strong>参考</strong></p>
+<ul>
+<li><a href="http://store.neurosky.com/collections/apps/games" target="_blank" rel="noopener">NeuroSky商店</a></li>
+<li><a href="https://github.com/NeuroTechX/BrainFighta" target="_blank" rel="noopener">Brain Fighta，一款开源eeg游戏</a></li>
+</ul>
+<h3 id="NeuroToys"><a href="#NeuroToys" class="headerlink" title="NeuroToys"></a>NeuroToys</h3><p>BCI玩具的多家制造商可以追溯到2000年代中期。这里有一些比较流行的。</p>
+<p><strong>参考</strong></p>
+<ul>
+<li><a href="https://puzzlebox.io/" target="_blank" rel="noopener">Puzzlebox有各种设备BCI设备</a></li>
+<li><a href="http://starwarsscience.com/product/the-force-trainer-ii-hologram-experience/" target="_blank" rel="noopener">还有星球大战主题玩具！</a></li>
+</ul>
+<h3 id="艺术"><a href="#艺术" class="headerlink" title="艺术"></a>艺术</h3><p>多人使用EEG进行艺术和音乐生成。以下是一些这些项目的一些例子。</p>
+<p><strong>参考</strong></p>
+<ul>
+<li><a href="http://axonartcollective.com/" target="_blank" rel="noopener">Axon艺术集体。一系列做脑控艺术和音乐的项目</a></li>
+<li><a href="https://creators.vice.com/en_us/article/vvygzm/eunoia-seeking-enlightenment-by-tracking-brainwaves" target="_blank" rel="noopener">用eeg操纵水</a></li>
+<li><a href="http://naotohieda.com/muse/" target="_blank" rel="noopener">脑电图可视化工具</a><h3 id="虚拟现实"><a href="#虚拟现实" class="headerlink" title="虚拟现实"></a>虚拟现实</h3>由于VR耳机的设计，人们有兴趣将eeg集成到它们中。这有助于增强用户的体验，并提供与虚拟世界交互的免提方法。<br>有一些公司对使用VR耳机带来EEG数据感兴趣，如下所示。</li>
+</ul>
+<p><strong>参考</strong></p>
+<ul>
+<li><a href="http://neurosky.com/2016/04/a-new-virtual-reality-the-rise-of-vr-headsets-eeg/" target="_blank" rel="noopener">Neurosky关于这个主题的文章</a></li>
+<li><a href="http://www.theverge.com/2015/3/3/8136405/mind-maze-mind-leap-thought-reading-virtual-reality-headset" target="_blank" rel="noopener">关于Mind Mazet的文章</a></li>
+<li><a href="https://www.cnet.com/news/this-vr-headset-is-designed-to-let-you-find-your-zen/" target="_blank" rel="noopener">DG Lab的VR Zen耳机</a></li>
+<li><a href="http://neurable.com/" target="_blank" rel="noopener">Neurable</a></li>
+</ul>
+<h2 id="安全"><a href="#安全" class="headerlink" title="安全"></a>安全</h2><h3 id="基于脑的认证"><a href="#基于脑的认证" class="headerlink" title="基于脑的认证"></a>基于脑的认证</h3><p>EEG Biometrics是一个不断发展的领域，它研究了我们如何使用您的eeg活动来识别某人。与一个人的指纹类似，您的大脑活动可以用作一种身份验证形式。最常见的脑认证形式是使用静息状态大脑活动或视觉诱发潜在任务。有关基于脑的身份验证的更多信息，请查看此DEF CON演讲。</p>
+<p><strong>参考</strong></p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=frAhjtnvkqs" target="_blank" rel="noopener">基于脑的认证</a></li>
+</ul>
+<h2 id="生物反馈疗法"><a href="#生物反馈疗法" class="headerlink" title="生物反馈疗法"></a>生物反馈疗法</h2><h3 id="焦虑"><a href="#焦虑" class="headerlink" title="焦虑"></a>焦虑</h3><p>神经反馈可以是治疗焦虑的有效方法。与正念实践中使用的方法类似，进行alpha和theta训练是为了使人处于更放松的心态。</p>
+<p><strong>参考</strong></p>
+<ul>
+<li><a href="https://www.ncbi.nlm.nih.gov/pubmedhealth/PMH0070200/" target="_blank" rel="noopener">神经反馈治疗情绪和焦虑症</a></li>
+<li><a href="神经反馈治疗焦虑症">神经反馈治疗焦虑症</a></li>
+</ul>
+<h3 id="睡眠改善"><a href="#睡眠改善" class="headerlink" title="睡眠改善"></a>睡眠改善</h3><p>睡眠研究长期以来一直在使用脑电图。最近，初创公司一直在利用消费级eeg设计来衡量您的睡眠质量。</p>
+<p><strong>参考</strong></p>
+<ul>
+<li><a href="https://iwinks.org/" target="_blank" rel="noopener">https://iwinks.org/</a></li>
+<li><a href="http://sleepshepherd.com/" target="_blank" rel="noopener">http://sleepshepherd.com/</a></li>
+</ul>
+<h3 id="多动症"><a href="#多动症" class="headerlink" title="多动症"></a>多动症</h3><p>虽然是一个有争议的用例，但有许多神经反馈诊所和很少有公司创建了帮助管理ADHD的解决方案。</p>
+<p><strong>参考</strong></p>
+<ul>
+<li><a href="http://www.akiliinteractive.com/" target="_blank" rel="noopener">http://www.akiliinteractive.com/</a></li>
+<li><a href="http://attentiv.com/" target="_blank" rel="noopener">Attentiv</a></li>
+</ul>
+<h3 id="PTSD"><a href="#PTSD" class="headerlink" title="PTSD"></a>PTSD</h3><p>PTSD神经反馈已经研究了超过25年。许多研究都集中在让参与者产生与处于放松状态相关的α波活动。大多数被评论的文章表明，神经反馈应与其他治疗联合使用。</p>
+<p><strong>参考</strong></p>
+<ul>
+<li><a href="http://onlinelibrary.wiley.com/doi/10.1111/acps.12229/full" target="_blank" rel="noopener">针对越战老兵的Alpha-Theta Brainwave Neuro反馈</a></li>
+<li><a href="http://journals.sagepub.com/doi/abs/10.1177/1039856217715988" target="_blank" rel="noopener">神经反馈作为治疗创伤后应激障碍的辅助疗法</a></li>
+</ul>
+<h2 id="认知训练"><a href="#认知训练" class="headerlink" title="认知训练"></a>认知训练</h2><h3 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h3><p>本系列文章讨论了如何使用Neurofeedback作为优化性能的机制。如果您想要高级概述，这是一系列很好的文章。</p>
+<p><strong>参考</strong></p>
+<ul>
+<li><a href="http://www.sciencedirect.com/science/article/pii/S0149763413002248#bib0700" target="_blank" rel="noopener">EEG Neurofeedback用于优化性能1</a></li>
+<li><a href="http://www.sciencedirect.com/science/article/pii/S0149763413002716" target="_blank" rel="noopener">EEG Neurofeedback用于优化性能2</a></li>
+<li><a href="http://www.sciencedirect.com/science/article/pii*%20/S0149763414000700" target="_blank" rel="noopener">EEG Neurofeedback用于优化性能3</a></li>
+</ul>
+<h3 id="脑衰老"><a href="#脑衰老" class="headerlink" title="脑衰老"></a>脑衰老</h3><p>神经反馈诊所提供的一种比较常见的服务是对抗大脑衰老。研究人员发现，您可以在QEEG中识别某些生物标志物，以预测未来的认知能力下降以及阿尔茨海默氏症的发病。</p>
+<p><strong>参考</strong></p>
+<ul>
+<li><a href="http://gazzaleylab.ucsf.edu/wp-content/uploads/2014/09/Anguera_Nature_2013-Video-game-training-enhances-cognitive-control-in-older-adults.pdf" target="_blank" rel="noopener">用于认知增强的视频游戏 - Adam Gazzaley Lab</a></li>
+<li><a href="http://journals.sagepub.com/doi/abs/10.1177/1550059415590750" target="_blank" rel="noopener">QEEG神经反馈为痴呆症</a></li>
+<li><a href="http://www.sciencedirect.com/science/article/pii/S030105111300152X" target="_blank" rel="noopener">β和γ神经反馈对老年人的记忆和智力</a></li>
+<li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5346575/" target="_blank" rel="noopener">通过神经反馈在衰老中进行的有力训练带来了</a></li>
+<li><a href="http://onlinelibrary.wiley.com/doi/10.1196/annals.1379.008/full?wol1URL=/doi/10.1196/annals.1379.008/full&amp;identityKey=c38f7acf-fae1-4f16-b3bb-d5a6f7e0fca9" target="_blank" rel="noopener">QEEG在Dimentia的衰老和进化中</a></li>
+<li><a href="http://www.jpreventionalzheimer.com/1665-a-personalized-12-week-brain-fitness-program-for-improving-cognitive-function-and-increasing-the-volume-of-hippocampus-in-elderly-with-mild-cognitive-impairment.html" target="_blank" rel="noopener">REF-6</a></li>
+</ul>
+<h3 id="早期发育"><a href="#早期发育" class="headerlink" title="早期发育"></a>早期发育</h3><p>大多数关于使用EEG作为早期发育的神经反馈工具的文章倾向于将其用于治疗ADHD。但是，也可能存在其他用例。</p>
+<p><strong>参考</strong></p>
+<ul>
+<li><a href="http://www.jneurosci.org/content/35/16/6277" target="_blank" rel="noopener">认知训练增强大脑连接性（通过MEG测量）</a></li>
+<li><a href="https://www.ncbi.nlm.nih.gov/pubmed/14521276" target="_blank" rel="noopener">学习残疾儿童的神经反馈治疗后脑电图和行为改变</a></li>
+<li><a href="https://link.springer.com/article/10.1007/s00702-010-0524-2" target="_blank" rel="noopener">ADHD和神经反馈：双盲可行性研究</a></li>
+<li><a href="https://www.ncbi.nlm.nih.gov/pubmed/6487671" target="_blank" rel="noopener">SMR和β频率的脑电图神经反馈治疗ADHD</a></li>
+<li><a href="https://link.springer.com/article/10.1007%2FBF02214148?LI=true" target="_blank" rel="noopener">神经反馈对ADD和学习障碍儿童的影响研究</a></li>
+<li><a href="http://www.tandfonline.com/doi/abs/10.1300/J184v10n04_02" target="_blank" rel="noopener">对有虐待和忽视史的儿童使用QEEEG-Neurofeedback</a></li>
+</ul>
+<h3 id="正念"><a href="#正念" class="headerlink" title="正念"></a>正念</h3><p>在消费者层面，正念是EEG神经反馈最常见的用例之一。以下是一些研究文章以及目前市场上存在的产品。</p>
+<p><strong>参考</strong></p>
+<ul>
+<li><a href="http://www.choosemuse.com/research" target="_blank" rel="noopener">缪斯研究</a></li>
+<li><a href="https://store.neurosky.com/products/mindfulness" target="_blank" rel="noopener">NeuroSky的正念应用程序</a></li>
+<li><a href="http://www.sciencedirect.com/science/article/pii/S0149763415002511" target="_blank" rel="noopener">关于神经振荡和正念的神经生理学综述</a></li>
+<li><a href="http://journals.lww.com/psychosomaticmedicine/Abstract/2003/07000/AlterationinBrain%20andImmuneFunctionProduced.14.aspx" target="_blank" rel="noopener">通过正念冥想产生的大脑活动的改变</a></li>
+</ul>
+<h3 id="加速学习"><a href="#加速学习" class="headerlink" title="加速学习"></a>加速学习</h3><p>使用神经技术加速学习是仍然备受关注的主题之一，特别是对DARPA而言。以下是一些如何使用eeg加速学习的潜在用例。</p>
+<p><strong>参考</strong></p>
+<ul>
+<li><a href="http://www.advancedbrainmonitoring.com/neurotechnology/applications/accelerated-learning/" target="_blank" rel="noopener">使用B-Alert的EEG创建“加速学习”</a></li>
+<li><a href="http://www.sciencedirect.com/science/article/pii/S0301051113002214" target="_blank" rel="noopener">记忆巩固theta神经反馈</a></li>
+<li><a href="https://link.springer.com/content/pdf/10.1007/978-3-642-21852-1.pdf#page=178" target="_blank" rel="noopener">用于认知 - 运动表现的非侵入性脑生物标志物</a></li>
+</ul>
+<h2 id="增强创造力"><a href="#增强创造力" class="headerlink" title="增强创造力"></a>增强创造力</h2><p>神经反馈训练的一个潜在用例可用于提高创造力。人们越来越关注探索theta / alpha训练。基于正在研究的eeg范例，可能与正念训练有很多相似之处。<br><strong>参考</strong></p>
+<ul>
+<li><a href="http://journals.lww.com/neuroreport/Abstract/2003/07010/Ecological_validity_of_neurofeedback___modulation.6.aspx" target="_blank" rel="noopener">调制慢波EEG以提高音乐表现</a></li>
+<li><a href="https://link.springer.com/article/10.1007/s10339-008-0248-5" target="_blank" rel="noopener">alpha / theta神经反馈理论可以提高创造性能</a></li>
+</ul>
+<h2 id="复原"><a href="#复原" class="headerlink" title="复原"></a>复原</h2><h3 id="中风恢复"><a href="#中风恢复" class="headerlink" title="中风恢复"></a>中风恢复</h3><p>Neurofeedback提供了一个潜在的机会，帮助患者通过神经反馈从中风中恢复。一项案例研究显示，一名55岁男性在4-7赫兹范围内左侧活动增加，采用神经反馈治疗，旨在降低频率，并增加15-21 Hz范围内的活动。感觉运动和大脑的语音区域。在治疗结束时，患者的言语得到改善，抑郁和焦虑消失了。</p>
+<p><strong>参考</strong></p>
+<ul>
+<li><a href="https://jneuroengrehab.biomedcentral.com/articles/10.1186/s12984-015-0105-6" target="_blank" rel="noopener">基于脑电图的神经反馈训练对脑卒中后患者记忆功能的影响</a></li>
+<li><a href="https://link.springer.com/article/10.1007%2FBF01474514?LI=true" target="_blank" rel="noopener">中风康复的神经疗法</a></li>
+<li><a href="http://www.tandfonline.com/doi/abs/10.1310/tsr1404-59" target="_blank" rel="noopener">生物反馈在中风康复中的作用：过去和未来的方向</a></li>
+</ul>
+<h3 id="瘾"><a href="#瘾" class="headerlink" title="瘾"></a>瘾</h3><p><strong>参考</strong></p>
+<ul>
+<li><a href="https://link.springer.com/article/10.1007/s10804-005-7030-z" target="_blank" rel="noopener">脑电图生物反馈治疗成瘾性疾病</a></li>
+<li><a href="https://link.springer.com/article/10.1007/s10484-007-9047-5" target="_blank" rel="noopener">EEG Biofeedback作为物质使用障碍的治疗</a></li>
+<li><a href="http://www.tandfonline.com/doi/abs/10.1300/J069v15n04_03" target="_blank" rel="noopener">QEEG分析可卡因的依赖性</a></li>
+</ul>
+<h3 id="雷特综合症"><a href="#雷特综合症" class="headerlink" title="雷特综合症"></a>雷特综合症</h3><p>神经反馈可能提供一种潜在的治疗方法来帮助那些患有Rett综合征的人。虽然它不能提供完全缓解，但它仍然可以帮助患者控制其症状并提高生活质量。</p>
+<p><strong>参考</strong></p>
+<ul>
+<li><a href="http://www.sciencedirect.com/science/article/pii/S0891422216300099" target="_blank" rel="noopener">认知训练改变了Rett综合征患者的eeg带</a></li>
+</ul>
+<h2 id="诊断"><a href="#诊断" class="headerlink" title="诊断"></a>诊断</h2><h3 id="震动"><a href="#震动" class="headerlink" title="震动"></a>震动</h3><p>研究表明脑损伤后脑电图振荡有明显变化。这导致了创建eeg诊断的潜力。像Brainscope这样的当前解决方案实际上并不能预测是否存在脑震荡。然而，它确实为临床医生提供了一些初步的见解，以便他们可以确定一个人是否应该进行PET / MRI扫描。</p>
+<p><strong>参考</strong></p>
+<ul>
+<li><a href="http://ieeexplore.ieee.org/document/7319994/?arnumber=7319994" target="_blank" rel="noopener">轻度创伤性脑损伤患者神经振荡带的变化</a></li>
+<li><a href="http://brainscope.com/products/" target="_blank" rel="noopener">Brainscope的头部损伤评估工具</a></li>
+<li><a href="http://www.sciencedirect.com/science/article/pii/S0304394004015034" target="_blank" rel="noopener">脑电图改变了运动员的轻度创伤性脑损伤</a></li>
+</ul>
+<h3 id="老年痴呆症"><a href="#老年痴呆症" class="headerlink" title="老年痴呆症"></a>老年痴呆症</h3><p>越来越多的证据表明，脑电图分析可以用于早期发现阿尔茨海默氏症，甚至可以用于不同痴呆亚型的诊断。大多数研究都是在学术环境中完成的，但是有可能开发出低成本的医学检测设备。</p>
+<p><strong>参考</strong></p>
+<ul>
+<li><a href="http://www.advancedbrainmonitoring.com/EEGbiomarkersforAlzheimersDisease" target="_blank" rel="noopener">阿尔茨海默病脑电生物标志物的开发</a></li>
+<li><a href="http://www.sciencedirect.com/science/article/pii/S138824570400015X" target="_blank" rel="noopener">阿尔茨海默病患者的脑电图</a></li>
+</ul>
+<h3 id="癫痫"><a href="#癫痫" class="headerlink" title="癫痫"></a>癫痫</h3><p>癫痫是一种影响全世界超过5000万人的疾病，其中80％的病例来自发展中国家。使用脑电图开发低成本的癫痫诊断有一些很好的机会，这将有助于那些可能没有资源的人正确测试这种疾病。</p>
+<p><strong>参考</strong></p>
+<ul>
+<li><a href="http://ieeexplore.ieee.org/document/4801967/?arnumber=4801967" target="_blank" rel="noopener">使用eeg时频分析检测癫痫发作</a></li>
+<li><a href="http://onlinelibrary.wiley.com/doi/10.1111/j.1535-7511.2010.01362.x/full" target="_blank" rel="noopener">发展中国家的癫痫护理</a></li>
+<li><a href="http://www.teleeeg.org/" target="_blank" rel="noopener">TeleEEG。一家为贫穷国家的癫痫提供eeg分析的公司</a></li>
+<li><a href="http://www.sciencedirect.com/science/article/pii/S1746809411000838" target="_blank" rel="noopener">使用熵自动诊断癫痫脑电图</a></li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2019/05/30/脑电图应用/">脑电图应用</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">刘凤双</a></p>
+        <p><span>发布时间:</span>2019-05-30, 14:58:12</p>
+        <p><span>最后更新:</span>2019-05-30, 15:56:26</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2019/05/30/脑电图应用/" title="脑电图应用">http://yoursite.com/2019/05/30/脑电图应用/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/05/30/脑电图应用/　　作者: 刘凤双" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target="_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2019/05/30/分享一张图/">
+                    分享一张图
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#脑电图应用"><span class="toc-number">1.</span> <span class="toc-text">脑电图应用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#娱乐"><span class="toc-number">1.1.</span> <span class="toc-text">娱乐</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Neurogaming"><span class="toc-number">1.1.1.</span> <span class="toc-text">Neurogaming</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#NeuroToys"><span class="toc-number">1.1.2.</span> <span class="toc-text">NeuroToys</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#艺术"><span class="toc-number">1.1.3.</span> <span class="toc-text">艺术</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#虚拟现实"><span class="toc-number">1.1.4.</span> <span class="toc-text">虚拟现实</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安全"><span class="toc-number">1.2.</span> <span class="toc-text">安全</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基于脑的认证"><span class="toc-number">1.2.1.</span> <span class="toc-text">基于脑的认证</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生物反馈疗法"><span class="toc-number">1.3.</span> <span class="toc-text">生物反馈疗法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#焦虑"><span class="toc-number">1.3.1.</span> <span class="toc-text">焦虑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#睡眠改善"><span class="toc-number">1.3.2.</span> <span class="toc-text">睡眠改善</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多动症"><span class="toc-number">1.3.3.</span> <span class="toc-text">多动症</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PTSD"><span class="toc-number">1.3.4.</span> <span class="toc-text">PTSD</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#认知训练"><span class="toc-number">1.4.</span> <span class="toc-text">认知训练</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#性能优化"><span class="toc-number">1.4.1.</span> <span class="toc-text">性能优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#脑衰老"><span class="toc-number">1.4.2.</span> <span class="toc-text">脑衰老</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#早期发育"><span class="toc-number">1.4.3.</span> <span class="toc-text">早期发育</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#正念"><span class="toc-number">1.4.4.</span> <span class="toc-text">正念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#加速学习"><span class="toc-number">1.4.5.</span> <span class="toc-text">加速学习</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#增强创造力"><span class="toc-number">1.5.</span> <span class="toc-text">增强创造力</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#复原"><span class="toc-number">1.6.</span> <span class="toc-text">复原</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#中风恢复"><span class="toc-number">1.6.1.</span> <span class="toc-text">中风恢复</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#瘾"><span class="toc-number">1.6.2.</span> <span class="toc-text">瘾</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#雷特综合症"><span class="toc-number">1.6.3.</span> <span class="toc-text">雷特综合症</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#诊断"><span class="toc-number">1.7.</span> <span class="toc-text">诊断</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#震动"><span class="toc-number">1.7.1.</span> <span class="toc-text">震动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#老年痴呆症"><span class="toc-number">1.7.2.</span> <span class="toc-text">老年痴呆症</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#癫痫"><span class="toc-number">1.7.3.</span> <span class="toc-text">癫痫</span></a></li></ol></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-5 i,
+        .toc-level-5 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"脑电图应用　| My Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2019/05/30/分享一张图/" title="下一篇: 分享一张图">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/05/30/脑电图应用/">脑电图应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/30/分享一张图/">分享一张图</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/29/脑机接口简介/">脑机接口简介</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/29/2019-5-29/">2019_5_29</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/29/NumPy使用/">NumPy使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/28/图像视频读取与保存/">图像视频读取与保存</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/28/环境搭建/">环境搭建</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/21/opencv学习/">opencv学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/21/2019-5-21/">2019_5_21</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/15/20119-3-13/">20119_3_13</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/13/Mercurial使用/">Mercurial使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/12/Java三大特性/">Java三大特性</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/12/MyBatis实现原理/">MyBatis实现原理</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/12/Spring两大特性/">Spring两大特性</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/11/springMVC工作原理/">springMVC工作原理</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/09/DNS解析/">DNS解析</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/09/Http请求/">Http请求</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/09/TCP和UDP的区别/">TCP和UDP的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/08/数据库补充/">数据库补充</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/06/记百度实习面试/">记百度实习面试</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/06/TCP-IP三次握手/">TCP/IP三次握手</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/03/MySQL数据库引擎/">MySQL数据库引擎</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/03/POST与GET/">POST与GET</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/03/Java内存模型/">Java内存模型</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/02/类加载机制/">类加载机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/02/Lock/">Lock</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/28/Java内存管理/">Java内存管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/28/Redis/">Redis</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/27/搜索引擎高级搜索语法/">搜索引擎高级搜索语法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/27/记我的2018/">记我的2018</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/21/排序算法/">排序算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/01/过滤器和拦截器/">过滤器和拦截器</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/30/Java高并发/">Java高并发</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/29/HTTP长链接与短链接/">HTTP长链接与短链接</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/29/Java集合/">Java集合</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/23/编译原理0/">编译原理0</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/23/计算机组成原理0/">计算机组成原理0</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/09/dubbo/">dubbo</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/08/SQL优化/">SQL优化</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/07/session跨域共享/">session跨域共享</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/28/Maven/">Maven</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/25/数据库/">数据库</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/25/随笔/">随笔</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/24/Java基础/">Java基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/23/python虚拟环境/">python虚拟环境</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/23/Docker/">Docker</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/22/REST风格/">REST风格</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2018-2019 刘凤双
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style="display:none">
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style="display:none">
+                        <span id="page-visit" title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+             socail: ".social a" 
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+    <script>
+        var originTitle = document.title;
+        var titleTime;
+        document.addEventListener("visibilitychange", function() {
+            if (document.hidden) {
+                document.title = "" + originTitle;
+                clearTimeout(titleTime);
+            }
+            else {
+                document.title = "" + originTitle;
+                titleTime = setTimeout(function() {
+                    document.title = originTitle;
+                }, 2000);
+            }
+        })
+    </script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
