@@ -15,14 +15,20 @@
 
 
 
+<meta name="description" content="预处理本教程是对EEG数据预处理的介绍。如果您想查看一些可以使用的实际代码，请查看我们的IPython Notebook示例 什么是预处理通常，预处理是将原始数据转换为更适合于进一步分析并可为用户解释的格式的过程。在EEG数据的情况下，预处理通常是指从数据中去除噪声以更接近真实的神经信号。 为什么需要预处理有几个原因可以解释为什么EEG数据需要预处理：  从头皮中拾取的信号不一定是来自大脑的信号的">
+<meta name="keywords" content="脑机接口">
 <meta property="og:type" content="article">
 <meta property="og:title" content="预处理">
 <meta property="og:url" content="http://yoursite.com/2019/05/31/预处理/index.html">
 <meta property="og:site_name" content="My Blog">
+<meta property="og:description" content="预处理本教程是对EEG数据预处理的介绍。如果您想查看一些可以使用的实际代码，请查看我们的IPython Notebook示例 什么是预处理通常，预处理是将原始数据转换为更适合于进一步分析并可为用户解释的格式的过程。在EEG数据的情况下，预处理通常是指从数据中去除噪声以更接近真实的神经信号。 为什么需要预处理有几个原因可以解释为什么EEG数据需要预处理：  从头皮中拾取的信号不一定是来自大脑的信号的">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-31T03:13:52.397Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2019/05/31/%E9%A2%84%E5%A4%84%E7%90%86/yuchuliqianhou.png">
+<meta property="og:updated_time" content="2019-05-31T08:46:17.605Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="预处理">
+<meta name="twitter:description" content="预处理本教程是对EEG数据预处理的介绍。如果您想查看一些可以使用的实际代码，请查看我们的IPython Notebook示例 什么是预处理通常，预处理是将原始数据转换为更适合于进一步分析并可为用户解释的格式的过程。在EEG数据的情况下，预处理通常是指从数据中去除噪声以更接近真实的神经信号。 为什么需要预处理有几个原因可以解释为什么EEG数据需要预处理：  从头皮中拾取的信号不一定是来自大脑的信号的">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2019/05/31/%E9%A2%84%E5%A4%84%E7%90%86/yuchuliqianhou.png">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -289,6 +295,10 @@
         
 
         
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/脑机接口/">脑机接口</a></li></ul>
+    </div>
+
         <div class="clearfix"></div>
       </div>
       
@@ -296,7 +306,17 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        
+        <h1 id="预处理"><a href="#预处理" class="headerlink" title="预处理"></a>预处理</h1><p>本教程是对EEG数据预处理的介绍。如果您想查看一些可以使用的实际代码，请查看我们的IPython Notebook示例</p>
+<h2 id="什么是预处理"><a href="#什么是预处理" class="headerlink" title="什么是预处理"></a>什么是预处理</h2><p>通常，预处理是将原始数据转换为更适合于进一步分析并可为用户解释的格式的过程。在EEG数据的情况下，预处理通常是指从数据中去除噪声以更接近真实的神经信号。</p>
+<h3 id="为什么需要预处理"><a href="#为什么需要预处理" class="headerlink" title="为什么需要预处理"></a>为什么需要预处理</h3><p>有几个原因可以解释为什么EEG数据需要预处理：</p>
+<ul>
+<li>从头皮中拾取的信号不一定是来自大脑的信号的准确表示，因为空间信息会丢失。</li>
+<li>EEG数据往往包含许多噪音，这些噪音可能会掩盖较弱的EEG信号，眨眼或肌肉运动等伪像会污染数据并扭曲图像。</li>
+<li><p>我们希望将相关的神经信号与EEG记录期间发生的随机神经活动分开。</p>
+<p><img src="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2019/05/31/%E9%A2%84%E5%A4%84%E7%90%86/yuchuliqianhou.png" alt="预处理"><br>未过滤左，过滤右</p>
+</li>
+</ul>
+
       
     </div>
     
@@ -307,7 +327,7 @@
         <p><span>本文标题:</span><a href="/2019/05/31/预处理/">预处理</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">刘凤双</a></p>
         <p><span>发布时间:</span>2019-05-31, 11:13:52</p>
-        <p><span>最后更新:</span>2019-05-31, 11:13:52</p>
+        <p><span>最后更新:</span>2019-05-31, 16:46:17</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/05/31/预处理/" title="预处理">http://yoursite.com/2019/05/31/预处理/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/05/31/预处理/　　作者: 刘凤双" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -337,7 +357,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#预处理"><span class="toc-number">1.</span> <span class="toc-text">预处理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是预处理"><span class="toc-number">1.1.</span> <span class="toc-text">什么是预处理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#为什么需要预处理"><span class="toc-number">1.1.1.</span> <span class="toc-text">为什么需要预处理</span></a></li></ol></li></ol></li></ol>
         
     </div>
     <style>
