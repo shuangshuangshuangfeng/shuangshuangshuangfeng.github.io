@@ -15,19 +15,19 @@
 
 
 
-<meta name="description" content="预处理本教程是对EEG数据预处理的介绍。如果您想查看一些可以使用的实际代码，请查看我们的IPython Notebook示例 什么是预处理通常，预处理是将原始数据转换为更适合于进一步分析并可为用户解释的格式的过程。在EEG数据的情况下，预处理通常是指从数据中去除噪声以更接近真实的神经信号。 为什么需要预处理有几个原因可以解释为什么EEG数据需要预处理：  从头皮中拾取的信号不一定是来自大脑的信号的">
+<meta name="description" content="预处理本教程是对EEG数据预处理的介绍。如果您想查看一些可以使用的实际代码，请查看我们的IPython Notebook示例 什么是预处理通常，预处理是将原始数据转换为更适合于进一步分析并可为用户解释的格式的过程。在EEG数据的情况下，预处理通常是指从数据中去除噪声以更接近真实的神经信号。">
 <meta name="keywords" content="脑机接口">
 <meta property="og:type" content="article">
 <meta property="og:title" content="预处理">
 <meta property="og:url" content="http://yoursite.com/2019/05/31/预处理/index.html">
 <meta property="og:site_name" content="My Blog">
-<meta property="og:description" content="预处理本教程是对EEG数据预处理的介绍。如果您想查看一些可以使用的实际代码，请查看我们的IPython Notebook示例 什么是预处理通常，预处理是将原始数据转换为更适合于进一步分析并可为用户解释的格式的过程。在EEG数据的情况下，预处理通常是指从数据中去除噪声以更接近真实的神经信号。 为什么需要预处理有几个原因可以解释为什么EEG数据需要预处理：  从头皮中拾取的信号不一定是来自大脑的信号的">
+<meta property="og:description" content="预处理本教程是对EEG数据预处理的介绍。如果您想查看一些可以使用的实际代码，请查看我们的IPython Notebook示例 什么是预处理通常，预处理是将原始数据转换为更适合于进一步分析并可为用户解释的格式的过程。在EEG数据的情况下，预处理通常是指从数据中去除噪声以更接近真实的神经信号。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2019/05/31/%E9%A2%84%E5%A4%84%E7%90%86/yuchuliqianhou.png">
-<meta property="og:updated_time" content="2019-05-31T08:46:17.605Z">
+<meta property="og:updated_time" content="2019-05-31T08:48:32.307Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="预处理">
-<meta name="twitter:description" content="预处理本教程是对EEG数据预处理的介绍。如果您想查看一些可以使用的实际代码，请查看我们的IPython Notebook示例 什么是预处理通常，预处理是将原始数据转换为更适合于进一步分析并可为用户解释的格式的过程。在EEG数据的情况下，预处理通常是指从数据中去除噪声以更接近真实的神经信号。 为什么需要预处理有几个原因可以解释为什么EEG数据需要预处理：  从头皮中拾取的信号不一定是来自大脑的信号的">
+<meta name="twitter:description" content="预处理本教程是对EEG数据预处理的介绍。如果您想查看一些可以使用的实际代码，请查看我们的IPython Notebook示例 什么是预处理通常，预处理是将原始数据转换为更适合于进一步分析并可为用户解释的格式的过程。在EEG数据的情况下，预处理通常是指从数据中去除噪声以更接近真实的神经信号。">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2019/05/31/%E9%A2%84%E5%A4%84%E7%90%86/yuchuliqianhou.png">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -308,14 +308,14 @@
           
         <h1 id="预处理"><a href="#预处理" class="headerlink" title="预处理"></a>预处理</h1><p>本教程是对EEG数据预处理的介绍。如果您想查看一些可以使用的实际代码，请查看我们的IPython Notebook示例</p>
 <h2 id="什么是预处理"><a href="#什么是预处理" class="headerlink" title="什么是预处理"></a>什么是预处理</h2><p>通常，预处理是将原始数据转换为更适合于进一步分析并可为用户解释的格式的过程。在EEG数据的情况下，预处理通常是指从数据中去除噪声以更接近真实的神经信号。</p>
+<a id="more"></a>
 <h3 id="为什么需要预处理"><a href="#为什么需要预处理" class="headerlink" title="为什么需要预处理"></a>为什么需要预处理</h3><p>有几个原因可以解释为什么EEG数据需要预处理：</p>
 <ul>
 <li>从头皮中拾取的信号不一定是来自大脑的信号的准确表示，因为空间信息会丢失。</li>
 <li>EEG数据往往包含许多噪音，这些噪音可能会掩盖较弱的EEG信号，眨眼或肌肉运动等伪像会污染数据并扭曲图像。</li>
-<li><p>我们希望将相关的神经信号与EEG记录期间发生的随机神经活动分开。</p>
-<p><img src="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2019/05/31/%E9%A2%84%E5%A4%84%E7%90%86/yuchuliqianhou.png" alt="预处理"><br>未过滤左，过滤右</p>
-</li>
+<li>我们希望将相关的神经信号与EEG记录期间发生的随机神经活动分开。</li>
 </ul>
+<p><img src="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2019/05/31/%E9%A2%84%E5%A4%84%E7%90%86/yuchuliqianhou.png" alt="预处理"><br>未过滤左，过滤右</p>
 
       
     </div>
@@ -327,7 +327,7 @@
         <p><span>本文标题:</span><a href="/2019/05/31/预处理/">预处理</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">刘凤双</a></p>
         <p><span>发布时间:</span>2019-05-31, 11:13:52</p>
-        <p><span>最后更新:</span>2019-05-31, 16:46:17</p>
+        <p><span>最后更新:</span>2019-05-31, 16:48:32</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/05/31/预处理/" title="预处理">http://yoursite.com/2019/05/31/预处理/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/05/31/预处理/　　作者: 刘凤双" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -341,6 +341,12 @@
 
 
     <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2019/06/12/脑电仿真平台安装文档/">
+                    脑电仿真平台安装文档
+                </a>
+            </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
@@ -413,7 +419,9 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2019/06/12/脑电仿真平台安装文档/" title="上一篇: 脑电仿真平台安装文档">
+                <i class="fa fa-angle-left"></i>
+            </a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
@@ -425,7 +433,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/05/31/预处理/">预处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/30/脑电图应用/">脑电图应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/30/分享一张图/">分享一张图</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/29/脑机接口简介/">脑机接口简介</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/29/2019-5-29/">2019_5_29</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/29/NumPy使用/">NumPy使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/28/图像视频读取与保存/">图像视频读取与保存</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/28/环境搭建/">环境搭建</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/21/opencv学习/">opencv学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/21/2019-5-21/">2019_5_21</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/15/20119-3-13/">20119_3_13</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/13/Mercurial使用/">Mercurial使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/12/Java三大特性/">Java三大特性</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/12/MyBatis实现原理/">MyBatis实现原理</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/12/Spring两大特性/">Spring两大特性</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/11/springMVC工作原理/">springMVC工作原理</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/09/DNS解析/">DNS解析</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/09/Http请求/">Http请求</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/09/TCP和UDP的区别/">TCP和UDP的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/08/数据库补充/">数据库补充</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/06/记百度实习面试/">记百度实习面试</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/06/TCP-IP三次握手/">TCP/IP三次握手</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/03/MySQL数据库引擎/">MySQL数据库引擎</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/03/POST与GET/">POST与GET</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/03/Java内存模型/">Java内存模型</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/02/类加载机制/">类加载机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/02/Lock/">Lock</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/28/Java内存管理/">Java内存管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/28/Redis/">Redis</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/27/搜索引擎高级搜索语法/">搜索引擎高级搜索语法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/27/记我的2018/">记我的2018</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/21/排序算法/">排序算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/01/过滤器和拦截器/">过滤器和拦截器</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/30/Java高并发/">Java高并发</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/29/HTTP长链接与短链接/">HTTP长链接与短链接</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/29/Java集合/">Java集合</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/23/编译原理0/">编译原理0</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/23/计算机组成原理0/">计算机组成原理0</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/09/dubbo/">dubbo</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/08/SQL优化/">SQL优化</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/07/session跨域共享/">session跨域共享</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/28/Maven/">Maven</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/25/数据库/">数据库</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/25/随笔/">随笔</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/24/Java基础/">Java基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/23/python虚拟环境/">python虚拟环境</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/23/Docker/">Docker</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/22/REST风格/">REST风格</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/06/12/脑电仿真平台安装文档/">脑电仿真平台安装文档</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/31/预处理/">预处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/30/脑电图应用/">脑电图应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/30/分享一张图/">分享一张图</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/29/脑机接口简介/">脑机接口简介</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/29/2019-5-29/">2019_5_29</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/29/NumPy使用/">NumPy使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/28/图像视频读取与保存/">图像视频读取与保存</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/28/环境搭建/">环境搭建</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/21/opencv学习/">opencv学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/21/2019-5-21/">2019_5_21</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/15/20119-3-13/">20119_3_13</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/13/Mercurial使用/">Mercurial使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/12/Java三大特性/">Java三大特性</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/12/MyBatis实现原理/">MyBatis实现原理</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/12/Spring两大特性/">Spring两大特性</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/11/springMVC工作原理/">springMVC工作原理</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/09/DNS解析/">DNS解析</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/09/Http请求/">Http请求</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/09/TCP和UDP的区别/">TCP和UDP的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/08/数据库补充/">数据库补充</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/06/记百度实习面试/">记百度实习面试</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/06/TCP-IP三次握手/">TCP/IP三次握手</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/03/MySQL数据库引擎/">MySQL数据库引擎</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/03/POST与GET/">POST与GET</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/03/Java内存模型/">Java内存模型</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/02/类加载机制/">类加载机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/02/Lock/">Lock</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/28/Java内存管理/">Java内存管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/28/Redis/">Redis</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/27/搜索引擎高级搜索语法/">搜索引擎高级搜索语法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/27/记我的2018/">记我的2018</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/21/排序算法/">排序算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/01/过滤器和拦截器/">过滤器和拦截器</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/30/Java高并发/">Java高并发</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/29/HTTP长链接与短链接/">HTTP长链接与短链接</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/29/Java集合/">Java集合</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/23/编译原理0/">编译原理0</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/23/计算机组成原理0/">计算机组成原理0</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/09/dubbo/">dubbo</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/08/SQL优化/">SQL优化</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/07/session跨域共享/">session跨域共享</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/28/Maven/">Maven</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/25/数据库/">数据库</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/25/随笔/">随笔</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/24/Java基础/">Java基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/23/python虚拟环境/">python虚拟环境</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/23/Docker/">Docker</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/22/REST风格/">REST风格</a></li></ul>
 
 
 

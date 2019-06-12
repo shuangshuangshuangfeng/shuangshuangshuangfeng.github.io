@@ -266,6 +266,138 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-脑电仿真平台安装文档" class="article article-type-post" itemscope="" itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/06/12/脑电仿真平台安装文档/" class="article-date">
+      <time datetime="2019-06-12T06:37:43.000Z" itemprop="datePublished">2019-06-12</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/12/脑电仿真平台安装文档/">脑电仿真平台安装文档</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="脑电仿真平台安装文档"><a href="#脑电仿真平台安装文档" class="headerlink" title="脑电仿真平台安装文档"></a>脑电仿真平台安装文档</h1><h2 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h2><h3 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h3><p>系统: windows10<br>环境:</p>
+<ul>
+<li><a href="https://github.com/microsoft/AirSim/releases/download/v1.2.0/CityEnviron.zip.001" target="_blank" rel="noopener">下载地址1</a></li>
+<li><a href="https://github.com/microsoft/AirSim/releases/download/v1.2.0/CityEnviron.zip.002" target="_blank" rel="noopener">下载地址2</a><h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3>解压后的文件:<br><img src="" alt="解压后的文件"></li>
+<li>1.双击执行红框内的文件</li>
+<li>2.弹出选择框选择“否”<br><img src="" alt="操作"></li>
+</ul>
+<h2 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h2><h3 id="环境配置-1"><a href="#环境配置-1" class="headerlink" title="环境配置"></a>环境配置</h3><ul>
+<li>系统: ubuntu</li>
+<li>环境: </li>
+<li>python3.5  </li>
+<li>coda 9.0 </li>
+<li>tensorflow-gpu 1.18</li>
+<li>pytorch 1.0</li>
+<li>cudnn 7.0</li>
+<li>setptools&lt;=39.1.0</li>
+<li>karas </li>
+<li>opencv-python</li>
+<li>airsim</li>
+</ul>
+<h4 id="系统安装"><a href="#系统安装" class="headerlink" title="系统安装"></a>系统安装</h4><p><strong>修改软件源</strong></p>
+<ul>
+<li><p>首先我们准备一个ubuntu18.04的镜像，制作u启动，然后安装系统。安装后配置基本的环境（这里主要是安装python3.5 , 以及pip3）系统自带python3.5,所以暂时不需要我们安装。</p>
+</li>
+<li><p>在<a href="https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/" target="_blank" rel="noopener">清华源下</a>找到自己的ubuntu版本对应得软件源，并复制<br><img src="" alt="镜像使用帮助"></p>
+</li>
+<li><p>然后</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd /etc/apt/ </span><br><span class="line">cp sources.list sources.list.bak  #备份文件</span><br><span class="line">sudo vim sources.list  #将原来的内容删掉，将复制的内容拷贝进去</span><br><span class="line">sudo apt-get update  #更新</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>安装pip3</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install python3-pip  #安装pip3</span><br><span class="line">sudo python3 -m pip install --upgrade pip # 更新pip3</span><br><span class="line">sudo apt-get install freeglut3-dev build-essential libx11-dev libxmu-dev libxi-dev libgl1-mesa-glx libglu1-mesa libglu1-mesa-dev</span><br></pre></td></tr></table></figure></p>
+<p>注意：一定不要忘记写3</p>
+<p><strong>安装其他一些依赖</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install freeglut3-dev build-essential libx11-dev libxmu-dev libxi-dev libgl1-mesa-glx libglu1-mesa libglu1-mesa-dev</span><br></pre></td></tr></table></figure></p>
+<h4 id="安装显卡驱动"><a href="#安装显卡驱动" class="headerlink" title="安装显卡驱动"></a>安装显卡驱动</h4><ul>
+<li>先去<a href="http://www.nvidia.cn/page/home.html" target="_blank" rel="noopener">官网</a>下载对应的驱动</li>
+<li><p>打开终端，删除旧的驱动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get purge nvidia*</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>禁用自带的 nouveau nvidia驱动<br>通过命令创建文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/modprobe.d/blacklist-nouveau.conf</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>并在文件中添加内容:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">blacklist nouveau</span><br><span class="line">options nouveau modeset=0</span><br></pre></td></tr></table></figure></p>
+<p>再更新一下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo update-initramfs -u</span><br></pre></td></tr></table></figure></p>
+<p>修改后需要重启系统。确认下Nouveau是已经被你干掉，使用命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsmod | grep nouveau</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>重启系统至init 3（文本模式），也可先进入图形桌面再运行init 3进入文本模式，再安装下载的驱动就无问题，首先我们需要结束x-window的服务，否则驱动将无法正常安装，关闭X-Window，很简单：sudo service lightdm stop，然后切换tty1控制台：Ctrl+Alt+F1即可</li>
+<li>接下来就是最关键的一步了：sudo./NVIDIA.run开始安装，安装过程比较快，根据提示选择即可最后安装完毕后，重新启动X-Window：sudo service lightdm start，然后Ctrl+Alt+F7进入图形界面；- 测试<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nvidia-smi</span><br><span class="line">nvidia-settings</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="安装coda与cudnn"><a href="#安装coda与cudnn" class="headerlink" title="安装coda与cudnn"></a>安装coda与cudnn</h4><p><strong>安装coda</strong></p>
+<ul>
+<li>在<a href="https://developer.nvidia.com/cuda-toolkit/whatsnew" target="_blank" rel="noopener">官网</a>下载安装包</li>
+<li>安装</li>
+<li>添加环境变量<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo vim ~/.bashrc</span><br><span class="line"># 在文件尾部添加:</span><br><span class="line">export PATH=/usr/local/cuda/bin$&#123;PATH:+:$&#123;PATH&#125;&#125;</span><br><span class="line">export LD_LIBRARY_PATH=/usr/local/cuda/lib64$&#123;LD_LIBRARY_PATH:+:$&#123;LD_LIBRARY_PATH&#125;&#125; </span><br><span class="line">export CUDA_HOME=/usr/local/cuda</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure>
+<ul>
+<li>检查是否安装成功<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ldconfig /usr/local/cuda-9.0/lib64</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>安装cudnn</strong></p>
+<ul>
+<li>下载好cudnn,下载解压后有一个cudn的文件夹</li>
+<li>操作如下<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp cudnn.h /usr/local/cuda/include/ #复制头文件</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>进入 cudn/lib64 路径下，运行以下命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo cp lib* /usr/local/cuda/lib64/ #复制动态链接库</span><br><span class="line">cd /usr/local/cuda/lib64/sudo rm -rf libcudnn.so libcudnn.so.5 #删除原有动态文件</span><br><span class="line">sudo ln -s libcudnn.so.6.0.21 libcudnn.so.6 #生成软衔接</span><br><span class="line">sudo ln -s libcudnn.so.6 libcudnn.so #生成软链接</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvcc --version</span><br></pre></td></tr></table></figure>
+<h4 id="安装setuptools"><a href="#安装setuptools" class="headerlink" title="安装setuptools"></a>安装setuptools</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install setuptools==39.1.0</span><br></pre></td></tr></table></figure>
+<h4 id="安装matplotlib，airsim-keras-opencv-python-pytorch-tensorflow-gpu"><a href="#安装matplotlib，airsim-keras-opencv-python-pytorch-tensorflow-gpu" class="headerlink" title="安装matplotlib，airsim, keras, opencv-python, pytorch, tensorflow-gpu"></a>安装matplotlib，airsim, keras, opencv-python, pytorch, tensorflow-gpu</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">pip3 install matplotlib==2.0.2</span><br><span class="line">pip3 install keras</span><br><span class="line">pip3 install airsim</span><br><span class="line">pip3 install opencv-python</span><br><span class="line">pip3 install pytorch==1.0</span><br><span class="line">pip3 install tensorflow-gpu==1.18</span><br></pre></td></tr></table></figure>
+<p>注意： 安装的时候网络一定要好，如果速度慢，也可以换为国内源<br><a href="https://mirrors.tuna.tsinghua.edu.cn/help/pypi/" target="_blank" rel="noopener">https://mirrors.tuna.tsinghua.edu.cn/help/pypi/</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/脑机接口/">脑机接口</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-预处理" class="article article-type-post" itemscope="" itemprop="blogPost">
   
     <div class="article-meta">
@@ -295,17 +427,9 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="预处理"><a href="#预处理" class="headerlink" title="预处理"></a>预处理</h1><p>本教程是对EEG数据预处理的介绍。如果您想查看一些可以使用的实际代码，请查看我们的IPython Notebook示例</p>
+              <h1 id="预处理"><a href="#预处理" class="headerlink" title="预处理"></a>预处理</h1><p>本教程是对EEG数据预处理的介绍。如果您想查看一些可以使用的实际代码，请查看我们的IPython Notebook示例</p>
 <h2 id="什么是预处理"><a href="#什么是预处理" class="headerlink" title="什么是预处理"></a>什么是预处理</h2><p>通常，预处理是将原始数据转换为更适合于进一步分析并可为用户解释的格式的过程。在EEG数据的情况下，预处理通常是指从数据中去除噪声以更接近真实的神经信号。</p>
-<h3 id="为什么需要预处理"><a href="#为什么需要预处理" class="headerlink" title="为什么需要预处理"></a>为什么需要预处理</h3><p>有几个原因可以解释为什么EEG数据需要预处理：</p>
-<ul>
-<li>从头皮中拾取的信号不一定是来自大脑的信号的准确表示，因为空间信息会丢失。</li>
-<li>EEG数据往往包含许多噪音，这些噪音可能会掩盖较弱的EEG信号，眨眼或肌肉运动等伪像会污染数据并扭曲图像。</li>
-<li><p>我们希望将相关的神经信号与EEG记录期间发生的随机神经活动分开。</p>
-<p><img src="https://raw.githubusercontent.com/shuangshuangshuangfeng/shuangshuangshuangfeng.github.io/master/2019/05/31/%E9%A2%84%E5%A4%84%E7%90%86/yuchuliqianhou.png" alt="预处理"><br>未过滤左，过滤右</p>
-</li>
-</ul>
-
+          
       
     </div>
     
@@ -318,6 +442,10 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/脑机接口/">脑机接口</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a href="/2019/05/31/预处理/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -837,66 +965,6 @@
       
 
       
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-2019-5-21" class="article article-type-post" itemscope="" itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/05/21/2019-5-21/" class="article-date">
-      <time datetime="2019-05-21T09:02:05.000Z" itemprop="datePublished">2019-05-21</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/21/2019-5-21/">2019_5_21</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>hahahahahah<br>毅然决然的辞了职，本来打算辞职以后有一个多月的时间去准备英语六级，然而，坑爹的公司，妈的，交接工作，让我等了一周。。。然后等到现在，还剩不到一个月，这六级又完了。。。233333<br>今天真是个好日子呀，男朋友送的礼物也不错，送了空气，232333333<br>哎呀，以后呀，打算回学校学图像处理了，哎呀，加油！！！</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
-    </div>
-
       
       <div class="clearfix"></div>
     </div>
