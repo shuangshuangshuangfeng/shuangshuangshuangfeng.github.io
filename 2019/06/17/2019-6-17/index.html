@@ -15,18 +15,15 @@
 
 
 
-<meta name="description" content="Redis介绍Redis是一个开源的使用C语言编写，可基于内存也可持久化的日志型，key-value数据库。">
-<meta name="keywords" content="数据库">
+<meta name="keywords" content="随笔">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Redis">
-<meta property="og:url" content="http://yoursite.com/2019/02/28/Redis/index.html">
+<meta property="og:title" content="2019-6-17">
+<meta property="og:url" content="http://yoursite.com/2019/06/17/2019-6-17/index.html">
 <meta property="og:site_name" content="My Blog">
-<meta property="og:description" content="Redis介绍Redis是一个开源的使用C语言编写，可基于内存也可持久化的日志型，key-value数据库。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-28T14:16:12.851Z">
+<meta property="og:updated_time" content="2019-06-17T12:18:31.547Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Redis">
-<meta name="twitter:description" content="Redis介绍Redis是一个开源的使用C语言编写，可基于内存也可持久化的日志型，key-value数据库。">
+<meta name="twitter:title" content="2019-6-17">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -58,7 +55,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Redis | My Blog</title>
+<title>2019-6-17 | My Blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -264,11 +261,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
 </nav>
-      <div class="body-wrap"><article id="post-Redis" class="article article-type-post" itemscope="" itemprop="blogPost">
+      <div class="body-wrap"><article id="post-2019-6-17" class="article article-type-post" itemscope="" itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2019/02/28/Redis/" class="article-date">
-      <time datetime="2019-02-28T13:56:37.000Z" itemprop="datePublished">2019-02-28</time>
+      <a href="/2019/06/17/2019-6-17/" class="article-date">
+      <time datetime="2019-06-17T12:17:40.000Z" itemprop="datePublished">2019-06-17</time>
 </a>
 
 
@@ -283,7 +280,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Redis
+      2019-6-17
     </h1>
   
 
@@ -294,7 +291,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据库/">数据库</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -304,43 +301,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h2><h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>Redis是一个开源的使用C语言编写，可基于内存也可持久化的日志型，key-value数据库。<br><a id="more"></a></p>
-<h3 id="支持的数据类型"><a href="#支持的数据类型" class="headerlink" title="支持的数据类型"></a>支持的数据类型</h3><h4 id="String字符串"><a href="#String字符串" class="headerlink" title="String字符串"></a><strong>String字符串</strong></h4><p>格式:<br><code>set key value</code></p>
-<ul>
-<li>String类型是二进制安全的，意思是redis的String可以包含任何数据，比如jpg图片或者序列号的对象。</li>
-<li>String类型是Redis最基本的数据类型，一个键最大存储512MB</li>
-</ul>
-<h4 id="Hash-哈希"><a href="#Hash-哈希" class="headerlink" title="Hash(哈希)"></a>Hash(哈希)</h4><p>格式:<br><code>hmset name key1 vaalue1 key2 value2</code></p>
-<ul>
-<li>Redis的Hash是一个键值对集合</li>
-<li>Hash是一个Strign类型的field和value的映射表，<strong>Hash特别适合于存储对象</strong></li>
-</ul>
-<h4 id="List（列表）"><a href="#List（列表）" class="headerlink" title="List（列表）"></a>List（列表）</h4><p>格式:<br><code>lpush name value</code></p>
-<ul>
-<li>在key对应list的头部添加字符串元素<br>格式 :<br><code>rpush name value</code></li>
-<li>在key对应list的尾部添加字符串元素<br>格式 :<br><code>lrem name index</code></li>
-<li>在key对应的list中删除count个和value相同的元素<br>格式 :<br><code>llen name</code></li>
-<li>返回ke’y所对应list的长度</li>
-</ul>
-<h4 id="Set（集合）"><a href="#Set（集合）" class="headerlink" title="Set（集合）"></a>Set（集合）</h4><p>格式 :<br><code>sadd name value</code></p>
-<ul>
-<li>Redis的Set是String类型的无序集合。</li>
-<li>集合是通过哈希表实现的，所以添加，删除，查找的复杂度都是O(1)</li>
-</ul>
-<h4 id="ZSet（有序集合）"><a href="#ZSet（有序集合）" class="headerlink" title="ZSet（有序集合）"></a>ZSet（有序集合）</h4><p>格式：<br><code>zadd name score value</code></p>
-<ul>
-<li>Redis zset和set一样都是String类型元素的集合，且不允许重复的成员</li>
-<li>不同的是每个元素都会关联一个double类型的分数，Redis正式通过这些分数为集合中的成员进行从小到大排序的。</li>
-<li>ZSet的成员是唯一的，但是分数却是可以重复的。</li>
-</ul>
-<h3 id="持久化"><a href="#持久化" class="headerlink" title="持久化"></a>持久化</h3><p><strong>什么是Redis持久化?</strong><br>持久化就是把内存中的数据写道磁盘中去，防止服务宕机了内存数据丢失。<br>Redis提供了两种持久化的方法： RDB（默认）和AOF</p>
-<h4 id="RDB（redis-DataBase）"><a href="#RDB（redis-DataBase）" class="headerlink" title="RDB（redis DataBase）"></a>RDB（redis DataBase）</h4><p>RDB持久化是将内存中的数据库记录定时dump到磁盘上。</p>
-<h4 id="AOF（append-only-file）"><a href="#AOF（append-only-file）" class="headerlink" title="AOF（append-only file）"></a>AOF（append-only file）</h4><p>AOF持久化是将Redis的操作日志以追加的方式写入文件</p>
-<h4 id="两者区别"><a href="#两者区别" class="headerlink" title="两者区别"></a>两者区别</h4><ul>
-<li>RDB持久化是指在指定的时间间隔内将内存中的数据集快照写入磁盘，实际操作过程是fork一个子进程，先将数据集写入临时文件，写入成功后，再替换之前的文件，用二进制压缩存储。</li>
-<li>AOF持久化是以日志的形式记录服务器所处理的每一个写、删除操作，查询操作不会记录，以文本的方式记录，可以打开文件看到详细的操作记录。</li>
-</ul>
-
+        
       
     </div>
     
@@ -348,13 +309,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2019/02/28/Redis/">Redis</a></p>
+        <p><span>本文标题:</span><a href="/2019/06/17/2019-6-17/">2019-6-17</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">刘凤双</a></p>
-        <p><span>发布时间:</span>2019-02-28, 21:56:37</p>
-        <p><span>最后更新:</span>2019-02-28, 22:16:12</p>
+        <p><span>发布时间:</span>2019-06-17, 20:17:40</p>
+        <p><span>最后更新:</span>2019-06-17, 20:18:31</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2019/02/28/Redis/" title="Redis">http://yoursite.com/2019/02/28/Redis/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/02/28/Redis/　　作者: 刘凤双" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/06/17/2019-6-17/" title="2019-6-17">http://yoursite.com/2019/06/17/2019-6-17/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/06/17/2019-6-17/　　作者: 刘凤双" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -366,16 +327,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2019/02/28/Java内存管理/">
-                    Java内存管理
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2019/02/27/搜索引擎高级搜索语法/">
-                    搜索引擎高级搜索语法
+                <a href="/2019/06/12/脑电仿真平台安装文档/">
+                    脑电仿真平台安装文档
                 </a>
             </div>
         
@@ -387,7 +342,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Redis"><span class="toc-number">1.</span> <span class="toc-text">Redis</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#介绍"><span class="toc-number">1.1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#支持的数据类型"><span class="toc-number">1.2.</span> <span class="toc-text">支持的数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#String字符串"><span class="toc-number">1.2.1.</span> <span class="toc-text">String字符串</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Hash-哈希"><span class="toc-number">1.2.2.</span> <span class="toc-text">Hash(哈希)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#List（列表）"><span class="toc-number">1.2.3.</span> <span class="toc-text">List（列表）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Set（集合）"><span class="toc-number">1.2.4.</span> <span class="toc-text">Set（集合）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ZSet（有序集合）"><span class="toc-number">1.2.5.</span> <span class="toc-text">ZSet（有序集合）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#持久化"><span class="toc-number">1.3.</span> <span class="toc-text">持久化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#RDB（redis-DataBase）"><span class="toc-number">1.3.1.</span> <span class="toc-text">RDB（redis DataBase）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#AOF（append-only-file）"><span class="toc-number">1.3.2.</span> <span class="toc-text">AOF（append-only file）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#两者区别"><span class="toc-number">1.3.3.</span> <span class="toc-text">两者区别</span></a></li></ol></li></ol></li></ol>
+            
         
     </div>
     <style>
@@ -423,7 +378,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"Redis　| My Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"2019-6-17　| My Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -443,15 +398,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2019/02/28/Java内存管理/" title="上一篇: Java内存管理">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2019/02/27/搜索引擎高级搜索语法/" title="下一篇: 搜索引擎高级搜索语法">
+            <a href="/2019/06/12/脑电仿真平台安装文档/" title="下一篇: 脑电仿真平台安装文档">
                 <i class="fa fa-angle-right"></i>
             </a>
         
