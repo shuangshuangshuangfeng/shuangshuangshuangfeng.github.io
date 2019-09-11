@@ -187,7 +187,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaWeb/">JavaWeb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Maven/">Maven</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/">Spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/opencv-python3/">opencv-python3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tensorflow/">tensorflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/编译原理/">编译原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/脑机接口/">脑机接口</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机组成原理/">计算机组成原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件/">软件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔/">随笔</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面试/">面试</a></li></ul>
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaWeb/">JavaWeb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Maven/">Maven</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/">Spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/opencv-python3/">opencv-python3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tensorflow/">tensorflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/编译原理/">编译原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/脑机接口/">脑机接口</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机基础/">计算机基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机组成原理/">计算机组成原理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/软件/">软件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔/">随笔</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面试/">面试</a></li></ul>
                     </div>
                 </section>
                 
@@ -265,6 +265,81 @@
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-信息存储原码-反码-补码-移码问题" class="article article-type-post" itemscope="" itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/09/11/信息存储原码-反码-补码-移码问题/" class="article-date">
+      <time datetime="2019-09-11T02:25:49.000Z" itemprop="datePublished">2019-09-11</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/11/信息存储原码-反码-补码-移码问题/">信息存储原码/反码/补码/移码问题</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>作为一个计算机本科毕业生，直至毕业没有搞懂计算机存储原码反码补码的问题，真的是自愧不如，每每考试都是临时背过，但考试过后就丢脑后去了，如今读研电信学院老师两节课，讲的一清二楚，记个笔记~<br>信息的表示方法有:</p>
+<ul>
+<li>数字</li>
+<li>字符</li>
+<li>声音图像</li>
+<li>视频<br>（声音图像视频统称多媒体，但是多媒体的范围不仅仅是声音图像和视频）</li>
+</ul>
+<p>我们平时的数字大都是十进制表示，计算机存储信息的方式决定了计算机表示数字用二进制表示。那么用一个字节二进制表示十进制数需要表示哪些呢？</p>
+<ul>
+<li>数值范围(2^n)</li>
+<li>正负</li>
+<li>小数点</li>
+</ul>
+<p>计算机表示数字有两种，一种是定点数，一种是浮点数,下面分别说明</p>
+<h3 id="定点数"><a href="#定点数" class="headerlink" title="定点数"></a>定点数</h3><p>定点数分为定点整数和定点小数两种,又称为纯整数和纯小数。</p>
+<p>一般情况下，二进制的整数7表示为<code>111</code>,二进制的0.25为<code>0.01</code>,二进制的7.25表示为<code>111.01</code>。<br>计算机中存储数据是以字节为单位的，一个字节有8位，当计算机用一个字节表示整数7的时候，应该表示为<code>00000111</code>(第一位为符号位0正1负),当计算机用一个字节表示小数0.25的时候，应该表示为<code>00100000</code>(第一位为符号位0正1负)，<br>定点数包括定点整数和定点小数，定点整数小数点位于数的最低位之后，例如7<code>00000111.</code>,定点小数小数点在第一位后面，第一位为符号位，例如0.25<code>0.0100000</code></p>
+<h3 id="浮点数"><a href="#浮点数" class="headerlink" title="浮点数"></a>浮点数</h3>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/计算机基础/">计算机基础</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="posr-2019-8-26" class="article article-type-posr" itemscope="" itemprop="blogPost">
   
@@ -822,66 +897,6 @@
         <p class="article-more-link">
           <a href="/2019/05/29/脑机接口简介/#more">more >></a>
         </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-2019-5-29" class="article article-type-post" itemscope="" itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/05/29/2019-5-29/" class="article-date">
-      <time datetime="2019-05-29T11:55:19.000Z" itemprop="datePublished">2019-05-29</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/29/2019-5-29/">2019_5_29</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>哎呀，果然坏情绪是可以传染的，被传染的有些不开心了，好难过T&gt;&lt;T…wuwuwu<br>心心念念的以为会做图像处理，然后老师给安排了脑机接口，然后给安排了大神老师带，好吧，既来之则安之，给安排啥就干啥呢，嘻嘻，以后，大神老师带我飞feifei.</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
-    </div>
-
       
       <div class="clearfix"></div>
     </div>
