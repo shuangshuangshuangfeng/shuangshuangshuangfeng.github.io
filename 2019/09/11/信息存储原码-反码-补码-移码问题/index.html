@@ -15,18 +15,18 @@
 
 
 
-<meta name="description" content="作为一个计算机本科毕业生，直至毕业没有搞懂计算机存储原码反码补码的问题，真的是自愧不如，每每考试都是临时背过，但考试过后就丢脑后去了，如今读研电信学院老师两节课，讲的一清二楚，记个笔记~信息的表示方法有:  数字 字符 声音图像 视频（声音图像视频统称多媒体，但是多媒体的范围不仅仅是声音图像和视频）  我们平时的数字大都是十进制表示，计算机存储信息的方式决定了计算机表示数字用二进制表示。那么用一个">
+<meta name="description" content="作为一个计算机本科毕业生，直至毕业没有搞懂计算机存储原码反码补码的问题，真的是自愧不如，每每考试都是临时背过，但考试过后就丢脑后去了，如今读研电信学院老师两节课，讲的一清二楚，记个笔记~信息的表示方法有:  数字 字符 声音图像 视频（声音图像视频统称多媒体，但是多媒体的范围不仅仅是声音图像和视频）">
 <meta name="keywords" content="计算机基础">
 <meta property="og:type" content="article">
 <meta property="og:title" content="信息存储原码&#x2F;反码&#x2F;补码&#x2F;移码问题">
 <meta property="og:url" content="http://yoursite.com/2019/09/11/信息存储原码-反码-补码-移码问题/index.html">
 <meta property="og:site_name" content="My Blog">
-<meta property="og:description" content="作为一个计算机本科毕业生，直至毕业没有搞懂计算机存储原码反码补码的问题，真的是自愧不如，每每考试都是临时背过，但考试过后就丢脑后去了，如今读研电信学院老师两节课，讲的一清二楚，记个笔记~信息的表示方法有:  数字 字符 声音图像 视频（声音图像视频统称多媒体，但是多媒体的范围不仅仅是声音图像和视频）  我们平时的数字大都是十进制表示，计算机存储信息的方式决定了计算机表示数字用二进制表示。那么用一个">
+<meta property="og:description" content="作为一个计算机本科毕业生，直至毕业没有搞懂计算机存储原码反码补码的问题，真的是自愧不如，每每考试都是临时背过，但考试过后就丢脑后去了，如今读研电信学院老师两节课，讲的一清二楚，记个笔记~信息的表示方法有:  数字 字符 声音图像 视频（声音图像视频统称多媒体，但是多媒体的范围不仅仅是声音图像和视频）">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-11T07:18:42.600Z">
+<meta property="og:updated_time" content="2019-09-17T09:44:26.453Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="信息存储原码&#x2F;反码&#x2F;补码&#x2F;移码问题">
-<meta name="twitter:description" content="作为一个计算机本科毕业生，直至毕业没有搞懂计算机存储原码反码补码的问题，真的是自愧不如，每每考试都是临时背过，但考试过后就丢脑后去了，如今读研电信学院老师两节课，讲的一清二楚，记个笔记~信息的表示方法有:  数字 字符 声音图像 视频（声音图像视频统称多媒体，但是多媒体的范围不仅仅是声音图像和视频）  我们平时的数字大都是十进制表示，计算机存储信息的方式决定了计算机表示数字用二进制表示。那么用一个">
+<meta name="twitter:description" content="作为一个计算机本科毕业生，直至毕业没有搞懂计算机存储原码反码补码的问题，真的是自愧不如，每每考试都是临时背过，但考试过后就丢脑后去了，如今读研电信学院老师两节课，讲的一清二楚，记个笔记~信息的表示方法有:  数字 字符 声音图像 视频（声音图像视频统称多媒体，但是多媒体的范围不仅仅是声音图像和视频）">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -311,6 +311,7 @@
 <li>声音图像</li>
 <li>视频<br>（声音图像视频统称多媒体，但是多媒体的范围不仅仅是声音图像和视频）</li>
 </ul>
+<a id="more"></a>
 <p>我们平时的数字大都是十进制表示，计算机存储信息的方式决定了计算机表示数字用二进制表示。那么用一个字节二进制表示十进制数需要表示哪些呢？</p>
 <ul>
 <li>数值范围(2^n)</li>
@@ -320,7 +321,14 @@
 <p>计算机表示数字有两种，一种是定点数，一种是浮点数,下面分别说明</p>
 <h3 id="定点数"><a href="#定点数" class="headerlink" title="定点数"></a>定点数</h3><p>定点数分为定点整数和定点小数两种,又称为纯整数和纯小数。</p>
 <p>一般情况下，二进制的整数7表示为<code>111</code>,二进制的0.25为<code>0.01</code>,二进制的7.25表示为<code>111.01</code>。<br>计算机中存储数据是以字节为单位的，一个字节有8位，当计算机用一个字节表示整数7的时候，应该表示为<code>00000111</code>(第一位为符号位0正1负),当计算机用一个字节表示小数0.25的时候，应该表示为<code>00100000</code>(第一位为符号位0正1负)，<br>定点数包括定点整数和定点小数，定点整数小数点位于数的最低位之后，例如7<code>00000111.</code>,定点小数小数点在第一位后面，第一位为符号位，例如0.25<code>0.0100000</code></p>
-<h3 id="浮点数"><a href="#浮点数" class="headerlink" title="浮点数"></a>浮点数</h3>
+<h3 id="浮点数"><a href="#浮点数" class="headerlink" title="浮点数"></a>浮点数</h3><p>十进制中101可以写成1.01<em>10^2，同样二进制数也可以写成x</em>2^n。<br>例如：二进制7可以写成<code>111</code>,可以写成<code>1.111*2^010</code>，其中1.111表示尾数，010表示阶码。</p>
+<p>计算机中+7用原码表示为<code>00000111</code>, -7用原码表示为<code>10000111</code></p>
+<h4 id="浮点数的精度与范围"><a href="#浮点数的精度与范围" class="headerlink" title="浮点数的精度与范围"></a>浮点数的精度与范围</h4><p>上面说到二进制数可以表示成x*2^n， 那么计算机中我们可以存储x的值和n的值用来表示一个确定的二进制数。x就叫做尾数，n叫做阶码，尾数的位数越大，数的精度越大，阶码越大，则表示数的范围越大。</p>
+<h4 id="补码原码反码转换"><a href="#补码原码反码转换" class="headerlink" title="补码原码反码转换"></a>补码原码反码转换</h4><ul>
+<li>正数的原码、反码、补码都相同</li>
+<li>负数: 原码–&gt;反码: 符号位不变，数值位按位取反； 原码–&gt;补码符号位不变，数值位按位取反，末位+1</li>
+</ul>
+
       
     </div>
     
@@ -331,7 +339,7 @@
         <p><span>本文标题:</span><a href="/2019/09/11/信息存储原码-反码-补码-移码问题/">信息存储原码/反码/补码/移码问题</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">刘凤双</a></p>
         <p><span>发布时间:</span>2019-09-11, 10:25:49</p>
-        <p><span>最后更新:</span>2019-09-11, 15:18:42</p>
+        <p><span>最后更新:</span>2019-09-17, 17:44:26</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/09/11/信息存储原码-反码-补码-移码问题/" title="信息存储原码/反码/补码/移码问题">http://yoursite.com/2019/09/11/信息存储原码-反码-补码-移码问题/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/09/11/信息存储原码-反码-补码-移码问题/　　作者: 刘凤双" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -361,7 +369,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#定点数"><span class="toc-number">1.</span> <span class="toc-text">定点数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#浮点数"><span class="toc-number">2.</span> <span class="toc-text">浮点数</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#定点数"><span class="toc-number">1.</span> <span class="toc-text">定点数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#浮点数"><span class="toc-number">2.</span> <span class="toc-text">浮点数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#浮点数的精度与范围"><span class="toc-number">2.1.</span> <span class="toc-text">浮点数的精度与范围</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#补码原码反码转换"><span class="toc-number">2.2.</span> <span class="toc-text">补码原码反码转换</span></a></li></ol></li></ol>
         
     </div>
     <style>
