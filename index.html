@@ -295,12 +295,8 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>&ensp; 在计算机图像学中广泛应用的坐标系统有四种，分别是：模型坐标系统（model）、世界坐标系统（world）、视图坐标系统（view）、显示坐标系统（display）。</p>
-<h3 id="模型坐标系统"><a href="#模型坐标系统" class="headerlink" title="模型坐标系统"></a>模型坐标系统</h3><p>&ensp;模型坐标系统就是定义模型时所用的坐标系统，通常就是笛卡尔坐标系统，以inches或meters为单位</p>
-<h3 id="世界坐标系统"><a href="#世界坐标系统" class="headerlink" title="世界坐标系统"></a>世界坐标系统</h3><p>&ensp;世界坐标系统就是三维空间中防止actors的坐标系统，actor的其中一个责任就是负责转换模型坐标系统的坐标到世界坐标系统中去。每一个模型都有自己的模型坐标系统，但是他们只有一个共同的世界坐标系统。世界坐标系统也是防止和定位照相机（camera）和光源（light）的坐标系统。</p>
-<h3 id="视图坐标系统"><a href="#视图坐标系统" class="headerlink" title="视图坐标系统"></a>视图坐标系统</h3><p>&ensp;视图坐标系统表示照相机可见的一个系统，由x, y值组成，范围在(-1, 1)，z值表示深度坐标。x,y值指定物体在图像平面的位置，而z值表示的是离照相机的距离。照相机的位置信息由一个4*4的矩阵来表示，这个矩阵用于把世界坐标变换为视图坐标。</p>
-<h3 id="显示坐标系统"><a href="#显示坐标系统" class="headerlink" title="显示坐标系统"></a>显示坐标系统</h3><p>&ensp;显示坐标系统以像素为单位，屏幕上显示的窗体的大小决定了如何把范围为(-1, 1)的视图坐标系统映射到以像素为单位的显示坐标系统。这就设计到视口的概念，我们可以渲染两个不同的场景，然后把这两个不同的场景防止在同一个窗口当中。适口的x,y取值为（0，1），显示坐标系统里的z值也表示深度信息。</p>
-
+              <p>&nbsp;&nbsp; 在计算机图像学中广泛应用的坐标系统有四种，分别是：模型坐标系统（model）、世界坐标系统（world）、视图坐标系统（view）、显示坐标系统（display）。<br></p>
+          
       
     </div>
     
@@ -313,6 +309,10 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VTK/">VTK</a></li></ul>
     </div>
 
+      
+        <p class="article-more-link">
+          <a href="/2020/01/20/VTK-坐标系统/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
