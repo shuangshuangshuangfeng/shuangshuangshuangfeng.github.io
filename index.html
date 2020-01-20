@@ -295,8 +295,28 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <p>&nbsp;视口的含义是在VTK一个窗口中可以显示多个小窗口，而每一个小窗口称作视口(viewport).<br></p>
-          
+        <p>&nbsp;视口的含义是在VTK一个窗口中可以显示多个小窗口，而每一个小窗口称作视口(viewport).</p>
+<p>‘’’<br>from vtk import <em><br>from PyQt5 import </em></p>
+<p>cone = vtkConeSource()<br>cube = vtkCubeSource()<br>cylinder = vtkCylinderSource()<br>sphere = vtkSphereSource()</p>
+<p>coneMapper = vtkPolyDataMapper()<br>coneMapper.SetInputConnection(cone.GetOutputPort())</p>
+<p>cubeMapper = vtkPolyDataMapper()<br>cubeMapper.SetInputConnection(cube.GetOutputPort())</p>
+<p>cylinderMapper = vtkPolyDataMapper()<br>cylinderMapper.SetInputConnection(cylinder.GetOutputPort())</p>
+<p>sphereMapper = vtkPolyDataMapper()<br>sphereMapper.SetInputConnection(sphere.GetOutputPort())</p>
+<p>coneActor = vtkActor()<br>coneActor.SetMapper(coneMapper)</p>
+<p>cubeActor = vtkActor()<br>cubeActor.SetMapper(cubeMapper)</p>
+<p>cylinderActor = vtkActor()<br>cylinderActor.SetMapper(cylinderMapper)</p>
+<p>sphereActor = vtkActor()<br>sphereActor.SetMapper(sphereMapper)</p>
+<p>renderer1 = vtkRenderer()<br>renderer1.AddActor(coneActor)<br>renderer1.SetBackground(1.0,0.0,0.0)<br>renderer1.SetViewport(0.0,0.0,0.7,1.0)</p>
+<p>renderer2 = vtkRenderer()<br>renderer2.AddActor(cubeActor)<br>renderer2.SetBackground(0.0,1.0,0.0)<br>renderer2.SetViewport(0.7,0.0,1.0,0.33)</p>
+<p>renderer3 = vtkRenderer()<br>renderer3.AddActor(cylinderActor)<br>renderer3.SetBackground(0.0,0.0,1.0)<br>renderer3.SetViewport(0.7,0.33,1.0,0.66)</p>
+<p>renderer4 = vtkRenderer()<br>renderer4.AddActor(sphereActor)<br>renderer4.SetBackground(1.0,1.0,0.0)<br>renderer4.SetViewport(0.7,0.67,1.0,1.0)</p>
+<p>renWin = vtkRenderWindow()</p>
+<p>renWin.AddRenderer(renderer1)<br>renWin.AddRenderer(renderer2)<br>renWin.AddRenderer(renderer3)<br>renWin.AddRenderer(renderer4)<br>renWin.SetSize(640, 480)<br>renWin.Render()<br>renWin.SetWindowName(“ViewPort”)</p>
+<p>interactor = vtkRenderWindowInteractor()<br>interactor.SetRenderWindow(renWin)<br>renWin.Render()<br>interactor.Initialize()<br>interactor.Start()</p>
+<p>‘’’</p>
+<p>vtkRenderer继承了vtkViewport，所以每一个vtkRenderer就是一个视口</p>
+<p>vtkRenderer.SetViewport(x1, y1, x2, y2)函数用于设置视口坐标，(x1, y1)是视口的左下角的坐标，(x2,y2)是视口的右下角坐标。</p>
+
       
     </div>
     
@@ -309,10 +329,6 @@
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VTK/">VTK</a></li></ul>
     </div>
 
-      
-        <p class="article-more-link">
-          <a href="/2020/01/20/VTK-视口/#more">more >></a>
-        </p>
       
       <div class="clearfix"></div>
     </div>
