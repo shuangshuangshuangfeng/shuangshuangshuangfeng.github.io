@@ -15,13 +15,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="My Blog">
-<meta property="og:url" content="http://yoursite.com/archives/page/2/index.html">
+<meta name="description" content="&amp;nbsp;视口的含义是在VTK一个窗口中可以显示多个小窗口，而每一个小窗口称作视口(viewport).">
+<meta name="keywords" content="VTK">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VTK-视口">
+<meta property="og:url" content="http://yoursite.com/2020/01/20/VTK-视口/index.html">
 <meta property="og:site_name" content="My Blog">
+<meta property="og:description" content="&amp;nbsp;视口的含义是在VTK一个窗口中可以显示多个小窗口，而每一个小窗口称作视口(viewport).">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-01-20T12:50:09.793Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="My Blog">
+<meta name="twitter:title" content="VTK-视口">
+<meta name="twitter:description" content="&amp;nbsp;视口的含义是在VTK一个窗口中可以显示多个小窗口，而每一个小窗口称作视口(viewport).">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -53,7 +58,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Archives | My Blog</title>
+<title>VTK-视口 | My Blog</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -63,8 +68,8 @@
         fancybox: true,
         animate: true,
         isHome: false,
-        isPost: false,
-        isArchive: true,
+        isPost: true,
+        isArchive: false,
         isTag: false,
         isCategory: false,
         fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
@@ -259,353 +264,184 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-VTK-视口" class="article article-type-post" itemscope="" itemprop="blogPost">
   
+    <div class="article-meta">
+      <a href="/2020/01/20/VTK-视口/" class="article-date">
+      <time datetime="2020-01-20T12:13:45.000Z" itemprop="datePublished">2020-01-20</time>
+</a>
+
+
+    </div>
   
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      VTK-视口
+    </h1>
+  
+
+      </header>
       
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VTK/">VTK</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2019/05/31/预处理/" class="archive-article-date">
-      <time datetime="2019-05-31T03:13:52.000Z" itemprop="datePublished">05-31</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/31/预处理/">预处理</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
+    <div class="article-entry" itemprop="articleBody">
+      
           
+        <p>&nbsp;视口的含义是在VTK一个窗口中可以显示多个小窗口，而每一个小窗口称作视口(viewport).<br><a id="more"></a></p>
+<p>“””<br>from vtk import <em><br>from PyQt5 import </em></p>
+<p>cone = vtkConeSource()<br>cube = vtkCubeSource()<br>cylinder = vtkCylinderSource()<br>sphere = vtkSphereSource()</p>
+<p>coneMapper = vtkPolyDataMapper()<br>coneMapper.SetInputConnection(cone.GetOutputPort())</p>
+<p>cubeMapper = vtkPolyDataMapper()<br>cubeMapper.SetInputConnection(cube.GetOutputPort())</p>
+<p>cylinderMapper = vtkPolyDataMapper()<br>cylinderMapper.SetInputConnection(cylinder.GetOutputPort())</p>
+<p>sphereMapper = vtkPolyDataMapper()<br>sphereMapper.SetInputConnection(sphere.GetOutputPort())</p>
+<p>coneActor = vtkActor()<br>coneActor.SetMapper(coneMapper)</p>
+<p>cubeActor = vtkActor()<br>cubeActor.SetMapper(cubeMapper)</p>
+<p>cylinderActor = vtkActor()<br>cylinderActor.SetMapper(cylinderMapper)</p>
+<p>sphereActor = vtkActor()<br>sphereActor.SetMapper(sphereMapper)</p>
+<p>renderer1 = vtkRenderer()<br>renderer1.AddActor(coneActor)<br>renderer1.SetBackground(1.0,0.0,0.0)<br>renderer1.SetViewport(0.0,0.0,0.7,1.0)</p>
+<p>renderer2 = vtkRenderer()<br>renderer2.AddActor(cubeActor)<br>renderer2.SetBackground(0.0,1.0,0.0)<br>renderer2.SetViewport(0.7,0.0,1.0,0.33)</p>
+<p>renderer3 = vtkRenderer()<br>renderer3.AddActor(cylinderActor)<br>renderer3.SetBackground(0.0,0.0,1.0)<br>renderer3.SetViewport(0.7,0.33,1.0,0.66)</p>
+<p>renderer4 = vtkRenderer()<br>renderer4.AddActor(sphereActor)<br>renderer4.SetBackground(1.0,1.0,0.0)<br>renderer4.SetViewport(0.7,0.67,1.0,1.0)</p>
+<p>renWin = vtkRenderWindow()</p>
+<p>renWin.AddRenderer(renderer1)<br>renWin.AddRenderer(renderer2)<br>renWin.AddRenderer(renderer3)<br>renWin.AddRenderer(renderer4)<br>renWin.SetSize(640, 480)<br>renWin.Render()<br>renWin.SetWindowName(“ViewPort”)</p>
+<p>interactor = vtkRenderWindowInteractor()<br>interactor.SetRenderWindow(renWin)<br>renWin.Render()<br>interactor.Initialize()<br>interactor.Start()</p>
+<p>“””</p>
+<p>vtkRenderer继承了vtkViewport，所以每一个vtkRenderer就是一个视口</p>
+<p>vtkRenderer.SetViewport(x1, y1, x2, y2)函数用于设置视口坐标，(x1, y1)是视口的左下角的坐标，(x2,y2)是视口的右下角坐标。</p>
 
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/脑机接口/">脑机接口</a></li></ul>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2020/01/20/VTK-视口/">VTK-视口</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">天王盖地虎</a></p>
+        <p><span>发布时间:</span>2020-01-20, 20:13:45</p>
+        <p><span>最后更新:</span>2020-01-20, 20:50:09</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2020/01/20/VTK-视口/" title="VTK-视口">http://yoursite.com/2020/01/20/VTK-视口/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2020/01/20/VTK-视口/　　作者: 天王盖地虎" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target="_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
     </div>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2019/05/30/脑电图应用/" class="archive-article-date">
-      <time datetime="2019-05-30T06:58:12.000Z" itemprop="datePublished">05-30</time>
-</a>
 
 
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/30/脑电图应用/">脑电图应用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/脑机接口/">脑机接口</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2019/05/30/分享一张图/" class="archive-article-date">
-      <time datetime="2019-05-30T04:12:17.000Z" itemprop="datePublished">05-30</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/30/分享一张图/">分享一张图</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2019/05/29/脑机接口简介/" class="archive-article-date">
-      <time datetime="2019-05-29T12:15:16.000Z" itemprop="datePublished">05-29</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/29/脑机接口简介/">脑机接口简介</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/脑机接口/">脑机接口</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2019/05/29/2019-5-29/" class="archive-article-date">
-      <time datetime="2019-05-29T11:55:19.000Z" itemprop="datePublished">05-29</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/29/2019-5-29/">2019_5_29</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2019/05/29/NumPy使用/" class="archive-article-date">
-      <time datetime="2019-05-29T06:39:13.000Z" itemprop="datePublished">05-29</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/29/NumPy使用/">NumPy使用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/opencv-python3/">opencv-python3</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2019/05/28/图像视频读取与保存/" class="archive-article-date">
-      <time datetime="2019-05-28T12:41:17.000Z" itemprop="datePublished">05-28</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/28/图像视频读取与保存/">图像视频读取与保存</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/opencv-python3/">opencv-python3</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2019/05/28/环境搭建/" class="archive-article-date">
-      <time datetime="2019-05-28T04:13:14.000Z" itemprop="datePublished">05-28</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/28/环境搭建/">环境搭建</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/opencv-python3/">opencv-python3</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2019/05/21/opencv学习/" class="archive-article-date">
-      <time datetime="2019-05-21T10:45:07.000Z" itemprop="datePublished">05-21</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/21/opencv学习/">opencv学习</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2019/05/21/2019-5-21/" class="archive-article-date">
-      <time datetime="2019-05-21T09:02:05.000Z" itemprop="datePublished">05-21</time>
-</a>
-
-
-        </div>
-         
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/21/2019-5-21/">2019_5_21</a>
-    </h1>
-  
-
-        <div class="article-info info-on-archive">
-          
-
-          
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
-    </div>
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/page/3/">3</a><a class="page-number" href="/archives/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/6/">6</a><a class="extend next" rel="next" href="/archives/page/3/">Next &raquo;</a>
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2020/01/20/VTK-坐标系统/">
+                    VTK 坐标系统
+                </a>
+            </div>
+        
     </nav>
-  
 
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-5 i,
+        .toc-level-5 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"VTK-视口　| My Blog　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2020/01/20/VTK-坐标系统/" title="下一篇: VTK 坐标系统">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/01/20/VTK-视口/">VTK-视口</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/20/VTK-坐标系统/">VTK 坐标系统</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/11/2019-11-11/">2019_11_11</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/18/2019-9-18-开工大吉——万事顺利/">2019_9_18_开工大吉——万事顺利</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/11/信息存储原码-反码-补码-移码问题/">信息存储原码/反码/补码/移码问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/26/2019-8-26/">2019_8_26</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/21/tensorflow学习笔记/">tensorflow学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/17/2019-7-17/">2019_7_17</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/17/2019-6-17/">2019-6-17</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/12/脑电仿真平台安装文档/">脑电仿真平台安装文档</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/31/预处理/">预处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/30/脑电图应用/">脑电图应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/30/分享一张图/">分享一张图</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/29/脑机接口简介/">脑机接口简介</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/29/2019-5-29/">2019_5_29</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/29/NumPy使用/">NumPy使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/28/图像视频读取与保存/">图像视频读取与保存</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/28/环境搭建/">环境搭建</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/21/opencv学习/">opencv学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/21/2019-5-21/">2019_5_21</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/15/20119-3-13/">20119_3_13</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/13/Mercurial使用/">Mercurial使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/12/Java三大特性/">Java三大特性</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/12/MyBatis实现原理/">MyBatis实现原理</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/12/Spring两大特性/">Spring两大特性</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/11/springMVC工作原理/">springMVC工作原理</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/09/DNS解析/">DNS解析</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/09/Http请求/">Http请求</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/09/TCP和UDP的区别/">TCP和UDP的区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/08/数据库补充/">数据库补充</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/06/记百度实习面试/">记百度实习面试</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/06/TCP-IP三次握手/">TCP/IP三次握手</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/03/MySQL数据库引擎/">MySQL数据库引擎</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/03/POST与GET/">POST与GET</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/03/Java内存模型/">Java内存模型</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/02/类加载机制/">类加载机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/02/Lock/">Lock</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/28/Java内存管理/">Java内存管理</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/28/Redis/">Redis</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/27/搜索引擎高级搜索语法/">搜索引擎高级搜索语法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/27/记我的2018/">记我的2018</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/21/排序算法/">排序算法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/02/01/过滤器和拦截器/">过滤器和拦截器</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/30/Java高并发/">Java高并发</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/29/HTTP长链接与短链接/">HTTP长链接与短链接</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/29/Java集合/">Java集合</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/23/编译原理0/">编译原理0</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/23/计算机组成原理0/">计算机组成原理0</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/09/dubbo/">dubbo</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/08/SQL优化/">SQL优化</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/07/session跨域共享/">session跨域共享</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/28/Maven/">Maven</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/25/数据库/">数据库</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/25/随笔/">随笔</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/24/Java基础/">Java基础</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/23/python虚拟环境/">python虚拟环境</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/23/Docker/">Docker</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/12/22/REST风格/">REST风格</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
 </div>
       <footer id="footer">
     <div class="outer">
