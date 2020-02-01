@@ -15,18 +15,18 @@
 
 
 
-<meta name="description" content="&amp;nbsp;视口的含义是在VTK一个窗口中可以显示多个小窗口，而每一个小窗口称作视口(viewport). ‘’’from vtk import from PyQt5 import  cone = vtkConeSource()cube = vtkCubeSource()cylinder = vtkCylinderSource()sphere = vtkSphereSource() coneMap">
+<meta name="description" content="&amp;nbsp;视口的含义是在VTK一个窗口中可以显示多个小窗口，而每一个小窗口称作视口(viewport).">
 <meta name="keywords" content="VTK">
 <meta property="og:type" content="article">
 <meta property="og:title" content="VTK-视口">
 <meta property="og:url" content="http://yoursite.com/2020/01/20/VTK-视口/index.html">
 <meta property="og:site_name" content="My Blog">
-<meta property="og:description" content="&amp;nbsp;视口的含义是在VTK一个窗口中可以显示多个小窗口，而每一个小窗口称作视口(viewport). ‘’’from vtk import from PyQt5 import  cone = vtkConeSource()cube = vtkCubeSource()cylinder = vtkCylinderSource()sphere = vtkSphereSource() coneMap">
+<meta property="og:description" content="&amp;nbsp;视口的含义是在VTK一个窗口中可以显示多个小窗口，而每一个小窗口称作视口(viewport).">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-01-20T13:03:30.036Z">
+<meta property="og:updated_time" content="2020-02-01T09:56:10.694Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="VTK-视口">
-<meta name="twitter:description" content="&amp;nbsp;视口的含义是在VTK一个窗口中可以显示多个小窗口，而每一个小窗口称作视口(viewport). ‘’’from vtk import from PyQt5 import  cone = vtkConeSource()cube = vtkCubeSource()cylinder = vtkCylinderSource()sphere = vtkSphereSource() coneMap">
+<meta name="twitter:description" content="&amp;nbsp;视口的含义是在VTK一个窗口中可以显示多个小窗口，而每一个小窗口称作视口(viewport).">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -304,25 +304,7 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>&nbsp;视口的含义是在VTK一个窗口中可以显示多个小窗口，而每一个小窗口称作视口(viewport).</p>
-<p>‘’’<br>from vtk import <em><br>from PyQt5 import </em></p>
-<p>cone = vtkConeSource()<br>cube = vtkCubeSource()<br>cylinder = vtkCylinderSource()<br>sphere = vtkSphereSource()</p>
-<p>coneMapper = vtkPolyDataMapper()<br>coneMapper.SetInputConnection(cone.GetOutputPort())</p>
-<p>cubeMapper = vtkPolyDataMapper()<br>cubeMapper.SetInputConnection(cube.GetOutputPort())</p>
-<p>cylinderMapper = vtkPolyDataMapper()<br>cylinderMapper.SetInputConnection(cylinder.GetOutputPort())</p>
-<p>sphereMapper = vtkPolyDataMapper()<br>sphereMapper.SetInputConnection(sphere.GetOutputPort())</p>
-<p>coneActor = vtkActor()<br>coneActor.SetMapper(coneMapper)</p>
-<p>cubeActor = vtkActor()<br>cubeActor.SetMapper(cubeMapper)</p>
-<p>cylinderActor = vtkActor()<br>cylinderActor.SetMapper(cylinderMapper)</p>
-<p>sphereActor = vtkActor()<br>sphereActor.SetMapper(sphereMapper)</p>
-<p>renderer1 = vtkRenderer()<br>renderer1.AddActor(coneActor)<br>renderer1.SetBackground(1.0,0.0,0.0)<br>renderer1.SetViewport(0.0,0.0,0.7,1.0)</p>
-<p>renderer2 = vtkRenderer()<br>renderer2.AddActor(cubeActor)<br>renderer2.SetBackground(0.0,1.0,0.0)<br>renderer2.SetViewport(0.7,0.0,1.0,0.33)</p>
-<p>renderer3 = vtkRenderer()<br>renderer3.AddActor(cylinderActor)<br>renderer3.SetBackground(0.0,0.0,1.0)<br>renderer3.SetViewport(0.7,0.33,1.0,0.66)</p>
-<p>renderer4 = vtkRenderer()<br>renderer4.AddActor(sphereActor)<br>renderer4.SetBackground(1.0,1.0,0.0)<br>renderer4.SetViewport(0.7,0.67,1.0,1.0)</p>
-<p>renWin = vtkRenderWindow()</p>
-<p>renWin.AddRenderer(renderer1)<br>renWin.AddRenderer(renderer2)<br>renWin.AddRenderer(renderer3)<br>renWin.AddRenderer(renderer4)<br>renWin.SetSize(640, 480)<br>renWin.Render()<br>renWin.SetWindowName(“ViewPort”)</p>
-<p>interactor = vtkRenderWindowInteractor()<br>interactor.SetRenderWindow(renWin)<br>renWin.Render()<br>interactor.Initialize()<br>interactor.Start()</p>
-<p>‘’’</p>
+        <p>&nbsp;视口的含义是在VTK一个窗口中可以显示多个小窗口，而每一个小窗口称作视口(viewport).<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line">from vtk import *</span><br><span class="line">from PyQt5 import *</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">cone = vtkConeSource()</span><br><span class="line">cube = vtkCubeSource()</span><br><span class="line">cylinder = vtkCylinderSource()</span><br><span class="line">sphere = vtkSphereSource()</span><br><span class="line"></span><br><span class="line">coneMapper = vtkPolyDataMapper()</span><br><span class="line">coneMapper.SetInputConnection(cone.GetOutputPort())</span><br><span class="line"></span><br><span class="line">cubeMapper = vtkPolyDataMapper()</span><br><span class="line">cubeMapper.SetInputConnection(cube.GetOutputPort())</span><br><span class="line"></span><br><span class="line">cylinderMapper = vtkPolyDataMapper()</span><br><span class="line">cylinderMapper.SetInputConnection(cylinder.GetOutputPort())</span><br><span class="line"></span><br><span class="line">sphereMapper = vtkPolyDataMapper()</span><br><span class="line">sphereMapper.SetInputConnection(sphere.GetOutputPort())</span><br><span class="line"></span><br><span class="line">coneActor = vtkActor()</span><br><span class="line">coneActor.SetMapper(coneMapper)</span><br><span class="line"></span><br><span class="line">cubeActor = vtkActor()</span><br><span class="line">cubeActor.SetMapper(cubeMapper)</span><br><span class="line"></span><br><span class="line">cylinderActor = vtkActor()</span><br><span class="line">cylinderActor.SetMapper(cylinderMapper)</span><br><span class="line"></span><br><span class="line">sphereActor = vtkActor()</span><br><span class="line">sphereActor.SetMapper(sphereMapper)</span><br><span class="line"></span><br><span class="line">renderer1 = vtkRenderer()</span><br><span class="line">renderer1.AddActor(coneActor)</span><br><span class="line">renderer1.SetBackground(1.0,0.0,0.0)</span><br><span class="line">renderer1.SetViewport(0.0,0.0,0.7,1.0)</span><br><span class="line"></span><br><span class="line">renderer2 = vtkRenderer()</span><br><span class="line">renderer2.AddActor(cubeActor)</span><br><span class="line">renderer2.SetBackground(0.0,1.0,0.0)</span><br><span class="line">renderer2.SetViewport(0.7,0.0,1.0,0.33)</span><br><span class="line"></span><br><span class="line">renderer3 = vtkRenderer()</span><br><span class="line">renderer3.AddActor(cylinderActor)</span><br><span class="line">renderer3.SetBackground(0.0,0.0,1.0)</span><br><span class="line">renderer3.SetViewport(0.7,0.33,1.0,0.66)</span><br><span class="line"></span><br><span class="line">renderer4 = vtkRenderer()</span><br><span class="line">renderer4.AddActor(sphereActor)</span><br><span class="line">renderer4.SetBackground(1.0,1.0,0.0)</span><br><span class="line">renderer4.SetViewport(0.7,0.67,1.0,1.0)</span><br><span class="line"></span><br><span class="line">renWin = vtkRenderWindow()</span><br><span class="line"></span><br><span class="line">renWin.AddRenderer(renderer1)</span><br><span class="line">renWin.AddRenderer(renderer2)</span><br><span class="line">renWin.AddRenderer(renderer3)</span><br><span class="line">renWin.AddRenderer(renderer4)</span><br><span class="line">renWin.SetSize(640, 480)</span><br><span class="line">renWin.Render()</span><br><span class="line">renWin.SetWindowName(&quot;ViewPort&quot;)</span><br><span class="line"></span><br><span class="line">interactor = vtkRenderWindowInteractor()</span><br><span class="line">interactor.SetRenderWindow(renWin)</span><br><span class="line">renWin.Render()</span><br><span class="line">interactor.Initialize()</span><br><span class="line">interactor.Start()</span><br></pre></td></tr></table></figure></p>
 <p>vtkRenderer继承了vtkViewport，所以每一个vtkRenderer就是一个视口</p>
 <p>vtkRenderer.SetViewport(x1, y1, x2, y2)函数用于设置视口坐标，(x1, y1)是视口的左下角的坐标，(x2,y2)是视口的右下角坐标。</p>
 
@@ -336,7 +318,7 @@
         <p><span>本文标题:</span><a href="/2020/01/20/VTK-视口/">VTK-视口</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">天王盖地虎</a></p>
         <p><span>发布时间:</span>2020-01-20, 20:13:45</p>
-        <p><span>最后更新:</span>2020-01-20, 21:03:30</p>
+        <p><span>最后更新:</span>2020-02-01, 17:56:10</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2020/01/20/VTK-视口/" title="VTK-视口">http://yoursite.com/2020/01/20/VTK-视口/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2020/01/20/VTK-视口/　　作者: 天王盖地虎" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
